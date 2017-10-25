@@ -34,7 +34,7 @@ class AdvisorViewController: UIViewController {
     
     fileprivate func shakeRoutine() {
         if randomSwitch.isOn {
-            pageLabel.text = ""
+            pageLabel.text = "Random"
             textView.text = Response.random()
         } else {
             page += 1
@@ -45,7 +45,7 @@ class AdvisorViewController: UIViewController {
     // MARK: - Functions: IBActions
     
     @IBAction func helpPressed(_ sender: UIButton) {
-        textView.text = "To contact the app's creator with any questions or comments, email james@escapechaos.com."
+        textView.text = "To contact the app's creators with any questions or comments, email dev@escapechaos.com."
     }
     
     // MARK: - Functions: UIViewController
@@ -66,7 +66,7 @@ class AdvisorViewController: UIViewController {
 struct Response {
     
     // Stores the various responses, and delivers them randomly.
-    static func random() -> String { return Entry.response(for: .random) }
+    static func random() -> String { return "Random Response" } // Entry.response(for: .random) }
     
     static func regular(for page: Int) -> String { return "Regular Response" }
 }
