@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum Entry {
+enum OldEntry {
     
     case businessTip(Int)
     case random
@@ -22,7 +22,7 @@ enum Entry {
         }
     }
     
-    static func response(for entry: Entry) -> String {
+    static func response(for entry: OldEntry) -> String {
 
         switch entry.toInt() {
         case 0: return "When sending e-mails, make sure to follow the four C's: Clear, Correct, Concise, and Complete."

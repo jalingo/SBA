@@ -13,9 +13,7 @@ class AdvisorViewController: UIViewController {
     // MARK: - Properties
     
     var page = 0 {
-        didSet {
-print("page.didSet")
-            pageLabel.text = String(page) }
+        didSet { pageLabel.text = String(page) }
     }
     
     // MARK: - Properties: IBOutlets
@@ -24,7 +22,15 @@ print("page.didSet")
     
     @IBOutlet weak var textView: UITextView!
     
-    @IBOutlet weak var randomSwitch: UISwitch!
+    @IBOutlet weak var randomSwitch: UISwitch! {
+        didSet {
+            if randomSwitch.isOn {
+                textView.text = "Instructions_0"
+            } else {
+                textView.text = "Instructions_1"
+            }
+        }
+    }
     
     // MARK: - Properties: UIResponder
     
@@ -90,10 +96,10 @@ struct Response {
     // Stores the various responses, and delivers them randomly.
     static func random() -> String {
 //        return "Random Response" }
-        return Entry.response(for: .random) }
+        return OldEntry.response(for: .random) }
     
     static func regular(for page: Int) -> String {
-        return Entry.response(for: .businessTip(page))
+        return OldEntry.response(for: .businessTip(page))
     }
 //        return "Regular Response" }
 }
