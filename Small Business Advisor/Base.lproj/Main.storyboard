@@ -34,6 +34,7 @@
                                 <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" lookupSuggestion="YES"/>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="07n-V4-jxv" appends="YES" id="xrV-ML-UAK"/>
+                                    <outletCollection property="gestureRecognizers" destination="NX0-hW-EfQ" appends="YES" id="CZe-Xe-5aJ"/>
                                 </connections>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j8x-dc-iZC">
@@ -97,14 +98,14 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <swipeGestureRecognizer cancelsTouchesInView="NO" direction="left" id="07n-V4-jxv">
+                <swipeGestureRecognizer cancelsTouchesInView="NO" direction="right" id="NX0-hW-EfQ" userLabel="Swipe Gesture Recognizer (R)">
                     <connections>
-                        <action selector="swipeLeft:" destination="BYZ-38-t0r" id="Lgz-Wq-Q9c"/>
+                        <action selector="swipeRight:" destination="BYZ-38-t0r" id="wZr-Lj-rFJ"/>
                     </connections>
                 </swipeGestureRecognizer>
-                <swipeGestureRecognizer cancelsTouchesInView="NO" direction="right" id="NX0-hW-EfQ">
+                <swipeGestureRecognizer cancelsTouchesInView="NO" direction="left" id="07n-V4-jxv" userLabel="Swipe Gesture Recognizer (L)">
                     <connections>
-                        <action selector="swipeRight:" destination="BYZ-38-t0r" id="mbQ-oH-giN"/>
+                        <action selector="swipeLeft:" destination="BYZ-38-t0r" id="9xH-Mi-OTN"/>
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
