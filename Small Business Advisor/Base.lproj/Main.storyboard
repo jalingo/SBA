@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" systemVersion="17A277" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,11 +13,74 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Small_Business_Advisor" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Escape_Chaos_Logo_Translucent" translatesAutoresizingMaskIntoConstraints="NO" id="K2V-hr-pHc">
+                                <rect key="frame" x="0.0" y="24" width="375" height="196"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="196" id="nQX-6Q-lJq"/>
+                                </constraints>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Shake for Advice!" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="hdv-jg-B6j">
+                                <rect key="frame" x="16" y="296" width="343" height="347"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="textColor" red="0.55096650120000001" green="0.77892380949999995" blue="0.247182399" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="italicSystem" pointSize="15"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" lookupSuggestion="YES"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j8x-dc-iZC">
+                                <rect key="frame" x="329" y="24" width="30" height="52"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                <state key="normal" title="?">
+                                    <color key="titleColor" red="0.54901960780000003" green="0.78039215689999997" blue="0.2470588235" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Random" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qNi-qk-dGx">
+                                <rect key="frame" x="156" y="228" width="64" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.54901960780000003" green="0.78039215689999997" blue="0.2470588235" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V1D-2j-UIV">
+                                <rect key="frame" x="16" y="24" width="19" height="52"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="52" id="JiL-Bi-vRy"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
+                                <color key="textColor" red="0.55096650120000001" green="0.77892380949999995" blue="0.247182399" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bmF-dq-gjo">
+                                <rect key="frame" x="163" y="257" width="51" height="31"/>
+                                <color key="onTintColor" red="0.55096650120000001" green="0.77892380949999995" blue="0.247182399" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </switch>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="hdv-jg-B6j" secondAttribute="bottom" constant="24" id="0eM-m3-XSx"/>
+                            <constraint firstItem="K2V-hr-pHc" firstAttribute="centerX" secondItem="qNi-qk-dGx" secondAttribute="centerX" id="52g-5X-ed2"/>
+                            <constraint firstItem="hdv-jg-B6j" firstAttribute="centerX" secondItem="bmF-dq-gjo" secondAttribute="centerX" id="7Or-Kd-jGV"/>
+                            <constraint firstItem="hdv-jg-B6j" firstAttribute="trailing" secondItem="j8x-dc-iZC" secondAttribute="trailing" id="7nc-5q-XV1"/>
+                            <constraint firstItem="qNi-qk-dGx" firstAttribute="centerX" secondItem="bmF-dq-gjo" secondAttribute="centerX" id="M4S-us-Xpg"/>
+                            <constraint firstItem="K2V-hr-pHc" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="MEk-VE-c6b"/>
+                            <constraint firstItem="K2V-hr-pHc" firstAttribute="top" secondItem="V1D-2j-UIV" secondAttribute="top" id="QqG-fB-2UO"/>
+                            <constraint firstItem="V1D-2j-UIV" firstAttribute="bottom" secondItem="j8x-dc-iZC" secondAttribute="bottom" id="a1P-62-eyy"/>
+                            <constraint firstItem="V1D-2j-UIV" firstAttribute="top" secondItem="j8x-dc-iZC" secondAttribute="top" id="ek7-Eg-IwS"/>
+                            <constraint firstItem="V1D-2j-UIV" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="lYH-fq-IRI"/>
+                            <constraint firstItem="hdv-jg-B6j" firstAttribute="top" secondItem="bmF-dq-gjo" secondAttribute="bottom" constant="8" symbolic="YES" id="m8W-MR-75e"/>
+                            <constraint firstItem="j8x-dc-iZC" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" symbolic="YES" id="mbT-He-h34"/>
+                            <constraint firstItem="bmF-dq-gjo" firstAttribute="top" secondItem="qNi-qk-dGx" secondAttribute="bottom" constant="8" symbolic="YES" id="pb1-9e-blL"/>
+                            <constraint firstItem="hdv-jg-B6j" firstAttribute="leading" secondItem="V1D-2j-UIV" secondAttribute="leading" id="vWQ-BV-2KS"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="V1D-2j-UIV" secondAttribute="trailingMargin" id="xqg-bM-DXk"/>
+                            <constraint firstItem="V1D-2j-UIV" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="4" id="yFO-fQ-2dG"/>
+                            <constraint firstAttribute="trailing" secondItem="K2V-hr-pHc" secondAttribute="trailing" id="yK6-nU-EcE"/>
+                            <constraint firstItem="qNi-qk-dGx" firstAttribute="top" secondItem="K2V-hr-pHc" secondAttribute="bottom" constant="8" symbolic="YES" id="zUQ-tn-RtO"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
@@ -21,4 +88,7 @@
             </objects>
         </scene>
     </scenes>
+    <resources>
+        <image name="Escape_Chaos_Logo_Translucent" width="2583" height="1359"/>
+    </resources>
 </document>
