@@ -13,7 +13,9 @@ class AdvisorViewController: UIViewController {
     // MARK: - Properties
     
     var page = 0 {
-        didSet { pageLabel.text = String(page) }
+        didSet {
+print("page.didSet")
+            pageLabel.text = String(page) }
     }
     
     // MARK: - Properties: IBOutlets
@@ -34,8 +36,8 @@ class AdvisorViewController: UIViewController {
     
     fileprivate func shakeRoutine() {
         if randomSwitch.isOn {
-            pageLabel.text = "Random"
             textView.text = Response.random()
+            pageLabel.text = "Random"   // <- get page from response
         } else {
             page += 1
             textView.text = Response.regular(for: page)
@@ -46,6 +48,22 @@ class AdvisorViewController: UIViewController {
     
     @IBAction func helpPressed(_ sender: UIButton) {
         textView.text = "To contact the app's creators with any questions or comments, email dev@escapechaos.com."
+    }
+    
+    @IBAction func swipeLeft(_ sender: UISwipeGestureRecognizer) {
+print("swiped left")
+        shakeRoutine()
+    }
+    
+    @IBAction func swipeRight(_ sender: UISwipeGestureRecognizer) {
+print("swipe right")
+
+        // If in "Random Mode", a swipe is treated as a shake.
+        guard !randomSwitch.isOn else { shakeRoutine(); return }
+        
+        // Else, a swipe right means go back.
+        page -= 1
+        textView.text = Response.regular(for: page)
     }
     
     // MARK: - Functions: UIViewController
@@ -66,7 +84,9 @@ class AdvisorViewController: UIViewController {
 struct Response {
     
     // Stores the various responses, and delivers them randomly.
-    static func random() -> String { return "Random Response" } // Entry.response(for: .random) }
+    static func random() -> String {
+//        return "Random Response" }
+        return Entry.response(for: .random) }
     
     static func regular(for page: Int) -> String { return "Regular Response" }
 }
