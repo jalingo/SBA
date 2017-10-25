@@ -1,7 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" systemVersion="17A277" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -13,13 +17,78 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bqU-rg-5KB">
+                                <rect key="frame" x="329" y="20" width="30" height="52"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                <state key="normal" title="?">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleShadowColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Escape_Chaos_Logo_Translucent" translatesAutoresizingMaskIntoConstraints="NO" id="LLF-Xf-lY4">
+                                <rect key="frame" x="0.0" y="20" width="375" height="196"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="196" id="F5n-bs-HPS"/>
+                                </constraints>
+                            </imageView>
+                            <switch hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wET-oV-1w1">
+                                <rect key="frame" x="163" y="253" width="51" height="31"/>
+                                <color key="onTintColor" red="0.55096650120000001" green="0.77892380949999995" blue="0.247182399" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Ge-uc-JHV">
+                                <rect key="frame" x="16" y="20" width="19" height="52"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="52" id="3Xp-Wc-gNx"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Shake for Advice!" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="C1k-52-x6Y">
+                                <rect key="frame" x="16" y="292" width="343" height="347"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <gestureRecognizers/>
+                                <color key="textColor" red="0.55096650120000001" green="0.77892380949999995" blue="0.247182399" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="italicSystem" pointSize="15"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" lookupSuggestion="YES"/>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Small Business Advisor" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fjY-tp-xYl">
+                                <rect key="frame" x="100" y="224" width="176.5" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.54901960780000003" green="0.78039215689999997" blue="0.2470588235" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="1Ge-uc-JHV" firstAttribute="bottom" secondItem="bqU-rg-5KB" secondAttribute="bottom" id="27a-IU-PYu"/>
+                            <constraint firstItem="C1k-52-x6Y" firstAttribute="top" secondItem="wET-oV-1w1" secondAttribute="bottom" constant="8" symbolic="YES" id="75q-sq-yXk"/>
+                            <constraint firstItem="LLF-Xf-lY4" firstAttribute="centerX" secondItem="fjY-tp-xYl" secondAttribute="centerX" id="AG4-ab-Kgg"/>
+                            <constraint firstItem="LLF-Xf-lY4" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="DU2-C0-kHN"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="C1k-52-x6Y" secondAttribute="bottom" constant="28" id="L8T-xD-hS1"/>
+                            <constraint firstAttribute="trailing" secondItem="LLF-Xf-lY4" secondAttribute="trailing" id="Ofc-D6-jRr"/>
+                            <constraint firstItem="wET-oV-1w1" firstAttribute="centerX" secondItem="C1k-52-x6Y" secondAttribute="centerX" id="Re3-cX-TUU"/>
+                            <constraint firstItem="1Ge-uc-JHV" firstAttribute="leading" secondItem="C1k-52-x6Y" secondAttribute="leading" id="TJ9-3a-O6a"/>
+                            <constraint firstItem="1Ge-uc-JHV" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" id="WSA-gg-3oL"/>
+                            <constraint firstItem="1Ge-uc-JHV" firstAttribute="top" secondItem="bqU-rg-5KB" secondAttribute="top" id="b9a-Qa-dmI"/>
+                            <constraint firstItem="LLF-Xf-lY4" firstAttribute="top" secondItem="1Ge-uc-JHV" secondAttribute="top" id="kpg-fW-0QP"/>
+                            <constraint firstItem="LLF-Xf-lY4" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="oyz-e2-WcQ"/>
+                            <constraint firstItem="fjY-tp-xYl" firstAttribute="top" secondItem="LLF-Xf-lY4" secondAttribute="bottom" constant="8" symbolic="YES" id="vsn-ke-nE5"/>
+                            <constraint firstItem="fjY-tp-xYl" firstAttribute="centerX" secondItem="wET-oV-1w1" secondAttribute="centerX" id="xNB-jx-9fi"/>
+                            <constraint firstItem="bqU-rg-5KB" firstAttribute="trailing" secondItem="C1k-52-x6Y" secondAttribute="trailing" id="xdk-k3-Qrd"/>
+                            <constraint firstItem="wET-oV-1w1" firstAttribute="top" secondItem="fjY-tp-xYl" secondAttribute="bottom" constant="8" symbolic="YES" id="zqu-fB-IAe"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="52" y="374.66266866566718"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Escape_Chaos_Logo_Translucent" width="2583" height="1359"/>
+    </resources>
 </document>
