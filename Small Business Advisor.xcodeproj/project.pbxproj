@@ -17,8 +17,8 @@
 		A1AB0E501FA01A1D00F1D3FF /* AdvisorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AB0E4F1FA01A1D00F1D3FF /* AdvisorViewController.swift */; };
 		A1AB0E511FA01A1D00F1D3FF /* AdvisorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AB0E4F1FA01A1D00F1D3FF /* AdvisorViewController.swift */; };
 		A1AB0E521FA01A1D00F1D3FF /* AdvisorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AB0E4F1FA01A1D00F1D3FF /* AdvisorViewController.swift */; };
-		A1AB0E541FA01B0300F1D3FF /* Entries.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AB0E531FA01B0300F1D3FF /* Entries.swift */; };
-		A1AB0E551FA01B0300F1D3FF /* Entries.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AB0E531FA01B0300F1D3FF /* Entries.swift */; };
+		A1EC9A091FA14511000B5A33 /* Entries.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EC9A081FA14510000B5A33 /* Entries.swift */; };
+		A1EC9A0A1FA14511000B5A33 /* Entries.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EC9A081FA14510000B5A33 /* Entries.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,7 +53,7 @@
 		A1AB0E401FA0185100F1D3FF /* Small_Business_AdvisorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Small_Business_AdvisorUITests.swift; sourceTree = "<group>"; };
 		A1AB0E421FA0185100F1D3FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A1AB0E4F1FA01A1D00F1D3FF /* AdvisorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvisorViewController.swift; sourceTree = "<group>"; };
-		A1AB0E531FA01B0300F1D3FF /* Entries.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Entries.swift; path = ../../Advisor/Advisor/Entries.swift; sourceTree = "<group>"; };
+		A1EC9A081FA14510000B5A33 /* Entries.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Entries.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,8 +106,8 @@
 			isa = PBXGroup;
 			children = (
 				A1AB0E241FA0185100F1D3FF /* Main.storyboard */,
+				A1EC9A081FA14510000B5A33 /* Entries.swift */,
 				A1AB0E4F1FA01A1D00F1D3FF /* AdvisorViewController.swift */,
-				A1AB0E531FA01B0300F1D3FF /* Entries.swift */,
 				A1AB0E4E1FA0187900F1D3FF /* Resources */,
 			);
 			path = "Small Business Advisor";
@@ -277,7 +277,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A1AB0E541FA01B0300F1D3FF /* Entries.swift in Sources */,
+				A1EC9A091FA14511000B5A33 /* Entries.swift in Sources */,
 				A1AB0E211FA0185100F1D3FF /* AppDelegate.swift in Sources */,
 				A1AB0E501FA01A1D00F1D3FF /* AdvisorViewController.swift in Sources */,
 			);
@@ -287,7 +287,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A1AB0E551FA01B0300F1D3FF /* Entries.swift in Sources */,
+				A1EC9A0A1FA14511000B5A33 /* Entries.swift in Sources */,
 				A1AB0E361FA0185100F1D3FF /* Small_Business_AdvisorTests.swift in Sources */,
 				A1AB0E511FA01A1D00F1D3FF /* AdvisorViewController.swift in Sources */,
 			);
