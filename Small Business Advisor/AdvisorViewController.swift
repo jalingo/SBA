@@ -88,6 +88,9 @@ struct Response {
 //        return "Random Response" }
         return Entry.response(for: .random) }
     
-    static func regular(for page: Int) -> String { return "Regular Response" }
+    static func regular(for page: Int) -> String {
+        return Entry.response(for: .businessTip(page))
+    }
+//        return "Regular Response" }
 }
 
