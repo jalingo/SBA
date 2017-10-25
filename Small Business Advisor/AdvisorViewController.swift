@@ -39,9 +39,20 @@ print("page.didSet")
             textView.text = Response.random()
             pageLabel.text = "Random"   // <- get page from response
         } else {
-            page += 1
+            page += 1   // Need to cap @ maximum after entry addee
             textView.text = Response.regular(for: page)
         }
+    }
+    
+    fileprivate func decreasePage() {
+        
+        // If in "Random Mode", a swipe is treated as a shake.
+        guard !randomSwitch.isOn else { shakeRoutine(); return }
+        
+        // Else, a swipe right means go back.
+        if page > 1 { page -= 1 }
+//        page != 0 ? page -= 1 : page = MAX_LIMIT
+        textView.text = Response.regular(for: page)
     }
     
     // MARK: - Functions: IBActions
@@ -56,14 +67,7 @@ print("swiped left")
     }
     
     @IBAction func swipeRight(_ sender: UISwipeGestureRecognizer) {
-print("swipe right")
-
-        // If in "Random Mode", a swipe is treated as a shake.
-        guard !randomSwitch.isOn else { shakeRoutine(); return }
-        
-        // Else, a swipe right means go back.
-        page -= 1
-        textView.text = Response.regular(for: page)
+        decreasePage()
     }
     
     // MARK: - Functions: UIViewController
