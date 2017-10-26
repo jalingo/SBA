@@ -68,7 +68,6 @@ class AdvisorViewController: UIViewController {
     }
     
     @IBAction func swipeLeft(_ sender: UISwipeGestureRecognizer) {
-print("swiped left")
         shakeRoutine()
     }
     
