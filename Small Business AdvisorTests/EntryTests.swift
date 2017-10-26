@@ -19,7 +19,9 @@ class EntryTests: XCTestCase {
     override func setUp() {
         super.setUp()
         
-        mock = MockEntry()
+        mock = MockEntry(index: 0,
+                         category: .planning,
+                         text: "TestText")
     }
     
     override func tearDown() {
@@ -34,6 +36,18 @@ class EntryTests: XCTestCase {
     func testCanReadText() { XCTAssertNotNil(mock?.text) }
     
     func testCanReadCategory() { XCTAssertNotNil(mock?.category) }
+    
+    func testCanReadIndex() { XCTAssertNotNil(mock?.index) }
+    
+    func testIndexCantBeZeroOrNegative() {
+        XCTAssertFalse(mock!.index < 1)
+        
+        let newMock = MockEntry(index: -1, category: .planning, text: "A")
+        XCTAssertFalse(newMock.index < 1)
+        
+        let nextMock = MockEntry(index: 0, category: .planning, text: "B")
+        XCTAssertFalse(nextMock.index < 1)
+    }
 }
 
 protocol Entry {
@@ -41,15 +55,25 @@ protocol Entry {
     var text: String { get }
     
     var category: TipCategory { get }
+    
+    var index: Int { get }
 }
 
 struct MockEntry: Entry {
     
-    let text = "TestText"
+    let text: String
     
-    let category: TipCategory = .planning
+    let category: TipCategory
+    
+    let index: Int
+    
+    init(index integer: Int, category cat: TipCategory, text str: String) {
+        self.index = integer
+        self.category = cat
+        self.text = str
+    }
 }
 
 enum TipCategory {
-    case planning, hr
+    case planning, organization, marketing, operations, technology, value, efficiency, fiscal, hr, security, legal
 }

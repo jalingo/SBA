@@ -17,6 +17,7 @@
 		A1AB0E501FA01A1D00F1D3FF /* AdvisorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AB0E4F1FA01A1D00F1D3FF /* AdvisorViewController.swift */; };
 		A1AB0E511FA01A1D00F1D3FF /* AdvisorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AB0E4F1FA01A1D00F1D3FF /* AdvisorViewController.swift */; };
 		A1AB0E521FA01A1D00F1D3FF /* AdvisorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AB0E4F1FA01A1D00F1D3FF /* AdvisorViewController.swift */; };
+		A1D9555F1FA17BF2002C7563 /* CategoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D9555E1FA17BF2002C7563 /* CategoryTests.swift */; };
 		A1EC9A091FA14511000B5A33 /* Entries.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EC9A081FA14510000B5A33 /* Entries.swift */; };
 		A1EC9A0A1FA14511000B5A33 /* Entries.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EC9A081FA14510000B5A33 /* Entries.swift */; };
 /* End PBXBuildFile section */
@@ -53,6 +54,7 @@
 		A1AB0E401FA0185100F1D3FF /* Small_Business_AdvisorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Small_Business_AdvisorUITests.swift; sourceTree = "<group>"; };
 		A1AB0E421FA0185100F1D3FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A1AB0E4F1FA01A1D00F1D3FF /* AdvisorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvisorViewController.swift; sourceTree = "<group>"; };
+		A1D9555E1FA17BF2002C7563 /* CategoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTests.swift; sourceTree = "<group>"; };
 		A1EC9A081FA14510000B5A33 /* Entries.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Entries.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -116,8 +118,9 @@
 		A1AB0E341FA0185100F1D3FF /* Small Business AdvisorTests */ = {
 			isa = PBXGroup;
 			children = (
-				A16756BD1FA14BD90002E820 /* EntryTests.swift */,
 				A1AB0E371FA0185100F1D3FF /* Info.plist */,
+				A16756BD1FA14BD90002E820 /* EntryTests.swift */,
+				A1D9555E1FA17BF2002C7563 /* CategoryTests.swift */,
 			);
 			path = "Small Business AdvisorTests";
 			sourceTree = "<group>";
@@ -290,6 +293,7 @@
 				A16756BE1FA14BD90002E820 /* EntryTests.swift in Sources */,
 				A1EC9A0A1FA14511000B5A33 /* Entries.swift in Sources */,
 				A1AB0E511FA01A1D00F1D3FF /* AdvisorViewController.swift in Sources */,
+				A1D9555F1FA17BF2002C7563 /* CategoryTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
