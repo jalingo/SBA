@@ -13,7 +13,6 @@
 		A1AB0E261FA0185100F1D3FF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1AB0E241FA0185100F1D3FF /* Main.storyboard */; };
 		A1AB0E281FA0185100F1D3FF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1AB0E271FA0185100F1D3FF /* Assets.xcassets */; };
 		A1AB0E2B1FA0185100F1D3FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1AB0E291FA0185100F1D3FF /* LaunchScreen.storyboard */; };
-		A1AB0E361FA0185100F1D3FF /* Small_Business_AdvisorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AB0E351FA0185100F1D3FF /* Small_Business_AdvisorTests.swift */; };
 		A1AB0E411FA0185100F1D3FF /* Small_Business_AdvisorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AB0E401FA0185100F1D3FF /* Small_Business_AdvisorUITests.swift */; };
 		A1AB0E501FA01A1D00F1D3FF /* AdvisorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AB0E4F1FA01A1D00F1D3FF /* AdvisorViewController.swift */; };
 		A1AB0E511FA01A1D00F1D3FF /* AdvisorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AB0E4F1FA01A1D00F1D3FF /* AdvisorViewController.swift */; };
@@ -49,7 +48,6 @@
 		A1AB0E2A1FA0185100F1D3FF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A1AB0E2C1FA0185100F1D3FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A1AB0E311FA0185100F1D3FF /* Small Business AdvisorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Small Business AdvisorTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		A1AB0E351FA0185100F1D3FF /* Small_Business_AdvisorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Small_Business_AdvisorTests.swift; sourceTree = "<group>"; };
 		A1AB0E371FA0185100F1D3FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A1AB0E3C1FA0185100F1D3FF /* Small Business AdvisorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Small Business AdvisorUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1AB0E401FA0185100F1D3FF /* Small_Business_AdvisorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Small_Business_AdvisorUITests.swift; sourceTree = "<group>"; };
@@ -118,7 +116,6 @@
 		A1AB0E341FA0185100F1D3FF /* Small Business AdvisorTests */ = {
 			isa = PBXGroup;
 			children = (
-				A1AB0E351FA0185100F1D3FF /* Small_Business_AdvisorTests.swift */,
 				A16756BD1FA14BD90002E820 /* EntryTests.swift */,
 				A1AB0E371FA0185100F1D3FF /* Info.plist */,
 			);
@@ -292,7 +289,6 @@
 			files = (
 				A16756BE1FA14BD90002E820 /* EntryTests.swift in Sources */,
 				A1EC9A0A1FA14511000B5A33 /* Entries.swift in Sources */,
-				A1AB0E361FA0185100F1D3FF /* Small_Business_AdvisorTests.swift in Sources */,
 				A1AB0E511FA01A1D00F1D3FF /* AdvisorViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

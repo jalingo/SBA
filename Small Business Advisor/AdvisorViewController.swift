@@ -22,15 +22,7 @@ class AdvisorViewController: UIViewController {
     
     @IBOutlet weak var textView: UITextView!
     
-    @IBOutlet weak var randomSwitch: UISwitch! {
-        didSet {
-            if randomSwitch.isOn {
-                textView.text = "Instructions_0"
-            } else {
-                textView.text = "Instructions_1"
-            }
-        }
-    }
+    @IBOutlet weak var randomSwitch: UISwitch!
     
     // MARK: - Properties: UIResponder
     
@@ -62,6 +54,14 @@ class AdvisorViewController: UIViewController {
     }
     
     // MARK: - Functions: IBActions
+    
+    @IBAction func randomSwitched(_ sender: UISwitch) {
+        if sender.isOn {
+            textView.text = "Shake for Advice!"
+        } else {
+            textView.text = "Swipe through the various tips..."
+        }
+    }
     
     @IBAction func helpPressed(_ sender: UIButton) {
         textView.text = "To contact the app's creators with any questions or comments, email dev@escapechaos.com."
