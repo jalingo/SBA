@@ -35,9 +35,9 @@ class AdvisorViewController: UIViewController {
     fileprivate func shakeRoutine() {
         if randomSwitch.isOn {
             textView.text = Response.random()
-            pageLabel.text = "Random"   // <- get page from response
+            pageLabel.text = "Rand"   // <- get page from response
         } else {
-            page += 1   // Need to cap @ maximum after entry addee
+            page < OldEntry.MAX_COUNT - 1 ? (page += 1) : (page = 0)    // <-- Need to adjust counts to start from "1"
             textView.text = Response.regular(for: page)
         }
     }
@@ -48,8 +48,7 @@ class AdvisorViewController: UIViewController {
         guard !randomSwitch.isOn else { shakeRoutine(); return }
         
         // Else, a swipe right means go back.
-        if page > 1 { page -= 1 }
-//        page != 0 ? page -= 1 : page = MAX_LIMIT
+        page != 0 ? (page -= 1) : (page = OldEntry.MAX_COUNT)   // <-- When counts start from 1 => "page > 1"
         textView.text = Response.regular(for: page)
     }
     

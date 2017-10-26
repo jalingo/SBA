@@ -10,6 +10,8 @@ import Foundation
 
 enum OldEntry {
     
+    static let MAX_COUNT = 16
+    
     case businessTip(Int)
     case random
     case promotional
