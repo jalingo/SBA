@@ -72,14 +72,14 @@ extension Entry where Self: Equatable {
     
     func isEqualTo(entry: Entry) -> Bool {
         guard let other = entry as? Self else { return false }
-        return self == other
+        return self.index == other.index
     }
     
     func asEquatable() -> AnyEntry { return AnyEntry(entry: self) }
 }
 
 // Wrapper whose purpose is Equatable conformance.
-struct AnyEntry: Entry, Equatable {
+struct AnyEntry: Entry {
     
     // MARK: - Properties
     
@@ -93,14 +93,16 @@ struct AnyEntry: Entry, Equatable {
     
     // MARK: - Functions
     
-    static func ==(left: AnyEntry, right: AnyEntry) -> Bool { return left.isEqualTo(entry: right) }
-
     func asEntry() -> Entry { return wrappedEntry }
     
     init(entry: Entry) { wrappedEntry = entry }
 }
 
-struct MockEntry: Entry, Equatable {
+extension AnyEntry: Equatable {
+    static func ==(left: AnyEntry, right: AnyEntry) -> Bool { return left.isEqualTo(entry: right) }
+}
+
+struct MockEntry: Entry {
     
     let text: String
     
@@ -108,14 +110,16 @@ struct MockEntry: Entry, Equatable {
     
     let index: Int
     
-    static func ==(left: MockEntry, right: MockEntry) -> Bool { return left.index == right.index }
-
     init(index integer: Int, category cat: TipCategory, text str: String) {
         self.category = cat
         self.text = str
         
-        integer > 0 ? self.index = integer : (self.index = 999999)
+        integer > 0 ? (self.index = integer) : (self.index = 999999)
     }
+}
+
+extension MockEntry: Equatable {
+    static func ==(left: MockEntry, right: MockEntry) -> Bool { return left.index == right.index }
 }
 
 

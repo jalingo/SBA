@@ -38,11 +38,17 @@ class TipFactoryTests: XCTestCase {
     
     func testEntryFactoryProducesByRandom() {
         XCTAssertNotNil(mock?.produceByRandom())
-        XCTAssert(AnyEntry(entry: mock!.produceByRandom()) != AnyEntry(entry: mock!.produceByRandom()))
+        XCTAssertFalse(AnyEntry(entry: mock!.produceByRandom()) == AnyEntry(entry: mock!.produceByRandom()))
+    }
+    
+    func testEntryFactoryHasMaxCount() {
+        XCTAssertNotNil(mock?.Max)
     }
 }
 
 protocol EntryFactory {
+
+    var Max: Int { get }
     
     func produceByIndex(index: Int) -> Entry
     
@@ -51,12 +57,13 @@ protocol EntryFactory {
 
 struct MockFactory: EntryFactory {
     
+    let Max = 16
+
     func produceByIndex(index integer: Int) -> Entry {
         return MockEntry(index: integer, category: .planning, text: "Test")
     }
     
     func produceByRandom() -> Entry {
-        
-        return MockEntry(index: 0, category: .planning, text: "Test")
+        return MockEntry(index: Int(arc4random_uniform(UInt32(self.Max))), category: .planning, text: "Test")
     }
 }
