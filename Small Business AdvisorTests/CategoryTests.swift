@@ -11,22 +11,46 @@ import XCTest
 class CategoryTests: XCTestCase {
     
     // MARK: - Properties
+
+    var mock: TipCategory?
     
     // MARK: - Functions
     
     override func setUp() {
         super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        
+        mock = .planning
     }
     
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        mock = nil
+        
         super.tearDown()
     }
     
     // MARK: - Functions: Tests
     
-    enum TipCategory {
-        case planning, hr
-    }
+    func testCategoryHasElevenFields() { XCTAssert(TipCategory.MAX_COUNT == 11) }
+    
+    func testPlanningIsFirst() { XCTAssert(TipCategory.planning.rawValue == 0) }
+    
+    func testOrganizationIsSecond() { XCTAssert(TipCategory.organization.rawValue == 1) }
+    
+    func testMarketingIsThird() { XCTAssert(TipCategory.marketing.rawValue == 2) }
+    
+    func testOperationIsFourth() { XCTAssert(TipCategory.operations.rawValue == 3) }
+    
+    func testTechnologyIsFifth() { XCTAssert(TipCategory.technology.rawValue == 4) }
+    
+    func testValueIsSixth() { XCTAssert(TipCategory.value.rawValue == 5) }
+    
+    func testEfficiencyIsSeventh() { XCTAssert(TipCategory.efficiency.rawValue == 6) }
+    
+    func testFiscalIsEighth() { XCTAssert(TipCategory.fiscal.rawValue == 7) }
+    
+    func testHRisNinth() { XCTAssert(TipCategory.hr.rawValue == 8) }
+    
+    func testSecurityIsTenth() { XCTAssert(TipCategory.security.rawValue == 9) }
+    
+    func testLegalIsEleventh() { XCTAssert(TipCategory.legal.rawValue == 10) }
 }

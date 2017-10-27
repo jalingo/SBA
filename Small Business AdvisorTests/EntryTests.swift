@@ -33,11 +33,11 @@ class EntryTests: XCTestCase {
     
     // MARK: - Functions: Tests
     
-    func testCanReadText() { XCTAssertNotNil(mock?.text) }
+    func testCanReadText()      { XCTAssertNotNil(mock?.text) }
     
-    func testCanReadCategory() { XCTAssertNotNil(mock?.category) }
+    func testCanReadCategory()  { XCTAssertNotNil(mock?.category) }
     
-    func testCanReadIndex() { XCTAssertNotNil(mock?.index) }
+    func testCanReadIndex()     { XCTAssertNotNil(mock?.index) }
     
     func testIndexCantBeZeroOrNegative() {
         XCTAssertFalse(mock!.index < 1)
@@ -68,12 +68,9 @@ struct MockEntry: Entry {
     let index: Int
     
     init(index integer: Int, category cat: TipCategory, text str: String) {
-        self.index = integer
         self.category = cat
         self.text = str
+        
+        integer > 0 ? self.index = integer : (self.index = 999999)
     }
-}
-
-enum TipCategory {
-    case planning, organization, marketing, operations, technology, value, efficiency, fiscal, hr, security, legal
 }
