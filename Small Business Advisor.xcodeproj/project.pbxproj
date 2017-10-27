@@ -11,6 +11,7 @@
 		A15043F51FA2B7AA0018B909 /* TipCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15043F41FA2B7AA0018B909 /* TipCategory.swift */; };
 		A15043F61FA2B7AA0018B909 /* TipCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15043F41FA2B7AA0018B909 /* TipCategory.swift */; };
 		A15043F81FA2B97B0018B909 /* TipFactoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15043F71FA2B97B0018B909 /* TipFactoryTests.swift */; };
+		A15043FA1FA336520018B909 /* CategoryFactoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15043F91FA336520018B909 /* CategoryFactoryTests.swift */; };
 		A16756BE1FA14BD90002E820 /* EntryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16756BD1FA14BD90002E820 /* EntryTests.swift */; };
 		A1AB0E211FA0185100F1D3FF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AB0E201FA0185100F1D3FF /* AppDelegate.swift */; };
 		A1AB0E261FA0185100F1D3FF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1AB0E241FA0185100F1D3FF /* Main.storyboard */; };
@@ -47,6 +48,7 @@
 		A10F51BB1FA01D4300680AE6 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		A15043F41FA2B7AA0018B909 /* TipCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipCategory.swift; sourceTree = "<group>"; };
 		A15043F71FA2B97B0018B909 /* TipFactoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipFactoryTests.swift; sourceTree = "<group>"; };
+		A15043F91FA336520018B909 /* CategoryFactoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryFactoryTests.swift; sourceTree = "<group>"; };
 		A16756BD1FA14BD90002E820 /* EntryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryTests.swift; sourceTree = "<group>"; };
 		A1AB0E1D1FA0185100F1D3FF /* Small Business Advisor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Small Business Advisor.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1AB0E201FA0185100F1D3FF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 				A1AB0E371FA0185100F1D3FF /* Info.plist */,
 				A16756BD1FA14BD90002E820 /* EntryTests.swift */,
 				A15043F71FA2B97B0018B909 /* TipFactoryTests.swift */,
+				A15043F91FA336520018B909 /* CategoryFactoryTests.swift */,
 				A1D9555E1FA17BF2002C7563 /* CategoryTests.swift */,
 			);
 			path = "Small Business AdvisorTests";
@@ -299,6 +302,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A15043FA1FA336520018B909 /* CategoryFactoryTests.swift in Sources */,
 				A16756BE1FA14BD90002E820 /* EntryTests.swift in Sources */,
 				A1EC9A0A1FA14511000B5A33 /* Entries.swift in Sources */,
 				A1AB0E511FA01A1D00F1D3FF /* AdvisorViewController.swift in Sources */,

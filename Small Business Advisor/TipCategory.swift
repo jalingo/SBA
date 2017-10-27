@@ -10,6 +10,7 @@ import Foundation
 
 enum TipCategory: Int {
     case planning = 0, organization, marketing, operations, technology, value, efficiency, fiscal, hr, security, legal
+    case outOfRange = -1
     
-    static let MAX_COUNT = TipCategory.legal.rawValue + 1
+    static let Max = TipCategory.legal.rawValue + 1
 }

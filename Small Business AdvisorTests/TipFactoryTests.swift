@@ -18,7 +18,7 @@ class TipFactoryTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        mock = MockFactory()
+        mock = MockTipFactory()
     }
     
     override func tearDown() {
@@ -44,6 +44,10 @@ class TipFactoryTests: XCTestCase {
     func testEntryFactoryHasMaxCount() {
         XCTAssertNotNil(mock?.Max)
     }
+    
+//    func testEntryFactoryHasCategoryFactory() {
+//        XCTAssertNotNil(mock?.CategoryFactory)
+//    }
 }
 
 protocol EntryFactory {
@@ -55,7 +59,7 @@ protocol EntryFactory {
     func produceByRandom() -> Entry
 }
 
-struct MockFactory: EntryFactory {
+struct MockTipFactory: EntryFactory {
     
     let Max = 16
 
