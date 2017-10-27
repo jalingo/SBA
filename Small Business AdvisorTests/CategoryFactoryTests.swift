@@ -8,7 +8,7 @@
 
 import XCTest
 
-class CategoryFactoryTests: XCTestCase {
+class TipCategoryFactoryTests: XCTestCase {
     
     // MARK: - Properties
     
@@ -43,6 +43,5 @@ protocol CategoryFactory {
 }
 
 struct MockCategoryFactory: CategoryFactory {
-
     func produceByIndex(index: Int) -> TipCategory { return TipCategory(rawValue: index) ?? .outOfRange }
 }

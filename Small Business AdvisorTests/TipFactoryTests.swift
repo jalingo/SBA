@@ -64,10 +64,10 @@ struct MockTipFactory: EntryFactory {
     let Max = 16
 
     func produceByIndex(index integer: Int) -> Entry {
-        return MockEntry(index: integer, category: .planning, text: "Test")
+        return MockTip(index: integer, category: .planning, text: "Test")
     }
     
     func produceByRandom() -> Entry {
-        return MockEntry(index: Int(arc4random_uniform(UInt32(self.Max))), category: .planning, text: "Test")
+        return MockTip(index: Int(arc4random_uniform(UInt32(self.Max))), category: .planning, text: "Test")
     }
 }
