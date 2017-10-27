@@ -15,6 +15,11 @@ enum TipCategory: Int {
     static let Max = TipCategory.legal.rawValue + 1
 }
 
+protocol CategoryFactory {
+    func produceByIndex(index: Int) -> TipCategory
+}
+
 struct TipCategoryFactory: CategoryFactory {
     func produceByIndex(index: Int) -> TipCategory { return TipCategory(rawValue: index) ?? .outOfRange }
 }
+

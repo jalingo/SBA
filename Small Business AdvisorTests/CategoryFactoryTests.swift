@@ -18,7 +18,7 @@ class TipCategoryFactoryTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        mock = MockCategoryFactory()
+        mock = MockTipCategoryFactory()
         
     }
     
@@ -38,10 +38,6 @@ class TipCategoryFactoryTests: XCTestCase {
     }
 }
 
-protocol CategoryFactory {
-    func produceByIndex(index: Int) -> TipCategory
-}
-
-struct MockCategoryFactory: CategoryFactory {
+struct MockTipCategoryFactory: CategoryFactory {
     func produceByIndex(index: Int) -> TipCategory { return TipCategory(rawValue: index) ?? .outOfRange }
 }

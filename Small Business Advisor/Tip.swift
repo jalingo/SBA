@@ -25,9 +25,7 @@ struct Tip: Entry {
 }
 
 extension Tip: Equatable {
-    static func ==(left: Tip, right: Tip) -> Bool {
-print("0")
-        return left.index == right.index }
+    static func ==(left: Tip, right: Tip) -> Bool { return left.index == right.index }
 }
 
 protocol Entry {
@@ -42,7 +40,7 @@ protocol Entry {
     // Conforming to equatable will allow confoming to these without implementing, through Entry extension.
     
     func asEquatable() -> AnyEntry
-
+    
     func isEqualTo(entry: Entry) -> Bool
 }
 
@@ -51,7 +49,6 @@ protocol Entry {
 extension Entry where Self: Equatable {
     
     func isEqualTo(entry: Entry) -> Bool {
-print("1")
         guard let other = entry as? Self else { return false }
         return self.index == other.index
     }
