@@ -142,8 +142,8 @@
 				A1AB0E371FA0185100F1D3FF /* Info.plist */,
 				A16756BD1FA14BD90002E820 /* TipTests.swift */,
 				A15043F71FA2B97B0018B909 /* TipFactoryTests.swift */,
-				A15043F91FA336520018B909 /* TipCategoryFactoryTests.swift */,
 				A1D9555E1FA17BF2002C7563 /* TipCategoryTests.swift */,
+				A15043F91FA336520018B909 /* TipCategoryFactoryTests.swift */,
 			);
 			path = "Small Business AdvisorTests";
 			sourceTree = "<group>";

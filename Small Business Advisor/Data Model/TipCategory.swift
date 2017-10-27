@@ -16,10 +16,10 @@ enum TipCategory: Int {
 }
 
 protocol CategoryFactory {
-    func produceByIndex(index: Int) -> TipCategory
+    static func produceByIndex(index: Int) -> TipCategory
 }
 
 struct TipCategoryFactory: CategoryFactory {
-    func produceByIndex(index: Int) -> TipCategory { return TipCategory(rawValue: index) ?? .outOfRange }
+    static func produceByIndex(index: Int) -> TipCategory { return TipCategory(rawValue: index) ?? .outOfRange }
 }
 

@@ -12,62 +12,70 @@ class TipFactoryTests: XCTestCase {
   
     // MARK: - Properties
     
-    var mock: EntryFactory?
+//    var mock: EntryFactory?
     
     // MARK: - Functions
     
     override func setUp() {
         super.setUp()
-        mock = MockTipFactory()
+//        mock = MockTipFactory()
     }
     
     override func tearDown() {
-        mock = nil
+//        mock = nil
         super.tearDown()
     }
 
     // MARK: - Functions: Tests
     
-    func testEntryFactoryProducesEntry() { XCTAssertNotNil(mock?.produceByIndex(index: 1)) }
+    func testEntryFactoryProducesEntry() { XCTAssertNotNil(MockTipFactory.produceByIndex(index: 1)) }
     
     func testEntryFactoryProducesByIndex() {
-        XCTAssert(mock?.produceByIndex(index: 1).index == 1)
-        XCTAssert(mock?.produceByIndex(index: 5).index == 5)
-        XCTAssert(mock?.produceByIndex(index: 9).index == 9)
+        XCTAssert(MockTipFactory.produceByIndex(index: 1).index == 1)
+        XCTAssert(MockTipFactory.produceByIndex(index: 5).index == 5)
+        XCTAssert(MockTipFactory.produceByIndex(index: 9).index == 9)
     }
     
     func testEntryFactoryProducesByRandom() {
-        XCTAssertNotNil(mock?.produceByRandom())
-        XCTAssertFalse(AnyEntry(entry: mock!.produceByRandom()) == AnyEntry(entry: mock!.produceByRandom()))
+        XCTAssertFalse(AnyEntry(entry: MockTipFactory.produceByRandom()) == AnyEntry(entry: MockTipFactory.produceByRandom()))
+    }
+    
+    func testEntryFactoryProducesEntriesWithCorrectCategory() {
+        let random = MockTipFactory.produceByRandom()
+        random.category == .outOfRange ? XCTFail() :
+            XCTAssert(random.category == TipCategoryFactory.produceByIndex(index: random.index))
+        
+        let test3 = MockTipFactory.produceByIndex(index: 3)
+        test3.category == .outOfRange ? XCTFail() : XCTAssert(test3.category == TipCategoryFactory.produceByIndex(index: 3))
+        
+        let test9 = MockTipFactory.produceByIndex(index: 9)
+        test9.category == .outOfRange ? XCTFail() : XCTAssert(test9.category == TipCategoryFactory.produceByIndex(index: 9))
+
     }
     
     func testEntryFactoryHasMaxCount() {
-        XCTAssertNotNil(mock?.Max)
+        XCTAssertNotNil(MockTipFactory.Max)
     }
-    
-//    func testEntryFactoryHasCategoryFactory() {
-//        XCTAssertNotNil(mock?.CategoryFactory)
-//    }
 }
 
 protocol EntryFactory {
 
-    var Max: Int { get }
+    static var Max: Int { get }
     
-    func produceByIndex(index: Int) -> Entry
+    static func produceByIndex(index: Int) -> Entry
     
-    func produceByRandom() -> Entry
+    static func produceByRandom() -> Entry
 }
 
 struct MockTipFactory: EntryFactory {
     
-    let Max = 16
+    static let Max = 16
 
-    func produceByIndex(index integer: Int) -> Entry {
-        return MockTip(index: integer, category: .planning, text: "Test")
+    static func produceByIndex(index integer: Int) -> Entry {
+        return MockTip(index: integer, category: .outOfRange, text: "Test")
     }
     
-    func produceByRandom() -> Entry {
-        return MockTip(index: Int(arc4random_uniform(UInt32(self.Max))), category: .planning, text: "Test")
+    static func produceByRandom() -> Entry {
+        return MockTip(index: Int(arc4random_uniform(UInt32(self.Max))), category: .outOfRange, text: "Test")
     }
 }

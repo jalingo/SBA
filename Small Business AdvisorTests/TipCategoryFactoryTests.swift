@@ -12,32 +12,32 @@ class TipCategoryFactoryTests: XCTestCase {
     
     // MARK: - Properties
     
-    var mock: CategoryFactory?
+//    var mock: CategoryFactory?
     
     // MARK: - Functions
     
     override func setUp() {
         super.setUp()
-        mock = MockTipCategoryFactory()
+//        mock = MockTipCategoryFactory()
         
     }
     
     override func tearDown() {
-        mock = nil
+//        mock = nil
         super.tearDown()
     }
     
     // MARK: - Functions: Tests
     
     func testTipCategoryFactoryProducesByIndex() {
-        XCTAssertNotNil(mock?.produceByIndex(index: 0))
+        XCTAssertNotNil(MockTipCategoryFactory.produceByIndex(index: 0))
     }
     
     func testTipCategoryOnlyAcceptsRecognizesOutOfRange() {
-        XCTAssert(mock?.produceByIndex(index: TipCategory.Max + 1) == TipCategory.outOfRange)
+        XCTAssert(MockTipFactory.produceByIndex(index: TipCategory.Max + 1) == TipCategory.outOfRange)      // <- This isn't producing off the data model's index!
     }
 }
 
 struct MockTipCategoryFactory: CategoryFactory {
-    func produceByIndex(index: Int) -> TipCategory { return TipCategory(rawValue: index) ?? .outOfRange }
+    static func produceByIndex(index: Int) -> TipCategory { return TipCategory(rawValue: index) ?? .outOfRange }
 }
