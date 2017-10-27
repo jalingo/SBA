@@ -34,8 +34,10 @@ class TipCategoryFactoryTests: XCTestCase {
     }
     
     func testTipCategoryOnlyAcceptsRecognizesOutOfRange() {
-        XCTAssert(MockTipFactory.produceByIndex(index: TipCategory.Max + 1) == TipCategory.outOfRange)      // <- This isn't producing off the data model's index!
+        XCTAssert(MockTipFactory.produceByIndex(index: MockTextFactory.max + 1).category == TipCategory.outOfRange)      // <- This needs to switch from the mock to the standard
     }
+    
+    
 }
 
 struct MockTipCategoryFactory: CategoryFactory {

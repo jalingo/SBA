@@ -12,17 +12,15 @@ class TipFactoryTests: XCTestCase {
   
     // MARK: - Properties
     
-//    var mock: EntryFactory?
-    
     // MARK: - Functions
     
     override func setUp() {
         super.setUp()
-//        mock = MockTipFactory()
+
     }
     
     override func tearDown() {
-//        mock = nil
+
         super.tearDown()
     }
 
@@ -45,22 +43,22 @@ class TipFactoryTests: XCTestCase {
         random.category == .outOfRange ? XCTFail() :
             XCTAssert(random.category == TipCategoryFactory.produceByIndex(index: random.index))
         
-        let test3 = MockTipFactory.produceByIndex(index: 3)
-        test3.category == .outOfRange ? XCTFail() : XCTAssert(test3.category == TipCategoryFactory.produceByIndex(index: 3))
+        let test3 = MockTipFactory.produceByIndex(index: 24)
+        test3.category == .outOfRange ? XCTFail() : XCTAssert(test3.category == TipCategory.organization)
         
         let test9 = MockTipFactory.produceByIndex(index: 9)
-        test9.category == .outOfRange ? XCTFail() : XCTAssert(test9.category == TipCategoryFactory.produceByIndex(index: 9))
+        test9.category == .outOfRange ? XCTFail() : XCTAssert(test9.category == TipCategory.planning)
 
     }
     
     func testEntryFactoryHasMaxCount() {
-        XCTAssertNotNil(MockTipFactory.Max)
+        XCTAssertNotNil(MockTipFactory.max)
     }
 }
 
 protocol EntryFactory {
 
-    static var Max: Int { get }
+    static var max: Int { get }
     
     static func produceByIndex(index: Int) -> Entry
     
@@ -69,13 +67,14 @@ protocol EntryFactory {
 
 struct MockTipFactory: EntryFactory {
     
-    static let Max = 16
+    static let max = 16
 
     static func produceByIndex(index integer: Int) -> Entry {
-        return MockTip(index: integer, category: .outOfRange, text: "Test")
+        return MockTip(index: integer, category: TipCategoryFactory.produceByIndex(index: integer), text: "Test")
     }
     
     static func produceByRandom() -> Entry {
-        return MockTip(index: Int(arc4random_uniform(UInt32(self.Max))), category: .outOfRange, text: "Test")
+        let random = Int(arc4random_uniform(UInt32(self.max)))
+        return MockTip(index: random, category: TipCategoryFactory.produceByIndex(index: random), text: "Test")
     }
 }

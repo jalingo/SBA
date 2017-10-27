@@ -32,7 +32,7 @@ class TipCategoryTests: XCTestCase {
     
     func testCategoryHasOutOfRangeErrorField() { XCTAssert(TipCategory.outOfRange.rawValue == -1)}
     
-    func testCategoryHasElevenFieldsExcludingErrors() { XCTAssert(TipCategory.Max == 11) }
+    func testCategoryHasElevenFieldsExcludingErrors() { XCTAssert(TipCategory.max == 11) }
     
     func testPlanningIsFirst() { XCTAssert(TipCategory.planning.rawValue == 0) }
     
