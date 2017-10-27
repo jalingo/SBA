@@ -48,6 +48,8 @@ class EntryTests: XCTestCase {
         let nextMock = MockEntry(index: 0, category: .planning, text: "B")
         XCTAssertFalse(nextMock.index < 1)
     }
+    
+//    func testEntryIsEquatable() { XCTAssert(AnyEntry is Equatable) }
 }
 
 protocol Entry {
@@ -57,9 +59,44 @@ protocol Entry {
     var category: TipCategory { get }
     
     var index: Int { get }
+    
+    // For AnyEntry Equatable wrapper
+    
+    func isEqualTo(entry: Entry) -> Bool
+    
+    func equatableVersion() -> AnyEntry
 }
 
-struct MockEntry: Entry {
+extension Entry where Self: Equatable {
+    
+    func isEqualTo(entry: Entry) -> Bool {
+        guard let other = entry as? Self else { return false }
+        return self == other
+    }
+    
+    func equatableVersion() -> AnyEntry {
+        return AnyEntry(entry: self)
+    }
+}
+
+struct AnyEntry: Entry, Equatable {
+    
+    var text: String
+    
+    var category: TipCategory
+    
+    var index: Int
+    
+    static func ==(lhs: AnyEntry, rhs: AnyEntry) -> Bool { return lhs.index == rhs.index }
+    
+    init(entry: Entry) {
+        text = entry.text
+        category = entry.category
+        index = entry.index
+    }
+}
+
+struct MockEntry: Entry, Equatable {
     
     let text: String
     
@@ -74,3 +111,5 @@ struct MockEntry: Entry {
         integer > 0 ? self.index = integer : (self.index = 999999)
     }
 }
+
+func ==(left: MockEntry, right: MockEntry) -> Bool { return left.index == right.index }
