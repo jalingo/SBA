@@ -56,6 +56,7 @@ struct MockFactory: EntryFactory {
     }
     
     func produceByRandom() -> Entry {
+        
         return MockEntry(index: 0, category: .planning, text: "Test")
     }
 }

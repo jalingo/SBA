@@ -47,9 +47,7 @@ class EntryTests: XCTestCase {
         
         let nextMock = MockEntry(index: 0, category: .planning, text: "B")
         XCTAssertFalse(nextMock.index < 1)
-    }
-    
-//    func testEntryIsEquatable() { XCTAssert(AnyEntry is Equatable) }
+    }    
 }
 
 protocol Entry {
@@ -59,14 +57,9 @@ protocol Entry {
     var category: TipCategory { get }
     
     var index: Int { get }
-    
-    // For AnyEntry Equatable wrapper
-    
-    func isEqualTo(entry: Entry) -> Bool
-    
-    func equatableVersion() -> AnyEntry
 }
 
+// Extension that provides tools for AnyEntry wrapper.
 extension Entry where Self: Equatable {
     
     func isEqualTo(entry: Entry) -> Bool {
@@ -74,26 +67,25 @@ extension Entry where Self: Equatable {
         return self == other
     }
     
-    func equatableVersion() -> AnyEntry {
-        return AnyEntry(entry: self)
-    }
+    func equatableVersion() -> AnyEntry { return AnyEntry(entry: self) }
 }
 
+// Wrapper whose purpose is Equatable conformance.
 struct AnyEntry: Entry, Equatable {
     
-    var text: String
+    let wrappedEntry: Entry
     
-    var category: TipCategory
+    var text: String { return wrappedEntry.text }
     
-    var index: Int
+    var category: TipCategory { return wrappedEntry.category }
+    
+    var index: Int { return wrappedEntry.index }
     
     static func ==(lhs: AnyEntry, rhs: AnyEntry) -> Bool { return lhs.index == rhs.index }
+
+    func asEntry() -> Entry { return wrappedEntry }
     
-    init(entry: Entry) {
-        text = entry.text
-        category = entry.category
-        index = entry.index
-    }
+    init(entry: Entry) { wrappedEntry = entry }
 }
 
 struct MockEntry: Entry, Equatable {
@@ -104,6 +96,8 @@ struct MockEntry: Entry, Equatable {
     
     let index: Int
     
+    static func ==(left: MockEntry, right: MockEntry) -> Bool { return left.index == right.index }
+
     init(index integer: Int, category cat: TipCategory, text str: String) {
         self.category = cat
         self.text = str
@@ -112,4 +106,4 @@ struct MockEntry: Entry, Equatable {
     }
 }
 
-func ==(left: MockEntry, right: MockEntry) -> Bool { return left.index == right.index }
+
