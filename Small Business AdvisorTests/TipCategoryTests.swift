@@ -8,7 +8,7 @@
 
 import XCTest
 
-class CategoryTests: XCTestCase {
+class TipCategoryTests: XCTestCase {
     
     // MARK: - Properties
 

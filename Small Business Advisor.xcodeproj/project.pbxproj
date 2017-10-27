@@ -11,7 +11,7 @@
 		A15043F51FA2B7AA0018B909 /* TipCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15043F41FA2B7AA0018B909 /* TipCategory.swift */; };
 		A15043F61FA2B7AA0018B909 /* TipCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15043F41FA2B7AA0018B909 /* TipCategory.swift */; };
 		A15043F81FA2B97B0018B909 /* TipFactoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15043F71FA2B97B0018B909 /* TipFactoryTests.swift */; };
-		A15043FA1FA336520018B909 /* CategoryFactoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15043F91FA336520018B909 /* CategoryFactoryTests.swift */; };
+		A15043FA1FA336520018B909 /* TipCategoryFactoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15043F91FA336520018B909 /* TipCategoryFactoryTests.swift */; };
 		A15043FF1FA33C210018B909 /* Tip.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15043FE1FA33C210018B909 /* Tip.swift */; };
 		A15044001FA33C210018B909 /* Tip.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15043FE1FA33C210018B909 /* Tip.swift */; };
 		A16756BE1FA14BD90002E820 /* TipTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16756BD1FA14BD90002E820 /* TipTests.swift */; };
@@ -23,7 +23,7 @@
 		A1AB0E501FA01A1D00F1D3FF /* AdvisorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AB0E4F1FA01A1D00F1D3FF /* AdvisorViewController.swift */; };
 		A1AB0E511FA01A1D00F1D3FF /* AdvisorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AB0E4F1FA01A1D00F1D3FF /* AdvisorViewController.swift */; };
 		A1AB0E521FA01A1D00F1D3FF /* AdvisorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AB0E4F1FA01A1D00F1D3FF /* AdvisorViewController.swift */; };
-		A1D9555F1FA17BF2002C7563 /* CategoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D9555E1FA17BF2002C7563 /* CategoryTests.swift */; };
+		A1D9555F1FA17BF2002C7563 /* TipCategoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D9555E1FA17BF2002C7563 /* TipCategoryTests.swift */; };
 		A1D955601FA18663002C7563 /* Entries.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EC9A081FA14510000B5A33 /* Entries.swift */; };
 		A1EC9A091FA14511000B5A33 /* Entries.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EC9A081FA14510000B5A33 /* Entries.swift */; };
 		A1EC9A0A1FA14511000B5A33 /* Entries.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EC9A081FA14510000B5A33 /* Entries.swift */; };
@@ -50,7 +50,7 @@
 		A10F51BB1FA01D4300680AE6 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		A15043F41FA2B7AA0018B909 /* TipCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipCategory.swift; sourceTree = "<group>"; };
 		A15043F71FA2B97B0018B909 /* TipFactoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipFactoryTests.swift; sourceTree = "<group>"; };
-		A15043F91FA336520018B909 /* CategoryFactoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryFactoryTests.swift; sourceTree = "<group>"; };
+		A15043F91FA336520018B909 /* TipCategoryFactoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipCategoryFactoryTests.swift; sourceTree = "<group>"; };
 		A15043FE1FA33C210018B909 /* Tip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tip.swift; sourceTree = "<group>"; };
 		A16756BD1FA14BD90002E820 /* TipTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipTests.swift; sourceTree = "<group>"; };
 		A1AB0E1D1FA0185100F1D3FF /* Small Business Advisor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Small Business Advisor.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -65,7 +65,7 @@
 		A1AB0E401FA0185100F1D3FF /* Small_Business_AdvisorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Small_Business_AdvisorUITests.swift; sourceTree = "<group>"; };
 		A1AB0E421FA0185100F1D3FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A1AB0E4F1FA01A1D00F1D3FF /* AdvisorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvisorViewController.swift; sourceTree = "<group>"; };
-		A1D9555E1FA17BF2002C7563 /* CategoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTests.swift; sourceTree = "<group>"; };
+		A1D9555E1FA17BF2002C7563 /* TipCategoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipCategoryTests.swift; sourceTree = "<group>"; };
 		A1EC9A081FA14510000B5A33 /* Entries.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Entries.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -94,6 +94,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A15044011FA342740018B909 /* Data Model */ = {
+			isa = PBXGroup;
+			children = (
+				A1EC9A081FA14510000B5A33 /* Entries.swift */,
+				A15043FE1FA33C210018B909 /* Tip.swift */,
+				A15043F41FA2B7AA0018B909 /* TipCategory.swift */,
+			);
+			path = "Data Model";
+			sourceTree = "<group>";
+		};
 		A1AB0E141FA0185100F1D3FF = {
 			isa = PBXGroup;
 			children = (
@@ -118,11 +128,9 @@
 		A1AB0E1F1FA0185100F1D3FF /* Small Business Advisor */ = {
 			isa = PBXGroup;
 			children = (
-				A15043FE1FA33C210018B909 /* Tip.swift */,
 				A1AB0E241FA0185100F1D3FF /* Main.storyboard */,
-				A1EC9A081FA14510000B5A33 /* Entries.swift */,
-				A15043F41FA2B7AA0018B909 /* TipCategory.swift */,
 				A1AB0E4F1FA01A1D00F1D3FF /* AdvisorViewController.swift */,
+				A15044011FA342740018B909 /* Data Model */,
 				A1AB0E4E1FA0187900F1D3FF /* Resources */,
 			);
 			path = "Small Business Advisor";
@@ -134,8 +142,8 @@
 				A1AB0E371FA0185100F1D3FF /* Info.plist */,
 				A16756BD1FA14BD90002E820 /* TipTests.swift */,
 				A15043F71FA2B97B0018B909 /* TipFactoryTests.swift */,
-				A15043F91FA336520018B909 /* CategoryFactoryTests.swift */,
-				A1D9555E1FA17BF2002C7563 /* CategoryTests.swift */,
+				A15043F91FA336520018B909 /* TipCategoryFactoryTests.swift */,
+				A1D9555E1FA17BF2002C7563 /* TipCategoryTests.swift */,
 			);
 			path = "Small Business AdvisorTests";
 			sourceTree = "<group>";
@@ -307,12 +315,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A15043FA1FA336520018B909 /* CategoryFactoryTests.swift in Sources */,
+				A15043FA1FA336520018B909 /* TipCategoryFactoryTests.swift in Sources */,
 				A15044001FA33C210018B909 /* Tip.swift in Sources */,
 				A16756BE1FA14BD90002E820 /* TipTests.swift in Sources */,
 				A1EC9A0A1FA14511000B5A33 /* Entries.swift in Sources */,
 				A1AB0E511FA01A1D00F1D3FF /* AdvisorViewController.swift in Sources */,
-				A1D9555F1FA17BF2002C7563 /* CategoryTests.swift in Sources */,
+				A1D9555F1FA17BF2002C7563 /* TipCategoryTests.swift in Sources */,
 				A15043F81FA2B97B0018B909 /* TipFactoryTests.swift in Sources */,
 				A15043F61FA2B7AA0018B909 /* TipCategory.swift in Sources */,
 			);
