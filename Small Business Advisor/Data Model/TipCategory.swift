@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 enum TipCategory: Int {
     case planning = 0, organization, marketing, operations, technology, value, efficiency, fiscal, hr, security, legal
@@ -31,6 +32,29 @@ enum TipCategory: Int {
 
         case .outOfRange:   return 0...0
         }
+    }
+    
+    var bold: NSAttributedString {
+        let bold = [NSAttributedStringKey.font : UIFont.boldSystemFont(ofSize: 15)]
+        var text: String
+        
+        switch self {
+        case .planning:     text = "Planning"
+        case .organization: text = "Organization"
+        case .marketing:    text = "Marketing"
+        case .operations:   text = "Operation"
+        case .technology:   text = "Technology"
+        case .value:        text = "Value"
+        case .efficiency:   text = "Efficiency"
+        case .fiscal:       text = "Fiscal"
+        case .hr:           text = "Human Resources"
+        case .security:     text = "Security"
+        case .legal:        text = "Legal"
+            
+        case .outOfRange:   text = "Error"
+        }
+        
+        return NSAttributedString(string: text, attributes: bold)
     }
 }
 

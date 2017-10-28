@@ -14,6 +14,8 @@ class TipCategoryTests: XCTestCase {
 
     var mock: TipCategory?
     
+    let bold = [NSAttributedStringKey.font : UIFont.boldSystemFont(ofSize: 15)]
+
     // MARK: - Functions
     
     override func setUp() {
@@ -37,6 +39,10 @@ class TipCategoryTests: XCTestCase {
     func testPlanningIsFirst() { XCTAssert(TipCategory.planning.rawValue == 0) }
 
     func testPlanningHasIndexRange() { XCTAssert(TipCategory.planning.indexRange == 1...23) }
+    
+    func testPlanningHasAttributedString() {
+        XCTAssert(TipCategory.planning.bold == NSAttributedString(string: "Planning", attributes: bold))
+    }
 
     func testOrganizationIsSecond() { XCTAssert(TipCategory.organization.rawValue == 1) }
     

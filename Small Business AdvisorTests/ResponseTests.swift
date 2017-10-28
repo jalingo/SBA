@@ -18,17 +18,27 @@ class ResponseTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-
+        mock = MockResponse()
     }
     
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        mock = nil
         super.tearDown()
     }
     
     // MARK: - Functions: Tests
     
+    func testResponseCanOutputByRandom() { XCTAssertNotNil(mock?.byRandom()) }
     
+    func testResponseByRandomWorks() {
+        
+    }
+    
+    func testResponseCanOutputByIndex() { XCTAssertNotNil(mock?.byIndex(of: 0)) }
+    
+    func testResponseByIndexWorks() {
+        
+    }
 }
 
 protocol ResponseAggregator {
@@ -42,6 +52,8 @@ struct MockResponse: ResponseAggregator {
     
     func byRandom() -> NSAttributedString {
         let random = TipFactory.produceByRandom()
+        
+        let category = random.category
         
         return NSAttributedString()
     }
