@@ -42,7 +42,7 @@ enum TipCategory: Int {
         case .planning:     text = "Planning"
         case .organization: text = "Organization"
         case .marketing:    text = "Marketing"
-        case .operations:   text = "Operation"
+        case .operations:   text = "Operations"
         case .technology:   text = "Technology"
         case .value:        text = "Value"
         case .efficiency:   text = "Efficiency"

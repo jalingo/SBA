@@ -48,39 +48,79 @@ class TipCategoryTests: XCTestCase {
     
     func testOrganizationHasIndexRange() { XCTAssert(TipCategory.organization.indexRange == 24...28) }
     
+    func testOrganizationHasAttributedString() {
+        XCTAssert(TipCategory.organization.bold == NSAttributedString(string: "Organization", attributes: bold))
+    }
+    
     func testMarketingIsThird() { XCTAssert(TipCategory.marketing.rawValue == 2) }
 
     func testMarketingHasIndexRange() { XCTAssert(TipCategory.marketing.indexRange == 29...45) }
+    
+    func testMarketingHasAttributedString() {
+        XCTAssert(TipCategory.marketing.bold == NSAttributedString(string: "Marketing", attributes: bold))
+    }
     
     func testOperationIsFourth() { XCTAssert(TipCategory.operations.rawValue == 3) }
     
     func testOperationsHasIndexRange() { XCTAssert(TipCategory.operations.indexRange == 46...50) }
     
+    func testOperationsHasAttributedString() {
+        XCTAssert(TipCategory.operations.bold == NSAttributedString(string: "Operations", attributes: bold))
+    }
+    
     func testTechnologyIsFifth() { XCTAssert(TipCategory.technology.rawValue == 4) }
     
     func testTechnologyHasIndexRange() { XCTAssert(TipCategory.technology.indexRange == 51...61) }
+    
+    func testTechnologyHasAttributedString() {
+        XCTAssert(TipCategory.technology.bold == NSAttributedString(string: "Technology", attributes: bold))
+    }
     
     func testValueIsSixth() { XCTAssert(TipCategory.value.rawValue == 5) }
     
     func testValueHasIndexRange() { XCTAssert(TipCategory.value.indexRange == 62...65) }
     
+    func testValueHasAttributedString() {
+        XCTAssert(TipCategory.value.bold == NSAttributedString(string: "Value", attributes: bold))
+    }
+    
     func testEfficiencyIsSeventh() { XCTAssert(TipCategory.efficiency.rawValue == 6) }
     
     func testEfficiencyHasIndexRange() { XCTAssert(TipCategory.efficiency.indexRange == 66...70) }
     
+    func testEfficiencyHasAttributedString() {
+        XCTAssert(TipCategory.efficiency.bold == NSAttributedString(string: "Efficiency", attributes: bold))
+    }
+    
     func testFiscalIsEighth() { XCTAssert(TipCategory.fiscal.rawValue == 7) }
     
-    func testTiscalHasIndexRange() { XCTAssert(TipCategory.fiscal.indexRange == 71...89) }
+    func testFiscalHasIndexRange() { XCTAssert(TipCategory.fiscal.indexRange == 71...89) }
+   
+    func testFiscalHasAttributedString() {
+        XCTAssert(TipCategory.fiscal.bold == NSAttributedString(string: "Fiscal", attributes: bold))
+    }
     
-    func testHRisNinth() { XCTAssert(TipCategory.hr.rawValue == 8) }
+    func testHrIsNinth() { XCTAssert(TipCategory.hr.rawValue == 8) }
 
     func testHrHasIndexRange() { XCTAssert(TipCategory.hr.indexRange == 90...95) }
+    
+    func testHrHasAttributedString() {
+        XCTAssert(TipCategory.hr.bold == NSAttributedString(string: "Human Resources", attributes: bold))
+    }
     
     func testSecurityIsTenth() { XCTAssert(TipCategory.security.rawValue == 9) }
     
     func testSecurityHasIndexRange() { XCTAssert(TipCategory.security.indexRange == 96...99) }
     
+    func testSecurityHasAttributedString() {
+        XCTAssert(TipCategory.security.bold == NSAttributedString(string: "Security", attributes: bold))
+    }
+    
     func testLegalIsEleventh() { XCTAssert(TipCategory.legal.rawValue == 10) }
     
     func testLegalHasIndexRange() { XCTAssert(TipCategory.legal.indexRange == 100...105) }
+
+    func testLegalHasAttributedString() {
+        XCTAssert(TipCategory.legal.bold == NSAttributedString(string: "Legal", attributes: bold))
+    }
 }
