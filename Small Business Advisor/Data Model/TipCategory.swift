@@ -17,7 +17,7 @@ enum TipCategory: Int {
     var indexRange: CountableClosedRange<Int> {   // <-- May need to become CountableClosedRange if iteration needed
         
         switch self {
-        case .planning:     return 1...23
+        case .planning:     return  1...23
         case .organization: return 24...28
         case .marketing:    return 29...45
         case .operations:   return 46...50

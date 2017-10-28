@@ -52,13 +52,7 @@ class TextFactoryTests: XCTestCase {
         } else {
             XCTFail()
         }
-    }
-}
-
-protocol StringFactory {
-    static var max: Int { get }
-    
-    static func produce(for index: Int) -> String
+    }    
 }
 
 struct MockTextFactory: StringFactory {
@@ -67,10 +61,9 @@ struct MockTextFactory: StringFactory {
     
     static func produce(for index: Int) -> String {
         switch index {
-        case ..<1:
-            return "\(1)"
-        case 1..<105: return "\(index)"
-        default: return "\(105)"
+        case ..<1:      return "\(1)"
+        case 1..<105:   return "\(index)"
+        default:        return "\(105)"
         }
     }
 }

@@ -12,18 +12,15 @@ class TipCategoryFactoryTests: XCTestCase {
     
     // MARK: - Properties
     
-//    var mock: CategoryFactory?
-    
     // MARK: - Functions
     
     override func setUp() {
         super.setUp()
-//        mock = MockTipCategoryFactory()
         
     }
     
     override func tearDown() {
-//        mock = nil
+
         super.tearDown()
     }
     
@@ -34,7 +31,7 @@ class TipCategoryFactoryTests: XCTestCase {
     }
     
     func testTipCategoryOnlyAcceptsRecognizesOutOfRange() {
-        XCTAssert(MockTipFactory.produceByIndex(index: MockTextFactory.max + 1).category == TipCategory.outOfRange)      // <- This needs to switch from the mock to the standard
+        XCTAssert(MockTipFactory.produceByIndex(index: TextFactory.max + 1).category == TipCategory.outOfRange)
     }
     
     func testPlanningMatchesRange() {
