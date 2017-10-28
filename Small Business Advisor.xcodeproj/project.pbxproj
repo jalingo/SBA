@@ -17,6 +17,9 @@
 		A15044031FA3EFA10018B909 /* TextFactoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15044021FA3EFA10018B909 /* TextFactoryTests.swift */; };
 		A15044051FA42E260018B909 /* TipText.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15044041FA42E260018B909 /* TipText.swift */; };
 		A15044061FA42E260018B909 /* TipText.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15044041FA42E260018B909 /* TipText.swift */; };
+		A15044081FA4F94D0018B909 /* ResponseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15044071FA4F94D0018B909 /* ResponseTests.swift */; };
+		A150440A1FA503920018B909 /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15044091FA503920018B909 /* Entry.swift */; };
+		A150440B1FA503920018B909 /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15044091FA503920018B909 /* Entry.swift */; };
 		A16756BE1FA14BD90002E820 /* TipTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16756BD1FA14BD90002E820 /* TipTests.swift */; };
 		A1AB0E211FA0185100F1D3FF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AB0E201FA0185100F1D3FF /* AppDelegate.swift */; };
 		A1AB0E261FA0185100F1D3FF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1AB0E241FA0185100F1D3FF /* Main.storyboard */; };
@@ -57,6 +60,8 @@
 		A15043FE1FA33C210018B909 /* Tip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tip.swift; sourceTree = "<group>"; };
 		A15044021FA3EFA10018B909 /* TextFactoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFactoryTests.swift; sourceTree = "<group>"; };
 		A15044041FA42E260018B909 /* TipText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipText.swift; sourceTree = "<group>"; };
+		A15044071FA4F94D0018B909 /* ResponseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseTests.swift; sourceTree = "<group>"; };
+		A15044091FA503920018B909 /* Entry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entry.swift; sourceTree = "<group>"; };
 		A16756BD1FA14BD90002E820 /* TipTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipTests.swift; sourceTree = "<group>"; };
 		A1AB0E1D1FA0185100F1D3FF /* Small Business Advisor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Small Business Advisor.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1AB0E201FA0185100F1D3FF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -103,6 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				A1EC9A081FA14510000B5A33 /* Entries.swift */,
+				A15044091FA503920018B909 /* Entry.swift */,
 				A15043FE1FA33C210018B909 /* Tip.swift */,
 				A15043F41FA2B7AA0018B909 /* TipCategory.swift */,
 				A15044041FA42E260018B909 /* TipText.swift */,
@@ -151,6 +157,7 @@
 				A1D9555E1FA17BF2002C7563 /* TipCategoryTests.swift */,
 				A15043F91FA336520018B909 /* TipCategoryFactoryTests.swift */,
 				A15044021FA3EFA10018B909 /* TextFactoryTests.swift */,
+				A15044071FA4F94D0018B909 /* ResponseTests.swift */,
 			);
 			path = "Small Business AdvisorTests";
 			sourceTree = "<group>";
@@ -310,6 +317,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A150440A1FA503920018B909 /* Entry.swift in Sources */,
 				A1EC9A091FA14511000B5A33 /* Entries.swift in Sources */,
 				A1AB0E211FA0185100F1D3FF /* AppDelegate.swift in Sources */,
 				A15044051FA42E260018B909 /* TipText.swift in Sources */,
@@ -323,6 +331,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A150440B1FA503920018B909 /* Entry.swift in Sources */,
 				A15043FA1FA336520018B909 /* TipCategoryFactoryTests.swift in Sources */,
 				A15044031FA3EFA10018B909 /* TextFactoryTests.swift in Sources */,
 				A15044001FA33C210018B909 /* Tip.swift in Sources */,
@@ -332,6 +341,7 @@
 				A1D9555F1FA17BF2002C7563 /* TipCategoryTests.swift in Sources */,
 				A15043F81FA2B97B0018B909 /* TipFactoryTests.swift in Sources */,
 				A15044061FA42E260018B909 /* TipText.swift in Sources */,
+				A15044081FA4F94D0018B909 /* ResponseTests.swift in Sources */,
 				A15043F61FA2B7AA0018B909 /* TipCategory.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
