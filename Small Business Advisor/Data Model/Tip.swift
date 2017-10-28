@@ -28,16 +28,25 @@ extension Tip: Equatable {
     static func ==(left: Tip, right: Tip) -> Bool { return left.index == right.index }
 }
 
+protocol EntryFactory {
+    
+    static var max: Int { get }
+    
+    static func produceByIndex(index: Int) -> Entry
+    
+    static func produceByRandom() -> Entry
+}
+
 struct TipFactory: EntryFactory {
     
     static let max = 105
     
     static func produceByIndex(index integer: Int) -> Entry {
-        return MockTip(index: integer, category: TipCategoryFactory.produceByIndex(index: integer), text: "Test")
+        return Tip(index: integer, category: TipCategoryFactory.produceByIndex(index: integer), text: "Test")
     }
     
     static func produceByRandom() -> Entry {
         let random = Int(arc4random_uniform(UInt32(self.max)))
-        return MockTip(index: random, category: TipCategoryFactory.produceByIndex(index: random), text: "Test")
+        return Tip(index: random, category: TipCategoryFactory.produceByIndex(index: random), text: "Test")
     }
 }

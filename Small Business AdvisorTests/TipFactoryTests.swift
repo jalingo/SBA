@@ -82,15 +82,6 @@ class TipFactoryTests: XCTestCase {
     }
 }
 
-protocol EntryFactory {
-
-    static var max: Int { get }
-    
-    static func produceByIndex(index: Int) -> Entry
-    
-    static func produceByRandom() -> Entry
-}
-
 struct MockTipFactory: EntryFactory {
     
     static let max = 105
