@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		A10F51BC1FA01D4300680AE6 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A10F51BB1FA01D4300680AE6 /* Default-568h@2x.png */; };
+		A11C3BB61FA54DEC000D2255 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11C3BB51FA54DEC000D2255 /* Response.swift */; };
+		A11C3BB71FA54DEC000D2255 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11C3BB51FA54DEC000D2255 /* Response.swift */; };
 		A15043F51FA2B7AA0018B909 /* TipCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15043F41FA2B7AA0018B909 /* TipCategory.swift */; };
 		A15043F61FA2B7AA0018B909 /* TipCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15043F41FA2B7AA0018B909 /* TipCategory.swift */; };
 		A15043F81FA2B97B0018B909 /* TipFactoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15043F71FA2B97B0018B909 /* TipFactoryTests.swift */; };
@@ -54,6 +56,7 @@
 
 /* Begin PBXFileReference section */
 		A10F51BB1FA01D4300680AE6 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		A11C3BB51FA54DEC000D2255 /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 		A15043F41FA2B7AA0018B909 /* TipCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipCategory.swift; sourceTree = "<group>"; };
 		A15043F71FA2B97B0018B909 /* TipFactoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipFactoryTests.swift; sourceTree = "<group>"; };
 		A15043F91FA336520018B909 /* TipCategoryFactoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipCategoryFactoryTests.swift; sourceTree = "<group>"; };
@@ -107,6 +110,7 @@
 		A15044011FA342740018B909 /* Data Model */ = {
 			isa = PBXGroup;
 			children = (
+				A11C3BB51FA54DEC000D2255 /* Response.swift */,
 				A1EC9A081FA14510000B5A33 /* Entries.swift */,
 				A15044091FA503920018B909 /* Entry.swift */,
 				A15043FE1FA33C210018B909 /* Tip.swift */,
@@ -317,6 +321,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A11C3BB61FA54DEC000D2255 /* Response.swift in Sources */,
 				A150440A1FA503920018B909 /* Entry.swift in Sources */,
 				A1EC9A091FA14511000B5A33 /* Entries.swift in Sources */,
 				A1AB0E211FA0185100F1D3FF /* AppDelegate.swift in Sources */,
@@ -337,6 +342,7 @@
 				A15044001FA33C210018B909 /* Tip.swift in Sources */,
 				A16756BE1FA14BD90002E820 /* TipTests.swift in Sources */,
 				A1EC9A0A1FA14511000B5A33 /* Entries.swift in Sources */,
+				A11C3BB71FA54DEC000D2255 /* Response.swift in Sources */,
 				A1AB0E511FA01A1D00F1D3FF /* AdvisorViewController.swift in Sources */,
 				A1D9555F1FA17BF2002C7563 /* TipCategoryTests.swift in Sources */,
 				A15043F81FA2B97B0018B909 /* TipFactoryTests.swift in Sources */,

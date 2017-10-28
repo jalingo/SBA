@@ -55,13 +55,6 @@ class ResponseTests: XCTestCase {
     }
 }
 
-protocol ResponseAggregator {
-    
-    func byRandom() -> NSAttributedString
-    
-    func byIndex(of: Int) -> NSAttributedString
-}
-
 struct MockResponse: ResponseAggregator {
     
     func byRandom() -> NSAttributedString {
