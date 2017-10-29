@@ -67,16 +67,12 @@ class AdvisorViewController: UIViewController {
     }
     
     @IBAction func helpPressed(_ sender: UIButton) {
-        textView.text = "To contact the app's creators with any questions or comments, email dev@escapechaos.com."
+        textView.text = "To contact the app's creators with any questions or comments, email dev@escapechaos.com.\n\nOr, check out our site escapechaos.com"
     }
     
-    @IBAction func swipeLeft(_ sender: UISwipeGestureRecognizer) {
-        shakeRoutine()
-    }
+    @IBAction func swipeLeft(_ sender: UISwipeGestureRecognizer) { shakeRoutine() }
     
-    @IBAction func swipeRight(_ sender: UISwipeGestureRecognizer) {
-        decreasePage()
-    }
+    @IBAction func swipeRight(_ sender: UISwipeGestureRecognizer) { decreasePage() }
     
     // MARK: - Functions: UIViewController
     
@@ -90,19 +86,3 @@ class AdvisorViewController: UIViewController {
         if event?.subtype == .motionShake { shakeRoutine() }
     }
 }
-
-// MARK: - Struct: Response
-
-//struct Response {
-//
-//    // Stores the various responses, and delivers them randomly.
-//    static func random() -> String {
-////        return "Random Response" }
-//        return OldEntry.response(for: .random) }
-//    
-//    static func regular(for page: Int) -> String {
-//        return OldEntry.response(for: .businessTip(page))
-//    }
-////        return "Regular Response" }
-//}
-
