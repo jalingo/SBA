@@ -43,9 +43,10 @@ struct ResponseText: ResponseAggregator {
         
         _lastIndex = index
         let category = TipCategoryFactory.produceByIndex(index: index).bold
-        let text = TextFactory.produce(for: index)
+        let text = NSAttributedString(string: "\n\n\(TextFactory.produce(for: index))")
+        category.append(text)
         
-        return NSAttributedString(string: "\(category)\n\n\(text)")
+        return category
     }
     
     init() {

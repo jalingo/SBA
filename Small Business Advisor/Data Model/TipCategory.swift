@@ -34,7 +34,7 @@ enum TipCategory: Int {
         }
     }
     
-    var bold: NSAttributedString {
+    var bold: NSMutableAttributedString {
         let bold = [NSAttributedStringKey.font : UIFont.boldSystemFont(ofSize: 15)]
         var text: String
         
@@ -54,7 +54,7 @@ enum TipCategory: Int {
         case .outOfRange:   text = "Error"
         }
         
-        return NSAttributedString(string: text, attributes: bold)
+        return NSMutableAttributedString(string: text, attributes: bold)
     }
 }
 
