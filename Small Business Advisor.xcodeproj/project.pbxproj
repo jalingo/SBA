@@ -30,7 +30,6 @@
 		A1AB0E411FA0185100F1D3FF /* Small_Business_AdvisorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AB0E401FA0185100F1D3FF /* Small_Business_AdvisorUITests.swift */; };
 		A1AB0E501FA01A1D00F1D3FF /* AdvisorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AB0E4F1FA01A1D00F1D3FF /* AdvisorViewController.swift */; };
 		A1AB0E511FA01A1D00F1D3FF /* AdvisorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AB0E4F1FA01A1D00F1D3FF /* AdvisorViewController.swift */; };
-		A1AB0E521FA01A1D00F1D3FF /* AdvisorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AB0E4F1FA01A1D00F1D3FF /* AdvisorViewController.swift */; };
 		A1D9555F1FA17BF2002C7563 /* TipCategoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D9555E1FA17BF2002C7563 /* TipCategoryTests.swift */; };
 		A1D955601FA18663002C7563 /* Entries.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EC9A081FA14510000B5A33 /* Entries.swift */; };
 		A1EC9A091FA14511000B5A33 /* Entries.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EC9A081FA14510000B5A33 /* Entries.swift */; };
@@ -366,7 +365,6 @@
 			files = (
 				A1D955601FA18663002C7563 /* Entries.swift in Sources */,
 				A1AB0E411FA0185100F1D3FF /* Small_Business_AdvisorUITests.swift in Sources */,
-				A1AB0E521FA01A1D00F1D3FF /* AdvisorViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
