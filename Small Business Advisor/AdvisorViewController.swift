@@ -41,7 +41,7 @@ class AdvisorViewController: UIViewController {
             textView.attributedText = random
             pageLabel.text = "\(response.lastIndex)"
         } else {
-            page < TipFactory.max ? (page += 1) : (page = 0)
+            page < TipFactory.max ? (page += 1) : (page = 1)
             textView.attributedText = response.byIndex(of: page)
         }
     }
@@ -52,7 +52,7 @@ class AdvisorViewController: UIViewController {
         guard !randomSwitch.isOn else { shakeRoutine(); return }
         
         // Else, a swipe right means go back.
-        page < 1 ? (page -= 1) : (page = TipFactory.max)   
+        page > 1 ? (page -= 1) : (page = TipFactory.max)
         textView.attributedText = response.byIndex(of: page)
     }
     
