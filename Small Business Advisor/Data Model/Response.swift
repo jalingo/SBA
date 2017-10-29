@@ -12,27 +12,39 @@ import Foundation
 
 protocol ResponseAggregator {
     
-    func byRandom() -> NSAttributedString
+    var lastIndex: Int { get }
     
-    func byIndex(of: Int) -> NSAttributedString
+    mutating func byRandom() -> NSAttributedString
+    
+    mutating func byIndex(of: Int) -> NSAttributedString
 }
 
 struct Response: ResponseAggregator {
     
-    func byRandom() -> NSAttributedString {
+    fileprivate var _lastIndex = 0
+    
+    var lastIndex: Int { return _lastIndex }
+    
+    mutating func byRandom() -> NSAttributedString {
         let random = TipFactory.produceByRandom()
         
+        _lastIndex = random.index
         let category = random.category.bold
         let text = random.text
         
         return NSAttributedString(string: "\(category)\n\n\(text)")
     }
     
-    func byIndex(of index: Int) -> NSAttributedString {
+    mutating func byIndex(of index: Int) -> NSAttributedString {
         
+        _lastIndex = index
         let category = TipCategoryFactory.produceByIndex(index: index).bold
         let text = TextFactory.produce(for: index)
         
         return NSAttributedString(string: "\(category)\n\n\(text)")
+    }
+    
+    init() {
+        
     }
 }

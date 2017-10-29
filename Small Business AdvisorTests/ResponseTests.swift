@@ -53,21 +53,37 @@ class ResponseTests: XCTestCase {
             XCTAssert(mock?.byIndex(of: index) == NSAttributedString(string: validation), "Failed @:\(index)")
         }
     }
+    
+    func testResponseStoresLastIndex() {
+        let testResult = mock?.byRandom()
+        
+        if let index = mock?.lastIndex {
+            XCTAssertEqual(testResult, mock?.byIndex(of: index))
+        } else {
+            XCTFail()
+        }
+    }
 }
 
 struct MockResponse: ResponseAggregator {
     
-    func byRandom() -> NSAttributedString {
+    var _lastIndex = 0
+    
+    var lastIndex: Int { return _lastIndex }
+    
+    mutating func byRandom() -> NSAttributedString {
         let random = TipFactory.produceByRandom()
         
+        _lastIndex = random.index
         let category = random.category.bold
         let text = random.text
         
         return NSAttributedString(string: "\(category)\n\n\(text)")
     }
     
-    func byIndex(of index: Int) -> NSAttributedString {
+    mutating func byIndex(of index: Int) -> NSAttributedString {
         
+        _lastIndex = index
         let category = TipCategoryFactory.produceByIndex(index: index).bold
         let text = TextFactory.produce(for: index)
 

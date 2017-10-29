@@ -107,11 +107,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A11C3BB81FA55043000D2255 /* Deprecated */ = {
+			isa = PBXGroup;
+			children = (
+				A1EC9A081FA14510000B5A33 /* Entries.swift */,
+			);
+			path = Deprecated;
+			sourceTree = "<group>";
+		};
 		A15044011FA342740018B909 /* Data Model */ = {
 			isa = PBXGroup;
 			children = (
+				A11C3BB81FA55043000D2255 /* Deprecated */,
 				A11C3BB51FA54DEC000D2255 /* Response.swift */,
-				A1EC9A081FA14510000B5A33 /* Entries.swift */,
 				A15044091FA503920018B909 /* Entry.swift */,
 				A15043FE1FA33C210018B909 /* Tip.swift */,
 				A15043F41FA2B7AA0018B909 /* TipCategory.swift */,

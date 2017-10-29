@@ -87,11 +87,11 @@ struct MockTipFactory: EntryFactory {
     static let max = 105
 
     static func produceByIndex(index integer: Int) -> Entry {
-        return MockTip(index: integer, category: TipCategoryFactory.produceByIndex(index: integer), text: "Test")
+        return MockTip(index: integer, category: TipCategoryFactory.produceByIndex(index: integer), text: TextFactory.produce(for: integer))
     }
     
     static func produceByRandom() -> Entry {
         let random = Int(arc4random_uniform(UInt32(self.max)))
-        return MockTip(index: random, category: TipCategoryFactory.produceByIndex(index: random), text: "Test")
+        return produceByIndex(index: random)
     }
 }

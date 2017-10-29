@@ -42,11 +42,11 @@ struct TipFactory: EntryFactory {
     static let max = 105
     
     static func produceByIndex(index integer: Int) -> Entry {
-        return Tip(index: integer, category: TipCategoryFactory.produceByIndex(index: integer), text: "Test")
+        return Tip(index: integer, category: TipCategoryFactory.produceByIndex(index: integer), text: TextFactory.produce(for: integer))
     }
     
     static func produceByRandom() -> Entry {
         let random = Int(arc4random_uniform(UInt32(self.max)))
-        return Tip(index: random, category: TipCategoryFactory.produceByIndex(index: random), text: "Test")
+        return produceByIndex(index: random)
     }
 }

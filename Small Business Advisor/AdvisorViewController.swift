@@ -12,6 +12,8 @@ class AdvisorViewController: UIViewController {
     
     // MARK: - Properties
     
+    var response = Response()
+    
     var page = 0 {
         didSet { pageLabel.text = String(page) }
     }
@@ -34,11 +36,13 @@ class AdvisorViewController: UIViewController {
     
     fileprivate func shakeRoutine() {
         if randomSwitch.isOn {
-            textView.text = Response.random()
-            pageLabel.text = "Rand"   // <- get page from response
+            let random = response.byRandom()
+            
+            textView.text = "\(random)"
+            pageLabel.text = "\(response.lastIndex)"   // <- get page from response
         } else {
             page < OldEntry.MAX_COUNT - 1 ? (page += 1) : (page = 0)    // <-- Need to adjust counts to start from "1"
-            textView.text = Response.regular(for: page)
+            textView.text = "\(response.byIndex(of: page))"
         }
     }
     
@@ -49,7 +53,7 @@ class AdvisorViewController: UIViewController {
         
         // Else, a swipe right means go back.
         page != 0 ? (page -= 1) : (page = OldEntry.MAX_COUNT)   // <-- When counts start from 1 => "page > 1"
-        textView.text = Response.regular(for: page)
+        textView.text = "\(response.byIndex(of: page))"
     }
     
     // MARK: - Functions: IBActions
@@ -89,16 +93,16 @@ class AdvisorViewController: UIViewController {
 
 // MARK: - Struct: Response
 
-struct Response {
-    
-    // Stores the various responses, and delivers them randomly.
-    static func random() -> String {
-//        return "Random Response" }
-        return OldEntry.response(for: .random) }
-    
-    static func regular(for page: Int) -> String {
-        return OldEntry.response(for: .businessTip(page))
-    }
-//        return "Regular Response" }
-}
+//struct Response {
+//
+//    // Stores the various responses, and delivers them randomly.
+//    static func random() -> String {
+////        return "Random Response" }
+//        return OldEntry.response(for: .random) }
+//    
+//    static func regular(for page: Int) -> String {
+//        return OldEntry.response(for: .businessTip(page))
+//    }
+////        return "Regular Response" }
+//}
 
