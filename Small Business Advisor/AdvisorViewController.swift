@@ -12,7 +12,7 @@ class AdvisorViewController: UIViewController {
     
     // MARK: - Properties
     
-    var response = Response()
+    var response = ResponseText()
     
     var page = 0 {
         didSet { pageLabel.text = String(page) }

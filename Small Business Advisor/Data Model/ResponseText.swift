@@ -19,7 +19,7 @@ protocol ResponseAggregator {
     mutating func byIndex(of: Int) -> NSAttributedString
 }
 
-struct Response: ResponseAggregator {
+struct ResponseText: ResponseAggregator {
     
     fileprivate var _lastIndex = 0
     
