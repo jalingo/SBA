@@ -18,7 +18,7 @@ class ResponseTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        mock = MockResponse()
+        mock = ResponseText()
     }
     
     override func tearDown() {
@@ -46,11 +46,13 @@ class ResponseTests: XCTestCase {
     func testResponseByIndexWorks() {
         
         for index in 1...105 {
-            let validationBody = TextFactory.produce(for: index)
-            let validationTitle = TipCategoryFactory.produceByIndex(index: index).bold
+            let validation = TipCategoryFactory.produceByIndex(index: index).bold
 
-            let validation = "\(validationTitle)\n\n\(validationBody)"
-            XCTAssert(mock?.byIndex(of: index) == NSAttributedString(string: validation), "Failed @:\(index)")
+            let validationBody = TextFactory.produce(for: index)
+            validation.append(NSAttributedString(string: "\n\n"))
+            validation.append(NSAttributedString(string: validationBody))
+            
+            XCTAssert(mock?.byIndex(of: index) == validation, "Failed @:\(index)")
         }
     }
     
@@ -78,7 +80,10 @@ struct MockResponse: ResponseAggregator {
         let category = random.category.bold
         let text = random.text
         
-        return NSAttributedString(string: "\(category)\n\n\(text)")
+        category.append(NSAttributedString(string: "\n\n)"))
+        category.append(NSAttributedString(string: text))
+
+        return category
     }
     
     mutating func byIndex(of index: Int) -> NSAttributedString {
@@ -87,6 +92,9 @@ struct MockResponse: ResponseAggregator {
         let category = TipCategoryFactory.produceByIndex(index: index).bold
         let text = TextFactory.produce(for: index)
 
-        return NSAttributedString(string: "\(category)\n\n\(text)")
+        category.append(NSAttributedString(string: "\n\n)"))
+        category.append(NSAttributedString(string: text))
+
+        return category
     }
 }
