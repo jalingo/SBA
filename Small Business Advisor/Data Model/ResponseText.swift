@@ -32,7 +32,11 @@ struct ResponseText: ResponseAggregator {
         let category = random.category.bold
         let text = random.text
         
-        return NSAttributedString(string: "\(category)\n\n\(text)")
+        let response = NSMutableAttributedString(attributedString: category)
+        response.append(NSAttributedString(string: "\n\n"))
+        response.append(NSAttributedString(string: text))
+        
+        return response
     }
     
     mutating func byIndex(of index: Int) -> NSAttributedString {
