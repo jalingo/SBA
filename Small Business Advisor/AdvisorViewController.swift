@@ -79,6 +79,8 @@ class AdvisorViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        textView.attributedText = NSAttributedString(string: "Shake for Advice!", attributes: CategoryFormatting())
+        
         self.becomeFirstResponder()
     }
     
