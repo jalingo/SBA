@@ -27,7 +27,7 @@ func BodyTextFormatting() -> [NSAttributedStringKey : NSObject] {
     //    }
     
     let formatting = [
-        NSAttributedStringKey.font :            UIFont.boldSystemFont(ofSize: 15),
+        NSAttributedStringKey.font :            UIFont.boldSystemFont(ofSize: 18),
         NSAttributedStringKey.foregroundColor:  UIColor(red: 0.55, green: 0.78, blue: 0.25, alpha: 1.0),
         //        NSAttributedStringKey.shadow:           shadow
     ]

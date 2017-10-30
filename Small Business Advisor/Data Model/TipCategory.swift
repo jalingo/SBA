@@ -67,7 +67,7 @@ func CategoryFormatting() -> [NSAttributedStringKey: NSObject] {
         let _shadow = NSShadow()
         
         _shadow.shadowBlurRadius = 2
-        _shadow.shadowOffset = CGSize(width: 2, height: 2)
+        _shadow.shadowOffset = CGSize(width: 1, height: 1)
         _shadow.shadowColor = UIColor.darkGray
         
         return _shadow

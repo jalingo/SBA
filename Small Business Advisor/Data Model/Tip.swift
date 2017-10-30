@@ -20,7 +20,7 @@ struct Tip: Entry {
         self.category = cat
         self.text = str
         
-        integer > 0 ? (self.index = integer) : (self.index = 999999)
+        integer > 0 ? (self.index = integer) : (self.index = 1)
     }
 }
 
@@ -42,14 +42,11 @@ struct TipFactory: EntryFactory {
     static let max = 105
     
     static func produceByIndex(index integer: Int) -> Entry {
-        let tip = Tip(index: integer, category: TipCategoryFactory.produceByIndex(index: integer), text: TextFactory.produce(for: integer))
-print("tip: \(tip)")
-        return tip
+        return Tip(index: integer, category: TipCategoryFactory.produceByIndex(index: integer), text: TextFactory.produce(for: integer))
     }
     
     static func produceByRandom() -> Entry {
         let random = Int(arc4random_uniform(UInt32(self.max)))
-print("random \(random)")
         return produceByIndex(index: random)
     }
 }
