@@ -16,20 +16,12 @@ protocol StringFactory {
 
 func BodyTextFormatting() -> [NSAttributedStringKey : NSObject] {
     
-    //    var shadow: NSShadow {
-    //        let _shadow = NSShadow()
-    //
-    //        _shadow.shadowBlurRadius = 2
-    //        _shadow.shadowOffset = CGSize(width: 2, height: 2)
-    //        _shadow.shadowColor = UIColor.darkGray
-    //
-    //        return _shadow
-    //    }
+    let style = NSMutableParagraphStyle()
+    style.alignment = NSTextAlignment.center
     
     let formatting = [
         NSAttributedStringKey.font :            UIFont.boldSystemFont(ofSize: 18),
-        NSAttributedStringKey.foregroundColor:  UIColor(red: 0.55, green: 0.78, blue: 0.25, alpha: 1.0),
-        //        NSAttributedStringKey.shadow:           shadow
+        NSAttributedStringKey.foregroundColor:  UIColor(red: 0.55, green: 0.78, blue: 0.25, alpha: 1.0)
     ]
     
     return formatting
@@ -37,7 +29,7 @@ func BodyTextFormatting() -> [NSAttributedStringKey : NSObject] {
 
 struct TextFactory: StringFactory {
     
-    static var max = 105   // <-- Eventually these will have to calculate dynamic totals...
+    static var max = 105   // <-- Eventually these will have to calculate dynamic totals...after coredata, before icloud
     
     static func produce(for index: Int) -> NSAttributedString {
         return NSAttributedString(string: unattributedString(for: index), attributes: BodyTextFormatting())

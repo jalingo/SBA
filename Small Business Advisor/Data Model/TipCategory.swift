@@ -72,11 +72,15 @@ func CategoryFormatting() -> [NSAttributedStringKey: NSObject] {
         
         return _shadow
     }
+
+    let style = NSMutableParagraphStyle()
+    style.alignment = NSTextAlignment.center
     
     let formatting = [
         NSAttributedStringKey.font :            UIFont.boldSystemFont(ofSize: 24),
         NSAttributedStringKey.foregroundColor:  UIColor(red: 0.55, green: 0.78, blue: 0.25, alpha: 1.0),
-        NSAttributedStringKey.shadow:           shadow
+        NSAttributedStringKey.shadow:           shadow,
+        NSAttributedStringKey.paragraphStyle:   style
     ]
     
     return formatting
