@@ -50,7 +50,6 @@ class ResponseTests: XCTestCase {
 
             let validationBody = TextFactory.produce(for: index)
             validation.append(NSAttributedString(string: "\n\n"))
-//            validation.append(NSAttributedString(string: validationBody, attributes: BodyTextFormatting()))
             validation.append(validationBody)
 
             XCTAssert(mock?.byIndex(of: index) == validation, "Failed @:\(index)")

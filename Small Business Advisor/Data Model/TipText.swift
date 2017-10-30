@@ -40,7 +40,7 @@ struct TextFactory: StringFactory {
     static var max = 105   // <-- Eventually these will have to calculate dynamic totals...
     
     static func produce(for index: Int) -> NSAttributedString {
-        return NSAttributedString(string: unattributedString(for: index))
+        return NSAttributedString(string: unattributedString(for: index), attributes: BodyTextFormatting())
     }
     
     fileprivate static func unattributedString(for index: Int) -> String {

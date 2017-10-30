@@ -41,13 +41,13 @@ class TextFactoryTests: XCTestCase {
         let belowRange = MockTextFactory.produce(for: -3)
         let aboveRange = MockTextFactory.produce(for: 199)
         
-        if let lowBall = Int("\(belowRange)") {
+        if let lowBall = Int(belowRange.string) {
             XCTAssert(lowBall > 0)
         } else {
             XCTFail()
         }
         
-        if let hiBall = Int("\(aboveRange)") {
+        if let hiBall = Int(aboveRange.string) {
             XCTAssert(hiBall < 106)
         } else {
             XCTFail()
