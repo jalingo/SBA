@@ -46,12 +46,13 @@ class ResponseTests: XCTestCase {
     func testResponseByIndexWorks() {
         
         for index in 1...105 {
-            let validation = TipCategoryFactory.produceByIndex(index: index).bold
+            let validation = TipCategoryFactory.produceByIndex(index: index).formatted
 
             let validationBody = TextFactory.produce(for: index)
             validation.append(NSAttributedString(string: "\n\n"))
-            validation.append(NSAttributedString(string: validationBody))
-            
+//            validation.append(NSAttributedString(string: validationBody, attributes: BodyTextFormatting()))
+            validation.append(validationBody)
+
             XCTAssert(mock?.byIndex(of: index) == validation, "Failed @:\(index)")
         }
     }
@@ -64,37 +65,5 @@ class ResponseTests: XCTestCase {
         } else {
             XCTFail()
         }
-    }
-}
-
-struct MockResponse: ResponseAggregator {
-    
-    var _lastIndex = 0
-    
-    var lastIndex: Int { return _lastIndex }
-    
-    mutating func byRandom() -> NSAttributedString {
-        let random = TipFactory.produceByRandom()
-        
-        _lastIndex = random.index
-        let category = random.category.bold
-        let text = random.text
-        
-        category.append(NSAttributedString(string: "\n\n)"))
-        category.append(NSAttributedString(string: text))
-
-        return category
-    }
-    
-    mutating func byIndex(of index: Int) -> NSAttributedString {
-        
-        _lastIndex = index
-        let category = TipCategoryFactory.produceByIndex(index: index).bold
-        let text = TextFactory.produce(for: index)
-
-        category.append(NSAttributedString(string: "\n\n)"))
-        category.append(NSAttributedString(string: text))
-
-        return category
     }
 }

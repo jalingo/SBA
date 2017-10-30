@@ -21,7 +21,7 @@ class TipTests: XCTestCase {
         
         mock = MockTip(index: 0,
                        category: .planning,
-                       text: "TestText")
+                       text: NSAttributedString(string: "TestText"))
     }
     
     override func tearDown() {
@@ -42,23 +42,23 @@ class TipTests: XCTestCase {
     func testIndexCantBeZeroOrNegative() {
         XCTAssertFalse(mock!.index < 1)
         
-        let newMock = MockTip(index: -1, category: .planning, text: "A")
+        let newMock = MockTip(index: -1, category: .planning, text: NSAttributedString(string: "A"))
         XCTAssertFalse(newMock.index < 1)
         
-        let nextMock = MockTip(index: 0, category: .planning, text: "B")
+        let nextMock = MockTip(index: 0, category: .planning, text: NSAttributedString(string: "B"))
         XCTAssertFalse(nextMock.index < 1)
     }    
 }
 
 struct MockTip: Entry {
     
-    let text: String
+    let text: NSAttributedString
     
     let category: TipCategory
     
     let index: Int
     
-    init(index integer: Int, category cat: TipCategory, text str: String) {
+    init(index integer: Int, category cat: TipCategory, text str: NSAttributedString) {
         self.category = cat
         self.text = str
         

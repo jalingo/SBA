@@ -15,7 +15,7 @@ enum TipCategory: Int {
     
     static let max = TipCategory.legal.rawValue + 1
     
-    var indexRange: CountableClosedRange<Int> {   // <-- May need to become CountableClosedRange if iteration needed
+    var indexRange: CountableClosedRange<Int> {   
         
         switch self {
         case .planning:     return  1...23
@@ -34,8 +34,7 @@ enum TipCategory: Int {
         }
     }
     
-    var bold: NSMutableAttributedString {
-        let bold = [NSAttributedStringKey.font : UIFont.boldSystemFont(ofSize: 15)]
+    var formatted: NSMutableAttributedString {
         var text: String
         
         switch self {
@@ -54,12 +53,33 @@ enum TipCategory: Int {
         case .outOfRange:   text = "Error"
         }
         
-        return NSMutableAttributedString(string: text, attributes: bold)
+        return NSMutableAttributedString(string: text, attributes: CategoryFormatting())
     }
 }
 
 protocol CategoryFactory {
     static func produceByIndex(index: Int) -> TipCategory
+}
+
+func CategoryFormatting() -> [NSAttributedStringKey: NSObject] {
+    
+    var shadow: NSShadow {
+        let _shadow = NSShadow()
+        
+        _shadow.shadowBlurRadius = 2
+        _shadow.shadowOffset = CGSize(width: 2, height: 2)
+        _shadow.shadowColor = UIColor.darkGray
+        
+        return _shadow
+    }
+    
+    let formatting = [
+        NSAttributedStringKey.font :            UIFont.boldSystemFont(ofSize: 24),
+        NSAttributedStringKey.foregroundColor:  UIColor(red: 0.55, green: 0.78, blue: 0.25, alpha: 1.0),
+        NSAttributedStringKey.shadow:           shadow
+    ]
+    
+    return formatting
 }
 
 struct TipCategoryFactory: CategoryFactory {

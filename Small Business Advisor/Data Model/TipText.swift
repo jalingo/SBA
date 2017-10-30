@@ -6,19 +6,44 @@
 //  Copyright © 2017 Escape Chaos. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 protocol StringFactory {
     static var max: Int { get }
     
-    static func produce(for index: Int) -> String
+    static func produce(for index: Int) -> NSAttributedString
+}
+
+func BodyTextFormatting() -> [NSAttributedStringKey : NSObject] {
+    
+    //    var shadow: NSShadow {
+    //        let _shadow = NSShadow()
+    //
+    //        _shadow.shadowBlurRadius = 2
+    //        _shadow.shadowOffset = CGSize(width: 2, height: 2)
+    //        _shadow.shadowColor = UIColor.darkGray
+    //
+    //        return _shadow
+    //    }
+    
+    let formatting = [
+        NSAttributedStringKey.font :            UIFont.boldSystemFont(ofSize: 15),
+        NSAttributedStringKey.foregroundColor:  UIColor(red: 0.55, green: 0.78, blue: 0.25, alpha: 1.0),
+        //        NSAttributedStringKey.shadow:           shadow
+    ]
+    
+    return formatting
 }
 
 struct TextFactory: StringFactory {
     
     static var max = 105   // <-- Eventually these will have to calculate dynamic totals...
     
-    static func produce(for index: Int) -> String {
+    static func produce(for index: Int) -> NSAttributedString {
+        return NSAttributedString(string: unattributedString(for: index))
+    }
+    
+    fileprivate static func unattributedString(for index: Int) -> String {
         switch index {
         case ..<2:  return "Only when the commercial potential of an idea is identified, does it become an actual business opportunity; when you can turn a profit by selling a product / service."
         case 2:     return "There are several grant, loan and bond opportunities available through the Small Business Administration."

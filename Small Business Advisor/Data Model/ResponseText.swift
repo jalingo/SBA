@@ -6,7 +6,7 @@
 //  Copyright © 2017 Escape Chaos. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 // Response pulls information from the data model and prepares it for delivery to the view controller.
 
@@ -29,12 +29,11 @@ struct ResponseText: ResponseAggregator {
         let random = TipFactory.produceByRandom()
         
         _lastIndex = random.index
-        let category = random.category.bold
-        let text = random.text
+        let category = random.category.formatted
         
         let response = NSMutableAttributedString(attributedString: category)
         response.append(NSAttributedString(string: "\n\n"))
-        response.append(NSAttributedString(string: text))
+        response.append(random.text)
         
         return response
     }
@@ -42,7 +41,7 @@ struct ResponseText: ResponseAggregator {
     mutating func byIndex(of index: Int) -> NSAttributedString {
         
         _lastIndex = index
-        let category = TipCategoryFactory.produceByIndex(index: index).bold
+        let category = TipCategoryFactory.produceByIndex(index: index).formatted
         let text = NSAttributedString(string: "\n\n\(TextFactory.produce(for: index))")
         category.append(text)
         

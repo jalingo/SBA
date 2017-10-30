@@ -10,13 +10,13 @@ import Foundation
 
 struct Tip: Entry {
     
-    let text: String
+    let text: NSAttributedString
     
     let category: TipCategory
     
     let index: Int
     
-    init(index integer: Int, category cat: TipCategory, text str: String) {
+    init(index integer: Int, category cat: TipCategory, text str: NSAttributedString) {
         self.category = cat
         self.text = str
         

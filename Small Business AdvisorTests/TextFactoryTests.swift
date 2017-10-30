@@ -28,7 +28,7 @@ class TextFactoryTests: XCTestCase {
     
     func testStringFactoryHasMax() { XCTAssert(MockTextFactory.max == 105) }    // <-- This will need to switch to a dynamic total.
     
-    func testStringFactoryProducesString() { XCTAssert(MockTextFactory.produce(for: 0) is String) }
+    func testStringFactoryProducesString() { XCTAssert(MockTextFactory.produce(for: 0) is NSAttributedString) }
     
     func testStringFactoryProducesDifferentStrings() {
         let first = MockTextFactory.produce(for: 1)
@@ -41,13 +41,13 @@ class TextFactoryTests: XCTestCase {
         let belowRange = MockTextFactory.produce(for: -3)
         let aboveRange = MockTextFactory.produce(for: 199)
         
-        if let lowBall = Int(belowRange) {
+        if let lowBall = Int("\(belowRange)") {
             XCTAssert(lowBall > 0)
         } else {
             XCTFail()
         }
         
-        if let hiBall = Int(aboveRange) {
+        if let hiBall = Int("\(aboveRange)") {
             XCTAssert(hiBall < 106)
         } else {
             XCTFail()
@@ -59,11 +59,16 @@ struct MockTextFactory: StringFactory {
     
     static var max = 105   // <-- Eventually these will have to calculate dynamic totals...
     
-    static func produce(for index: Int) -> String {
+    static func produce(for index: Int) -> NSAttributedString {
+
+        var str: String
+        
         switch index {
-        case ..<1:      return "\(1)"
-        case 1..<105:   return "\(index)"
-        default:        return "\(105)"
+        case ..<1:      str = "\(1)"
+        case 1..<105:   str = "\(index)"
+        default:        str = "\(105)"
         }
+        
+        return NSAttributedString(string: str)
     }
 }

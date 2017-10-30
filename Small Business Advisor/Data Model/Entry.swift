@@ -10,7 +10,7 @@ import Foundation
 
 protocol Entry {
     
-    var text: String { get }
+    var text: NSAttributedString { get }
     
     var category: TipCategory { get }
     
@@ -43,7 +43,7 @@ struct AnyEntry: Entry {
     
     let wrappedEntry: Entry
     
-    var text: String { return wrappedEntry.text }
+    var text: NSAttributedString { return wrappedEntry.text }
     
     var category: TipCategory { return wrappedEntry.category }
     
