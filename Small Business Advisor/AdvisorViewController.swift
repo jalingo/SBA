@@ -59,11 +59,16 @@ class AdvisorViewController: UIViewController {
     // MARK: - Functions: IBActions
     
     @IBAction func randomSwitched(_ sender: UISwitch) {
-        if sender.isOn {
-            textView.text = "Shake for Advice!"
-        } else {
-            textView.text = "Swipe through the various tips..."
-        }
+        let txt: String
+        
+        sender.isOn ? (txt = "Shake for Advice!") : (txt = "Swipe through the various tips...")
+        textView.attributedText = NSAttributedString(string: txt, attributes: CategoryFormatting())
+        
+//        if sender.isOn {
+//            textView.text = "Shake for Advice!"
+//        } else {
+//            textView.text = "Swipe through the various tips..."
+//        }
     }
     
     @IBAction func helpPressed(_ sender: UIButton) {
