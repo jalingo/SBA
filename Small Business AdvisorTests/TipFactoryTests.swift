@@ -34,6 +34,7 @@ class TipFactoryTests: XCTestCase {
         XCTAssert(MockTipFactory.produceByIndex(index: 9).index == 9)
     }
     
+    // There's a chance this will fail by accident.
     func testEntryFactoryProducesByRandom() {
         XCTAssertFalse(AnyEntry(entry: MockTipFactory.produceByRandom()) == AnyEntry(entry: MockTipFactory.produceByRandom()))
     }
