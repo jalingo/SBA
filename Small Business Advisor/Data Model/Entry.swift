@@ -147,9 +147,7 @@ struct AnyEntry: Entry {
      */
     func asEntry() -> Entry { return wrappedEntry }
 
-    /**
-        This init method takes the argument and wraps it with `AnyEntry` to make `Equatable`.
-     */
+    /// This init method takes the argument and wraps it with `AnyEntry` to make `Equatable`.
     init(entry: Entry) { wrappedEntry = entry }
 }
 
