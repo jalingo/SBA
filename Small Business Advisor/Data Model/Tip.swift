@@ -8,14 +8,37 @@
 
 import Foundation
 
+// Conforms to `Entry` protocol (see 'Entry.swift').
+
+// MARK: Struct
+
+/**
+    This struct is the core implementation of the Entry protocol.
+ 
+    If the user interface becomes more complex, individual viewControllers may adopt the Entry protocol, at which
+    point this implementation may need to be deprecated.
+ */
 struct Tip: Entry {
     
-    let text: NSAttributedString
+    // MARK: - Properties
     
+    /// This constant property stores a formatted version of the entry's text.
+    let text: NSAttributedString
+
+    /// This constant property stores an enumeration of the entry's category.
     let category: TipCategory
     
+    /// This constant property storea an unique index associated with the entry text.
     let index: Int
     
+    // MARK: - Functions
+
+    /**
+        - Parameters:
+         - index: A unique numerical identifier associated with the entry's text. If out of range, corrected.
+         - category: An enumeration of the category entry is associated with.
+         - text: The entry's primary data, as a formatted string.
+     */
     init(index integer: Int, category cat: TipCategory, text str: NSAttributedString) {
         self.category = cat
         self.text = str
@@ -24,29 +47,8 @@ struct Tip: Entry {
     }
 }
 
+// MARK: - Extension
+
 extension Tip: Equatable {
     static func ==(left: Tip, right: Tip) -> Bool { return left.index == right.index }
-}
-
-protocol EntryFactory {
-    
-    static var max: Int { get }
-    
-    static func produceByIndex(index: Int) -> Entry
-    
-    static func produceByRandom() -> Entry
-}
-
-struct TipFactory: EntryFactory {
-    
-    static let max = 105
-    
-    static func produceByIndex(index integer: Int) -> Entry {
-        return Tip(index: integer, category: TipCategoryFactory.produceByIndex(index: integer), text: TextFactory.produce(for: integer))
-    }
-    
-    static func produceByRandom() -> Entry {
-        let random = Int(arc4random_uniform(UInt32(self.max)))
-        return produceByIndex(index: random)
-    }
 }

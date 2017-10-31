@@ -54,10 +54,7 @@ protocol Entry {
         Currently, the existance of unique index makes implementation a simple comparison of indices, but if data
         model had to drop `index` each of these methods would need to be implemented and the `isEqualTo(entry:)`
         in the below extension needs to be removed (to force unique implementations).
-     
-        The following method isn't strictly necessary because of the extension implementation, except that it
-        forces all Entry's to be Equatable (preventing a non-equatable from being wrapped).
-     
+          
         Conforming to equatable allows automatic conformance without implementing, through Entry extension.
      
         - Warning: This pattern relies on each entry having a unique index, for easy comparisons.
