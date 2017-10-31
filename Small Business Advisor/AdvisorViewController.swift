@@ -99,8 +99,12 @@ class AdvisorViewController: UIViewController {
      - Warning: Links are left out of formatting, because `textView` is set to recognize links in text.
      */
     @IBAction func helpPressed(_ sender: UIButton) {
-        let txt = "To contact the app's creators with any questions or comments: dev@escapechaos.com\n\nOr, check out our site escapechaos.com/advisor"
-        textView.attributedText = NSAttributedString(string: txt, attributes: CategoryFormatting())
+        textView.attributedText = NSAttributedString(string: """
+To contact the app's creators with any questions or comments: dev@escapechaos.com
+
+Or, check out our site escapechaos.com/advisor
+""",
+                                                     attributes: CategoryFormatting())
     }
     
     /// Recognizes the USER performing swipe gesture on `textView` and takes action based on direction.
