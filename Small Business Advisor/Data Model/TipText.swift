@@ -95,7 +95,7 @@ struct TextFactory: StringFactory {
         case 56:    return "Good accounting systems can help a firm provide value to its customers through better billing and increased efficiency."
         case 57:    return "Small businesses today can acquire very powerful computer accounting software packages. These packages are affordable and relatively easy to use."
         case 58:    return "CRM software was formerly so complex and expensive that it was suitable for large corporations only. Now it can be used by the smallest of businesses to improve customer value."
-        case 59:    return "zoho.com has powerful CRM tools and is free to groups of 10 or less"
+        case 59:    return "zoho.com has powerful CRM tools and is free to groups of 10 or less."
         case 60:    return "fiverr.com is a great resource for many outsourcing needs."
         case 61:    return "The initial time and effort investment to configure automation has a huge return, when implemented properly."
         case 62:    return "The success of a business depends on its ability to identify the unmet needs of consumers and to develop products that meet those needs at a reasonable cost."
