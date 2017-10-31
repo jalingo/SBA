@@ -8,6 +8,11 @@
 
 import UIKit
 
+/**
+ * The `AdvisorViewController` is the only view controller for the entire app. It handles all user interactions
+ * (swipes, shakes and taps) and displays the appropriate strings harvested from the data model (ResponseText).
+ */
+
 class AdvisorViewController: UIViewController {
     
     // MARK: - Properties
@@ -63,16 +68,10 @@ class AdvisorViewController: UIViewController {
         
         sender.isOn ? (txt = "Shake for Advice!") : (txt = "Swipe through the various tips...")
         textView.attributedText = NSAttributedString(string: txt, attributes: CategoryFormatting())
-        
-//        if sender.isOn {
-//            textView.text = "Shake for Advice!"
-//        } else {
-//            textView.text = "Swipe through the various tips..."
-//        }
     }
     
     @IBAction func helpPressed(_ sender: UIButton) {
-        textView.text = "To contact the app's creators with any questions or comments, email dev@escapechaos.com.\n\nOr, check out our site escapechaos.com"
+        textView.text = "To contact the app's creators with any questions or comments: dev@escapechaos.com\n\nOr, check out our site escapechaos.com/advisor"
     }
     
     @IBAction func swipeLeft(_ sender: UISwipeGestureRecognizer) { shakeRoutine() }
