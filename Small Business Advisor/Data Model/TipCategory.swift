@@ -9,12 +9,34 @@
 import Foundation
 import UIKit
 
+// MARK: Enum
+
+/**
+    This enumerates the different categories of tips that exist.
+ 
+    - Planning: Tips that concern preparing and designing a business strategy and plan.
+    - Organization: Tips that concern structuring administration and tasks for clarity.
+    - Marketing: Tips that concern marketing research, planning and campaigns.
+    - Operations: Tips that concern the operational aspects of a business.
+    - Technology: Tips that concern software and web services.
+    - Value: Tips that concern creating, defining and maximizing value.
+    - Efficiency: Tips that concern structuring transactions and workflows for maximized productivity.
+    - Fiscal: Tips that concern accounting, financial and monetary issues.
+    - HR: TIps that concern ethics and human resources.
+    - Security: TIps that concern securing intellectual property and client information.
+    - Legal: TIps that concern regulations and legislative issues.
+ 
+    - OutOfRange: This enumeration represents an error.
+ */
 enum TipCategory: Int {
+
     case planning = 0, organization, marketing, operations, technology, value, efficiency, fiscal, hr, security, legal
     case outOfRange = -1
     
+    /// This static constant property returns the total number of categories.
     static let max = TipCategory.legal.rawValue + 1
     
+    /// This computed property returns the range of tip indices associated with each category.
     var indexRange: CountableClosedRange<Int> {   
         
         switch self {
@@ -34,6 +56,7 @@ enum TipCategory: Int {
         }
     }
     
+    /// This computed property returns the title of each category as a string, with formatting.
     var formatted: NSMutableAttributedString {
         var text: String
         
@@ -57,10 +80,7 @@ enum TipCategory: Int {
     }
 }
 
-protocol CategoryFactory {
-    static func produceByIndex(index: Int) -> TipCategory
-}
-
+/// This global method provides the formatting for attributed strings representing category titles.
 func CategoryFormatting() -> [NSAttributedStringKey: NSObject] {
     
     var shadow: NSShadow {
@@ -86,9 +106,21 @@ func CategoryFormatting() -> [NSAttributedStringKey: NSObject] {
     return formatting
 }
 
+/// This protocol ensures conforming instances can produce a specified `TipCategory`.
+protocol CategoryFactory {
+    static func produceByIndex(index: Int) -> TipCategory
+}
+
+/// This struct conforming to `CategoryFactory` produces a specified `TipCategory`.
 struct TipCategoryFactory: CategoryFactory {
+    
+    /**
+        This static func creates a TipCategory based on specified index.
+     
+     - Parameter index: An integer reflecting the unique identifier for a tip in TipCategory.
+     - Returns: The TipCategory for the specified index.
+     */
     static func produceByIndex(index: Int) -> TipCategory {
-        
         switch index {
         case TipCategory.planning.indexRange:       return .planning
         case TipCategory.organization.indexRange:   return .organization
