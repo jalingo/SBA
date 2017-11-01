@@ -8,12 +8,25 @@
 
 import UIKit
 
+/**
+    This protocol ensures all instances conforming to `StringFactory` report total possible strings and can
+    produce formatted strings associated with a specified index.
+ */
 protocol StringFactory {
+
+    /// This read only property returns the total possible strings factory can produce.
     static var max: Int { get }
     
+    /**
+        This static func produces a formatted string associated with the specified index.
+     
+        - Parameter index: An integer reflecting the unique identifier for an entry.
+        - Returns: The formatted string of text specified.
+     */
     static func produce(for index: Int) -> NSAttributedString
 }
 
+/// This global method provides the formatting for attributed strings representing entry text.
 func BodyTextFormatting() -> [NSAttributedStringKey : NSObject] {
     
     let style = NSMutableParagraphStyle()
@@ -27,14 +40,26 @@ func BodyTextFormatting() -> [NSAttributedStringKey : NSObject] {
     return formatting
 }
 
+/**
+    This struct conforming to `StringFactory` reports total possible strings and creates formatted strings based
+    on the specified index.
+ */
 struct TextFactory: StringFactory {
     
+    /// This read only property returns the total possible strings factory can produce.
     static var max = 105   // <-- Eventually these will have to calculate dynamic totals...after coredata, before icloud
-    
+
+    /**
+        This static func produces a formatted string associated with the specified index.
+     
+        - Parameter index: An integer reflecting the unique identifier for an entry.
+        - Returns: The formatted string of text specified.
+     */
     static func produce(for index: Int) -> NSAttributedString {
         return NSAttributedString(string: unattributedString(for: index), attributes: BodyTextFormatting())
     }
     
+    /// This method returns specified strings without formatting.
     fileprivate static func unattributedString(for index: Int) -> String {
         switch index {
         case ..<2:  return "Only when the commercial potential of an idea is identified, does it become an actual business opportunity; when you can turn a profit by selling a product / service."
