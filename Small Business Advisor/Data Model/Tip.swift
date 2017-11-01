@@ -43,6 +43,8 @@ struct Tip: Entry {
         self.category = cat
         self.text = str
         
+        // These two lines keep the indexes constrained to range: 0 - max
+        guard integer < TipFactory.max else { self.index = 105; return }
         integer > 0 ? (self.index = integer) : (self.index = 1)
     }
 }
