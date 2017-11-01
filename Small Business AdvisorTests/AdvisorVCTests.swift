@@ -35,17 +35,14 @@ class AdvisorVCTests: XCTestCase {
         mock?.page = test
         XCTAssertEqual(test, mock?.page)
     }
-}
-
-protocol AdviceReciever {
     
-    
-    var page: Int { get set }
+    func testAdvisorHasResponse() { XCTAssertNotNil(mock?.response) }
 }
 
 class MockAdvisor: UIViewController, AdviceReciever {
     
+    var response = ResponseText()
+    
     var page = 0
-    
-    
+
 }
