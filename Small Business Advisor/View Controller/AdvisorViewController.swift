@@ -85,6 +85,10 @@ class AdvisorViewController: UIViewController {
     
     // MARK: - - Functions: IBActions
     
+    @IBAction func logoTapped(_ sender: UIButton) {
+        if let url = URL(string: "https://escapechaos.com") { UIApplication.shared.open(url) }
+    }
+    
     /// When `randomSwitch` tapped, this populates screen with instructions, based on switch outcome.
     @IBAction func randomSwitched(_ sender: UISwitch) {
         let txt: String
