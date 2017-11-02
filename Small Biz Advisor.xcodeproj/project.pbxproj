@@ -70,15 +70,15 @@
 		A15044091FA503920018B909 /* Entry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entry.swift; sourceTree = "<group>"; };
 		A16756BD1FA14BD90002E820 /* TipTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipTests.swift; sourceTree = "<group>"; };
 		A1AAB6A81FA939C000017C54 /* TipFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipFactory.swift; sourceTree = "<group>"; };
-		A1AB0E1D1FA0185100F1D3FF /* Small Business Advisor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Small Business Advisor.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A1AB0E1D1FA0185100F1D3FF /* Small Biz Advisor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Small Biz Advisor.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1AB0E201FA0185100F1D3FF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A1AB0E251FA0185100F1D3FF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A1AB0E271FA0185100F1D3FF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A1AB0E2A1FA0185100F1D3FF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A1AB0E2C1FA0185100F1D3FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A1AB0E311FA0185100F1D3FF /* Small Business AdvisorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Small Business AdvisorTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A1AB0E311FA0185100F1D3FF /* Small Biz AdvisorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Small Biz AdvisorTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1AB0E371FA0185100F1D3FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A1AB0E3C1FA0185100F1D3FF /* Small Business AdvisorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Small Business AdvisorUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A1AB0E3C1FA0185100F1D3FF /* Small Biz AdvisorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Small Biz AdvisorUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1AB0E401FA0185100F1D3FF /* Small_Business_AdvisorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Small_Business_AdvisorUITests.swift; sourceTree = "<group>"; };
 		A1AB0E421FA0185100F1D3FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A1AB0E4F1FA01A1D00F1D3FF /* AdvisorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvisorViewController.swift; sourceTree = "<group>"; };
@@ -159,9 +159,9 @@
 		A1AB0E1E1FA0185100F1D3FF /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A1AB0E1D1FA0185100F1D3FF /* Small Business Advisor.app */,
-				A1AB0E311FA0185100F1D3FF /* Small Business AdvisorTests.xctest */,
-				A1AB0E3C1FA0185100F1D3FF /* Small Business AdvisorUITests.xctest */,
+				A1AB0E1D1FA0185100F1D3FF /* Small Biz Advisor.app */,
+				A1AB0E311FA0185100F1D3FF /* Small Biz AdvisorTests.xctest */,
+				A1AB0E3C1FA0185100F1D3FF /* Small Biz AdvisorUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -210,9 +210,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		A1AB0E1C1FA0185100F1D3FF /* Small Business Advisor */ = {
+		A1AB0E1C1FA0185100F1D3FF /* Small Biz Advisor */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A1AB0E451FA0185100F1D3FF /* Build configuration list for PBXNativeTarget "Small Business Advisor" */;
+			buildConfigurationList = A1AB0E451FA0185100F1D3FF /* Build configuration list for PBXNativeTarget "Small Biz Advisor" */;
 			buildPhases = (
 				A1AB0E191FA0185100F1D3FF /* Sources */,
 				A1AB0E1A1FA0185100F1D3FF /* Frameworks */,
@@ -222,14 +222,14 @@
 			);
 			dependencies = (
 			);
-			name = "Small Business Advisor";
+			name = "Small Biz Advisor";
 			productName = "Small Business Advisor";
-			productReference = A1AB0E1D1FA0185100F1D3FF /* Small Business Advisor.app */;
+			productReference = A1AB0E1D1FA0185100F1D3FF /* Small Biz Advisor.app */;
 			productType = "com.apple.product-type.application";
 		};
-		A1AB0E301FA0185100F1D3FF /* Small Business AdvisorTests */ = {
+		A1AB0E301FA0185100F1D3FF /* Small Biz AdvisorTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A1AB0E481FA0185100F1D3FF /* Build configuration list for PBXNativeTarget "Small Business AdvisorTests" */;
+			buildConfigurationList = A1AB0E481FA0185100F1D3FF /* Build configuration list for PBXNativeTarget "Small Biz AdvisorTests" */;
 			buildPhases = (
 				A1AB0E2D1FA0185100F1D3FF /* Sources */,
 				A1AB0E2E1FA0185100F1D3FF /* Frameworks */,
@@ -240,14 +240,14 @@
 			dependencies = (
 				A1AB0E331FA0185100F1D3FF /* PBXTargetDependency */,
 			);
-			name = "Small Business AdvisorTests";
+			name = "Small Biz AdvisorTests";
 			productName = "Small Business AdvisorTests";
-			productReference = A1AB0E311FA0185100F1D3FF /* Small Business AdvisorTests.xctest */;
+			productReference = A1AB0E311FA0185100F1D3FF /* Small Biz AdvisorTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		A1AB0E3B1FA0185100F1D3FF /* Small Business AdvisorUITests */ = {
+		A1AB0E3B1FA0185100F1D3FF /* Small Biz AdvisorUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A1AB0E4B1FA0185100F1D3FF /* Build configuration list for PBXNativeTarget "Small Business AdvisorUITests" */;
+			buildConfigurationList = A1AB0E4B1FA0185100F1D3FF /* Build configuration list for PBXNativeTarget "Small Biz AdvisorUITests" */;
 			buildPhases = (
 				A1AB0E381FA0185100F1D3FF /* Sources */,
 				A1AB0E391FA0185100F1D3FF /* Frameworks */,
@@ -258,9 +258,9 @@
 			dependencies = (
 				A1AB0E3E1FA0185100F1D3FF /* PBXTargetDependency */,
 			);
-			name = "Small Business AdvisorUITests";
+			name = "Small Biz AdvisorUITests";
 			productName = "Small Business AdvisorUITests";
-			productReference = A1AB0E3C1FA0185100F1D3FF /* Small Business AdvisorUITests.xctest */;
+			productReference = A1AB0E3C1FA0185100F1D3FF /* Small Biz AdvisorUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -289,7 +289,7 @@
 					};
 				};
 			};
-			buildConfigurationList = A1AB0E181FA0185100F1D3FF /* Build configuration list for PBXProject "Small Business Advisor" */;
+			buildConfigurationList = A1AB0E181FA0185100F1D3FF /* Build configuration list for PBXProject "Small Biz Advisor" */;
 			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -302,9 +302,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				A1AB0E1C1FA0185100F1D3FF /* Small Business Advisor */,
-				A1AB0E301FA0185100F1D3FF /* Small Business AdvisorTests */,
-				A1AB0E3B1FA0185100F1D3FF /* Small Business AdvisorUITests */,
+				A1AB0E1C1FA0185100F1D3FF /* Small Biz Advisor */,
+				A1AB0E301FA0185100F1D3FF /* Small Biz AdvisorTests */,
+				A1AB0E3B1FA0185100F1D3FF /* Small Biz AdvisorUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -389,12 +389,12 @@
 /* Begin PBXTargetDependency section */
 		A1AB0E331FA0185100F1D3FF /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = A1AB0E1C1FA0185100F1D3FF /* Small Business Advisor */;
+			target = A1AB0E1C1FA0185100F1D3FF /* Small Biz Advisor */;
 			targetProxy = A1AB0E321FA0185100F1D3FF /* PBXContainerItemProxy */;
 		};
 		A1AB0E3E1FA0185100F1D3FF /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = A1AB0E1C1FA0185100F1D3FF /* Small Business Advisor */;
+			target = A1AB0E1C1FA0185100F1D3FF /* Small Biz Advisor */;
 			targetProxy = A1AB0E3D1FA0185100F1D3FF /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -569,7 +569,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Small Business Advisor.app/Small Business Advisor";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Small Biz Advisor.app/Small Biz Advisor";
 			};
 			name = Debug;
 		};
@@ -586,7 +586,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Small Business Advisor.app/Small Business Advisor";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Small Biz Advisor.app/Small Biz Advisor";
 			};
 			name = Release;
 		};
@@ -625,7 +625,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		A1AB0E181FA0185100F1D3FF /* Build configuration list for PBXProject "Small Business Advisor" */ = {
+		A1AB0E181FA0185100F1D3FF /* Build configuration list for PBXProject "Small Biz Advisor" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A1AB0E431FA0185100F1D3FF /* Debug */,
@@ -634,7 +634,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A1AB0E451FA0185100F1D3FF /* Build configuration list for PBXNativeTarget "Small Business Advisor" */ = {
+		A1AB0E451FA0185100F1D3FF /* Build configuration list for PBXNativeTarget "Small Biz Advisor" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A1AB0E461FA0185100F1D3FF /* Debug */,
@@ -643,7 +643,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A1AB0E481FA0185100F1D3FF /* Build configuration list for PBXNativeTarget "Small Business AdvisorTests" */ = {
+		A1AB0E481FA0185100F1D3FF /* Build configuration list for PBXNativeTarget "Small Biz AdvisorTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A1AB0E491FA0185100F1D3FF /* Debug */,
@@ -652,7 +652,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A1AB0E4B1FA0185100F1D3FF /* Build configuration list for PBXNativeTarget "Small Business AdvisorUITests" */ = {
+		A1AB0E4B1FA0185100F1D3FF /* Build configuration list for PBXNativeTarget "Small Biz AdvisorUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A1AB0E4C1FA0185100F1D3FF /* Debug */,
