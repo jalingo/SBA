@@ -10,7 +10,6 @@
 		A10F51BC1FA01D4300680AE6 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A10F51BB1FA01D4300680AE6 /* Default-568h@2x.png */; };
 		A11C3BB61FA54DEC000D2255 /* ResponseText.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11C3BB51FA54DEC000D2255 /* ResponseText.swift */; };
 		A11C3BB71FA54DEC000D2255 /* ResponseText.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11C3BB51FA54DEC000D2255 /* ResponseText.swift */; };
-		A1265DBA1FAA747800E4C712 /* AdvisorVCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1265DB91FAA747800E4C712 /* AdvisorVCTests.swift */; };
 		A1265DBC1FAA83D900E4C712 /* AdviceReciever.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1265DBB1FAA83D900E4C712 /* AdviceReciever.swift */; };
 		A1265DBD1FAA83D900E4C712 /* AdviceReciever.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1265DBB1FAA83D900E4C712 /* AdviceReciever.swift */; };
 		A15043F51FA2B7AA0018B909 /* TipCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15043F41FA2B7AA0018B909 /* TipCategory.swift */; };
@@ -26,6 +25,7 @@
 		A150440A1FA503920018B909 /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15044091FA503920018B909 /* Entry.swift */; };
 		A150440B1FA503920018B909 /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15044091FA503920018B909 /* Entry.swift */; };
 		A16756BE1FA14BD90002E820 /* TipTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16756BD1FA14BD90002E820 /* TipTests.swift */; };
+		A17F19C31FABD32D0099B903 /* AdvisorVCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1265DB91FAA747800E4C712 /* AdvisorVCTests.swift */; };
 		A1AAB6A91FA939C000017C54 /* TipFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AAB6A81FA939C000017C54 /* TipFactory.swift */; };
 		A1AAB6AA1FA939C000017C54 /* TipFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AAB6A81FA939C000017C54 /* TipFactory.swift */; };
 		A1AB0E211FA0185100F1D3FF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AB0E201FA0185100F1D3FF /* AppDelegate.swift */; };
@@ -366,7 +366,7 @@
 				A16756BE1FA14BD90002E820 /* TipTests.swift in Sources */,
 				A1AAB6AA1FA939C000017C54 /* TipFactory.swift in Sources */,
 				A11C3BB71FA54DEC000D2255 /* ResponseText.swift in Sources */,
-				A1265DBA1FAA747800E4C712 /* AdvisorVCTests.swift in Sources */,
+				A17F19C31FABD32D0099B903 /* AdvisorVCTests.swift in Sources */,
 				A1AB0E511FA01A1D00F1D3FF /* AdvisorViewController.swift in Sources */,
 				A1D9555F1FA17BF2002C7563 /* TipCategoryTests.swift in Sources */,
 				A15043F81FA2B97B0018B909 /* TipFactoryTests.swift in Sources */,
@@ -560,7 +560,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2ASS3F562Z;
 				INFOPLIST_FILE = "Small Business AdvisorTests/Info.plist";
@@ -577,7 +576,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2ASS3F562Z;
 				INFOPLIST_FILE = "Small Business AdvisorTests/Info.plist";
@@ -600,9 +598,10 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "EscapeChaos.Small-Business-AdvisorUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "Small Business Advisor";
+				TEST_TARGET_NAME = "Small Biz Advisor";
 			};
 			name = Debug;
 		};
@@ -616,9 +615,10 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "EscapeChaos.Small-Business-AdvisorUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "Small Business Advisor";
+				TEST_TARGET_NAME = "Small Biz Advisor";
 			};
 			name = Release;
 		};
