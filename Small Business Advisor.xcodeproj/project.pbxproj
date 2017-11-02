@@ -36,9 +36,6 @@
 		A1AB0E501FA01A1D00F1D3FF /* AdvisorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AB0E4F1FA01A1D00F1D3FF /* AdvisorViewController.swift */; };
 		A1AB0E511FA01A1D00F1D3FF /* AdvisorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AB0E4F1FA01A1D00F1D3FF /* AdvisorViewController.swift */; };
 		A1D9555F1FA17BF2002C7563 /* TipCategoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D9555E1FA17BF2002C7563 /* TipCategoryTests.swift */; };
-		A1D955601FA18663002C7563 /* Entries.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EC9A081FA14510000B5A33 /* Entries.swift */; };
-		A1EC9A091FA14511000B5A33 /* Entries.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EC9A081FA14510000B5A33 /* Entries.swift */; };
-		A1EC9A0A1FA14511000B5A33 /* Entries.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EC9A081FA14510000B5A33 /* Entries.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,7 +83,6 @@
 		A1AB0E421FA0185100F1D3FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A1AB0E4F1FA01A1D00F1D3FF /* AdvisorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvisorViewController.swift; sourceTree = "<group>"; };
 		A1D9555E1FA17BF2002C7563 /* TipCategoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipCategoryTests.swift; sourceTree = "<group>"; };
-		A1EC9A081FA14510000B5A33 /* Entries.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Entries.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,14 +110,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		A11C3BB81FA55043000D2255 /* Deprecated */ = {
-			isa = PBXGroup;
-			children = (
-				A1EC9A081FA14510000B5A33 /* Entries.swift */,
-			);
-			path = Deprecated;
-			sourceTree = "<group>";
-		};
 		A1265DBE1FAA853A00E4C712 /* View Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -147,7 +135,6 @@
 		A15044011FA342740018B909 /* Data Model */ = {
 			isa = PBXGroup;
 			children = (
-				A11C3BB81FA55043000D2255 /* Deprecated */,
 				A11C3BB51FA54DEC000D2255 /* ResponseText.swift */,
 				A15044091FA503920018B909 /* Entry.swift */,
 				A15043FE1FA33C210018B909 /* Tip.swift */,
@@ -357,7 +344,6 @@
 			files = (
 				A11C3BB61FA54DEC000D2255 /* ResponseText.swift in Sources */,
 				A150440A1FA503920018B909 /* Entry.swift in Sources */,
-				A1EC9A091FA14511000B5A33 /* Entries.swift in Sources */,
 				A1AAB6A91FA939C000017C54 /* TipFactory.swift in Sources */,
 				A1265DBC1FAA83D900E4C712 /* AdviceReciever.swift in Sources */,
 				A1AB0E211FA0185100F1D3FF /* AppDelegate.swift in Sources */,
@@ -378,7 +364,6 @@
 				A15044031FA3EFA10018B909 /* TextFactoryTests.swift in Sources */,
 				A15044001FA33C210018B909 /* Tip.swift in Sources */,
 				A16756BE1FA14BD90002E820 /* TipTests.swift in Sources */,
-				A1EC9A0A1FA14511000B5A33 /* Entries.swift in Sources */,
 				A1AAB6AA1FA939C000017C54 /* TipFactory.swift in Sources */,
 				A11C3BB71FA54DEC000D2255 /* ResponseText.swift in Sources */,
 				A1265DBA1FAA747800E4C712 /* AdvisorVCTests.swift in Sources */,
@@ -395,7 +380,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A1D955601FA18663002C7563 /* Entries.swift in Sources */,
 				A1AB0E411FA0185100F1D3FF /* Small_Business_AdvisorUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
