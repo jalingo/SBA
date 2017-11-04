@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9064001B1FAD713700C09C8D /* CKInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9064001A1FAD713700C09C8D /* CKInteractorTests.swift */; };
 		A10F51BC1FA01D4300680AE6 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A10F51BB1FA01D4300680AE6 /* Default-568h@2x.png */; };
 		A11C3BB61FA54DEC000D2255 /* ResponseText.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11C3BB51FA54DEC000D2255 /* ResponseText.swift */; };
 		A11C3BB71FA54DEC000D2255 /* ResponseText.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11C3BB51FA54DEC000D2255 /* ResponseText.swift */; };
@@ -56,6 +57,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9064001A1FAD713700C09C8D /* CKInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CKInteractorTests.swift; sourceTree = "<group>"; };
 		A10F51BB1FA01D4300680AE6 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		A11C3BB51FA54DEC000D2255 /* ResponseText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseText.swift; sourceTree = "<group>"; };
 		A1265DB91FAA747800E4C712 /* AdvisorVCTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvisorVCTests.swift; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 		A1265DBF1FAA855C00E4C712 /* Data Model */ = {
 			isa = PBXGroup;
 			children = (
+				9064001A1FAD713700C09C8D /* CKInteractorTests.swift */,
 				A16756BD1FA14BD90002E820 /* TipTests.swift */,
 				A15043F71FA2B97B0018B909 /* TipFactoryTests.swift */,
 				A1D9555E1FA17BF2002C7563 /* TipCategoryTests.swift */,
@@ -372,6 +375,7 @@
 				A15043F81FA2B97B0018B909 /* TipFactoryTests.swift in Sources */,
 				A15044061FA42E260018B909 /* TipText.swift in Sources */,
 				A15044081FA4F94D0018B909 /* ResponseTests.swift in Sources */,
+				9064001B1FAD713700C09C8D /* CKInteractorTests.swift in Sources */,
 				A15043F61FA2B7AA0018B909 /* TipCategory.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
