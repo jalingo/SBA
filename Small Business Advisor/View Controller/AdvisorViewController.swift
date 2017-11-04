@@ -50,18 +50,19 @@ class AdvisorViewController: UIViewController {
     // MARK: - Functions
     
     /**
-        `shakeRoutine` should be run whenever the USER performs shake gesture or swipes to move forward (swiping
+        `increasePage` should be run whenever the USER performs shake gesture or swipes to move forward (swiping
         backwards call `decreasePage` instead.
      
-        Recognizes `randomSwitch` position, and ensures that page number
-        doesn't exceed count (starting over again at page '1').
+        Recognizes `increasePage` position, and ensures that page number doesn't exceed count (starting over again
+        at page '1').
      */
-    fileprivate func shakeRoutine() {
+    fileprivate func increasePage() {
         if randomSwitch.isOn {
             let random = response.byRandom()
             
             textView.attributedText = random
-            pageLabel.text = "\(response.lastIndex)"
+//            pageLabel.text = "\(response.lastIndex)"
+            page = response.lastIndex
         } else {
             page < TipFactory.max ? (page += 1) : (page = 1)
             textView.attributedText = response.byIndex(of: page)
@@ -76,7 +77,7 @@ class AdvisorViewController: UIViewController {
     fileprivate func decreasePage() {
         
         // If in "Random Mode", a swipe is treated as a shake.
-        guard !randomSwitch.isOn else { shakeRoutine(); return }
+        guard !randomSwitch.isOn else { increasePage(); return }
         
         // Else, a swipe right means go back.
         page > 1 ? (page -= 1) : (page = TipFactory.max)
@@ -108,7 +109,7 @@ class AdvisorViewController: UIViewController {
     }
     
     /// Recognizes the USER performing swipe gesture on `textView` and takes action based on direction.
-    @IBAction func swipeLeft(_ sender: UISwipeGestureRecognizer) { shakeRoutine() }
+    @IBAction func swipeLeft(_ sender: UISwipeGestureRecognizer) { increasePage() }
 
     /// Recognizes the USER performing swipe gesture on `textView` and takes action based on direction.
     @IBAction func swipeRight(_ sender: UISwipeGestureRecognizer) { decreasePage() }
@@ -127,6 +128,6 @@ class AdvisorViewController: UIViewController {
     
     /// This method triggers `shakeRoutine` after USER performs shake gesture.
     override func motionEnded(_ motion: UIEventSubtype, with event: UIEvent?) {
-        if event?.subtype == .motionShake { shakeRoutine() }
+        if event?.subtype == .motionShake { increasePage() }
     }
 }

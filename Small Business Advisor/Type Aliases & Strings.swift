@@ -10,9 +10,11 @@ import Foundation
 import CloudKit
 
 // MARK: - Closures
+
 typealias OptionalClosure = (()->())?
 
 // MARK: - Cloud Closures
+
 typealias QueryBlock = (CKQueryCursor?, Error?) -> Void
 
 typealias FetchBlock = (CKRecord) -> Void
@@ -34,6 +36,10 @@ struct Record {
         static let category = "ADVISOR_CATEGORY"
         
         static let voter = "ADVISOR_VOTER"
+        
+        static let mock = "MOCK_RECORD"
+        
+        static let test = "TEST_RECORD"
     }
     
     struct Key {

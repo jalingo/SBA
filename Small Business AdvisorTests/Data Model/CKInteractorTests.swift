@@ -39,11 +39,15 @@ class CKInteractorTests: XCTestCase {
         super.tearDown()
     }
     
-    func uploadTestRecord(completion: (()->())? = nil) {
+    func uploadTestRecords(completion: (()->())? = nil) {
+        
+        // This code assumes that records have been deleted from the database at the end of each test.
+        let op = CKModifyRecordsOperation(recordsToSave: testRecords, recordIDsToDelete: nil)
+        
         
     }
     
-    func deleteTestRecor(completion: (()->())? = nil) {
+    func deleteTestRecords(completion: (()->())? = nil) {
         
     }
     
@@ -68,10 +72,11 @@ class CKInteractorTests: XCTestCase {
         if let current = mock?.allVotes { XCTAssertNotEqual(test, current) }
         
         // Test that allVotes is updated from the database
+        
         let group0 = DispatchGroup()
         group0.enter()
         
-        uploadTestRecord() { group0.leave() }
+        uploadTestRecords() { group0.leave() }
         group0.wait()
 
         mock?.tabulateRanks()
@@ -86,8 +91,6 @@ class CKInteractorTests: XCTestCase {
         disorderDatabaseRecords()
         
         mock?.tabulateRanks()
-        
-        mock?.tabulateRanks()
         if let test = mock?.allVotes {
             XCTAssertEqual(test, testRecords)
         } else {
@@ -99,7 +102,7 @@ class CKInteractorTests: XCTestCase {
         let group1 = DispatchGroup()
         group1.enter()
         
-        uploadTestRecord() { group1.leave() }
+        deleteTestRecords() { group1.leave() }
         group1.wait()
     }
 }
