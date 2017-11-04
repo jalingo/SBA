@@ -86,13 +86,13 @@ class AdvisorViewController: UIViewController {
     // MARK: - - Functions: IBActions
     
     @IBAction func logoTapped(_ sender: UIButton) {
-        if let url = URL(string: "https://escapechaos.com") { UIApplication.shared.open(url) }
+        if let url = URL(string: URL_str.homePage) { UIApplication.shared.open(url) }
     }
     
     /// When `randomSwitch` tapped, this populates screen with instructions, based on switch outcome.
     @IBAction func randomSwitched(_ sender: UISwitch) {
         let txt: String
-        sender.isOn ? (txt = "Shake for Advice!") : (txt = "Swipe through the various tips...")
+        sender.isOn ? (txt = Instructions.shake) : (txt = Instructions.swipe)
 
         textView.attributedText = NSAttributedString(string: txt, attributes: CategoryFormatting())
     }
@@ -103,11 +103,7 @@ class AdvisorViewController: UIViewController {
      - Warning: Links are left out of formatting, because `textView` is set to recognize links in text.
      */
     @IBAction func helpPressed(_ sender: UIButton) {
-        textView.attributedText = NSAttributedString(string: """
-To contact the app's creators with any questions or comments: dev@escapechaos.com
-
-Or, check out our site escapechaos.com/advisor
-""",
+        textView.attributedText = NSAttributedString(string: Instructions.help,
                                                      attributes: CategoryFormatting())
     }
     
@@ -123,7 +119,8 @@ Or, check out our site escapechaos.com/advisor
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        textView.attributedText = NSAttributedString(string: "Shake for Advice!", attributes: CategoryFormatting())
+        textView.attributedText = NSAttributedString(string: Instructions.shake,
+                                                     attributes: CategoryFormatting())
         
         self.becomeFirstResponder()
     }

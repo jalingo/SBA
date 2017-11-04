@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		9064001B1FAD713700C09C8D /* CKInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9064001A1FAD713700C09C8D /* CKInteractorTests.swift */; };
+		90A16F461FAE48B1002D418B /* Type Aliases & Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A16F451FAE48B1002D418B /* Type Aliases & Strings.swift */; };
+		90A16F471FAE48B1002D418B /* Type Aliases & Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A16F451FAE48B1002D418B /* Type Aliases & Strings.swift */; };
 		A10F51BC1FA01D4300680AE6 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A10F51BB1FA01D4300680AE6 /* Default-568h@2x.png */; };
 		A11C3BB61FA54DEC000D2255 /* ResponseText.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11C3BB51FA54DEC000D2255 /* ResponseText.swift */; };
 		A11C3BB71FA54DEC000D2255 /* ResponseText.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11C3BB51FA54DEC000D2255 /* ResponseText.swift */; };
@@ -58,6 +60,7 @@
 
 /* Begin PBXFileReference section */
 		9064001A1FAD713700C09C8D /* CKInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CKInteractorTests.swift; sourceTree = "<group>"; };
+		90A16F451FAE48B1002D418B /* Type Aliases & Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Type Aliases & Strings.swift"; sourceTree = "<group>"; };
 		A10F51BB1FA01D4300680AE6 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		A11C3BB51FA54DEC000D2255 /* ResponseText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseText.swift; sourceTree = "<group>"; };
 		A1265DB91FAA747800E4C712 /* AdvisorVCTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvisorVCTests.swift; sourceTree = "<group>"; };
@@ -173,6 +176,7 @@
 			isa = PBXGroup;
 			children = (
 				A1AB0E241FA0185100F1D3FF /* Main.storyboard */,
+				90A16F451FAE48B1002D418B /* Type Aliases & Strings.swift */,
 				A15044011FA342740018B909 /* Data Model */,
 				A1265DBE1FAA853A00E4C712 /* View Controller */,
 				A1AB0E4E1FA0187900F1D3FF /* Resources */,
@@ -350,6 +354,7 @@
 				A1AAB6A91FA939C000017C54 /* TipFactory.swift in Sources */,
 				A1265DBC1FAA83D900E4C712 /* AdviceReciever.swift in Sources */,
 				A1AB0E211FA0185100F1D3FF /* AppDelegate.swift in Sources */,
+				90A16F461FAE48B1002D418B /* Type Aliases & Strings.swift in Sources */,
 				A15044051FA42E260018B909 /* TipText.swift in Sources */,
 				A15043FF1FA33C210018B909 /* Tip.swift in Sources */,
 				A1AB0E501FA01A1D00F1D3FF /* AdvisorViewController.swift in Sources */,
@@ -372,6 +377,7 @@
 				A17F19C31FABD32D0099B903 /* AdvisorVCTests.swift in Sources */,
 				A1AB0E511FA01A1D00F1D3FF /* AdvisorViewController.swift in Sources */,
 				A1D9555F1FA17BF2002C7563 /* TipCategoryTests.swift in Sources */,
+				90A16F471FAE48B1002D418B /* Type Aliases & Strings.swift in Sources */,
 				A15043F81FA2B97B0018B909 /* TipFactoryTests.swift in Sources */,
 				A15044061FA42E260018B909 /* TipText.swift in Sources */,
 				A15044081FA4F94D0018B909 /* ResponseTests.swift in Sources */,

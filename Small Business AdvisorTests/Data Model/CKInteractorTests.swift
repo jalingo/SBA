@@ -13,7 +13,17 @@ class CKInteractorTests: XCTestCase {
     
     // MARK: - Properties
     
-    let testRecord = CKRecord(recordType: "Test_Record")
+    var testRecords: [CKRecord] {
+        let rec0 = CKRecord(recordType: "Test_Record")
+        let rec1 = CKRecord(recordType: "Test_Record")
+        let rec2 = CKRecord(recordType: "Test_Record")
+
+        rec0["Rank"] = NSNumber(integerLiteral: 1)
+        rec1["Rank"] = NSNumber(integerLiteral: 2)
+        rec2["Rank"] = NSNumber(integerLiteral: 3)
+
+        return [rec0, rec1, rec2]
+    }
     
     var mock: CloudInteractor?
     
@@ -34,6 +44,10 @@ class CKInteractorTests: XCTestCase {
     }
     
     func deleteTestRecor(completion: (()->())? = nil) {
+        
+    }
+    
+    func disorderDatabaseRecords(completion: (()->())? = nil) {
         
     }
     
@@ -62,18 +76,31 @@ class CKInteractorTests: XCTestCase {
 
         mock?.tabulateRanks()
         if let test = mock?.allVotes {
-            XCTAssertEqual(test, [testRecord])
+            XCTAssertEqual(test, testRecords)
         } else {
             XCTFail()
         }
+        
+        // Test that sort makes changes to database
+
+        disorderDatabaseRecords()
+        
+        mock?.tabulateRanks()
+        
+        mock?.tabulateRanks()
+        if let test = mock?.allVotes {
+            XCTAssertEqual(test, testRecords)
+        } else {
+            XCTFail()
+        }
+        
+        // Clean up database
         
         let group1 = DispatchGroup()
         group1.enter()
         
         uploadTestRecord() { group1.leave() }
         group1.wait()
-        
-        // Test that sort makes changes
     }
 }
 
