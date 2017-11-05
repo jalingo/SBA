@@ -25,39 +25,34 @@ typealias NotifyBlock = (Notification) -> Void
 
 // MARK: - Key Strings
 
-struct Record {
+struct RecordType {
 
-    struct Type {
+    static let entry = "ADVISOR_ENTRY"
 
-        static let entry = "ADVISOR_ENTRY"
-
-        static let vote = "ADVISOR_VOTE"
+    static let vote = "ADVISOR_VOTE"
         
-        static let category = "ADVISOR_CATEGORY"
+    static let category = "ADVISOR_CATEGORY"
         
-        static let voter = "ADVISOR_VOTER"
+    static let voter = "ADVISOR_VOTER"
         
-        static let mock = "MOCK_RECORD"
-        
-        static let test = "TEST_RECORD"
-    }
+    static let mock = "MOCK_RECORD"        
+}
     
-    struct Key {
+struct RecordKey {
 
-        // Entry Keys
+    // Entry Keys
 
-        static let text = "ENTRY_TEXT"
+    static let text = "ENTRY_TEXT"
         
-        static let rank = "ENTRY_RANK"
+    static let rank = "ENTRY_RANK"
 
-        // Vote Keys
+    // Vote Keys
 
-        static let appr = "VOTE_UP?"
+    static let appr = "VOTE_UP?"
         
-        // Universal Keys
+    // Universal Keys
         
-        static let refs = "RECORD_OWNERS"
-    }
+    static let refs = "RECORD_OWNERS"
 }
 
 // MARK: - URL Strings

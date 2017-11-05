@@ -13,16 +13,36 @@ class CKInteractorTests: XCTestCase {
     
     // MARK: - Properties
     
+    let database = CKContainer.default().publicCloudDatabase
+    
     var testRecords: [CKRecord] {
-        let rec0 = CKRecord(recordType: "Test_Record")
-        let rec1 = CKRecord(recordType: "Test_Record")
-        let rec2 = CKRecord(recordType: "Test_Record")
+        let rec0 = CKRecord(recordType: RecordType.entry)
+        let rec1 = CKRecord(recordType: RecordType.entry)
+        let rec2 = CKRecord(recordType: RecordType.entry)
+        let rec3 = CKRecord(recordType: RecordType.vote)
+        let rec4 = CKRecord(recordType: RecordType.vote)
+        let rec5 = CKRecord(recordType: RecordType.vote)
+        let rec6 = CKRecord(recordType: RecordType.vote)
+        let rec7 = CKRecord(recordType: RecordType.vote)
 
-        rec0["Rank"] = NSNumber(integerLiteral: 1)
-        rec1["Rank"] = NSNumber(integerLiteral: 2)
-        rec2["Rank"] = NSNumber(integerLiteral: 3)
+        // Configure test entries
+        rec0[RecordKey.rank] = NSNumber(integerLiteral: 1)
+        rec1[RecordKey.rank] = NSNumber(integerLiteral: 2)
+        rec2[RecordKey.rank] = NSNumber(integerLiteral: 3)
+        
+        // Configure test votes
+        rec3[RecordKey.refs] = CKReference(record: rec0, action: .deleteSelf)
+        rec3[RecordKey.appr] = true as CKRecordValue
+        rec4[RecordKey.refs] = CKReference(record: rec0, action: .deleteSelf)
+        rec4[RecordKey.appr] = true as CKRecordValue
+        rec5[RecordKey.refs] = CKReference(record: rec1, action: .deleteSelf)
+        rec5[RecordKey.appr] = true as CKRecordValue
+        rec6[RecordKey.refs] = CKReference(record: rec1, action: .deleteSelf)
+        rec6[RecordKey.appr] = false as CKRecordValue
+        rec7[RecordKey.refs] = CKReference(record: rec2, action: .deleteSelf)
+        rec7[RecordKey.appr] = false as CKRecordValue
 
-        return [rec0, rec1, rec2]
+        return [rec0, rec1, rec2, rec3, rec4, rec5, rec6, rec7]
     }
     
     var mock: CloudInteractor?
@@ -39,20 +59,90 @@ class CKInteractorTests: XCTestCase {
         super.tearDown()
     }
     
+    /// This code assumes that records have been deleted from the database at the end of each test.
     func uploadTestRecords(completion: (()->())? = nil) {
-        
-        // This code assumes that records have been deleted from the database at the end of each test.
         let op = CKModifyRecordsOperation(recordsToSave: testRecords, recordIDsToDelete: nil)
         
+        op.savePolicy = .changedKeys
+        op.completionBlock = completion
+        op.modifyRecordsCompletionBlock = { _, _, possibleError in
+            guard let error = possibleError else { return }
+print("CKInteractorTests.upload: \(error.localizedDescription)")  // <-- This can be fleshed out as errors emerge.
+        }
         
+        database.add(op)
     }
     
     func deleteTestRecords(completion: (()->())? = nil) {
+        let op = CKModifyRecordsOperation(recordsToSave: nil,
+                                          recordIDsToDelete: testRecords.map({ $0.recordID }))
+        op.completionBlock = completion
+        op.modifyRecordsCompletionBlock = { _, _, possibleError in
+            guard let error = possibleError else { return }
+print("CKInteractorTests.download: \(error.localizedDescription)")  // <-- This can be fleshed out as errors emerge.
+        }
         
+        database.add(op)
     }
     
-    func disorderDatabaseRecords(completion: (()->())? = nil) {
+    func cleanUpDatabase() -> Int {
+        let group = DispatchGroup()
+        group.enter()
         
+        deleteTestRecords() { group.leave() }
+        group.wait()
+        
+        return -1
+    }
+    
+    func mixUpVoteOutcomes(completion: (()->())? = nil) {
+        var votesToModify = [CKRecordID]()
+        
+        var index = 0
+        for record in testRecords {
+            if index > 2 { votesToModify.append(record.recordID) }
+            index += 1
+        }
+        
+        let fetchOp = CKFetchRecordsOperation(recordIDs: votesToModify)
+        fetchOp.fetchRecordsCompletionBlock = { possibleRecords, possibleError in
+            if let error = possibleError { print(error) }
+            
+            var modifiedRecords = [CKRecord]()
+            var absenteeVotes = [CKRecordID]()
+            
+            if let records = possibleRecords {
+                for vote in votesToModify {
+                    if records.keys.contains(vote),
+                        let record = records[vote],
+                        let approval = record[RecordKey.appr] as? Bool {
+                        record[RecordKey.appr] = approval as CKRecordValue
+                        modifiedRecords.append(record)
+                    } else {
+                        absenteeVotes.append(vote)
+                    }
+                }
+            } else {
+                absenteeVotes = votesToModify
+            }
+            
+            for vote in absenteeVotes {
+                let record = CKRecord(recordType: RecordType.vote, recordID: vote)
+                modifiedRecords.append(record)
+            }
+            
+            let modifyOp = CKModifyRecordsOperation(recordsToSave: modifiedRecords, recordIDsToDelete: nil)
+            modifyOp.completionBlock = completion
+            modifyOp.savePolicy = .changedKeys
+            modifyOp.modifyRecordsCompletionBlock = { _, _, possibleError in
+                guard let error = possibleError else { return }
+print("CKInteractor.disorder: \(error)")    // <-- This can be fleshed out as errors emerge.
+            }
+            
+            self.database.add(modifyOp)
+        }
+        
+        database.add(fetchOp)
     }
     
     // MARK: - Functions: Tests
@@ -73,11 +163,12 @@ class CKInteractorTests: XCTestCase {
         
         // Test that allVotes is updated from the database
         
-        let group0 = DispatchGroup()
-        group0.enter()
+        let group = DispatchGroup()
+        group.enter()
         
-        uploadTestRecords() { group0.leave() }
-        group0.wait()
+        uploadTestRecords() { group.leave() }
+        
+        group.wait()
 
         mock?.tabulateRanks()
         if let test = mock?.allVotes {
@@ -88,22 +179,56 @@ class CKInteractorTests: XCTestCase {
         
         // Test that sort makes changes to database
 
-        disorderDatabaseRecords()
+        mixUpVoteOutcomes()
         
         mock?.tabulateRanks()
         if let test = mock?.allVotes {
-            XCTAssertEqual(test, testRecords)
+            XCTAssertNotEqual(test, testRecords)
         } else {
             XCTFail()
         }
         
-        // Clean up database
+        let _ = cleanUpDatabase()
+    }
+    
+    func testCloudInteractorCanQueryVotes() {
+
+        XCTAssertNotNil(mock?.queryVotes(completion: nil))
         
-        let group1 = DispatchGroup()
-        group1.enter()
+        // Test that completion block is passed on
+//        let testHandler: OptionalClosure = { print("") }
+//        let op0 = mock?.queryVotes(completion: testHandler)
+//        XCTAssert(testHandler == op0?.completionBlock as OptionalClosure)
         
-        deleteTestRecords() { group1.leave() }
-        group1.wait()
+        let group = DispatchGroup()
+        group.enter()
+
+        let op = mock?.queryVotes() { group.leave() }
+
+        // Test that query is correct
+        
+        let predicate = NSPredicate(value: true)
+        var query: CKQuery? = CKQuery(recordType: RecordType.vote,
+                                      predicate: predicate)
+        
+        XCTAssertEqual(op?.query?.predicate, predicate)
+        XCTAssertEqual(op?.query, query)
+        query = nil     // <- Appeases optional query mutation warning
+        
+        // Test that votes get stored in all votes
+       
+        if let op = op {
+            uploadTestRecords() { self.database.add(op) }
+            group.wait()
+            
+            XCTAssertEqual(mock!.allVotes, testRecords)
+        } else {
+            XCTFail()
+        }
+    }
+    
+    func testCloudInteractorCanModifyRank() {
+        XCTFail()
     }
 }
 
@@ -119,7 +244,7 @@ protocol CloudInteractor {
 
     mutating func tabulateRanks()
    
-//    func queryVotes()
+    func queryVotes(completion: OptionalClosure) -> CKQueryOperation
 //    func modifyRank(of ref: CKReference, to rank: Int)
 }
 
@@ -134,7 +259,12 @@ struct MockInteractor: CloudInteractor {
     // MARK: Functions
     
     mutating func tabulateRanks() {
-        let mockRecord = CKRecord(recordType: "MockType")
+        let mockRecord = CKRecord(recordType: RecordType.mock)
         allVotes.append(mockRecord)
     }
+    
+    func queryVotes(completion: OptionalClosure = nil) -> CKQueryOperation {
+        return CKQueryOperation()
+    }
+
 }
