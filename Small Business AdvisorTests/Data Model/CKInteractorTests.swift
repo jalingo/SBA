@@ -225,6 +225,8 @@ print("CKInteractor.disorder: \(error)")    // <-- This can be fleshed out as er
         } else {
             XCTFail()
         }
+        
+        let _ = cleanUpDatabase()
     }
     
     func testCloudInteractorCanModifyRank() {
