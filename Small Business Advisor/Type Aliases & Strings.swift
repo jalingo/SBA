@@ -48,7 +48,7 @@ struct RecordKey {
 
     // Vote Keys
 
-    static let appr = "VOTE_UP?"
+    static let appr = "VOTE_UP"
         
     // Universal Keys
         

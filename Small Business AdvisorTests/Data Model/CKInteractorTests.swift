@@ -16,14 +16,14 @@ class CKInteractorTests: XCTestCase {
     let database = CKContainer.default().publicCloudDatabase
     
     var testRecords: [CKRecord] {
-        let rec0 = CKRecord(recordType: RecordType.entry)
-        let rec1 = CKRecord(recordType: RecordType.entry)
-        let rec2 = CKRecord(recordType: RecordType.entry)
-        let rec3 = CKRecord(recordType: RecordType.vote)
-        let rec4 = CKRecord(recordType: RecordType.vote)
-        let rec5 = CKRecord(recordType: RecordType.vote)
-        let rec6 = CKRecord(recordType: RecordType.vote)
-        let rec7 = CKRecord(recordType: RecordType.vote)
+        let rec0 = CKRecord(recordType: RecordType.entry, recordID: CKRecordID(recordName: "entry0"))
+        let rec1 = CKRecord(recordType: RecordType.entry, recordID: CKRecordID(recordName: "entry1"))
+        let rec2 = CKRecord(recordType: RecordType.entry, recordID: CKRecordID(recordName: "entry2"))
+        let rec3 = CKRecord(recordType: RecordType.vote, recordID: CKRecordID(recordName: "vote0"))
+        let rec4 = CKRecord(recordType: RecordType.vote, recordID: CKRecordID(recordName: "vote1"))
+        let rec5 = CKRecord(recordType: RecordType.vote, recordID: CKRecordID(recordName: "vote2"))
+        let rec6 = CKRecord(recordType: RecordType.vote, recordID: CKRecordID(recordName: "vote3"))
+        let rec7 = CKRecord(recordType: RecordType.vote, recordID: CKRecordID(recordName: "vote4"))
 
         // Configure test entries
         rec0[RecordKey.rank] = NSNumber(integerLiteral: 1)
@@ -59,27 +59,46 @@ class CKInteractorTests: XCTestCase {
         super.tearDown()
     }
     
+    // MARK: - Functions: Test
+    
     /// This code assumes that records have been deleted from the database at the end of each test.
     func uploadTestRecords(completion: (()->())? = nil) {
         let op = CKModifyRecordsOperation(recordsToSave: testRecords, recordIDsToDelete: nil)
-        
+print("** uploading...")
+        let pause = Pause(seconds: 3)
+        pause.addDependency(op)
+        pause.completionBlock = completion
+        OperationQueue().addOperation(pause)
+
         op.savePolicy = .changedKeys
-        op.completionBlock = completion
         op.modifyRecordsCompletionBlock = { _, _, possibleError in
-            guard let error = possibleError else { return }
-print("CKInteractorTests.upload: \(error.localizedDescription)")  // <-- This can be fleshed out as errors emerge.
+            guard let error = possibleError else { print("finished upload, no error"); return }
+print("** CKInteractorTests.upload: \(error.localizedDescription)")  // <-- This can be fleshed out as errors emerge.
         }
         
         database.add(op)
     }
     
+    func prepareDatabase() -> Int {
+        let group = DispatchGroup()
+        group.enter()
+print("** prepping...")
+        uploadTestRecords() { group.leave() }
+        group.wait()
+print("** finished prepping.")
+        return -1
+    }
+    
     func deleteTestRecords(completion: (()->())? = nil) {
         let op = CKModifyRecordsOperation(recordsToSave: nil,
                                           recordIDsToDelete: testRecords.map({ $0.recordID }))
+print("** deleting...\(op.recordIDsToDelete!.count)")
         op.completionBlock = completion
+        op.isLongLived = true
+op.longLivedOperationWasPersistedBlock = { print("deletion persisted") }
         op.modifyRecordsCompletionBlock = { _, _, possibleError in
-            guard let error = possibleError else { return }
-print("CKInteractorTests.download: \(error.localizedDescription)")  // <-- This can be fleshed out as errors emerge.
+            guard let error = possibleError else { print("finished delete, no error"); return }
+print("** CKInteractorTests.delete: \(error)")  // <-- This can be fleshed out as errors emerge.
         }
         
         database.add(op)
@@ -88,16 +107,16 @@ print("CKInteractorTests.download: \(error.localizedDescription)")  // <-- This 
     func cleanUpDatabase() -> Int {
         let group = DispatchGroup()
         group.enter()
-        
+print("** cleaning...")
         deleteTestRecords() { group.leave() }
         group.wait()
-        
+print("** finished cleaning.")
         return -1
     }
     
     func mixUpVoteOutcomes(completion: (()->())? = nil) {
         var votesToModify = [CKRecordID]()
-        
+print("** mixing...")
         var index = 0
         for record in testRecords {
             if index > 2 { votesToModify.append(record.recordID) }
@@ -136,7 +155,7 @@ print("CKInteractorTests.download: \(error.localizedDescription)")  // <-- This 
             modifyOp.savePolicy = .changedKeys
             modifyOp.modifyRecordsCompletionBlock = { _, _, possibleError in
                 guard let error = possibleError else { return }
-print("CKInteractor.disorder: \(error)")    // <-- This can be fleshed out as errors emerge.
+print("** CKInteractor.disorder: \(error)")    // <-- This can be fleshed out as errors emerge.
             }
             
             self.database.add(modifyOp)
@@ -192,13 +211,9 @@ print("CKInteractor.disorder: \(error)")    // <-- This can be fleshed out as er
     }
     
     func testCloudInteractorCanQueryVotes() {
+        let _ = prepareDatabase()
 
         XCTAssertNotNil(mock?.queryVotes(completion: nil))
-        
-        // Test that completion block is passed on
-//        let testHandler: OptionalClosure = { print("") }
-//        let op0 = mock?.queryVotes(completion: testHandler)
-//        XCTAssert(testHandler == op0?.completionBlock as OptionalClosure)
         
         let group = DispatchGroup()
         group.enter()
@@ -206,35 +221,51 @@ print("CKInteractor.disorder: \(error)")    // <-- This can be fleshed out as er
         let op = mock?.queryVotes() { group.leave() }
 
         // Test that query is correct
-        
+
         let predicate = NSPredicate(value: true)
         var query: CKQuery? = CKQuery(recordType: RecordType.vote,
                                       predicate: predicate)
         
         XCTAssertEqual(op?.query?.predicate, predicate)
-        XCTAssertEqual(op?.query, query)
+        XCTAssertEqual(op?.query?.recordType, query?.recordType)
         query = nil     // <- Appeases optional query mutation warning
         
         // Test that votes get stored in all votes
-       
+
         if let op = op {
-            uploadTestRecords() { self.database.add(op) }
+            self.database.add(op)
             group.wait()
             
-            XCTAssertEqual(mock!.allVotes, testRecords)
+            let testVotes = testRecords.filter({ $0.recordType == RecordType.vote })
+            XCTAssertEqual(mock!.allVotes.count, testVotes.count)
         } else {
             XCTFail()
         }
-        
+
         let _ = cleanUpDatabase()
     }
     
     func testCloudInteractorCanModifyRank() {
+        let _ = prepareDatabase()
+        
         XCTFail()
+        
+        let _ = cleanUpDatabase()
+    }
+    
+    func testCloudInteractorCanGetRecordByRank() {
+        let _ = prepareDatabase()
+        
+        XCTAssertNotNil(mock?.getEntry(for: 1))
+
+        let firstPlace = testRecords[0]
+        XCTAssertEqual(firstPlace, mock?.getEntry(for: 1))
+        
+        let _ = cleanUpDatabase()
     }
 }
 
-protocol CloudInteractor {
+protocol CloudInteractor: AnyObject {   // <- Object required (class, not structs)
     
     // MARK: Properties
     
@@ -244,29 +275,99 @@ protocol CloudInteractor {
     
     // MARK: Functions
 
-    mutating func tabulateRanks()
+    func tabulateRanks()
    
     func queryVotes(completion: OptionalClosure) -> CKQueryOperation
-//    func modifyRank(of ref: CKReference, to rank: Int)
+    
+    func modifyRank(of ref: CKReference, to rank: Int)
+    
+    func getEntry(for rank: Int) -> CKRecord?
+    
+//    func sorted(_ :[CKReference?: NSNumber]) -> [CKReference]
 }
 
-struct MockInteractor: CloudInteractor {
+class MockInteractor: CloudInteractor {
+    
+    enum QueryOptions {
+        case allVotes, getEntry
+    }
     
     // MARK: Properties
+    
+    fileprivate var recoveredRecord: CKRecord?
+
+    // MARK: - Properties: CloudInteractor
     
     var database: CKDatabase { return CKContainer.default().publicCloudDatabase }
     
     var allVotes = [CKRecord]()
-
+    
     // MARK: Functions
     
-    mutating func tabulateRanks() {
+    fileprivate func decorate(queryOp op: CKQueryOperation, option: QueryOptions, completion: OptionalClosure = nil) -> CKQueryOperation {
+        op.completionBlock = completion
+        op.queryCompletionBlock = queryBlock(for: op, option: option)
+
+        let allVotesBlock = { record in
+            self.allVotes.append(record)
+        }
+        
+        let getEntryBlock = { record in
+            self.recoveredRecord = record
+        }
+        
+        option == .allVotes ? (op.recordFetchedBlock = allVotesBlock) : (op.recordFetchedBlock = getEntryBlock)
+print("** decorated")
+        return op
+    }
+    
+    fileprivate func queryBlock(for op: CKQueryOperation, option: QueryOptions) -> QueryBlock {
+        return { possibleCursor, possibleError in
+            if let error = possibleError {
+                option == .allVotes ?
+                    (print("** mockInteractor.queryVotes: \(error)")) : (print("** mockInteractor.getEntry: \(error)"))
+            }
+            if let cursor = possibleCursor {
+                let nextOp = CKQueryOperation(cursor: cursor)
+                self.database.add(self.decorate(queryOp: nextOp, option: option, completion: op.completionBlock))
+                op.completionBlock = nil
+            }
+        }
+    }
+    
+    // MARK: - Functions: CloudInteractor
+    
+    func tabulateRanks() {
         let mockRecord = CKRecord(recordType: RecordType.mock)
         allVotes.append(mockRecord)
     }
     
-    func queryVotes(completion: OptionalClosure = nil) -> CKQueryOperation {
-        return CKQueryOperation()
-    }
+    func queryVotes(completion: OptionalClosure = nil) -> CKQueryOperation {    // <- Not passing closure?
+        let query: CKQuery = CKQuery(recordType: RecordType.vote,
+                                      predicate: NSPredicate(value: true))
+        let op = CKQueryOperation(query: query)
 
+        return decorate(queryOp: op, option: .allVotes, completion: completion)
+    }
+    
+    func modifyRank(of ref: CKReference, to rank: Int) {
+        /**/
+    }
+    
+    func getEntry(for rank: Int) -> CKRecord? {
+        let group = DispatchGroup()
+        group.enter()
+        
+        let predicate = NSPredicate(format: "\(RecordKey.rank) = \(rank)")
+        let query = CKQuery(recordType: RecordType.entry, predicate: predicate)
+        let op = CKQueryOperation(query: query)
+        op.completionBlock = { group.leave() }
+
+        database.add(decorate(queryOp: op, option: .getEntry))
+print("** waiting...")
+        group.wait()
+print("** finished waiting.")
+        return recoveredRecord
+    }
 }
+
