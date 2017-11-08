@@ -58,6 +58,16 @@ class CKInteractorTests: XCTestCase {
     
     override func tearDown() {
         mock = nil
+        
+        // This gives time between tests, for all database requests from previous interactions to be served.
+        let group = DispatchGroup()
+        group.enter()
+        
+        let pause = Pause(seconds: 5)
+        pause.completionBlock = { group.leave() }
+        OperationQueue().addOperation(pause)
+        
+        group.wait()
         super.tearDown()
     }
     
@@ -113,7 +123,7 @@ print("** CKInteractorTests.delete: \(error)")  // <-- This can be fleshed out a
 
         deleteTestRecords() { group.leave() }
         group.wait()
-
+        
         return -1
     }
     
