@@ -171,23 +171,18 @@ print("** CKInteractor.disorder: \(error)")    // <-- This can be fleshed out as
     func testCloudInteractorHasAllVotes() { XCTAssertNotNil(mock?.allVotes) }
     
     func testCloudInteractorCanTabulateRanks() {
-
+        let _ = prepareDatabase()
+        
         // Test that method name is recognized.
         XCTAssertNotNil(mock?.tabulateRanks())
 
         // Test that tabulateResults effects allVotes
+        
         guard let test = mock?.allVotes else { XCTFail(); return }
         mock?.tabulateRanks()
         if let current = mock?.allVotes { XCTAssertNotEqual(test, current) }
         
         // Test that allVotes is updated from the database
-        
-        let group = DispatchGroup()
-        group.enter()
-        
-        uploadTestRecords() { group.leave() }
-        
-        group.wait()
 
         mock?.tabulateRanks()
         if let test = mock?.allVotes {
@@ -198,7 +193,7 @@ print("** CKInteractor.disorder: \(error)")    // <-- This can be fleshed out as
         
         // Test that sort makes changes to database
 
-        mixUpVoteOutcomes()
+        mixUpVoteOutcomes()             // <-- Requires additional database clean up !!
         
         mock?.tabulateRanks()
         if let test = mock?.allVotes {
@@ -243,6 +238,21 @@ print("** CKInteractor.disorder: \(error)")    // <-- This can be fleshed out as
         }
 
         let _ = cleanUpDatabase()
+    }
+    
+    func testCloudInteractorCanSortDictionary() {
+        let ref0 = CKReference(recordID: CKRecordID(recordName: "firstRef"), action: .deleteSelf)
+        let ref1 = CKReference(recordID: CKRecordID(recordName: "secondRef"), action: .deleteSelf)
+        let ref2 = CKReference(recordID: CKRecordID(recordName: "thirdRef"), action: .deleteSelf)
+
+        let orderedSample = [ref0: NSNumber(value: 1), ref1: NSNumber(value: 2), ref2: NSNumber(value: 3)]
+        let disorderedSample = [ref0: NSNumber(value: 1), ref2: NSNumber(value: 3), ref1: NSNumber(value: 2)]
+
+        if let sample = mock?.sorted(disorderedSample) {
+            XCTAssertEqual(Array(orderedSample.keys), sample)
+        } else {
+            XCTFail()
+        }
     }
     
     func testCloudInteractorCanModifyRank() {
@@ -299,16 +309,18 @@ protocol CloudInteractor: AnyObject {   // <- Object required (class, not struct
     
     func getEntry(for rank: Int) -> CKRecord?
     
-//    func sorted(_ :[CKReference?: NSNumber]) -> [CKReference]
+    func sorted(_ :[CKReference: NSNumber]) -> [CKReference]
 }
 
 class MockInteractor: CloudInteractor {
+    
+    // MARK: - Enums
     
     enum QueryOptions {
         case allVotes, getEntry
     }
     
-    // MARK: Properties
+    // MARK: - Properties
     
     fileprivate var recoveredRecord: CKRecord?
 
@@ -354,8 +366,34 @@ print("** decorated")
     // MARK: - Functions: CloudInteractor
     
     func tabulateRanks() {
-        let mockRecord = CKRecord(recordType: RecordType.mock)
-        allVotes.append(mockRecord)
+        allVotes = []
+        
+        let group = DispatchGroup()
+        group.enter()
+
+        let votes = queryVotes() { group.leave() }
+        database.add(votes)
+        group.wait()
+        
+        var results = [CKReference: NSNumber]()
+        for vote in allVotes {
+            guard let isIncrease = (vote[RecordKey.appr] as? NSNumber)?.boolValue else { return }
+            guard let entries = (vote[RecordKey.refs] as? [CKReference]) else { return }
+            let entry = entries[0]  // <-- As a vote, the only reference should be the entry to which the vote was applied (creator in metadata).
+
+            // This tallies all votes
+            if let tally = results[entry]?.intValue {
+                isIncrease ?
+                    (results[entry] = NSNumber(value: tally + 1)) : (results[entry] = NSNumber(value: tally - 1))
+            } else {
+                isIncrease ?
+                    (results[entry] = NSNumber(value: 1)) : (results[entry] = NSNumber(value: -1))
+            }
+            
+            var count = 1
+            // TODO: finish this section after sorted tests and ensure checks for rank replacement
+//            !!
+        }
     }
     
     func queryVotes(completion: OptionalClosure = nil) -> CKQueryOperation {
@@ -364,6 +402,10 @@ print("** decorated")
         let op = CKQueryOperation(query: query)
 
         return decorate(queryOp: op, option: .allVotes, completion: completion)
+    }
+    
+    func sorted(_ results: [CKReference: NSNumber]) -> [CKReference] {
+        return results.keys.sorted(by: { results[$0]!.intValue > results[$1]!.intValue })   // <- ! v ?
     }
     
     func modifyRank(of ref: CKReference, to rank: Int) {
