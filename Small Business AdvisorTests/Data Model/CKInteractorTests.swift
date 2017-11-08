@@ -247,9 +247,9 @@ print("** CKInteractor.disorder: \(error)")    // <-- This can be fleshed out as
     
     func testCloudInteractorCanModifyRank() {
         let _ = prepareDatabase()
-print("** creating test variables")
+
         let original = testRecords[0]                                                    // rank = 1
-        mock?.modifyRank(of: CKReference(record: original, action: .deleteSelf), to: 2)  // rank = 2
+        mock?.modifyRank(of: CKReference(record: original, action: .deleteSelf), to: 9)  // rank = 9
         
         let group = DispatchGroup()
         group.enter()
@@ -258,16 +258,14 @@ print("** creating test variables")
         let pause = Pause(seconds: 3)
         pause.completionBlock = { group.leave() }
         OperationQueue().addOperation(pause)
-        
         group.wait()
-print("** comparing test variables")
-        if let modified = mock?.getEntry(for: 2) {
-print("** modified != nil")
+
+        if let modified = mock?.getEntry(for: 9) {
             XCTAssertEqual(original.recordID, modified.recordID)
         } else {
             XCTFail()
         }
-print("** test complete")
+
         let _ = cleanUpDatabase()
     }
     
@@ -378,6 +376,8 @@ print("** decorated")
                 modifyOp.modifyRecordsCompletionBlock = { possibleRecords, possibleIDs, possibleError in
                     if let error = possibleError { print("** MockInteractor.modifyRank.modify error: \(error)") }
                 }
+                
+                self.database.add(modifyOp)
             }
             
             if let error = possibleError { print("** MockInteractor.modifyRank.fetch error: \(error)") }
