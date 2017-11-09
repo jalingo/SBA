@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CloudKit
 
 var testRecords: [CKRecord] {
     let rec0 = CKRecord(recordType: RecordType.entry, recordID: CKRecordID(recordName: "entry0"))
