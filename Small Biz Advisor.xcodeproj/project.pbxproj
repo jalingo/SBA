@@ -130,8 +130,8 @@
 			isa = PBXGroup;
 			children = (
 				9033901B1FB4409400E7D7A9 /* TestTools.swift */,
-				903390191FB438BD00E7D7A9 /* VotingBoothTests.swift */,
 				9064001A1FAD713700C09C8D /* CKInteractorTests.swift */,
+				903390191FB438BD00E7D7A9 /* VotingBoothTests.swift */,
 			);
 			path = "Cloud Database";
 			sourceTree = "<group>";
