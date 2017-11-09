@@ -12,18 +12,15 @@ import CloudKit
 class CKInteractorTests: XCTestCase {
     
     // MARK: - Properties
-    
-    let database = CKContainer.default().publicCloudDatabase
-    
+        
     var mock: CloudInteractor?
-    
-    var mixedUpVotes: [CKRecordID]?
-    
+        
     // MARK: - Functions
 
     override func setUp() {
         super.setUp()
         mock = MockInteractor()
+        mixedUpVotes = nil
     }
     
     override func tearDown() {
@@ -39,113 +36,6 @@ class CKInteractorTests: XCTestCase {
         
         group.wait()
         super.tearDown()
-    }
-    
-    // MARK: - Functions: Test
-    
-    /// This code assumes that records have been deleted from the database at the end of each test.
-    func uploadTestRecords(completion: (()->())? = nil) {
-        let op = CKModifyRecordsOperation(recordsToSave: testRecords, recordIDsToDelete: nil)
-
-        let pause = Pause(seconds: 3)
-        pause.addDependency(op)
-        pause.completionBlock = completion
-        OperationQueue().addOperation(pause)
-
-        op.savePolicy = .changedKeys
-        op.modifyRecordsCompletionBlock = { _, _, possibleError in
-            guard let error = possibleError else { return }
-print("** CKInteractorTests.upload: \(error.localizedDescription)")  // <-- This can be fleshed out as errors emerge.
-        }
-        
-        database.add(op)
-    }
-    
-    func prepareDatabase() -> Int {
-        let group = DispatchGroup()
-        group.enter()
-
-        uploadTestRecords() { group.leave() }
-        group.wait()
-
-        return -1
-    }
-    
-    func deleteTestRecords(completion: (()->())? = nil) {
-        var recordsToDelete = testRecords.map() { $0.recordID }
-        if let mixed = mixedUpVotes { recordsToDelete += mixed }
-        
-        let op = CKModifyRecordsOperation(recordsToSave: nil,
-                                          recordIDsToDelete: recordsToDelete)
-        op.completionBlock = completion
-        op.isLongLived = true
-        op.modifyRecordsCompletionBlock = { _, _, possibleError in
-            guard let error = possibleError else { return }
-print("** CKInteractorTests.delete: \(error)")  // <-- This can be fleshed out as errors emerge.
-        }
-        
-        database.add(op)
-    }
-    
-    func cleanUpDatabase() -> Int {
-        let group = DispatchGroup()
-        group.enter()
-
-        deleteTestRecords() { group.leave() }
-        group.wait()
-        
-        return -1
-    }
-    
-    func mixUpVoteOutcomes(completion: (()->())? = nil) {
-        var votesToModify = [CKRecordID]()
-
-        var index = 0
-        for record in testRecords {
-            if index > 2 { votesToModify.append(record.recordID) }
-            index += 1
-        }
-        
-        let fetchOp = CKFetchRecordsOperation(recordIDs: votesToModify)
-        fetchOp.fetchRecordsCompletionBlock = { possibleRecords, possibleError in
-            if let error = possibleError { print(error) }
-            
-            var modifiedRecords = [CKRecord]()
-            var absenteeVotes = [CKRecordID]()
-            
-            if let records = possibleRecords {
-                for vote in votesToModify {
-                    if records.keys.contains(vote),
-                        let record = records[vote],
-                        let approval = record[RecordKey.appr] as? Bool {
-                        record[RecordKey.appr] = approval as CKRecordValue
-                        modifiedRecords.append(record)
-                    } else {
-                        absenteeVotes.append(vote)
-                    }
-                }
-            } else {
-                absenteeVotes = votesToModify
-            }
-            
-            for vote in absenteeVotes {
-                let record = CKRecord(recordType: RecordType.vote, recordID: vote)
-                modifiedRecords.append(record)
-            }
-            
-            let modifyOp = CKModifyRecordsOperation(recordsToSave: modifiedRecords, recordIDsToDelete: nil)
-            modifyOp.completionBlock = completion
-            modifyOp.savePolicy = .changedKeys
-            modifyOp.modifyRecordsCompletionBlock = { _, possibleIDs, possibleError in
-                self.mixedUpVotes = possibleIDs                 // <-- This line is required for cleanUp to be effective later.
-                guard let error = possibleError else { return }
-print("** CKInteractor.disorder: \(error)")                     // <-- This can be fleshed out as errors emerge.
-            }
-            
-            self.database.add(modifyOp)
-        }
-        
-        database.add(fetchOp)
     }
     
     // MARK: - Functions: Tests
@@ -212,7 +102,7 @@ print("** CKInteractor.disorder: \(error)")                     // <-- This can 
         // Test that votes get stored in all votes
 
         if let op = op {
-            self.database.add(op)
+            testDatabase.add(op)
             group.wait()
             
             let testVotes = testRecords.filter({ $0.recordType == RecordType.vote })

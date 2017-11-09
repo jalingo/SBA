@@ -131,8 +131,8 @@
 		9033901D1FB441A500E7D7A9 /* Cloud Database */ = {
 			isa = PBXGroup;
 			children = (
-				A14B98AA1FB4DFAC00C04802 /* CurrentTipTests.swift */,
 				9033901B1FB4409400E7D7A9 /* TestTools.swift */,
+				A14B98AA1FB4DFAC00C04802 /* CurrentTipTests.swift */,
 				9064001A1FAD713700C09C8D /* CKInteractorTests.swift */,
 				903390191FB438BD00E7D7A9 /* VotingBoothTests.swift */,
 			);
