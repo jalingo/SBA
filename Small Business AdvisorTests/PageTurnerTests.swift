@@ -8,17 +8,17 @@
 
 import XCTest
 
-class AdvisorVCTests: XCTestCase {
+class PageTurnerTests: XCTestCase {
     
     // MARK: - Properties
     
-    var mock: AdviceReciever?
+    var mock: PageTurner?
     
     // MARK: - Functions
     
     override func setUp() {
         super.setUp()
-        mock = MockAdvisor()
+        mock = MockPageTurner()
     }
     
     override func tearDown() {
@@ -39,7 +39,7 @@ class AdvisorVCTests: XCTestCase {
     func testAdvisorHasResponse() { XCTAssertNotNil(mock?.response) }
 }
 
-class MockAdvisor: UIViewController, AdviceReciever {
+class MockPageTurner: UIViewController, PageTurner {
     
     var response = ResponseText()
     
