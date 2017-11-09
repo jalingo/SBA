@@ -9,7 +9,7 @@
 import Foundation
 
 /// This protocol ensures that conforming view controllers have requirements to work with data model.
-protocol AdviceReciever: AnyObject {
+protocol PageTurner: AnyObject {
     
     /// This serves the accessor for the data model. Needs to be a variable to allow mutation for index tracking.
     var response: ResponseText { get set }
