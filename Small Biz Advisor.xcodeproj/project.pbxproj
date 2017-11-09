@@ -7,14 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9033901A1FB438BD00E7D7A9 /* VotingBoothTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 903390191FB438BD00E7D7A9 /* VotingBoothTests.swift */; };
+		9033901C1FB4409400E7D7A9 /* TestTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9033901B1FB4409400E7D7A9 /* TestTools.swift */; };
 		9064001B1FAD713700C09C8D /* CKInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9064001A1FAD713700C09C8D /* CKInteractorTests.swift */; };
 		90A16F461FAE48B1002D418B /* Type Aliases & Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A16F451FAE48B1002D418B /* Type Aliases & Strings.swift */; };
 		90A16F471FAE48B1002D418B /* Type Aliases & Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A16F451FAE48B1002D418B /* Type Aliases & Strings.swift */; };
 		A10F51BC1FA01D4300680AE6 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A10F51BB1FA01D4300680AE6 /* Default-568h@2x.png */; };
 		A11C3BB61FA54DEC000D2255 /* ResponseText.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11C3BB51FA54DEC000D2255 /* ResponseText.swift */; };
 		A11C3BB71FA54DEC000D2255 /* ResponseText.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11C3BB51FA54DEC000D2255 /* ResponseText.swift */; };
-		A1265DBC1FAA83D900E4C712 /* AdviceReciever.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1265DBB1FAA83D900E4C712 /* AdviceReciever.swift */; };
-		A1265DBD1FAA83D900E4C712 /* AdviceReciever.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1265DBB1FAA83D900E4C712 /* AdviceReciever.swift */; };
+		A1265DBC1FAA83D900E4C712 /* PageTurner.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1265DBB1FAA83D900E4C712 /* PageTurner.swift */; };
+		A1265DBD1FAA83D900E4C712 /* PageTurner.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1265DBB1FAA83D900E4C712 /* PageTurner.swift */; };
 		A15043F51FA2B7AA0018B909 /* TipCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15043F41FA2B7AA0018B909 /* TipCategory.swift */; };
 		A15043F61FA2B7AA0018B909 /* TipCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15043F41FA2B7AA0018B909 /* TipCategory.swift */; };
 		A15043F81FA2B97B0018B909 /* TipFactoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15043F71FA2B97B0018B909 /* TipFactoryTests.swift */; };
@@ -31,7 +33,7 @@
 		A1642F781FB119F8004534EB /* Pause.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1642F771FB119F7004534EB /* Pause.swift */; };
 		A1642F791FB11A00004534EB /* Pause.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1642F771FB119F7004534EB /* Pause.swift */; };
 		A16756BE1FA14BD90002E820 /* TipTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16756BD1FA14BD90002E820 /* TipTests.swift */; };
-		A17F19C31FABD32D0099B903 /* AdvisorVCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1265DB91FAA747800E4C712 /* AdvisorVCTests.swift */; };
+		A17F19C31FABD32D0099B903 /* PageTurnerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1265DB91FAA747800E4C712 /* PageTurnerTests.swift */; };
 		A1AAB6A91FA939C000017C54 /* TipFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AAB6A81FA939C000017C54 /* TipFactory.swift */; };
 		A1AAB6AA1FA939C000017C54 /* TipFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AAB6A81FA939C000017C54 /* TipFactory.swift */; };
 		A1AB0E211FA0185100F1D3FF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AB0E201FA0185100F1D3FF /* AppDelegate.swift */; };
@@ -62,12 +64,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		903390191FB438BD00E7D7A9 /* VotingBoothTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = VotingBoothTests.swift; path = "Small Business AdvisorTests/Cloud Database/VotingBoothTests.swift"; sourceTree = SOURCE_ROOT; };
+		9033901B1FB4409400E7D7A9 /* TestTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestTools.swift; sourceTree = "<group>"; };
 		9064001A1FAD713700C09C8D /* CKInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CKInteractorTests.swift; sourceTree = "<group>"; };
 		90A16F451FAE48B1002D418B /* Type Aliases & Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Type Aliases & Strings.swift"; sourceTree = "<group>"; };
 		A10F51BB1FA01D4300680AE6 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		A11C3BB51FA54DEC000D2255 /* ResponseText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseText.swift; sourceTree = "<group>"; };
-		A1265DB91FAA747800E4C712 /* AdvisorVCTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvisorVCTests.swift; sourceTree = "<group>"; };
-		A1265DBB1FAA83D900E4C712 /* AdviceReciever.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdviceReciever.swift; sourceTree = "<group>"; };
+		A1265DB91FAA747800E4C712 /* PageTurnerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageTurnerTests.swift; sourceTree = "<group>"; };
+		A1265DBB1FAA83D900E4C712 /* PageTurner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageTurner.swift; sourceTree = "<group>"; };
 		A15043F41FA2B7AA0018B909 /* TipCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipCategory.swift; sourceTree = "<group>"; };
 		A15043F71FA2B97B0018B909 /* TipFactoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipFactoryTests.swift; sourceTree = "<group>"; };
 		A15043F91FA336520018B909 /* TipCategoryFactoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipCategoryFactoryTests.swift; sourceTree = "<group>"; };
@@ -122,10 +126,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9033901D1FB441A500E7D7A9 /* Cloud Database */ = {
+			isa = PBXGroup;
+			children = (
+				9033901B1FB4409400E7D7A9 /* TestTools.swift */,
+				903390191FB438BD00E7D7A9 /* VotingBoothTests.swift */,
+				9064001A1FAD713700C09C8D /* CKInteractorTests.swift */,
+			);
+			path = "Cloud Database";
+			sourceTree = "<group>";
+		};
 		A1265DBE1FAA853A00E4C712 /* View Controller */ = {
 			isa = PBXGroup;
 			children = (
-				A1265DBB1FAA83D900E4C712 /* AdviceReciever.swift */,
+				A1265DBB1FAA83D900E4C712 /* PageTurner.swift */,
 				A1AB0E4F1FA01A1D00F1D3FF /* AdvisorViewController.swift */,
 			);
 			path = "View Controller";
@@ -134,7 +148,6 @@
 		A1265DBF1FAA855C00E4C712 /* Data Model */ = {
 			isa = PBXGroup;
 			children = (
-				9064001A1FAD713700C09C8D /* CKInteractorTests.swift */,
 				A16756BD1FA14BD90002E820 /* TipTests.swift */,
 				A15043F71FA2B97B0018B909 /* TipFactoryTests.swift */,
 				A1D9555E1FA17BF2002C7563 /* TipCategoryTests.swift */,
@@ -206,7 +219,8 @@
 			isa = PBXGroup;
 			children = (
 				A1AB0E371FA0185100F1D3FF /* Info.plist */,
-				A1265DB91FAA747800E4C712 /* AdvisorVCTests.swift */,
+				A1265DB91FAA747800E4C712 /* PageTurnerTests.swift */,
+				9033901D1FB441A500E7D7A9 /* Cloud Database */,
 				A1265DBF1FAA855C00E4C712 /* Data Model */,
 			);
 			path = "Small Business AdvisorTests";
@@ -378,7 +392,7 @@
 				A11C3BB61FA54DEC000D2255 /* ResponseText.swift in Sources */,
 				A150440A1FA503920018B909 /* Entry.swift in Sources */,
 				A1AAB6A91FA939C000017C54 /* TipFactory.swift in Sources */,
-				A1265DBC1FAA83D900E4C712 /* AdviceReciever.swift in Sources */,
+				A1265DBC1FAA83D900E4C712 /* PageTurner.swift in Sources */,
 				A1AB0E211FA0185100F1D3FF /* AppDelegate.swift in Sources */,
 				90A16F461FAE48B1002D418B /* Type Aliases & Strings.swift in Sources */,
 				A15044051FA42E260018B909 /* TipText.swift in Sources */,
@@ -393,16 +407,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A1265DBD1FAA83D900E4C712 /* AdviceReciever.swift in Sources */,
+				A1265DBD1FAA83D900E4C712 /* PageTurner.swift in Sources */,
 				A150440B1FA503920018B909 /* Entry.swift in Sources */,
 				A15043FA1FA336520018B909 /* TipCategoryFactoryTests.swift in Sources */,
 				A15044031FA3EFA10018B909 /* TextFactoryTests.swift in Sources */,
 				A15044001FA33C210018B909 /* Tip.swift in Sources */,
 				A16756BE1FA14BD90002E820 /* TipTests.swift in Sources */,
 				A1AAB6AA1FA939C000017C54 /* TipFactory.swift in Sources */,
+				9033901A1FB438BD00E7D7A9 /* VotingBoothTests.swift in Sources */,
 				A11C3BB71FA54DEC000D2255 /* ResponseText.swift in Sources */,
-				A17F19C31FABD32D0099B903 /* AdvisorVCTests.swift in Sources */,
+				A17F19C31FABD32D0099B903 /* PageTurnerTests.swift in Sources */,
 				A1AB0E511FA01A1D00F1D3FF /* AdvisorViewController.swift in Sources */,
+				9033901C1FB4409400E7D7A9 /* TestTools.swift in Sources */,
 				A1D9555F1FA17BF2002C7563 /* TipCategoryTests.swift in Sources */,
 				90A16F471FAE48B1002D418B /* Type Aliases & Strings.swift in Sources */,
 				A15043F81FA2B97B0018B909 /* TipFactoryTests.swift in Sources */,
