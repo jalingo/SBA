@@ -27,9 +27,12 @@ var testRecords: [CKRecord] {
     
     // Configure test entries
     rec0[RecordKey.rank] = NSNumber(integerLiteral: 1)
+    rec0[RecordKey.indx] = NSNumber(integerLiteral: 1)
     rec1[RecordKey.rank] = NSNumber(integerLiteral: 2)
+    rec1[RecordKey.indx] = NSNumber(integerLiteral: 2)
     rec2[RecordKey.rank] = NSNumber(integerLiteral: 3)
-    
+    rec2[RecordKey.indx] = NSNumber(integerLiteral: 3)
+
     // Configure test votes
     rec3[RecordKey.refs] = CKReference(record: rec0, action: .deleteSelf)
     rec3[RecordKey.appr] = true as CKRecordValue

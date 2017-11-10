@@ -42,6 +42,8 @@ struct RecordKey {
 
     // Entry Keys
 
+    static let indx = "ENTRY_INDEX"
+    
     static let text = "ENTRY_TEXT"
         
     static let rank = "ENTRY_RANK"
