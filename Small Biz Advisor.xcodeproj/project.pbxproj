@@ -32,8 +32,6 @@
 		A150440A1FA503920018B909 /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15044091FA503920018B909 /* Entry.swift */; };
 		A150440B1FA503920018B909 /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15044091FA503920018B909 /* Entry.swift */; };
 		A1642F761FB0D3EF004534EB /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1642F751FB0D3EF004534EB /* CloudKit.framework */; };
-		A1642F781FB119F8004534EB /* Pause.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1642F771FB119F7004534EB /* Pause.swift */; };
-		A1642F791FB11A00004534EB /* Pause.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1642F771FB119F7004534EB /* Pause.swift */; };
 		A16756BE1FA14BD90002E820 /* TipTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16756BD1FA14BD90002E820 /* TipTests.swift */; };
 		A17F19C31FABD32D0099B903 /* PageTurnerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1265DB91FAA747800E4C712 /* PageTurnerTests.swift */; };
 		A1AAB6A91FA939C000017C54 /* TipFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AAB6A81FA939C000017C54 /* TipFactory.swift */; };
@@ -123,7 +121,6 @@
 		A15044091FA503920018B909 /* Entry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entry.swift; sourceTree = "<group>"; };
 		A1642F731FB0D3EC004534EB /* Small Biz Advisor.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Small Biz Advisor.entitlements"; sourceTree = "<group>"; };
 		A1642F751FB0D3EF004534EB /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
-		A1642F771FB119F7004534EB /* Pause.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Pause.swift; path = "Small Business Advisor/Data Model/Pause.swift"; sourceTree = SOURCE_ROOT; };
 		A16756BD1FA14BD90002E820 /* TipTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipTests.swift; sourceTree = "<group>"; };
 		A1AAB6A81FA939C000017C54 /* TipFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipFactory.swift; sourceTree = "<group>"; };
 		A1AB0E1D1FA0185100F1D3FF /* Small Biz Advisor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Small Biz Advisor.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -206,7 +203,6 @@
 		A15044011FA342740018B909 /* Data Model */ = {
 			isa = PBXGroup;
 			children = (
-				A1642F771FB119F7004534EB /* Pause.swift */,
 				A11C3BB51FA54DEC000D2255 /* ResponseText.swift */,
 				A15044091FA503920018B909 /* Entry.swift */,
 				A15043FE1FA33C210018B909 /* Tip.swift */,
@@ -478,7 +474,6 @@
 				A15044051FA42E260018B909 /* TipText.swift in Sources */,
 				A15043FF1FA33C210018B909 /* Tip.swift in Sources */,
 				A1AB0E501FA01A1D00F1D3FF /* AdvisorViewController.swift in Sources */,
-				A1642F781FB119F8004534EB /* Pause.swift in Sources */,
 				A15043F51FA2B7AA0018B909 /* TipCategory.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -503,7 +498,6 @@
 				90A16F471FAE48B1002D418B /* Type Aliases & Strings.swift in Sources */,
 				A15043F81FA2B97B0018B909 /* TipFactoryTests.swift in Sources */,
 				A15044061FA42E260018B909 /* TipText.swift in Sources */,
-				A1642F791FB11A00004534EB /* Pause.swift in Sources */,
 				A14B98AC1FB4DFDC00C04802 /* CurrentTipTests.swift in Sources */,
 				A15044081FA4F94D0018B909 /* ResponseTests.swift in Sources */,
 				A14B98AE1FB4F8A200C04802 /* ScoreCounterTests.swift in Sources */,
