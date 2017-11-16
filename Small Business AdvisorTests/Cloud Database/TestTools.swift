@@ -8,6 +8,7 @@
 
 import Foundation
 import CloudKit
+import MagicCloud
 
 // MARK: - Properties: Global
 
