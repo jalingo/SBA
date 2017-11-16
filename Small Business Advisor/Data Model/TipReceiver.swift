@@ -24,6 +24,6 @@ class TipReceiver: ReceivesRecordable {
         This boolean property allows / prevents changes to `recordables` being stored in
         the cloud.
      */
-    var allowComponentsDidSetToUploadDataModel: Bool = false
+    var allowRecordablesDidSetToUploadDataModel: Bool = false
 
 }
