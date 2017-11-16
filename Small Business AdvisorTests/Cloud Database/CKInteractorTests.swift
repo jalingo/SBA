@@ -8,6 +8,7 @@
 
 import XCTest
 import CloudKit
+import MagicCloud
 
 class CKInteractorTests: XCTestCase {
     
