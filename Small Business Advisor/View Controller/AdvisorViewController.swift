@@ -61,7 +61,6 @@ class AdvisorViewController: UIViewController {
             let random = response.byRandom()
             
             textView.attributedText = random
-//            pageLabel.text = "\(response.lastIndex)"
             page = response.lastIndex
         } else {
             page < TipFactory.max ? (page += 1) : (page = 1)
@@ -131,14 +130,3 @@ class AdvisorViewController: UIViewController {
         if event?.subtype == .motionShake { increasePage() }
     }
 }
-
-// MARK: - Extensions
-
-//import MagicCloud
-//
-//extension AdvisorViewController: ReceivesRecordable {
-//    typealias type = <#type#>
-//    
-//    
-//}
-
