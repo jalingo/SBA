@@ -131,3 +131,14 @@ class AdvisorViewController: UIViewController {
         if event?.subtype == .motionShake { increasePage() }
     }
 }
+
+// MARK: - Extensions
+
+//import MagicCloud
+//
+//extension AdvisorViewController: ReceivesRecordable {
+//    typealias type = <#type#>
+//    
+//    
+//}
+

@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import MagicCloud
+import CloudKit
 
 // Conforms to `Entry` protocol (see 'Entry.swift').
 
@@ -31,6 +33,10 @@ struct Tip: Entry {
     /// This constant property storea an unique index associated with the entry text.
     let index: Int
     
+    // MARK: - Properties: Recordable
+    
+    var _recordID: CKRecordID?
+    
     // MARK: - Functions
 
     /**
@@ -49,8 +55,40 @@ struct Tip: Entry {
     }
 }
 
-// MARK: - Extension
+// MARK: - Extensions
+
+// MARK: Extension: Equatable
 
 extension Tip: Equatable {
     static func ==(left: Tip, right: Tip) -> Bool { return left.index == right.index }
 }
+
+// MARK: - Extension: Recordable
+
+extension Tip: Recordable {
+    
+    // MARK: - Properties: Recordable
+    
+    var recordType: String { return RecordType.entry }
+    
+    var recordFields: Dictionary<String, CKRecordValue> {
+        get {
+            <#code#>
+        }
+        set(newValue) {
+            <#code#>
+        }
+    }
+    
+    var recordID: CKRecordID {
+        get { return _recordID ?? CKRecordID(recordName: "Tip #\(index)") }
+        set(newValue) { _recordID = newValue }
+    }
+    
+    init() {
+        <#code#>
+    }
+    
+    
+}
+
