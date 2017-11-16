@@ -17,7 +17,13 @@ class TipReceiver: ReceivesRecordable {
         This protected property is an array of Tips used by reciever.
      */
     var recordables = [type]() {
-        didSet { print("** TipReceiver didSet: \(recordables.count)") }
+        didSet {
+            print("** TipReceiver didSet: \(recordables.count)")
+            
+            guard allowRecordablesDidSetToUploadDataModel else { return }
+            
+//            let upload: Upload = Upload(
+        }
     }
     
     /**
