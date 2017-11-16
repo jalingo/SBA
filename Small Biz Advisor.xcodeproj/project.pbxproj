@@ -45,6 +45,8 @@
 		A1AB0E511FA01A1D00F1D3FF /* AdvisorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AB0E4F1FA01A1D00F1D3FF /* AdvisorViewController.swift */; };
 		A1CB777D1FBABD61008ADF09 /* MagicCloud.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1CB777A1FBABD03008ADF09 /* MagicCloud.framework */; };
 		A1CB777E1FBABD61008ADF09 /* MagicCloud.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A1CB777A1FBABD03008ADF09 /* MagicCloud.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A1D102B91FBD821900B89C53 /* TipReceiver.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D102B81FBD821900B89C53 /* TipReceiver.swift */; };
+		A1D102BA1FBD821900B89C53 /* TipReceiver.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D102B81FBD821900B89C53 /* TipReceiver.swift */; };
 		A1D9555F1FA17BF2002C7563 /* TipCategoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D9555E1FA17BF2002C7563 /* TipCategoryTests.swift */; };
 /* End PBXBuildFile section */
 
@@ -83,6 +85,27 @@
 			proxyType = 1;
 			remoteGlobalIDString = A1268EB51FBA806200ADAA74;
 			remoteInfo = MagicCloud;
+		};
+		A1D102BF1FBD821A00B89C53 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A1CB77741FBABD03008ADF09 /* MagicCloud.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = A1CB77DF1FBCF131008ADF09;
+			remoteInfo = TestApp;
+		};
+		A1D102C11FBD821A00B89C53 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A1CB77741FBABD03008ADF09 /* MagicCloud.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = A1CB77F21FBCF132008ADF09;
+			remoteInfo = TestAppTests;
+		};
+		A1D102C31FBD821A00B89C53 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A1CB77741FBABD03008ADF09 /* MagicCloud.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = A1CB77FD1FBCF132008ADF09;
+			remoteInfo = TestAppUITests;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -136,6 +159,7 @@
 		A1AB0E421FA0185100F1D3FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A1AB0E4F1FA01A1D00F1D3FF /* AdvisorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvisorViewController.swift; sourceTree = "<group>"; };
 		A1CB77741FBABD03008ADF09 /* MagicCloud.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MagicCloud.xcodeproj; path = ../MagicCloud/MagicCloud.xcodeproj; sourceTree = "<group>"; };
+		A1D102B81FBD821900B89C53 /* TipReceiver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipReceiver.swift; sourceTree = "<group>"; };
 		A1D9555E1FA17BF2002C7563 /* TipCategoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipCategoryTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -203,6 +227,7 @@
 		A15044011FA342740018B909 /* Data Model */ = {
 			isa = PBXGroup;
 			children = (
+				A1D102B81FBD821900B89C53 /* TipReceiver.swift */,
 				A11C3BB51FA54DEC000D2255 /* ResponseText.swift */,
 				A15044091FA503920018B909 /* Entry.swift */,
 				A15043FE1FA33C210018B909 /* Tip.swift */,
@@ -293,6 +318,9 @@
 			children = (
 				A1CB777A1FBABD03008ADF09 /* MagicCloud.framework */,
 				A1CB777C1FBABD03008ADF09 /* MagicCloudTests.xctest */,
+				A1D102C01FBD821A00B89C53 /* TestApp.app */,
+				A1D102C21FBD821A00B89C53 /* TestAppTests.xctest */,
+				A1D102C41FBD821A00B89C53 /* TestAppUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -430,6 +458,27 @@
 			remoteRef = A1CB777B1FBABD03008ADF09 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		A1D102C01FBD821A00B89C53 /* TestApp.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = TestApp.app;
+			remoteRef = A1D102BF1FBD821A00B89C53 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		A1D102C21FBD821A00B89C53 /* TestAppTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = TestAppTests.xctest;
+			remoteRef = A1D102C11FBD821A00B89C53 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		A1D102C41FBD821A00B89C53 /* TestAppUITests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = TestAppUITests.xctest;
+			remoteRef = A1D102C31FBD821A00B89C53 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
@@ -470,6 +519,7 @@
 				A1AAB6A91FA939C000017C54 /* TipFactory.swift in Sources */,
 				A1265DBC1FAA83D900E4C712 /* PageTurner.swift in Sources */,
 				A1AB0E211FA0185100F1D3FF /* AppDelegate.swift in Sources */,
+				A1D102B91FBD821900B89C53 /* TipReceiver.swift in Sources */,
 				90A16F461FAE48B1002D418B /* Type Aliases & Strings.swift in Sources */,
 				A15044051FA42E260018B909 /* TipText.swift in Sources */,
 				A15043FF1FA33C210018B909 /* Tip.swift in Sources */,
@@ -498,6 +548,7 @@
 				90A16F471FAE48B1002D418B /* Type Aliases & Strings.swift in Sources */,
 				A15043F81FA2B97B0018B909 /* TipFactoryTests.swift in Sources */,
 				A15044061FA42E260018B909 /* TipText.swift in Sources */,
+				A1D102BA1FBD821900B89C53 /* TipReceiver.swift in Sources */,
 				A14B98AC1FB4DFDC00C04802 /* CurrentTipTests.swift in Sources */,
 				A15044081FA4F94D0018B909 /* ResponseTests.swift in Sources */,
 				A14B98AE1FB4F8A200C04802 /* ScoreCounterTests.swift in Sources */,
