@@ -7,6 +7,7 @@
 //
 
 import XCTest
+import MagicCloud
 
 class TipTests: XCTestCase {
 
@@ -35,9 +36,27 @@ class TipTests: XCTestCase {
     
     func testCanReadText()      { XCTAssertNotNil(mock?.text) }
     
+    func testCanWriteText()     {
+        let test: NSAttributedString = NSAttributedString(string: "TEST")
+        mock?.text = test
+        XCTAssertEqual(test, mock?.text)
+    }
+    
     func testCanReadCategory()  { XCTAssertNotNil(mock?.category) }
     
+    func testCanWriteCategory() {
+        let test: TipCategory = .outOfRange
+        mock?.category = test
+        XCTAssertEqual(test, mock?.category)
+    }
+    
     func testCanReadIndex()     { XCTAssertNotNil(mock?.index) }
+    
+    func testCanWriteIndex()    {
+        let test = -1
+        mock?.index = test
+        XCTAssertEqual(test, mock?.index)
+    }
     
     func testIndexCantBeZeroOrNegative() {
         XCTAssertFalse(mock!.index < 1)
@@ -47,16 +66,20 @@ class TipTests: XCTestCase {
         
         let nextMock = MockTip(index: 0, category: .planning, text: NSAttributedString(string: "B"))
         XCTAssertFalse(nextMock.index < 1)
-    }    
+    }
+    
+    func testIsRecordable() {
+        XCTAssert(mock is Recordable)
+    }
 }
 
 struct MockTip: Entry {
     
-    let text: NSAttributedString
+    var text: NSAttributedString
     
-    let category: TipCategory
+    var category: TipCategory
     
-    let index: Int
+    var index: Int
     
     init(index integer: Int, category cat: TipCategory, text str: NSAttributedString) {
         self.category = cat

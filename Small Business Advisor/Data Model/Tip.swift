@@ -24,14 +24,14 @@ struct Tip: Entry {
     
     // MARK: - Properties
     
-    /// This constant property stores a formatted version of the entry's text.
-    let text: NSAttributedString
+    /// This property stores a formatted version of the entry's text.
+    var text: NSAttributedString
 
-    /// This constant property stores an enumeration of the entry's category.
-    let category: TipCategory
+    /// This property stores an enumeration of the entry's category.
+    var category: TipCategory
     
-    /// This constant property storea an unique index associated with the entry text.
-    let index: Int
+    /// This property storea an unique index associated with the entry text.
+    var index: Int
     
     // MARK: - Properties: Recordable
     
@@ -73,10 +73,20 @@ extension Tip: Recordable {
     
     var recordFields: Dictionary<String, CKRecordValue> {
         get {
-            <#code#>
+            var dictionary = [String: CKRecordValue]()
+            
+            dictionary[RecordKey.indx] = self.index as CKRecordValue
+            dictionary[RecordKey.text] = self.text.string as CKRecordValue
+            dictionary[RecordKey.catg] = self.category.rawValue as CKRecordValue
+            
+            return dictionary
         }
-        set(newValue) {
-            <#code#>
+        set {
+            if let num = newValue[RecordKey.indx] as? NSNumber { self.index = num.intValue }
+            if let txt = newValue[RecordKey.text] as? String { self.text = NSAttributedString(string: txt) }
+            if let num = newValue[RecordKey.catg] as? NSNumber {
+                if let category = TipCategory(rawValue: num.intValue) { self.category = category }
+            }
         }
     }
     
@@ -86,9 +96,9 @@ extension Tip: Recordable {
     }
     
     init() {
-        <#code#>
-    }
-    
-    
+        self.text = NSAttributedString(string: "blank text")
+        self.category = .outOfRange
+        self.index = -1
+    }    
 }
 
