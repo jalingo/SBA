@@ -47,6 +47,8 @@ struct RecordKey {
     static let text = "ENTRY_TEXT"
         
     static let rank = "ENTRY_RANK"
+    
+    static let catg = "ENTRY_CATEGORY"
 
     // Vote Keys
 
