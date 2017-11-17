@@ -68,9 +68,7 @@ class TipTests: XCTestCase {
         XCTAssertFalse(nextMock.index < 1)
     }
     
-    func testIsRecordable() {
-        XCTAssert(mock is Recordable)
-    }
+//    func testIsRecordable() { XCTAssert(mock is Recordable) }     // <-- Vers .3
 }
 
 struct MockTip: Entry {
