@@ -2,7 +2,7 @@
 //  Type Aliases & Strings.swift
 //  Small Biz Advisor
 //
-//  Created by Hayley McCrory on 11/4/17.
+//  Created by James Lingo on 11/4/17.
 //  Copyright © 2017 Escape Chaos. All rights reserved.
 //
 
