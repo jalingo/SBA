@@ -33,9 +33,13 @@ struct Tip: Entry {
     /// This property storea an unique index associated with the entry text.
     var index: Int
     
+    /// !!
+    var score: Int = 0
+    
     // MARK: - Properties: Recordable
     
-    var _recordID: CKRecordID?
+    /// !!
+    fileprivate var _recordID: CKRecordID?
     
     // MARK: - Functions
 
@@ -71,6 +75,7 @@ extension Tip: Hashable {
 
 // MARK: - Extension: Recordable
 
+/// !!
 extension Tip: Recordable {
     
     // MARK: - Properties: Recordable

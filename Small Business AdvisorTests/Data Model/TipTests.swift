@@ -50,6 +50,14 @@ class TipTests: XCTestCase {
         XCTAssertEqual(test, mock?.category)
     }
     
+    func testHasScore() { XCTAssertNotNil(mock?.score) }
+    
+    func testCanWriteScore() {
+        let test = 5
+        mock?.score = test
+        XCTAssertEqual(test, mock?.score)
+    }
+    
     func testCanReadIndex()     { XCTAssertNotNil(mock?.index) }
     
     func testCanWriteIndex()    {
