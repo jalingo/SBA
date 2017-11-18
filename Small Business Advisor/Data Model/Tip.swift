@@ -57,10 +57,16 @@ struct Tip: Entry {
 
 // MARK: - Extensions
 
-// MARK: Extension: Equatable
+// MARK: - Extension: Equatable
 
 extension Tip: Equatable {
     static func ==(left: Tip, right: Tip) -> Bool { return left.index == right.index }
+}
+
+// MARK: - Extension: Hashable
+
+extension Tip: Hashable {
+    var hashValue: Int { return index }
 }
 
 // MARK: - Extension: Recordable
