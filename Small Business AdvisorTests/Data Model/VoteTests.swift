@@ -7,11 +7,14 @@
 //
 
 import XCTest
-import MagicCloud
+@testable import MagicCloud
+import CloudKit
 
 class VoteTests: XCTestCase {
     
     // MARK: - Properties
+
+    let testVoter = CKRecordID(recordName: "TestVoter")
     
     var mock: VoteAbstraction?
     
@@ -29,14 +32,141 @@ class VoteTests: XCTestCase {
     
     // MARK: - Functions: Tests
     
-    func testVoteAbstractionIsReceivesRecordable() { XCTAssert(mock is Recordable) }
+    func getCurrentUserIdentity() -> CKRecordID? {
+        var result: CKRecordID?
+        
+        let group = DispatchGroup()
+        group.enter()
+
+        CKContainer.default().fetchUserRecordID { possibleID, possibleError in
+            if let error = possibleError {
+                NotificationCenter.default.post(name: MCNotification.cloudIdentity, object: error)
+            }
+            
+            if let id = possibleID { result = id }
+            group.leave()
+        }
+        
+        group.wait()
+        return result
+    }
     
+    func testVoteAbstractionIsReceivesRecordable() {
+        XCTAssert(mock is Recordable)
+        
+        let altID = CKRecordID(recordName: "AltRecord")
+        let altMock = MockVote(up: !mock!.isFor,
+                               candidate: CKReference(recordID: altID, action: .deleteSelf),
+                               constituent: CKReference(recordID: testVoter, action: .deleteSelf))
+        mock?.recordFields = altMock.recordFields
+        
+        if let vote = mock as? MockVote { XCTAssertEqual(altMock, vote) }
+    }
+
+    func testVoteHasDirection() { XCTAssertNotNil(mock?.isFor) }
+    
+    func testVoteCanWriteDirection() {
+        let vote = false
+        mock?.isFor = vote
+        
+        XCTAssertEqual(vote, mock?.isFor)
+    }
+    
+    func testVoteHasCandidate() { XCTAssertNotNil(mock?.candidate) }
+    
+    func testVoteCanWriteCandidate() {
+        let testTip = CKRecordID(recordName: "\(Tip().index)")
+        mock?.candidate = CKReference(recordID: testTip, action: .deleteSelf)
+
+        XCTAssertEqual(testTip, mock?.candidate)
+    }
+    
+    func testVoteHasConstituent() { XCTAssertNotNil(mock?.constituent) }
+    
+    func testVoteCanWriteConstituent() {
+        mock?.constituent = CKReference(recordID: testVoter, action: .deleteSelf)
+        XCTAssertEqual(testVoter, mock?.constituent)
+    }
 }
 
-protocol VoteAbstraction {
+protocol VoteAbstraction: Recordable {
     
+    /// This property stores the direction vote was cast: for (true) or against (false).
+    var isFor: Bool { get set }
+    
+    /// This property stores the tip that vote was cast for.
+    var candidate: CKReference { get set }
+    
+    /// This property stores the voter that cast the ballot.
+    var constituent: CKReference { get set }
 }
 
 struct MockVote: VoteAbstraction {
+
+    // MARK: - Properties
     
+    // MARK: - Properties: VoteAbstraction
+    
+    var isFor = true
+    
+    fileprivate var ballotMeasure = CKRecordID(recordName: "MockTip")
+    var candidate: CKReference {
+        get { return CKReference(recordID: ballotMeasure, action: .deleteSelf) }
+        set { ballotMeasure = newValue.recordID }
+    }
+
+    fileprivate var voterID = CKRecordID(recordName: "MockVoter")
+    var constituent: CKReference {
+        get { return CKReference(recordID: voterID, action: .deleteSelf) }
+        set { voterID = newValue.recordID }
+    }
+    
+    // MARK: - Properties: Recordable
+    
+    var recordType: String = RecordType.vote
+    
+    var recordFields: Dictionary<String, CKRecordValue> {
+        get {
+            var dictionary = Dictionary<String, CKRecordValue>()
+            
+            dictionary[RecordKey.appr] = isFor as CKRecordValue
+            dictionary[RecordKey.subj] = candidate as CKRecordValue
+            dictionary[RecordKey.votr] = constituent as CKRecordValue
+            
+            return dictionary
+        }
+        
+        set {
+            if let bool = newValue[RecordKey.appr] as? Bool { isFor = bool }
+            if let ref  = newValue[RecordKey.subj] as? CKReference { candidate = ref }
+            if let ref  = newValue[RecordKey.votr] as? CKReference { constituent = ref }
+        }
+    }
+    
+    var recordID = CKRecordID(recordName: "MockVote")
+    
+    // MARK: - Functions
+    
+    init() {
+        self.isFor = true
+        
+        let defaultCandidate = CKRecordID(recordName: "DefaultCandidate")
+        self.candidate = CKReference(recordID: defaultCandidate, action: .deleteSelf)
+        
+        let defaultConstituent = CKRecordID(recordName: "DefaultConstituent")
+        self.constituent = CKReference(recordID: defaultConstituent, action: .deleteSelf)
+    }
+    
+    init(up direction: Bool, candidate subject: CKReference, constituent voter: CKReference) {
+        self.isFor = direction
+        self.candidate = subject
+        self.constituent = voter
+    }
 }
+
+extension MockVote: Equatable {
+    static func ==(lhs: MockVote, rhs: MockVote) -> Bool {
+        return lhs.candidate.isEqual(rhs.candidate) && lhs.constituent.isEqual(rhs.constituent)
+    }
+}
+
