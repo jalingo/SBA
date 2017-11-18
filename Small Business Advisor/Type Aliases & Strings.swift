@@ -49,10 +49,14 @@ struct RecordKey {
     static let rank = "ENTRY_RANK"
     
     static let catg = "ENTRY_CATEGORY"
-
+    
     // Vote Keys
 
     static let appr = "VOTE_UP"
+    
+    static let votr = "VOTE_VOTER"
+    
+    static let subj = "VOTE_SUBJECT"
         
     // Universal Keys
         
