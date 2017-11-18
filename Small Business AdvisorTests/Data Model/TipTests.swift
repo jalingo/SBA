@@ -95,4 +95,8 @@ extension MockTip: Equatable {
     static func ==(left: MockTip, right: MockTip) -> Bool { return left.index == right.index }
 }
 
+extension MockTip: Hashable {
+    var hashValue: Int { return index }
+}
+
 
