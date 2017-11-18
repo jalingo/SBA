@@ -84,6 +84,7 @@ class TipTests: XCTestCase {
 }
 
 struct MockTip: Entry {
+    var score: Int = 0
     
     var text: NSAttributedString
     
