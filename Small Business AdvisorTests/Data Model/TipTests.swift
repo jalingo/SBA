@@ -68,6 +68,10 @@ class TipTests: XCTestCase {
         XCTAssertFalse(nextMock.index < 1)
     }
     
+    func testTipIsEquatable()   { XCTAssert(mock is Equatable) }
+
+    func testTipIsHashable()    { XCTAssert(mock is Hashable) }
+    
 //    func testIsRecordable() { XCTAssert(mock is Recordable) }     // <-- Vers .3
 }
 
