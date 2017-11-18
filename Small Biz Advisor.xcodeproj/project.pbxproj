@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9033901A1FB438BD00E7D7A9 /* VotingBoothTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 903390191FB438BD00E7D7A9 /* VotingBoothTests.swift */; };
 		9033901C1FB4409400E7D7A9 /* TestTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9033901B1FB4409400E7D7A9 /* TestTools.swift */; };
 		9064001B1FAD713700C09C8D /* CKInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9064001A1FAD713700C09C8D /* CKInteractorTests.swift */; };
 		90A16F461FAE48B1002D418B /* Type Aliases & Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A16F451FAE48B1002D418B /* Type Aliases & Strings.swift */; };
@@ -127,7 +126,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		903390191FB438BD00E7D7A9 /* VotingBoothTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = VotingBoothTests.swift; path = "Small Business AdvisorTests/Cloud Database/VotingBoothTests.swift"; sourceTree = SOURCE_ROOT; };
 		9033901B1FB4409400E7D7A9 /* TestTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestTools.swift; sourceTree = "<group>"; };
 		9064001A1FAD713700C09C8D /* CKInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CKInteractorTests.swift; sourceTree = "<group>"; };
 		90A16F451FAE48B1002D418B /* Type Aliases & Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Type Aliases & Strings.swift"; sourceTree = "<group>"; };
@@ -137,7 +135,7 @@
 		A1265DB91FAA747800E4C712 /* PageTurnerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageTurnerTests.swift; sourceTree = "<group>"; };
 		A1265DBB1FAA83D900E4C712 /* PageTurner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageTurner.swift; sourceTree = "<group>"; };
 		A14B98AA1FB4DFAC00C04802 /* CurrentTipTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CurrentTipTests.swift; path = "Small Business AdvisorTests/Vers 2/CurrentTipTests.swift"; sourceTree = SOURCE_ROOT; };
-		A14B98AD1FB4F8A200C04802 /* ScoreCounterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ScoreCounterTests.swift; path = "Small Business AdvisorTests/Deprecated/ScoreCounterTests.swift"; sourceTree = SOURCE_ROOT; };
+		A14B98AD1FB4F8A200C04802 /* ScoreCounterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ScoreCounterTests.swift; path = Deprecated/ScoreCounterTests.swift; sourceTree = SOURCE_ROOT; };
 		A15043F41FA2B7AA0018B909 /* TipCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipCategory.swift; sourceTree = "<group>"; };
 		A15043F71FA2B97B0018B909 /* TipFactoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipFactoryTests.swift; sourceTree = "<group>"; };
 		A15043F91FA336520018B909 /* TipCategoryFactoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipCategoryFactoryTests.swift; sourceTree = "<group>"; };
@@ -202,8 +200,6 @@
 				A17DE9E71FBE7CC600D2EB4F /* VoteReceiverTests.swift */,
 				9033901B1FB4409400E7D7A9 /* TestTools.swift */,
 				A14B98AA1FB4DFAC00C04802 /* CurrentTipTests.swift */,
-				9064001A1FAD713700C09C8D /* CKInteractorTests.swift */,
-				903390191FB438BD00E7D7A9 /* VotingBoothTests.swift */,
 			);
 			path = "Cloud Database";
 			sourceTree = "<group>";
@@ -257,6 +253,7 @@
 		A1AB0E141FA0185100F1D3FF = {
 			isa = PBXGroup;
 			children = (
+				A1DCAB781FBFAA4500C934B1 /* Deprecated */,
 				A1CB77741FBABD03008ADF09 /* MagicCloud.xcodeproj */,
 				A1642F731FB0D3EC004534EB /* Small Biz Advisor.entitlements */,
 				A10F51BB1FA01D4300680AE6 /* Default-568h@2x.png */,
@@ -295,7 +292,6 @@
 			children = (
 				A1AB0E371FA0185100F1D3FF /* Info.plist */,
 				A1265DB91FAA747800E4C712 /* PageTurnerTests.swift */,
-				A1DCAB781FBFAA4500C934B1 /* Deprecated */,
 				9033901D1FB441A500E7D7A9 /* Cloud Database */,
 				A1265DBF1FAA855C00E4C712 /* Data Model */,
 			);
@@ -338,6 +334,7 @@
 			isa = PBXGroup;
 			children = (
 				A14B98AD1FB4F8A200C04802 /* ScoreCounterTests.swift */,
+				9064001A1FAD713700C09C8D /* CKInteractorTests.swift */,
 			);
 			path = Deprecated;
 			sourceTree = "<group>";
@@ -556,7 +553,6 @@
 				A15044001FA33C210018B909 /* Tip.swift in Sources */,
 				A16756BE1FA14BD90002E820 /* TipTests.swift in Sources */,
 				A1AAB6AA1FA939C000017C54 /* TipFactory.swift in Sources */,
-				9033901A1FB438BD00E7D7A9 /* VotingBoothTests.swift in Sources */,
 				A11C3BB71FA54DEC000D2255 /* ResponseText.swift in Sources */,
 				A17F19C31FABD32D0099B903 /* PageTurnerTests.swift in Sources */,
 				A1AB0E511FA01A1D00F1D3FF /* AdvisorViewController.swift in Sources */,
