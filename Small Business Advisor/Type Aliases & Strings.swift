@@ -9,10 +9,6 @@
 import Foundation
 import CloudKit
 
-// MARK: - Closures
-
-typealias OptionalClosure = (()->())?
-
 // MARK: - Cloud Closures
 
 typealias QueryBlock = (CKQueryCursor?, Error?) -> Void
