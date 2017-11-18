@@ -9,39 +9,7 @@
 import XCTest
 import MagicCloud
 
-//extension ReceivesRecordable {
-//    /**
-//        This protected property is an array of Tips used by reciever.
-//     */
-//    var recordables = [type]() {
-//        didSet {
-//            print("** TipReceiver didSet: \(recordables.count)")
-//            
-//            guard allowRecordablesDidSetToUploadDataModel else { return }
-//            
-//            let op = Upload(from: self, to: .publicDB)
-//            OperationQueue().addOperation(op)
-//            
-//            // This resets trigger safety
-//            allowRecordablesDidSetToUploadDataModel = false
-//        }
-//    }
-//    
-//    /**
-//        This boolean property allows / prevents changes to `recordables` being stored in
-//        the cloud.
-//     */
-////    var allowRecordablesDidSetToUploadDataModel: Bool = false
-//    
-//    // !!
-//    func refresh(completion: OptionalClosure = nil) {
-//        recordables = []    // <- Clears out current recordables for batch download.
-//        
-//        let op = Download(to: self, from: .privateDB)
-//        op.completionBlock = completion
-//        OperationQueue().addOperation(op)
-//    }
-//}
+let testNotify = Notification.Name("TestNotification")
 
 class VoteReceiverTests: XCTestCase {
     
@@ -50,6 +18,10 @@ class VoteReceiverTests: XCTestCase {
     var mock: MockVoteReceiver?
 
     // MARK: - Functions
+    
+    fileprivate func testVotes() -> [MockVote] {
+        return []
+    }
     
     override func setUp() {
         super.setUp()
@@ -66,39 +38,129 @@ class VoteReceiverTests: XCTestCase {
     func testVoteReceiverReceivesRecordables() { XCTAssertNotNil(mock is ReceivesRecordable) }
     
     func testVoteReceiverCanStartListening() {
+        let expect = expectation(description: "Receiver Heard Notification")
+        var passed = false
         
+        mock?.startListening() {
+            passed = true
+            expect.fulfill()
+        }
+        
+        NotificationCenter.default.post(name: testNotify, object: nil)
+        
+        wait(for: [expect], timeout: 2)
+        XCTAssert(passed)
     }
     
     func testVoteReceiverCanStopListening() {
+        var passed = true
+
+        mock?.startListening() { passed = false }
+        mock?.stopListening()
         
+        NotificationCenter.default.post(name: testNotify, object: nil)
+        XCTAssert(passed)
+    }
+    
+    func testVoteReceiverStopsListeningOnDeinit() {
+        var passed = true
+        
+        mock?.startListening() { passed = false }
+        mock = nil              // <-- This should trigger deinit and stopListening
+
+        NotificationCenter.default.post(name: testNotify, object: nil)
+        XCTAssert(passed)
     }
     
     func testVoteReceiverCanDownloadAll() {
+        let allVotes = testVotes()
+        let prepOp = Upload(allVotes, from: mock!, to: .privateDB)
+        let pause = Pause(seconds: 2)
+        pause.addDependency(prepOp)
         
+        OperationQueue().addOperation(pause)
+        OperationQueue().addOperation(prepOp)
+        pause.waitUntilFinished()
+        
+        let expect = expectation(description: "All Votes Downloaded")
+        mock?.download() { expect.fulfill() }
+        wait(for: [expect], timeout: 3)
+        
+        if let votes = mock?.recordables {
+            XCTAssertEqual(allVotes, votes)
+        } else {
+            XCTFail()
+        }
     }
     
     func testVoteReceiverCanUploadSpecificNew() {
-        
+        XCTFail()
     }
     
     func testVoteReceiverCanUploadChanges() {
-        
+        XCTFail()
     }
     
     func testVoteReceiverCanRemoveVote() {
-        
+        XCTFail()
+    }
+    
+    func testVoteReceiverCanUpdateVote() {
+        XCTFail()
+    }
+    
+    func testVoteReceiverCanTabulateVotes() {
+        XCTFail()
     }
 }
 
 protocol VoteReceiver: ReceivesRecordable {
     
+    func startListening(consequence: OptionalClosure)
+    
+    func stopListening(completion: OptionalClosure)
+    
+    func download(completion: OptionalClosure)
+    
+    func tabulateResults(for: [Tip]) -> [Tip: Int]
 }
 
 class MockVoteReceiver: VoteReceiver {
     
-    typealias type = Tip    // <- Switch to vote
+    typealias type = MockVote
     
-    var recordables = [Tip]()
+    var recordables = [MockVote]()
+    
+    fileprivate var observer: NSObjectProtocol?
 
+    func startListening(consequence: OptionalClosure = nil) {
+        observer = NotificationCenter.default.addObserver(forName: testNotify, object: nil, queue: nil) { _ in
+            if let handler = consequence { handler() }
+        }
+    }
+    
+    func stopListening(completion: OptionalClosure = nil) {
+        if let listener = observer {
+            NotificationCenter.default.removeObserver(listener)
+            if let handler = completion { handler() }
+        }
+    }
+    
+    func download(completion: OptionalClosure = nil) {
+        let download = Download(type: RecordType.vote, to: self, from: .privateDB)
+        download.completionBlock = completion
+        OperationQueue().addOperation(download)
+    }
+    
+    func tabulateResults(for tips: [Tip]) -> [Tip : Int] {
+        var dictionary = [Tip: Int]()
+        for tip in tips { dictionary[tip] = 0 }
+        
+        // TODO: tally from allVotes
+        
+        return dictionary
+    }
+    
+    deinit { stopListening() }
 }
 
