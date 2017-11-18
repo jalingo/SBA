@@ -33,7 +33,7 @@ struct Tip: Entry {
     /// This property storea an unique index associated with the entry text.
     var index: Int
     
-    /// !!
+    /// !! Not saved in database
     var score: Int = 0
     
     // MARK: - Properties: Recordable
