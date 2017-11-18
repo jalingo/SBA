@@ -2,13 +2,13 @@
 //  TestTools.swift
 //  Small Biz AdvisorTests
 //
-//  Created by Hayley McCrory on 11/8/17.
+//  Created by James Lingo on 11/8/17.
 //  Copyright © 2017 Escape Chaos. All rights reserved.
 //
 
 import Foundation
 import CloudKit
-import MagicCloud
+@testable import MagicCloud
 
 // MARK: - Properties: Global
 
@@ -50,6 +50,32 @@ var testRecords: [CKRecord] {
 }
 
 // MARK: - Functions: Global
+
+func testVotes() -> [MockVote] {
+    var votes = [MockVote]()
+    
+    // This test will have to be changed when entries move to the database
+    for index in 1...TipFactory.max {
+        let tip = CKRecordID(recordName: "\(index)")
+        let candidate = CKReference(recordID: tip, action: .deleteSelf)
+        
+        let ref: CKReference
+        if let user = getCurrentUserRecord() {
+            ref = CKReference(recordID: user, action: .deleteSelf)
+        } else {
+            let id = CKRecordID(recordName: "MockUser")
+            ref = CKReference(recordID: id, action: .deleteSelf)
+        }
+        
+        // Stack votes based on index order
+        for _ in 1...(TipFactory.max - index) {
+            let vote = MockVote(up: true, candidate: candidate, constituent: ref)
+            votes.append(vote)
+        }
+    }
+    
+    return votes
+}
 
 /// This code assumes that records have been deleted from the database at the end of each test.
 func uploadTestRecords(completion: (()->())? = nil) {
