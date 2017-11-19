@@ -33,7 +33,7 @@ class VoteReceiverTests: XCTestCase {
     
     func prepareDatabase() -> Int {
         let allVotes = testVotes()
-        let prepOp = Upload(allVotes, from: mock!, to: .privateDB)
+        let prepOp = Upload(allVotes, from: mock!, to: .publicDB)
         let pause = Pause(seconds: 2)
         pause.addDependency(prepOp)
         
@@ -46,7 +46,7 @@ class VoteReceiverTests: XCTestCase {
     
     func cleanUpDatabase() -> Int {
         let allVotes = testVotes()
-        let cleanUp = Delete(allVotes, of: mock!, from: .privateDB)
+        let cleanUp = Delete(allVotes, of: mock!, from: .publicDB)
         let pause = Pause(seconds: 2)
         pause.addDependency(cleanUp)
         
@@ -158,7 +158,7 @@ class MockVoteReceiver: VoteReceiver {
     }
     
     func download(completion: OptionalClosure = nil) {
-        let download = Download(type: RecordType.vote, to: self, from: .privateDB)
+        let download = Download(type: RecordType.vote, to: self, from: .publicDB)
         download.completionBlock = completion
         OperationQueue().addOperation(download)
     }
