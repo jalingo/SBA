@@ -19,10 +19,6 @@ class VoteReceiverTests: XCTestCase {
 
     // MARK: - Functions
     
-    fileprivate func testVotes() -> [MockVote] {
-        return []
-    }
-    
     override func setUp() {
         super.setUp()
         mock = MockVoteReceiver()
@@ -31,6 +27,34 @@ class VoteReceiverTests: XCTestCase {
     override func tearDown() {
         mock = nil
         super.tearDown()
+    }
+    
+    // MARK: - Functions
+    
+    func prepareDatabase() -> Int {
+        let allVotes = testVotes()
+        let prepOp = Upload(allVotes, from: mock!, to: .privateDB)
+        let pause = Pause(seconds: 2)
+        pause.addDependency(prepOp)
+        
+        OperationQueue().addOperation(pause)
+        OperationQueue().addOperation(prepOp)
+        
+        pause.waitUntilFinished()
+        return 0
+    }
+    
+    func cleanUpDatabase() -> Int {
+        let allVotes = testVotes()
+        let cleanUp = Delete(allVotes, of: mock!, from: .privateDB)
+        let pause = Pause(seconds: 2)
+        pause.addDependency(cleanUp)
+        
+        OperationQueue().addOperation(pause)
+        OperationQueue().addOperation(cleanUp)
+        
+        pause.waitUntilFinished()
+        return 0
     }
     
     // MARK: - Functions: Tests
@@ -73,44 +97,31 @@ class VoteReceiverTests: XCTestCase {
     }
     
     func testVoteReceiverCanDownloadAll() {
-        let allVotes = testVotes()
-        let prepOp = Upload(allVotes, from: mock!, to: .privateDB)
-        let pause = Pause(seconds: 2)
-        pause.addDependency(prepOp)
-        
-        OperationQueue().addOperation(pause)
-        OperationQueue().addOperation(prepOp)
-        pause.waitUntilFinished()
-        
+        let _ = prepareDatabase()
+
         let expect = expectation(description: "All Votes Downloaded")
         mock?.download() { expect.fulfill() }
         wait(for: [expect], timeout: 3)
-        
+
+        let allVotes = testVotes()
         if let votes = mock?.recordables {
             XCTAssertEqual(allVotes, votes)
         } else {
             XCTFail()
         }
+        
+        let _ = cleanUpDatabase()
     }
     
-    func testVoteReceiverCanUploadSpecificNew() {
-        XCTFail()
-    }
-    
-    func testVoteReceiverCanUploadChanges() {
-        XCTFail()
-    }
-    
-    func testVoteReceiverCanRemoveVote() {
-        XCTFail()
-    }
-    
-    func testVoteReceiverCanUpdateVote() {
-        XCTFail()
-    }
-    
-    func testVoteReceiverCanTabulateVotes() {
-        XCTFail()
+    func testVoteReceiverDownloadsFromListening() {
+        let _ = prepareDatabase()
+        
+        mock?.startListening()  // <-- At this point empty
+        NotificationCenter.default.post(name: testNotify, object: nil)
+        
+        XCTAssert(mock?.recordables.count != 0)
+        
+        let _ = cleanUpDatabase()
     }
 }
 
@@ -120,9 +131,7 @@ protocol VoteReceiver: ReceivesRecordable {
     
     func stopListening(completion: OptionalClosure)
     
-    func download(completion: OptionalClosure)
-    
-    func tabulateResults(for: [Tip]) -> [Tip: Int]
+    func download(completion: OptionalClosure)    
 }
 
 class MockVoteReceiver: VoteReceiver {
@@ -134,7 +143,9 @@ class MockVoteReceiver: VoteReceiver {
     fileprivate var observer: NSObjectProtocol?
 
     func startListening(consequence: OptionalClosure = nil) {
-        observer = NotificationCenter.default.addObserver(forName: testNotify, object: nil, queue: nil) { _ in
+        observer = NotificationCenter.default.addObserver(forName: testNotify,
+                                                          object: nil,
+                                                          queue: nil) { _ in
             if let handler = consequence { handler() }
         }
     }
@@ -150,15 +161,6 @@ class MockVoteReceiver: VoteReceiver {
         let download = Download(type: RecordType.vote, to: self, from: .privateDB)
         download.completionBlock = completion
         OperationQueue().addOperation(download)
-    }
-    
-    func tabulateResults(for tips: [Tip]) -> [Tip : Int] {
-        var dictionary = [Tip: Int]()
-        for tip in tips { dictionary[tip] = 0 }
-        
-        // TODO: tally from allVotes
-        
-        return dictionary
     }
     
     deinit { stopListening() }
