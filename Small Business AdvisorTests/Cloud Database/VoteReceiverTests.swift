@@ -7,9 +7,8 @@
 //
 
 import XCTest
-import MagicCloud
-
-let testNotify = Notification.Name("TestNotification")
+import CloudKit
+@testable import MagicCloud
 
 class VoteReceiverTests: XCTestCase {
     
@@ -70,7 +69,7 @@ class VoteReceiverTests: XCTestCase {
             expect.fulfill()
         }
         
-        NotificationCenter.default.post(name: testNotify, object: nil)
+        NotificationCenter.default.post(name: Notification.Name(mock!.notifyCreated), object: nil)
         
         wait(for: [expect], timeout: 2)
         XCTAssert(passed)
@@ -82,7 +81,7 @@ class VoteReceiverTests: XCTestCase {
         mock?.startListening() { passed = false }
         mock?.stopListening()
         
-        NotificationCenter.default.post(name: testNotify, object: nil)
+        NotificationCenter.default.post(name: Notification.Name(mock!.notifyUpdated), object: nil)
         XCTAssert(passed)
     }
     
@@ -92,7 +91,7 @@ class VoteReceiverTests: XCTestCase {
         mock?.startListening() { passed = false }
         mock = nil              // <-- This should trigger deinit and stopListening
 
-        NotificationCenter.default.post(name: testNotify, object: nil)
+        NotificationCenter.default.post(name: Notification.Name(mock!.notifyDeleted), object: nil)
         XCTAssert(passed)
     }
     
@@ -117,7 +116,7 @@ class VoteReceiverTests: XCTestCase {
         let _ = prepareDatabase()
         
         mock?.startListening()  // <-- At this point empty
-        NotificationCenter.default.post(name: testNotify, object: nil)
+        NotificationCenter.default.post(name: Notification.Name(mock!.notifyUpdated), object: nil)
         
         XCTAssert(mock?.recordables.count != 0)
         
@@ -125,7 +124,13 @@ class VoteReceiverTests: XCTestCase {
     }
 }
 
-protocol VoteReceiver: ReceivesRecordable {
+protocol VoteReceiver: ReceivesRecordable {     // <-- Refactor out to ReceivesRecordable, implement as extension
+    
+    var notifyCreated: String { get }
+    
+    var notifyUpdated: String { get }
+    
+    var notifyDeleted: String { get }
     
     func startListening(consequence: OptionalClosure)
     
@@ -134,28 +139,41 @@ protocol VoteReceiver: ReceivesRecordable {
     func download(completion: OptionalClosure)    
 }
 
+// !!
+extension VoteReceiver {
+    
+    // TODO: These need to be pulled from extension when switched to receiver.
+    var notifyCreated: String { return RecordType.vote + " created" }
+    var notifyDeleted: String { return RecordType.vote + " deleted" }
+    var notifyUpdated: String { return RecordType.vote + " updated" }
+    
+    // !! Automatically triggers download when heard
+    func startListening(consequence: OptionalClosure = nil) {
+        setupListener(for: notifyCreated, change: .firesOnRecordCreation) {
+            self.download(completion: consequence)
+        }
+        
+        setupListener(for: notifyDeleted, change: .firesOnRecordDeletion) {
+            self.download(completion: consequence)
+        }
+        
+        setupListener(for: notifyUpdated, change: .firesOnRecordUpdate) {
+            self.download(completion: consequence)
+        }
+    }
+    
+    // !!
+    func stopListening(completion: OptionalClosure = nil) {
+    }
+}
+
 class MockVoteReceiver: VoteReceiver {
     
     typealias type = MockVote
     
-    var recordables = [MockVote]()
+    var recordables = [type]()
     
-    fileprivate var observer: NSObjectProtocol?
-
-    func startListening(consequence: OptionalClosure = nil) {
-        observer = NotificationCenter.default.addObserver(forName: testNotify,
-                                                          object: nil,
-                                                          queue: nil) { _ in
-            if let handler = consequence { handler() }
-        }
-    }
-    
-    func stopListening(completion: OptionalClosure = nil) {
-        if let listener = observer {
-            NotificationCenter.default.removeObserver(listener)
-            if let handler = completion { handler() }
-        }
-    }
+    var voteObserver: NSObjectProtocol?
     
     func download(completion: OptionalClosure = nil) {
         let download = Download(type: RecordType.vote, to: self, from: .publicDB)
