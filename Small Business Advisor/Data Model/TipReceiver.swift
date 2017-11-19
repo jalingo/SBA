@@ -39,7 +39,7 @@ class TipReceiver: ReceivesRecordable {
     func refresh(completion: OptionalClosure = nil) {
         recordables = []    // <- Clears out current recordables for batch download.
         
-        let op = Download(type: RecordType.entry, to: self, from: .privateDB)
+        let op = Download(type: RecordType.entry, to: self, from: .publicDB)
         op.completionBlock = completion
         OperationQueue().addOperation(op)
     }
