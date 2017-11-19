@@ -32,25 +32,6 @@ class VoteTests: XCTestCase {
     
     // MARK: - Functions: Tests
     
-    func getCurrentUserIdentity() -> CKRecordID? {
-        var result: CKRecordID?
-        
-        let group = DispatchGroup()
-        group.enter()
-
-        CKContainer.default().fetchUserRecordID { possibleID, possibleError in
-            if let error = possibleError {
-                NotificationCenter.default.post(name: MCNotification.cloudIdentity, object: error)
-            }
-            
-            if let id = possibleID { result = id }
-            group.leave()
-        }
-        
-        group.wait()
-        return result
-    }
-    
     func testVoteAbstractionIsReceivesRecordable() {
         XCTAssert(mock is Recordable)
         
