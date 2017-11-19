@@ -70,18 +70,6 @@ class VoteTests: XCTestCase {
     }
 }
 
-protocol VoteAbstraction: Recordable {
-    
-    /// This property stores the direction vote was cast: for (true) or against (false).
-    var isFor: Bool { get set }
-    
-    /// This property stores the tip that vote was cast for.
-    var candidate: CKReference { get set }
-    
-    /// This property stores the voter that cast the ballot.
-    var constituent: CKReference { get set }
-}
-
 struct MockVote: VoteAbstraction {
 
     // MARK: - Properties
