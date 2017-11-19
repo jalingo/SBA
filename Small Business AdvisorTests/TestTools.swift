@@ -51,6 +51,18 @@ var testRecords: [CKRecord] {
 
 // MARK: - Functions: Global
 
+func testTips() -> [Tip] {
+    var tips = [Tip]()
+    for index in 1...TipFactory.max {
+        let tip = Tip(index: index,
+                      category: TipCategoryFactory.produceByIndex(index: index),
+                      text: TextFactory.produce(for: index))
+        tips.append(tip)
+    }
+    
+    return tips
+}
+
 func testVotes() -> [MockVote] {
     var votes = [MockVote]()
     
