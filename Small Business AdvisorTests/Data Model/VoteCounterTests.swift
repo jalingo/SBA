@@ -20,7 +20,7 @@ class VoteCounterTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        mock = MockVoteCounter(ballots: [MockVote]())
+        mock = MockVoteCounter()
     }
     
     override func tearDown() {
@@ -36,12 +36,6 @@ class VoteCounterTests: XCTestCase {
         let votes: [VoteAbstraction] = [MockVote()]
         mock?.allVotes = votes
         XCTAssertEqual(mock!.allVotes as! [MockVote], votes as! [MockVote])
-    }
-    
-    func testVoteCounterInjectsDependencies() {
-        let dependecy = [VoteAbstraction]()
-        mock = MockVoteCounter(ballots: dependecy)
-        XCTAssertEqual(dependecy.count, mock?.allVotes.count)
     }
     
     func testVoteReceiverCanTabulateVotes() {
@@ -84,66 +78,6 @@ class VoteCounterTests: XCTestCase {
     }
 }
 
-protocol VoteCounter {
-    
-    // !!
-    var allVotes: [VoteAbstraction] { get set }
-    
-    // !!
-    func tabulateResults(for: [Tip]) -> [Tip: Int]
-
-    // !!
-    func rank(for: [Tip], by: TipCategory?) -> [Tip]
-}
-
-extension VoteCounter {
-    
-    // MARK: - Functions
-    
-    fileprivate func sort(_ dictionary: [Tip: Int], by category: TipCategory) -> [Tip] {
-        return dictionary.keys.filter({ $0.category == category }).sorted { $0.score > $1.score }
-    }
-    
-    fileprivate func sortBy(rank dictionary: [Tip: Int]) -> [Tip] {
-        return dictionary.keys.sorted() { $0.score > $1.score }
-    }
-    
-    // MARK: - Functions: VoteCounter
-    
-    func rank(for tips: [Tip], by category: TipCategory? = nil) -> [Tip] {
-        let result = tabulateResults(for: tips)
-        if let category = category {
-            return sort(result, by: category)
-        } else {
-            return sortBy(rank: result)
-        }
-    }
-    
-    func tabulateResults(for tips: [Tip]) -> [Tip: Int] {
-        var dictionary = [Tip: Int]()
-        for tip in tips { dictionary[tip] = 0 }     // <-- Initializes dictionary with all tips as keys.
-        let copy = dictionary
-        
-        for entry in copy {
-            for vote in allVotes {
-                if let index = Int(vote.candidate.recordID.recordName), entry.key.index == index {
-                    vote.isFor ?
-                        (dictionary[entry.key] = entry.value + 1) : (dictionary[entry.key] = entry.value - 1)
-                }
-            }
-        }
-        
-        return dictionary
-    }
-}
-
 struct MockVoteCounter: VoteCounter {
-    
-    // MARK: - Properties: VoteCounter
-    
     var allVotes = [VoteAbstraction]()
-
-    // MARK: - Functions: Constructors
-    
-    init(ballots: [VoteAbstraction]) { allVotes = ballots }
 }
