@@ -50,6 +50,14 @@ class TipTests: XCTestCase {
         XCTAssertEqual(test, mock?.category)
     }
     
+    func testHasScore() { XCTAssertNotNil(mock?.score) }
+    
+    func testCanWriteScore() {
+        let test = 5
+        mock?.score = test
+        XCTAssertEqual(test, mock?.score)
+    }
+    
     func testCanReadIndex()     { XCTAssertNotNil(mock?.index) }
     
     func testCanWriteIndex()    {
@@ -68,10 +76,15 @@ class TipTests: XCTestCase {
         XCTAssertFalse(nextMock.index < 1)
     }
     
+    func testTipIsEquatable()   { XCTAssert(mock is Equatable) }
+
+    func testTipIsHashable()    { XCTAssert(mock is Hashable) }
+    
 //    func testIsRecordable() { XCTAssert(mock is Recordable) }     // <-- Vers .3
 }
 
 struct MockTip: Entry {
+    var score: Int = 0
     
     var text: NSAttributedString
     
@@ -89,6 +102,10 @@ struct MockTip: Entry {
 
 extension MockTip: Equatable {
     static func ==(left: MockTip, right: MockTip) -> Bool { return left.index == right.index }
+}
+
+extension MockTip: Hashable {
+    var hashValue: Int { return index }
 }
 
 

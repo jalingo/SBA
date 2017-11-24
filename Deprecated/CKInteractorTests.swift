@@ -2,7 +2,7 @@
 //  CKInteractorTests.swift
 //  Small Biz AdvisorTests
 //
-//  Created by Hayley McCrory on 11/3/17.
+//  Created by James Lingo on 11/3/17.
 //  Copyright © 2017 Escape Chaos. All rights reserved.
 //
 

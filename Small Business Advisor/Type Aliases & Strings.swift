@@ -2,16 +2,12 @@
 //  Type Aliases & Strings.swift
 //  Small Biz Advisor
 //
-//  Created by Hayley McCrory on 11/4/17.
+//  Created by James Lingo on 11/4/17.
 //  Copyright © 2017 Escape Chaos. All rights reserved.
 //
 
 import Foundation
 import CloudKit
-
-// MARK: - Closures
-
-typealias OptionalClosure = (()->())?
 
 // MARK: - Cloud Closures
 
@@ -49,10 +45,14 @@ struct RecordKey {
     static let rank = "ENTRY_RANK"
     
     static let catg = "ENTRY_CATEGORY"
-
+    
     // Vote Keys
 
     static let appr = "VOTE_UP"
+    
+    static let votr = "VOTE_VOTER"
+    
+    static let subj = "VOTE_SUBJECT"
         
     // Universal Keys
         

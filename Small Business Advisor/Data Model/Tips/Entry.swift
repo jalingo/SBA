@@ -31,6 +31,9 @@ protocol Entry {
     /// This property stores the index used as an unique identifier for the entry's text.
     var index: Int { get set }
     
+    /// !!
+    var score: Int { get set }
+    
     // MARK: - Functions
 
     /**
@@ -142,6 +145,11 @@ struct AnyEntry: Entry {
     var index: Int {
         get { return wrappedEntry.index }
         set { wrappedEntry.index = newValue }
+    }
+    
+    var score: Int {
+        get { return wrappedEntry.score }
+        set { wrappedEntry.score = newValue }
     }
     
     // MARK: - Functions

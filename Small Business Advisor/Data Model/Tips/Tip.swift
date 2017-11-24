@@ -33,9 +33,13 @@ struct Tip: Entry {
     /// This property storea an unique index associated with the entry text.
     var index: Int
     
+    /// !! Not saved in database
+    var score: Int = 0
+    
     // MARK: - Properties: Recordable
     
-    var _recordID: CKRecordID?
+    /// !!
+    fileprivate var _recordID: CKRecordID?
     
     // MARK: - Functions
 
@@ -57,14 +61,21 @@ struct Tip: Entry {
 
 // MARK: - Extensions
 
-// MARK: Extension: Equatable
+// MARK: - Extension: Equatable
 
 extension Tip: Equatable {
     static func ==(left: Tip, right: Tip) -> Bool { return left.index == right.index }
 }
 
+// MARK: - Extension: Hashable
+
+extension Tip: Hashable {
+    var hashValue: Int { return index }
+}
+
 // MARK: - Extension: Recordable
 
+/// !!
 extension Tip: Recordable {
     
     // MARK: - Properties: Recordable
