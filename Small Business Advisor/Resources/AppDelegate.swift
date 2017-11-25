@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MagicCloud
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,6 +18,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         return true
+    }
+    
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any],
+                     fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        
+print("** didReceiveRemoteNotification @ SBA delegate")
+        NotificationReader.createLocal(from: userInfo)
+    }
+    
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+print("** registered with token")
+    }
+    
+    func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
+print("!! Error @ UIApp.didFailToRegister")
+print("\(error.localizedDescription)")
+        
+        // TODO !! graceful disable &or error handling...
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
