@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MagicCloud
 
 // MARK: Class
 
@@ -29,6 +30,14 @@ class AdvisorViewController: UIViewController {
         didSet { pageLabel.text = String(page) }
     }
 
+    // MARK: - - Properties: ReceivesRecordable
+    
+    var subscription = Subscriber()
+    
+    var recordables = [MockRecordable]() {
+        didSet { print("** AVC.recordables didSet: \(recordables.count)") }
+    }
+    
     // MARK: - - Properties: IBOutlets
     
     /// `pageLabel` shows the index of the current entry from the data model.
@@ -122,6 +131,12 @@ class AdvisorViewController: UIViewController {
         textView.attributedText = NSAttributedString(string: Instructions.shake,
                                                      attributes: CategoryFormatting())
         
+        // TODO: BELOW IS FOR TESTING PURPOSES !! REMOVE BEFORE RELEASE (or convert type to Tip)
+        
+        subscription.start(for: type().recordType, change: [.firesOnRecordDeletion, .firesOnRecordCreation, .firesOnRecordUpdate], at: .publicDB)
+
+        // TODO: ABOVE IS FOR TESTING PURPOSES !! REMOVE BEFORE RELEASE
+        
         self.becomeFirstResponder()
     }
     
@@ -130,3 +145,11 @@ class AdvisorViewController: UIViewController {
         if event?.subtype == .motionShake { increasePage() }
     }
 }
+
+// TODO: BELOW IS FOR TESTING PURPOSES !! REMOVE BEFORE RELEASE (or convert type to Tip)
+
+extension AdvisorViewController: ReceivesRecordable {
+    typealias type = MockRecordable
+}
+
+// TODO: ABOVE IS FOR TESTING PURPOSES !! REMOVE BEFORE RELEASE
