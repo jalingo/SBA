@@ -132,8 +132,8 @@ class AdvisorViewController: UIViewController {
                                                      attributes: CategoryFormatting())
         
         // TODO: BELOW IS FOR TESTING PURPOSES !! REMOVE BEFORE RELEASE (or convert type to Tip)
-        
-        subscription.start(for: type().recordType, change: [.firesOnRecordDeletion, .firesOnRecordCreation, .firesOnRecordUpdate], at: .publicDB)
+
+        subscribeToChanges(on: .publicDB)
 
         // TODO: ABOVE IS FOR TESTING PURPOSES !! REMOVE BEFORE RELEASE
         
