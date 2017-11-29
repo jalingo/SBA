@@ -26,6 +26,7 @@ print("** didFinishLaunchingWithOptions @ SBA delegate")
                      fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
         
 print("** didReceiveRemoteNotification @ SBA delegate")
+print("** info: \(userInfo.count)")
         NotificationReader.createLocal(from: userInfo)
     }
     
