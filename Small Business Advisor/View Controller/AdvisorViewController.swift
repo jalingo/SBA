@@ -32,7 +32,7 @@ class AdvisorViewController: UIViewController {
 
     // MARK: - - Properties: ReceivesRecordable
     
-    var subscription = Subscriber()
+    var subscription = MCSubscriber()
     
     var recordables = [MockRecordable]() {
         didSet { print("** AVC.recordables didSet: \(recordables.count)") }
