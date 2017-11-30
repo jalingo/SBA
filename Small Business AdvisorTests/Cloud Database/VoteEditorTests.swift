@@ -21,7 +21,7 @@ class VoteEditorTests: XCTestCase {
     
     func prepareDatabase() -> Int {
         let allVotes = testVotes()
-        let prepOp = Upload(allVotes, from: mockRec, to: .publicDB)
+        let prepOp = MCUpload(allVotes, from: mockRec, to: .publicDB)
         let pause = Pause(seconds: 2)
         pause.addDependency(prepOp)
         
@@ -34,7 +34,7 @@ class VoteEditorTests: XCTestCase {
     
     func cleanUpDatabase() -> Int {
         let allVotes = testVotes()
-        let cleanUp = Delete(allVotes, of: mockRec, from: .publicDB)
+        let cleanUp = MCDelete(allVotes, of: mockRec, from: .publicDB)
         let pause = Pause(seconds: 2)
         pause.addDependency(cleanUp)
         
@@ -117,12 +117,12 @@ struct MockVoteEditor: VoteEditor {
     let rec: MockVoteReceiver
     
     func add(_ vote: type) {
-        let op = Upload([vote], from: rec, to: .publicDB)
+        let op = MCUpload([vote], from: rec, to: .publicDB)
         OperationQueue().addOperation(op)
     }
     
     func remove(_ vote: type) {
-        let op = Delete([vote], of: rec, from: .publicDB)
+        let op = MCDelete([vote], of: rec, from: .publicDB)
         OperationQueue().addOperation(op)
     }
     
