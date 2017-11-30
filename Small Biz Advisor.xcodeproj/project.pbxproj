@@ -38,7 +38,6 @@
 		A150440B1FA503920018B909 /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15044091FA503920018B909 /* Entry.swift */; };
 		A1642F761FB0D3EF004534EB /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1642F751FB0D3EF004534EB /* CloudKit.framework */; };
 		A16756BE1FA14BD90002E820 /* TipTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16756BD1FA14BD90002E820 /* TipTests.swift */; };
-		A17DE9E81FBE7CC600D2EB4F /* VoteReceiverTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17DE9E71FBE7CC600D2EB4F /* VoteReceiverTests.swift */; };
 		A17DE9EE1FBEB63600D2EB4F /* VoteCounterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17DE9ED1FBEB63600D2EB4F /* VoteCounterTests.swift */; };
 		A17F19C31FABD32D0099B903 /* PageTurnerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1265DB91FAA747800E4C712 /* PageTurnerTests.swift */; };
 		A1AAB6A91FA939C000017C54 /* TipFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AAB6A81FA939C000017C54 /* TipFactory.swift */; };
@@ -155,7 +154,6 @@
 		A1642F731FB0D3EC004534EB /* Small Biz Advisor.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Small Biz Advisor.entitlements"; sourceTree = "<group>"; };
 		A1642F751FB0D3EF004534EB /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		A16756BD1FA14BD90002E820 /* TipTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipTests.swift; sourceTree = "<group>"; };
-		A17DE9E71FBE7CC600D2EB4F /* VoteReceiverTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteReceiverTests.swift; sourceTree = "<group>"; };
 		A17DE9ED1FBEB63600D2EB4F /* VoteCounterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteCounterTests.swift; sourceTree = "<group>"; };
 		A1AAB6A81FA939C000017C54 /* TipFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipFactory.swift; sourceTree = "<group>"; };
 		A1AB0E1D1FA0185100F1D3FF /* Small Biz Advisor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Small Biz Advisor.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -205,7 +203,6 @@
 		9033901D1FB441A500E7D7A9 /* Cloud Database */ = {
 			isa = PBXGroup;
 			children = (
-				A17DE9E71FBE7CC600D2EB4F /* VoteReceiverTests.swift */,
 				90C4E8741FC11B5500A8D329 /* VoteEditorTests.swift */,
 				A14B98AA1FB4DFAC00C04802 /* CurrentTipTests.swift */,
 			);
@@ -595,7 +592,6 @@
 				A15044081FA4F94D0018B909 /* ResponseTests.swift in Sources */,
 				A14B98AE1FB4F8A200C04802 /* ScoreCounterTests.swift in Sources */,
 				9064001B1FAD713700C09C8D /* CKInteractorTests.swift in Sources */,
-				A17DE9E81FBE7CC600D2EB4F /* VoteReceiverTests.swift in Sources */,
 				A15043F61FA2B7AA0018B909 /* TipCategory.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
