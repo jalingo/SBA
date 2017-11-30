@@ -12,7 +12,7 @@ import MagicCloud
 import CloudKit
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, NotificationConverter {
+class AppDelegate: UIResponder, UIApplicationDelegate, MCNotificationConverter {
 
     var window: UIWindow?
 
