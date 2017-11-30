@@ -76,7 +76,7 @@ extension Tip: Hashable {
 // MARK: - Extension: Recordable
 
 /// !!
-extension Tip: Recordable {
+extension Tip: MCRecordable {
     
     // MARK: - Properties: Recordable
     

@@ -11,7 +11,7 @@ import MagicCloud
 
 // MARK: Protocol
 
-protocol VoteAbstraction: Recordable {
+protocol VoteAbstraction: MCRecordable {
     
     /// This property stores the direction vote was cast: for (true) or against (false).
     var isFor: Bool { get set }
