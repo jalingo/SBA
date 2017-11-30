@@ -148,7 +148,7 @@ class AdvisorViewController: UIViewController {
 
 // TODO: BELOW IS FOR TESTING PURPOSES !! REMOVE BEFORE RELEASE (or convert type to Tip)
 
-extension AdvisorViewController: ReceivesRecordable {
+extension AdvisorViewController: MCReceiver {
     typealias type = MockRecordable
 }
 
