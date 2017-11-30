@@ -9,25 +9,21 @@
 import UIKit
 import MagicCloud
 //import UserNotifications
+import CloudKit
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, NotificationConverter {
 
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-print("** didFinishLaunchingWithOptions @ SBA delegate")
         application.registerForRemoteNotifications()
-        
         return true
     }
     
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any],
                      fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
-        
-print("** didReceiveRemoteNotification @ SBA delegate")
-print("** info: \(userInfo.count)")
-        NotificationReader.createLocal(from: userInfo)
+        convertToLocal(from: userInfo)
     }
     
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
