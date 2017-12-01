@@ -101,7 +101,7 @@ func uploadTestRecords(completion: (()->())? = nil) {
     op.savePolicy = .changedKeys
     op.modifyRecordsCompletionBlock = { _, _, possibleError in
         guard let error = possibleError else { return }
-        print("** CKInteractorTests.upload: \(error.localizedDescription)")  // <-- This can be fleshed out as errors emerge.
+        print("** CKInteractorTests.upload: \(error.localizedDescription)")  // <-- !! This can be fleshed out as errors emerge.
     }
     
     testDatabase.add(op)
