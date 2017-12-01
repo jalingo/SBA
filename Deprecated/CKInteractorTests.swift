@@ -68,7 +68,7 @@ class CKInteractorTests: XCTestCase {
         
         // Test that sort makes changes to database
 
-        mixUpVoteOutcomes()             // <-- Requires additional database clean up !!
+        mixUpVoteOutcomes()             
         
         mock?.tabulateRanks()
         if let test = mock?.allVotes {

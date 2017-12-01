@@ -38,7 +38,7 @@ struct Tip: Entry {
     
     // MARK: - Properties: Recordable
     
-    /// !!
+    /// This property acts as storage for `recordID` computed property.
     fileprivate var _recordID: CKRecordID?
     
     // MARK: - Functions
@@ -75,13 +75,25 @@ extension Tip: Hashable {
 
 // MARK: - Extension: Recordable
 
-/// !!
+/**
+    The MCRecordable protocol ensures that any conforming instances have what is necessary
+    to be recorded in the cloud database. Conformance to this protocol is also necessary
+    to interact with the Magic Cloud framework.
+ */
 extension Tip: MCRecordable {
     
     // MARK: - Properties: Recordable
     
+    /**
+        This is a token used with cloudkit to build CKRecordID for this object's CKRecord.
+     */
     var recordType: String { return RecordType.entry }
     
+    /**
+        This dictionary has to match all of the keys used in CKRecord in order for version
+        conflicts and retry attempts to succeed. Its values should match the associated
+        fields in CKRecord.
+     */
     var recordFields: Dictionary<String, CKRecordValue> {
         get {
             var dictionary = [String: CKRecordValue]()
@@ -101,11 +113,19 @@ extension Tip: MCRecordable {
         }
     }
     
+    /**
+        A record identifier used to store and recover conforming instance's record. This ID is
+        used to construct records and references, as well as query and fetch from the cloud
+        database.
+     
+        - Warning: Must be unique in the database.
+     */
     var recordID: CKRecordID {
         get { return _recordID ?? CKRecordID(recordName: "Tip #\(index)") }
         set(newValue) { _recordID = newValue }
     }
-    
+
+    /// This init w/out parameters creates an empty recordable that can be overwritten by `prepare(from:)`.
     init() {
         self.text = NSAttributedString(string: "blank text")
         self.category = .outOfRange
