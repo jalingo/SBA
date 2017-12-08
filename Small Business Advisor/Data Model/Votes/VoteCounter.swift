@@ -13,7 +13,7 @@ protocol VoteCounter {
     // !!
     var allVotes: [VoteAbstraction] { get set }
     
-    // !!
+    // !!   <-- Is this needed in the protocol?
     func tabulateResults(for: [Tip]) -> [Tip: Int]
     
     // !!
