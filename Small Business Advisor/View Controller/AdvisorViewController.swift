@@ -33,10 +33,10 @@ class AdvisorViewController: UIViewController {
     // MARK: - - Properties: ReceivesRecordable
     
     // !!
-    var subscription = MCSubscriber()
+    var subscription = MCSubscriber(forRecordType: Tip().recordType)
     
     // !!
-    var recordables = [MockRecordable]() {
+    var recordables = [Tip]() {
         didSet { print("** AVC.recordables didSet: \(recordables.count)") }
     }
     
@@ -151,7 +151,7 @@ class AdvisorViewController: UIViewController {
 // TODO: BELOW IS FOR TESTING PURPOSES !! REMOVE BEFORE RELEASE (or convert type to Tip)
 
 extension AdvisorViewController: MCReceiver {
-    typealias type = MockRecordable
+    typealias type = Tip
 }
 
 // TODO: ABOVE IS FOR TESTING PURPOSES !! REMOVE BEFORE RELEASE
