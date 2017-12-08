@@ -56,6 +56,7 @@
                                 <rect key="frame" x="16" y="88.999999999999986" width="343" height="166.66666666666663"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="AGL-zd-YZj" secondAttribute="height" multiplier="343:167" id="6X3-Aq-grY"/>
+                                    <constraint firstAttribute="height" constant="166.66666666666663" id="BO2-zo-BJ5"/>
                                 </constraints>
                                 <state key="normal" title="Button" image="Escape_Chaos_Logo_Translucent"/>
                                 <connections>
@@ -118,12 +119,10 @@
                             <constraint firstItem="hdv-jg-B6j" firstAttribute="trailing" secondItem="cqP-Uv-tjc" secondAttribute="trailing" id="0Au-zh-Lqd"/>
                             <constraint firstItem="cqP-Uv-tjc" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="0XV-c4-J7b"/>
                             <constraint firstItem="kcS-WI-ruz" firstAttribute="top" secondItem="bmF-dq-gjo" secondAttribute="bottom" constant="11" id="29Q-mY-e2o"/>
-                            <constraint firstItem="AGL-zd-YZj" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="3tR-3B-eKc"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="j8x-dc-iZC" secondAttribute="trailing" constant="16" id="43r-Nr-6qz"/>
                             <constraint firstItem="AGL-zd-YZj" firstAttribute="centerX" secondItem="bmF-dq-gjo" secondAttribute="centerX" id="5Zc-gm-rBV"/>
                             <constraint firstItem="j8x-dc-iZC" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="7sH-7t-BY0"/>
                             <constraint firstItem="bmF-dq-gjo" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="D7N-0K-DlV"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="AGL-zd-YZj" secondAttribute="trailing" constant="16" id="E8q-Cz-Ci0"/>
                             <constraint firstItem="K7T-pN-pLV" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="14" id="Eqp-l5-Rby"/>
                             <constraint firstItem="V1D-2j-UIV" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="F4c-It-0XW"/>
                             <constraint firstItem="qNi-qk-dGx" firstAttribute="leading" secondItem="bmF-dq-gjo" secondAttribute="trailing" constant="8" symbolic="YES" id="F9L-Wm-zEe"/>
