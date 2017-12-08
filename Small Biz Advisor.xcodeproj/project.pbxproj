@@ -217,14 +217,14 @@
 			path = Tips;
 			sourceTree = "<group>";
 		};
-		A1265DBE1FAA853A00E4C712 /* View Controller */ = {
+		A1265DBE1FAA853A00E4C712 /* View Control */ = {
 			isa = PBXGroup;
 			children = (
 				A1265DBB1FAA83D900E4C712 /* PageTurner.swift */,
 				A1AB0E4F1FA01A1D00F1D3FF /* AdvisorViewController.swift */,
 				A1D102B81FBD821900B89C53 /* TipReceiver.swift */,
 			);
-			path = "View Controller";
+			path = "View Control";
 			sourceTree = "<group>";
 		};
 		A1265DBF1FAA855C00E4C712 /* Data Model */ = {
@@ -298,7 +298,7 @@
 			children = (
 				A1AB0E241FA0185100F1D3FF /* Main.storyboard */,
 				90A16F451FAE48B1002D418B /* Type Aliases & Strings.swift */,
-				A1265DBE1FAA853A00E4C712 /* View Controller */,
+				A1265DBE1FAA853A00E4C712 /* View Control */,
 				A15044011FA342740018B909 /* Data Model */,
 				A1AB0E4E1FA0187900F1D3FF /* Resources */,
 			);
