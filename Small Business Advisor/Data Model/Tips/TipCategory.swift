@@ -8,6 +8,8 @@
 
 import Foundation
 import UIKit
+import MagicCloud
+import CloudKit
 
 // MARK: Enum
 
@@ -136,4 +138,31 @@ struct TipCategoryFactory: CategoryFactory {
         default:                                    return .outOfRange
         }
     }
+}
+
+// MARK: - Extensions
+
+extension TipCategory: MCRecordable {
+    
+    var recordType: String { return "TipCategory" }
+    
+    var recordFields: Dictionary<String, CKRecordValue> {
+        get {
+            var d = Dictionary<String, CKRecordValue>()
+            d["rawValue"] = NSNumber(value: self.rawValue)
+            
+            return d
+        }
+        
+        set {
+            if let num = newValue["rawValue"] as? NSNumber, let value = TipCategory(rawValue: num.intValue) { self = value }
+        }
+    }
+    
+    var recordID: CKRecordID {
+        get { return CKRecordID(recordName: self.formatted.string) }
+        set { }
+    }
+    
+    init() { self = .outOfRange }
 }
