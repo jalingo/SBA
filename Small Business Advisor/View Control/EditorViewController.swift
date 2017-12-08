@@ -6,7 +6,12 @@
 //  Copyright © 2017 Escape Chaos. All rights reserved.
 //
 
+// MARK: Imports
+
 import UIKit
+import MagicCloud
+
+// MARK: - Class: EditorViewController
 
 class EditorViewController: UIViewController {
 
@@ -61,13 +66,23 @@ class EditorViewController: UIViewController {
     }
 
     /*
-    // MARK: - Navigation
-
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
     }
     */
-
+    
+    // MARK: - Functions: Constuction
+    
+    deinit {
+        print("** EditorViewController deinitializing...")
+    }
 }
+
+// MARK: - Extensions
+
+//extension EditorViewController: MCReceiver {
+//    typealias type =
+//}
+
