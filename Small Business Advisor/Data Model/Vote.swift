@@ -39,7 +39,7 @@ struct Vote: VoteAbstraction {
         set { ballotMeasure = newValue.recordID }
     }
     
-    fileprivate var voterID = getCurrentUserRecord()
+    fileprivate var voterID = MCUserRecord().singleton
     var constituent: CKReference {
         get {
             let id: CKRecordID
