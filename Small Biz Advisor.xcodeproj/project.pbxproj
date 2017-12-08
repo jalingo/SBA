@@ -40,6 +40,8 @@
 		A17F19C31FABD32D0099B903 /* PageTurnerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1265DB91FAA747800E4C712 /* PageTurnerTests.swift */; };
 		A19AD9071FDA94D3001C5846 /* EditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19AD9061FDA94D3001C5846 /* EditorViewController.swift */; };
 		A19AD9081FDA94D3001C5846 /* EditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19AD9061FDA94D3001C5846 /* EditorViewController.swift */; };
+		A19AD90A1FDAA30E001C5846 /* FieldsEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19AD9091FDAA30E001C5846 /* FieldsEditorViewController.swift */; };
+		A19AD90B1FDAA30E001C5846 /* FieldsEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19AD9091FDAA30E001C5846 /* FieldsEditorViewController.swift */; };
 		A1AAB6A91FA939C000017C54 /* TipFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AAB6A81FA939C000017C54 /* TipFactory.swift */; };
 		A1AAB6AA1FA939C000017C54 /* TipFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AAB6A81FA939C000017C54 /* TipFactory.swift */; };
 		A1AB0E211FA0185100F1D3FF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AB0E201FA0185100F1D3FF /* AppDelegate.swift */; };
@@ -154,6 +156,7 @@
 		A16756BD1FA14BD90002E820 /* TipTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipTests.swift; sourceTree = "<group>"; };
 		A17DE9ED1FBEB63600D2EB4F /* VoteCounterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteCounterTests.swift; sourceTree = "<group>"; };
 		A19AD9061FDA94D3001C5846 /* EditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorViewController.swift; sourceTree = "<group>"; };
+		A19AD9091FDAA30E001C5846 /* FieldsEditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldsEditorViewController.swift; sourceTree = "<group>"; };
 		A1AAB6A81FA939C000017C54 /* TipFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipFactory.swift; sourceTree = "<group>"; };
 		A1AB0E1D1FA0185100F1D3FF /* Small Biz Advisor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Small Biz Advisor.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1AB0E201FA0185100F1D3FF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -225,6 +228,7 @@
 			children = (
 				A1AB0E4F1FA01A1D00F1D3FF /* AdvisorViewController.swift */,
 				A19AD9061FDA94D3001C5846 /* EditorViewController.swift */,
+				A19AD9091FDAA30E001C5846 /* FieldsEditorViewController.swift */,
 				A1265DBB1FAA83D900E4C712 /* PageTurner.swift */,
 				A1D102B81FBD821900B89C53 /* TipReceiver.swift */,
 			);
@@ -551,6 +555,7 @@
 				A1265DBC1FAA83D900E4C712 /* PageTurner.swift in Sources */,
 				A1AB0E211FA0185100F1D3FF /* AppDelegate.swift in Sources */,
 				A1D102B91FBD821900B89C53 /* TipReceiver.swift in Sources */,
+				A19AD90A1FDAA30E001C5846 /* FieldsEditorViewController.swift in Sources */,
 				90C4E87B1FC16F8400A8D329 /* VoteCounter.swift in Sources */,
 				90A16F461FAE48B1002D418B /* Type Aliases & Strings.swift in Sources */,
 				90C4E8771FC14D5600A8D329 /* Vote.swift in Sources */,
@@ -580,6 +585,7 @@
 				9033901C1FB4409400E7D7A9 /* TestTools.swift in Sources */,
 				90C4E8751FC11B5500A8D329 /* VoteEditorTests.swift in Sources */,
 				A19AD9081FDA94D3001C5846 /* EditorViewController.swift in Sources */,
+				A19AD90B1FDAA30E001C5846 /* FieldsEditorViewController.swift in Sources */,
 				A1D9555F1FA17BF2002C7563 /* TipCategoryTests.swift in Sources */,
 				90A16F471FAE48B1002D418B /* Type Aliases & Strings.swift in Sources */,
 				A15043F81FA2B97B0018B909 /* TipFactoryTests.swift in Sources */,

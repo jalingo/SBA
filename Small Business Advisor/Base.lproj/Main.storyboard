@@ -170,10 +170,10 @@
             </objects>
             <point key="canvasLocation" x="141.59999999999999" y="136.69950738916256"/>
         </scene>
-        <!--View Controller-->
+        <!--Fields Editor View Controller-->
         <scene sceneID="YUq-fS-Tym">
             <objects>
-                <viewController id="LJ4-iU-IzR" sceneMemberID="viewController">
+                <viewController id="LJ4-iU-IzR" customClass="FieldsEditorViewController" customModule="Small_Biz_Advisor" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6jD-aX-eC9">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -181,6 +181,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="poh-nN-LsC">
                                 <rect key="frame" x="132" y="44" width="110" height="30"/>
                                 <state key="normal" title="Select Category"/>
+                                <connections>
+                                    <action selector="categoryTapped:" destination="LJ4-iU-IzR" eventType="touchUpInside" id="DKL-VA-Bhk"/>
+                                </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="rWa-U3-9HV">
                                 <rect key="frame" x="16" y="82" width="343" height="696"/>
@@ -201,6 +204,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="tKs-OZ-tVz"/>
                     </view>
+                    <connections>
+                        <outlet property="categoryButton" destination="poh-nN-LsC" id="eZO-t0-pBc"/>
+                        <outlet property="textArea" destination="rWa-U3-9HV" id="qpg-d9-u3m"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3OE-fc-J8h" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
