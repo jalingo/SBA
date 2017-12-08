@@ -245,8 +245,7 @@
 		A15044011FA342740018B909 /* Data Model */ = {
 			isa = PBXGroup;
 			children = (
-				90C4E8761FC14D5600A8D329 /* Vote.swift */,
-				90C4E87A1FC16F8400A8D329 /* VoteCounter.swift */,
+				A19AD9011FDA8A64001C5846 /* Votes */,
 				A11C3BB51FA54DEC000D2255 /* ResponseText.swift */,
 				90C4E8791FC152FD00A8D329 /* Tips */,
 			);
@@ -259,6 +258,15 @@
 				A1642F751FB0D3EF004534EB /* CloudKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A19AD9011FDA8A64001C5846 /* Votes */ = {
+			isa = PBXGroup;
+			children = (
+				90C4E8761FC14D5600A8D329 /* Vote.swift */,
+				90C4E87A1FC16F8400A8D329 /* VoteCounter.swift */,
+			);
+			path = Votes;
 			sourceTree = "<group>";
 		};
 		A1AB0E141FA0185100F1D3FF = {
