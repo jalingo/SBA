@@ -205,7 +205,7 @@
 		9033901D1FB441A500E7D7A9 /* Cloud Database */ = {
 			isa = PBXGroup;
 			children = (
-				90C4E8741FC11B5500A8D329 /* VoteEditorTests.swift */,
+				A19AD90C1FDBCFC2001C5846 /* Deprecated */,
 				A14B98AA1FB4DFAC00C04802 /* CurrentTipTests.swift */,
 			);
 			path = "Cloud Database";
@@ -275,6 +275,14 @@
 				90C4E87A1FC16F8400A8D329 /* VoteCounter.swift */,
 			);
 			path = Votes;
+			sourceTree = "<group>";
+		};
+		A19AD90C1FDBCFC2001C5846 /* Deprecated */ = {
+			isa = PBXGroup;
+			children = (
+				90C4E8741FC11B5500A8D329 /* VoteEditorTests.swift */,
+			);
+			path = Deprecated;
 			sourceTree = "<group>";
 		};
 		A1AB0E141FA0185100F1D3FF = {
