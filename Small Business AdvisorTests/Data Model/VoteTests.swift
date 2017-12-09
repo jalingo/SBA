@@ -33,7 +33,7 @@ class VoteTests: XCTestCase {
     // MARK: - Functions: Tests
     
     func testVoteAbstractionIsReceivesRecordable() {
-        XCTAssert(mock is Recordable)
+        XCTAssert(mock is MCRecordable)
         
         let altID = CKRecordID(recordName: "AltRecord")
         let altMock = MockVote(up: !mock!.isFor,

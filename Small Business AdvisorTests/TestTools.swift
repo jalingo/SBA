@@ -72,7 +72,7 @@ func testVotes() -> [MockVote] {
         let candidate = CKReference(recordID: tip, action: .deleteSelf)
         
         let ref: CKReference
-        if let user = getCurrentUserRecord() {
+        if let user = MCUserRecord().singleton {
             ref = CKReference(recordID: user, action: .deleteSelf)
         } else {
             let id = CKRecordID(recordName: "MockUser")
