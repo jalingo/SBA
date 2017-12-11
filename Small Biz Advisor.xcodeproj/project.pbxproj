@@ -24,6 +24,9 @@
 		A126564D1FDF27E700F37215 /* EditTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A126564C1FDF27E700F37215 /* EditTests.swift */; };
 		A126564F1FDF2F1D00F37215 /* Edit.swift in Sources */ = {isa = PBXBuildFile; fileRef = A126564E1FDF2F1D00F37215 /* Edit.swift */; };
 		A12656511FDF2F8800F37215 /* Edit.swift in Sources */ = {isa = PBXBuildFile; fileRef = A126564E1FDF2F1D00F37215 /* Edit.swift */; };
+		A12656541FDF306E00F37215 /* NewTipTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12656531FDF306E00F37215 /* NewTipTests.swift */; };
+		A12656561FDF36EE00F37215 /* NewTip.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12656551FDF36EE00F37215 /* NewTip.swift */; };
+		A12656571FDF36EE00F37215 /* NewTip.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12656551FDF36EE00F37215 /* NewTip.swift */; };
 		A1265DBC1FAA83D900E4C712 /* PageTurner.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1265DBB1FAA83D900E4C712 /* PageTurner.swift */; };
 		A1265DBD1FAA83D900E4C712 /* PageTurner.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1265DBB1FAA83D900E4C712 /* PageTurner.swift */; };
 		A14B98AC1FB4DFDC00C04802 /* CurrentTipTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14B98AA1FB4DFAC00C04802 /* CurrentTipTests.swift */; };
@@ -149,6 +152,8 @@
 		A12656451FDF275500F37215 /* Flag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flag.swift; sourceTree = "<group>"; };
 		A126564C1FDF27E700F37215 /* EditTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EditTests.swift; path = "Vers 2/EditTests.swift"; sourceTree = "<group>"; };
 		A126564E1FDF2F1D00F37215 /* Edit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Edit.swift; sourceTree = "<group>"; };
+		A12656531FDF306E00F37215 /* NewTipTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NewTipTests.swift; path = "Vers 2/NewTipTests.swift"; sourceTree = "<group>"; };
+		A12656551FDF36EE00F37215 /* NewTip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTip.swift; sourceTree = "<group>"; };
 		A1265DB91FAA747800E4C712 /* PageTurnerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageTurnerTests.swift; sourceTree = "<group>"; };
 		A1265DBB1FAA83D900E4C712 /* PageTurner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageTurner.swift; sourceTree = "<group>"; };
 		A14B98AA1FB4DFAC00C04802 /* CurrentTipTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CurrentTipTests.swift; path = "Small Business AdvisorTests/Vers 2/CurrentTipTests.swift"; sourceTree = SOURCE_ROOT; };
@@ -236,6 +241,7 @@
 		A12656521FDF2F9800F37215 /* Moderation */ = {
 			isa = PBXGroup;
 			children = (
+				A12656551FDF36EE00F37215 /* NewTip.swift */,
 				A12656451FDF275500F37215 /* Flag.swift */,
 				A126564E1FDF2F1D00F37215 /* Edit.swift */,
 			);
@@ -347,6 +353,7 @@
 				A1AB0E371FA0185100F1D3FF /* Info.plist */,
 				9033901B1FB4409400E7D7A9 /* TestTools.swift */,
 				A126564C1FDF27E700F37215 /* EditTests.swift */,
+				A12656531FDF306E00F37215 /* NewTipTests.swift */,
 				A1265DB91FAA747800E4C712 /* PageTurnerTests.swift */,
 				A19AD90D1FDBD3F5001C5846 /* FlagTests.swift */,
 				9033901D1FB441A500E7D7A9 /* Cloud Database */,
@@ -589,6 +596,7 @@
 				90C4E87B1FC16F8400A8D329 /* VoteCounter.swift in Sources */,
 				90A16F461FAE48B1002D418B /* Type Aliases & Strings.swift in Sources */,
 				90C4E8771FC14D5600A8D329 /* Vote.swift in Sources */,
+				A12656561FDF36EE00F37215 /* NewTip.swift in Sources */,
 				A126564F1FDF2F1D00F37215 /* Edit.swift in Sources */,
 				A15044051FA42E260018B909 /* TipText.swift in Sources */,
 				A15043FF1FA33C210018B909 /* Tip.swift in Sources */,
@@ -603,6 +611,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A12656541FDF306E00F37215 /* NewTipTests.swift in Sources */,
 				A126564D1FDF27E700F37215 /* EditTests.swift in Sources */,
 				A1265DBD1FAA83D900E4C712 /* PageTurner.swift in Sources */,
 				A150440B1FA503920018B909 /* Entry.swift in Sources */,
@@ -632,6 +641,7 @@
 				A19AD90E1FDBD3F5001C5846 /* FlagTests.swift in Sources */,
 				A10935841FBF8B4100C21C6E /* VoteTests.swift in Sources */,
 				A15044081FA4F94D0018B909 /* ResponseTests.swift in Sources */,
+				A12656571FDF36EE00F37215 /* NewTip.swift in Sources */,
 				A15043F61FA2B7AA0018B909 /* TipCategory.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
