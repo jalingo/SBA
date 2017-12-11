@@ -9,7 +9,6 @@
 import MagicCloud
 import CloudKit
 
-
 protocol EditAbstraction: MCRecordable {
     var newText: String? { get set }
     var newCategory: TipCategory? { get set }

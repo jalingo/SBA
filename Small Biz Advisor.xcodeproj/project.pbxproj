@@ -23,7 +23,7 @@
 		A12656471FDF275500F37215 /* Flag.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12656451FDF275500F37215 /* Flag.swift */; };
 		A126564D1FDF27E700F37215 /* EditTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A126564C1FDF27E700F37215 /* EditTests.swift */; };
 		A126564F1FDF2F1D00F37215 /* Edit.swift in Sources */ = {isa = PBXBuildFile; fileRef = A126564E1FDF2F1D00F37215 /* Edit.swift */; };
-		A12656501FDF2F1D00F37215 /* Edit.swift in Sources */ = {isa = PBXBuildFile; fileRef = A126564E1FDF2F1D00F37215 /* Edit.swift */; };
+		A12656511FDF2F8800F37215 /* Edit.swift in Sources */ = {isa = PBXBuildFile; fileRef = A126564E1FDF2F1D00F37215 /* Edit.swift */; };
 		A1265DBC1FAA83D900E4C712 /* PageTurner.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1265DBB1FAA83D900E4C712 /* PageTurner.swift */; };
 		A1265DBD1FAA83D900E4C712 /* PageTurner.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1265DBB1FAA83D900E4C712 /* PageTurner.swift */; };
 		A14B98AC1FB4DFDC00C04802 /* CurrentTipTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14B98AA1FB4DFAC00C04802 /* CurrentTipTests.swift */; };
@@ -233,6 +233,15 @@
 			path = Tips;
 			sourceTree = "<group>";
 		};
+		A12656521FDF2F9800F37215 /* Moderation */ = {
+			isa = PBXGroup;
+			children = (
+				A12656451FDF275500F37215 /* Flag.swift */,
+				A126564E1FDF2F1D00F37215 /* Edit.swift */,
+			);
+			path = Moderation;
+			sourceTree = "<group>";
+		};
 		A1265DBE1FAA853A00E4C712 /* View Control */ = {
 			isa = PBXGroup;
 			children = (
@@ -266,8 +275,7 @@
 				A11C3BB51FA54DEC000D2255 /* ResponseText.swift */,
 				90C4E8791FC152FD00A8D329 /* Tips */,
 				A19AD9011FDA8A64001C5846 /* Votes */,
-				A12656451FDF275500F37215 /* Flag.swift */,
-				A126564E1FDF2F1D00F37215 /* Edit.swift */,
+				A12656521FDF2F9800F37215 /* Moderation */,
 			);
 			path = "Data Model";
 			sourceTree = "<group>";
@@ -618,7 +626,7 @@
 				90C4E8781FC14D5600A8D329 /* Vote.swift in Sources */,
 				A15044061FA42E260018B909 /* TipText.swift in Sources */,
 				A1D102BA1FBD821900B89C53 /* TipReceiver.swift in Sources */,
-				A12656501FDF2F1D00F37215 /* Edit.swift in Sources */,
+				A12656511FDF2F8800F37215 /* Edit.swift in Sources */,
 				A14B98AC1FB4DFDC00C04802 /* CurrentTipTests.swift in Sources */,
 				A17DE9EE1FBEB63600D2EB4F /* VoteCounterTests.swift in Sources */,
 				A19AD90E1FDBD3F5001C5846 /* FlagTests.swift in Sources */,
