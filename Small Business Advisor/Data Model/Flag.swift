@@ -31,7 +31,7 @@ struct Flag: FlagAbstraction {
 }
 
 extension Flag: MCRecordable {
-    var recordType: String { return "MockFlag" }
+    var recordType: String { return "Flag" }
     
     var recordFields: Dictionary<String, CKRecordValue> {
         get {
