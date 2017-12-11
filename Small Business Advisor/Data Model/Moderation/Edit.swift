@@ -31,7 +31,7 @@ struct TipEdit: EditAbstraction {
     
     var _recordID: CKRecordID?
     
-    fileprivate let dummyRec = CKRecordID(recordName: "FLAG_ERROR")
+    fileprivate let dummyRec = CKRecordID(recordName: "EDIT_ERROR")
     
     let txtKey = "Edit_Text"
     
