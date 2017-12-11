@@ -8,13 +8,12 @@
 
 import XCTest
 import MagicCloud
-import CloudKit
 
 class FlagTests: XCTestCase {
     
     // MARK: - Properties
     
-    var mock: Flag?
+    var mock: FlagAbstraction?
     
     // MARK: - Functions
     
@@ -22,7 +21,7 @@ class FlagTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-//        mock =
+        mock = Flag()
     }
     
     override func tearDown() {
@@ -36,23 +35,7 @@ class FlagTests: XCTestCase {
     
     func testFlagHasAssociatedTip() { XCTAssertNotNil(mock?.tip) }
     
-    func testFlagTracksCreator() {
-        if let currentUser = MCUserRecord().singleton {
-            let tip = Tip(index: -1, category: .outOfRange, text: NSAttributedString(string: "Test_Text"))
-            
-//            let tipReceiver =
-            
-        } else {
-            XCTFail()
-        }
-    }
-}
-
-enum FlagReason {
-    case offTopic, inaccurate, duplicate(Tip), wrongCategory(TipCategory), spam, abusive
-}
-
-protocol Flag {
-    var reason: FlagReason { get set }
-    var tip: CKReference { get set }
+    func testFlagHasCreator() { XCTAssertNotNil(mock?.creator) }
+    
+    func testFlagIsMCRecordable() { XCTAssert(mock is MCRecordable) }
 }
