@@ -8,6 +8,38 @@
 
 import Foundation
 
+import MagicCloud
+
+protocol _TipFactoryAbstraction {
+    
+    var count: Int { get }
+    
+    func rank(of: Int) -> Tip?
+    
+    func random() -> Tip?
+}
+
+class _TipFactory: MCAnyReceiver<Tip>, _TipFactoryAbstraction {
+    
+    // MARK: - Properties
+    
+    var count: Int { return self.recordables.count }
+    
+    // MARK: - Functions
+    
+    func random() -> Tip? {
+        let randomRank = Int(arc4random_uniform(UInt32(count)))
+        return rank(of: randomRank)
+    }
+    
+    func rank(of place: Int) -> Tip? {
+        guard place > 0 else { return rank(of: 1) }
+        guard place < count + 1 else { return rank(of: count) }
+        
+        return recordables[place - 1]
+    }
+}
+
 // MARK: Protocol
 
 /**

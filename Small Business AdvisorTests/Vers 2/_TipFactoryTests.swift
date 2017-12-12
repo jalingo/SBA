@@ -57,25 +57,3 @@ class _TipFactoryTests: XCTestCase {
     
     func testTipFactoryCanProduceByRandom() { XCTAssertNotNil(mock?.random()) }
 }
-
-protocol _TipFactoryAbstraction {
-    
-    var count: Int { get }
-    
-    func rank(of: Int) -> Tip?
-
-    func random() -> Tip?
-}
-
-struct _TipFactory: _TipFactoryAbstraction {
-    
-    // MARK: - Properties
-    
-    var count: Int { return -1 }
-    
-    // MARK: - Functions
-    
-    func random() -> Tip? { return nil }
-    
-    func rank(of: Int) -> Tip? { return nil }
-}
