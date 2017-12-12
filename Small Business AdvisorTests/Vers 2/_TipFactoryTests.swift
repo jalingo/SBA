@@ -56,4 +56,21 @@ class _TipFactoryTests: XCTestCase {
     }
     
     func testTipFactoryCanProduceByRandom() { XCTAssertNotNil(mock?.random()) }
+    
+    func testTipFactoryHasCategoryLimitation() {
+        mock?.limitation = TipCategory.hr
+        XCTAssertNotNil(mock?.limitation)
+        
+        mock?.limitation = TipCategory.efficiency
+        let topInEfficiency = mock?.rank(of: 1)
+        
+        mock?.limitation = TipCategory.fiscal
+        let topInFiscal = mock?.rank(of: 1)
+        
+        mock?.limitation = nil
+        let topAllCategories = mock?.rank(of: 1)
+        
+        XCTAssertFalse(topInFiscal == topInEfficiency)
+        XCTAssertFalse(topAllCategories == topInEfficiency && topInFiscal == topAllCategories)
+    }
 }

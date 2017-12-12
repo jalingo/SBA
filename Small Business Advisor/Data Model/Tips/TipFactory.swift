@@ -12,6 +12,8 @@ import MagicCloud
 
 protocol _TipFactoryAbstraction {
     
+    var limitation: TipCategory? { get set }
+    
     var count: Int { get }
     
     func rank(of: Int) -> Tip?
@@ -19,11 +21,7 @@ protocol _TipFactoryAbstraction {
     func random() -> Tip?
 }
 
-class _TipFactory: MCAnyReceiver<Tip>, _TipFactoryAbstraction {
-    
-    // MARK: - Properties
-    
-    var count: Int { return self.recordables.count }
+extension _TipFactoryAbstraction {
     
     // MARK: - Functions
     
@@ -31,12 +29,36 @@ class _TipFactory: MCAnyReceiver<Tip>, _TipFactoryAbstraction {
         let randomRank = Int(arc4random_uniform(UInt32(count)))
         return rank(of: randomRank)
     }
+}
+
+class _TipFactory: MCAnyReceiver<Tip>, _TipFactoryAbstraction {
     
+    // MARK: - Properties
+
+    let votes = VotingBooth(db: .publicDB)
+    
+    // MARK: - Properties: TipFactory
+    
+    var count: Int { return self.recordables.count }
+    
+    var limitation: TipCategory?
+    
+    // MARK: - Functions
+
+    // MARK: - Functions: TipFactory
+
     func rank(of place: Int) -> Tip? {
         guard place > 0 else { return rank(of: 1) }
         guard place < count + 1 else { return rank(of: count) }
         
-        return recordables[place - 1]
+        // sort based on votes here...
+        return votes.rank(for: recordables, by: limitation)[place - 1]
+    }
+    
+    // MARK: - InnerClasses
+    
+    class VotingBooth: MCAnyReceiver<Vote>, VoteCounter {
+        var allVotes: [VoteAbstraction] { return recordables }
     }
 }
 
