@@ -13,6 +13,8 @@ class TipCyclerTests: XCTestCase {
     
     // MARK: - Properties
     
+    var mock: TipCycler?
+    
     // MARK: - Functions
     
     // MARK: - Functions: XCTestCase
@@ -29,9 +31,6 @@ class TipCyclerTests: XCTestCase {
 
     // MARK: - Functions: Unit Tests
     
-    func testUploadAll() {
-        VersionOneRestorer.loadOriginalTipsIntoCloudDatabase()
-    }
 }
 
 protocol TipCycler {
@@ -39,20 +38,22 @@ protocol TipCycler {
 }
 
 
-class VersionOneRestorer {
-    
-    static var receiver: MCAnyReceiver<Tip> { return MCAnyReceiver<Tip>(db: .publicDB) }
-    
-    static func loadOriginalTipsIntoCloudDatabase() {
-        var allVersionOneAdvice = [Tip]()
-        for index in 1...TipFactory.max {
-            if let advice = TipFactory.produceByIndex(index: index) as? Tip { allVersionOneAdvice.append(advice) }
-        }
-print("## Count: \(allVersionOneAdvice.count)")
-        let op = MCUpload(allVersionOneAdvice, from: receiver, to: .publicDB)
-        op.completionBlock = { print("## Finished") }
-        OperationQueue().addOperation(op)
-        
-        op.waitUntilFinished()
-    }
-}
+//func testUploadAll() { VersionOneRestorer.loadOriginalTipsIntoCloudDatabase() }
+
+//class VersionOneRestorer {
+//    static var receiver: MCAnyReceiver<Tip> { return MCAnyReceiver<Tip>(db: .publicDB) }
+//
+//    static func loadOriginalTipsIntoCloudDatabase() {
+//        var allVersionOneAdvice = [Tip]()
+//        for index in 1...TipFactory.max {
+//            if let advice = TipFactory.produceByIndex(index: index) as? Tip { allVersionOneAdvice.append(advice) }
+//        }
+//print("## Count: \(allVersionOneAdvice.count)")
+//        let op = MCUpload(allVersionOneAdvice, from: receiver, to: .publicDB)
+//        op.completionBlock = { print("## Finished") }
+//        OperationQueue().addOperation(op)
+//
+//        op.waitUntilFinished()
+//    }
+//}
+
