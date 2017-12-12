@@ -144,18 +144,18 @@ struct TipCategoryFactory: CategoryFactory {
 
 extension TipCategory: MCRecordable {
     
-    var recordType: String { return "TipCategory" }
+    var recordType: String { return RecordType.category }
     
     var recordFields: Dictionary<String, CKRecordValue> {
         get {
             var d = Dictionary<String, CKRecordValue>()
-            d["rawValue"] = NSNumber(value: self.rawValue)
+            d[RecordKey.catg] = NSNumber(value: self.rawValue)
             
             return d
         }
         
         set {
-            if let num = newValue["rawValue"] as? NSNumber, let value = TipCategory(rawValue: num.intValue) { self = value }
+            if let num = newValue[RecordKey.catg] as? NSNumber, let value = TipCategory(rawValue: num.intValue) { self = value }
         }
     }
     
