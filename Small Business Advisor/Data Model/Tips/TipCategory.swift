@@ -140,7 +140,7 @@ struct TipCategoryFactory: CategoryFactory {
     }
 }
 
-// MARK: - Extensions
+// MARK: - Extensions: MCRecordable
 
 extension TipCategory: MCRecordable {
     
