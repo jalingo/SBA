@@ -14,7 +14,7 @@ class VoteCounterTests: XCTestCase {
 
     // MARK: - Properties
     
-    var mock: VoteCounter?
+    var mock: MockVoteCounter?
     
     // MARK: - Functions
     
@@ -31,12 +31,6 @@ class VoteCounterTests: XCTestCase {
     // MARK: - Functions: Tests
     
     func testVoteCounterHasAllVotes() { XCTAssertNotNil(mock?.allVotes) }
-    
-    func testCanWriteAllVotes() {
-        let votes: [VoteAbstraction] = [MockVote()]
-        mock?.allVotes = votes
-        XCTAssertEqual(mock!.allVotes as! [MockVote], votes as! [MockVote])
-    }
     
     func testVoteReceiverCanTabulateVotes() {
         mock?.allVotes = testVotes()
