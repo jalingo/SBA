@@ -33,12 +33,6 @@ struct TipEdit: EditAbstraction {
     
     fileprivate let dummyRec = CKRecordID(recordName: "EDIT_ERROR")
     
-    let txtKey = "Edit_Text"
-    
-    let catKey = "Edit_Category"
-    
-    let tipKey = "Edit_Tip"
-    
     // MARK: - Functions
     
     // MARK: - Functions: Construction
@@ -48,22 +42,22 @@ struct TipEdit: EditAbstraction {
 
 extension TipEdit: MCRecordable {
     
-    var recordType: String { return "MockEdit" }
+    var recordType: String { return RecordType.edit }
     
     var recordFields: Dictionary<String, CKRecordValue> {
         get {
             var dict = [String: CKRecordValue]()
             
-            if let txt = newText        { dict[txtKey] = txt as CKRecordValue }
-            if let cat = newCategory    { dict[catKey] = cat.rawValue as CKRecordValue }
-            dict[tipKey] = tip
+            if let txt = newText        { dict[RecordKey.ntxt] = txt as CKRecordValue }
+            if let cat = newCategory    { dict[RecordKey.ncat] = cat.rawValue as CKRecordValue }
+            dict[RecordKey.refs] = tip
             
             return dict
         }
         set {
-            if let ref = newValue[tipKey] as? CKReference { tip = ref }
-            if let txt = newValue[txtKey] as? String { newText = txt }
-            if let num = newValue[catKey] as? NSNumber { newCategory = TipCategory(rawValue: num.intValue) }
+            if let ref = newValue[RecordKey.refs] as? CKReference { tip = ref }
+            if let txt = newValue[RecordKey.ntxt] as? String { newText = txt }
+            if let num = newValue[RecordKey.ncat] as? NSNumber { newCategory = TipCategory(rawValue: num.intValue) }
         }
     }
     

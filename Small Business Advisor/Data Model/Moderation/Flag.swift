@@ -24,46 +24,42 @@ struct Flag: FlagAbstraction {
     
     fileprivate var _recordID: CKRecordID?
     fileprivate let dummyRec = CKRecordID(recordName: "FLAG_ERROR")
-    fileprivate let reasonKey = "Flag_Reason"
-    fileprivate let reasonAux = "Flag_Reason_Auxiliary"
-    fileprivate let creatorKey = "Flag_Creator"
-    fileprivate let tipKey = "Flag_Tip"
 }
 
 extension Flag: MCRecordable {
-    var recordType: String { return "Flag" }
+    var recordType: String { return RecordType.flag }
     
     var recordFields: Dictionary<String, CKRecordValue> {
         get {
             var dictionary = [String: CKRecordValue]()
             
             let reasons = reason.cloudValues
-            dictionary[reasonKey] = reasons.0
-            dictionary[reasonAux] = reasons.1
+            dictionary[RecordKey.rea0] = reasons.0
+            dictionary[RecordKey.rea1] = reasons.1
             
-            dictionary[creatorKey] = CKReference(recordID: creator ?? MCUserRecord().singleton ?? dummyRec, action: .deleteSelf)
-            dictionary[tipKey] = tip
+            dictionary[RecordKey.crtr] = CKReference(recordID: creator ?? MCUserRecord().singleton ?? dummyRec, action: .deleteSelf)
+            dictionary[RecordKey.refs] = tip
             
             return dictionary
         }
         
         set {
-            if let num = newValue[reasonKey] as? NSNumber {
+            if let num = newValue[RecordKey.rea0] as? NSNumber {
                 switch num.intValue {
                 case 0: reason = .offTopic
                 case 1: reason = .inaccurate
                 case 2:
-                    if let ref = newValue[reasonAux] as? CKReference { reason = .duplicate(ref) }
+                    if let ref = newValue[RecordKey.rea1] as? CKReference { reason = .duplicate(ref) }
                 case 3:
-                    if let ref = newValue[reasonAux] as? CKReference { reason = .wrongCategory(ref) }
+                    if let ref = newValue[RecordKey.rea1] as? CKReference { reason = .wrongCategory(ref) }
                 case 4: reason = .spam
                 case 5: reason = .abusive
                 default: break              // <-- Value out of range...
                 }
             }
             
-            if let ref = newValue[creatorKey] as? CKReference { creator = ref.recordID }
-            if let ref = newValue[tipKey] as? CKReference { tip = ref }
+            if let ref = newValue[RecordKey.crtr] as? CKReference { creator = ref.recordID }
+            if let ref = newValue[RecordKey.refs] as? CKReference { tip = ref }
         }
     }
     

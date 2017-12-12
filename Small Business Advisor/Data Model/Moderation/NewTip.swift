@@ -29,27 +29,23 @@ struct NewTip: NewTipAbstraction {
     var _recordID: CKRecordID?
     
     fileprivate let dummyRec = CKRecordID(recordName: "NEWTIP_ERROR")
-    
-    let txtKey = "NewTip_Text"
-    
-    let catKey = "NewTip_Category"
 }
 
 extension NewTip: MCRecordable {
-    var recordType: String { return "New_Tip_Suggestion" }
+    var recordType: String { return RecordType.newt }
     
     var recordFields: Dictionary<String, CKRecordValue> {
         get {
             var dict = [String: CKRecordValue]()
             
-            dict[txtKey] = text     as CKRecordValue
-            dict[catKey] = category as CKRecordValue
+            dict[RecordKey.ntxt] = text     as CKRecordValue
+            dict[RecordKey.ncat] = category as CKRecordValue
             
             return dict
         }
         set {
-            if let txt = newValue[txtKey] as? String { text = txt }
-            if let txt = newValue[catKey] as? String { category = txt }
+            if let txt = newValue[RecordKey.ntxt] as? String { text = txt }
+            if let txt = newValue[RecordKey.ncat] as? String { category = txt }
         }
     }
     

@@ -31,7 +31,13 @@ struct RecordType {
         
     static let voter = "ADVISOR_VOTER"
         
-    static let mock = "MOCK_RECORD"        
+    static let mock = "MOCK_RECORD"
+    
+    static let flag = "SUGGESTED_FLAG"
+    
+    static let edit = "SUGGESTED_EDIT"
+    
+    static let newt = "SUGGESTED_TIP"
 }
     
 struct RecordKey {
@@ -53,7 +59,21 @@ struct RecordKey {
     static let votr = "VOTE_VOTER"
     
     static let subj = "VOTE_SUBJECT"
-        
+    
+    // Flag Keys
+    
+    static let rea0 = "FLAG_REASON"
+
+    static let rea1 = "FLAG_REASON_AUXILIARY"
+    
+    static let crtr = "FLAG_CREATOR"
+    
+    // NewTip / Edit Keys
+    
+    static let ncat = "SUGGESTED_CATEGORY"
+    
+    static let ntxt = "SUGGESTED_TEXT"
+    
     // Universal Keys
         
     static let refs = "RECORD_OWNERS"
