@@ -106,7 +106,7 @@ extension Tip: MCRecordable {
         }
         set {
             if let num = newValue[RecordKey.indx] as? NSNumber { self.index = num.intValue }
-            if let txt = newValue[RecordKey.text] as? String { self.text = NSAttributedString(string: txt, BodyTextFormatting()) }
+            if let txt = newValue[RecordKey.text] as? String { self.text = NSAttributedString(string: txt, attributes: BodyTextFormatting()) }
             if let num = newValue[RecordKey.catg] as? NSNumber {
                 if let category = TipCategory(rawValue: num.intValue) { self.category = category }
             }
