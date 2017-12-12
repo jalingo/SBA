@@ -11,7 +11,7 @@ import Foundation
 protocol VoteCounter {
     
     // !!
-    var allVotes: [VoteAbstraction] { get set }
+    var allVotes: [VoteAbstraction] { get }
     
     // !!   <-- Is this needed in the protocol?
     func tabulateResults(for: [Tip]) -> [Tip: Int]
