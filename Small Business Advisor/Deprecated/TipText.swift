@@ -26,20 +26,6 @@ protocol StringFactory {
     static func produce(for index: Int) -> NSAttributedString
 }
 
-/// This global method provides the formatting for attributed strings representing entry text.
-func BodyTextFormatting() -> [NSAttributedStringKey : NSObject] {
-    
-    let style = NSMutableParagraphStyle()
-    style.alignment = NSTextAlignment.center
-    
-    let formatting = [
-        NSAttributedStringKey.font :            UIFont.boldSystemFont(ofSize: 18),
-        NSAttributedStringKey.foregroundColor:  UIColor(red: 0.55, green: 0.78, blue: 0.25, alpha: 1.0)
-    ]
-    
-    return formatting
-}
-
 /**
     This struct conforming to `StringFactory` reports total possible strings and creates formatted strings based
     on the specified index.

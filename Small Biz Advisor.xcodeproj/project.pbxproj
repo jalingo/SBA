@@ -226,7 +226,6 @@
 				A15043FE1FA33C210018B909 /* Tip.swift */,
 				A1AAB6A81FA939C000017C54 /* TipFactory.swift */,
 				A15043F41FA2B7AA0018B909 /* TipCategory.swift */,
-				A15044041FA42E260018B909 /* TipText.swift */,
 			);
 			path = Tips;
 			sourceTree = "<group>";
@@ -257,8 +256,6 @@
 				A1AB0E4F1FA01A1D00F1D3FF /* AdvisorViewController.swift */,
 				A19AD9061FDA94D3001C5846 /* EditorViewController.swift */,
 				A19AD9091FDAA30E001C5846 /* FieldsEditorViewController.swift */,
-				A1265DBB1FAA83D900E4C712 /* PageTurner.swift */,
-				A1D102B81FBD821900B89C53 /* TipReceiver.swift */,
 			);
 			path = "View Control";
 			sourceTree = "<group>";
@@ -278,7 +275,6 @@
 		A15044011FA342740018B909 /* Data Model */ = {
 			isa = PBXGroup;
 			children = (
-				A11C3BB51FA54DEC000D2255 /* ResponseText.swift */,
 				90C4E8791FC152FD00A8D329 /* Tips */,
 				A19AD9011FDA8A64001C5846 /* Votes */,
 				A12656521FDF2F9800F37215 /* Moderation */,
@@ -304,6 +300,17 @@
 				A15043F91FA336520018B909 /* TipCategoryFactoryTests.swift */,
 				A15044021FA3EFA10018B909 /* TextFactoryTests.swift */,
 				A15044071FA4F94D0018B909 /* ResponseTests.swift */,
+			);
+			path = Deprecated;
+			sourceTree = "<group>";
+		};
+		A1734AEE1FDF639D0025F56A /* Deprecated */ = {
+			isa = PBXGroup;
+			children = (
+				A11C3BB51FA54DEC000D2255 /* ResponseText.swift */,
+				A15044041FA42E260018B909 /* TipText.swift */,
+				A1265DBB1FAA83D900E4C712 /* PageTurner.swift */,
+				A1D102B81FBD821900B89C53 /* TipReceiver.swift */,
 			);
 			path = Deprecated;
 			sourceTree = "<group>";
@@ -344,6 +351,7 @@
 		A1AB0E1F1FA0185100F1D3FF /* Small Business Advisor */ = {
 			isa = PBXGroup;
 			children = (
+				A1734AEE1FDF639D0025F56A /* Deprecated */,
 				A1AB0E241FA0185100F1D3FF /* Main.storyboard */,
 				90A16F451FAE48B1002D418B /* Type Aliases & Strings.swift */,
 				A1265DBE1FAA853A00E4C712 /* View Control */,
