@@ -38,13 +38,11 @@ class AnyPickerTests: XCTestCase {
     
     func testAnyPickerHasSelectionFollowUp() { XCTAssertNotNil(mock?.selectionFollowUp) }
     
+    func testAnyPickerHasView() { XCTAssertNotNil(mock?.view) }
+    
     func testAnyPickerIsPickerDelegateAndDataSource() {
         XCTAssert(mock is UIPickerViewDelegate)
         XCTAssert(mock is UIPickerViewDataSource)
     }
     
-}
-
-extension Tip: Pickable {
-    var title: String { return self.text.string[0...30] }
 }

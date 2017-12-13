@@ -17,9 +17,11 @@ class AnyPicker<T: Pickable>: NSObject, UIPickerViewDataSource, UIPickerViewDele
     
     // MARK: - Properties
     
-    var receiver = MCAnyReceiver<T>(db: .publicDB)
+    let receiver: MCAnyReceiver<T>
     
     var selectionFollowUp: PickerBlock
+    
+    let view: UIPickerView
     
     // MARK: - Functions
     
@@ -43,6 +45,11 @@ class AnyPicker<T: Pickable>: NSObject, UIPickerViewDataSource, UIPickerViewDele
     
     init(type: T.Type, database: MCDatabase, didSet: PickerBlock) {
         receiver = MCAnyReceiver<T>(db: database)
+
+        view = UIPickerView()
+        view.dataSource = self
+        view.delegate = self
+        
         selectionFollowUp = didSet
     }
 }
