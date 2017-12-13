@@ -186,21 +186,57 @@
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="rWa-U3-9HV">
-                                <rect key="frame" x="16" y="82" width="343" height="696"/>
+                                <rect key="frame" x="16" y="82" width="343" height="415"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="415" id="ZCR-p7-Qbe"/>
+                                </constraints>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bpx-u4-mPT">
+                                <rect key="frame" x="16" y="738" width="158" height="40"/>
+                                <color key="backgroundColor" red="0.55096650120000001" green="0.77892380949999995" blue="0.247182399" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Bpx-u4-mPT" secondAttribute="height" multiplier="79:20" id="ybd-ve-576"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="18"/>
+                                <state key="normal" title="Cancel">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="j2p-OJ-64T" kind="unwind" identifier="unwindToHome" unwindAction="unwindToHomeWithSegue:" id="ldc-er-4QH"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G9A-OC-1eT">
+                                <rect key="frame" x="199" y="738" width="160" height="40"/>
+                                <color key="backgroundColor" red="0.55096650120000001" green="0.77892380949999995" blue="0.247182399" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="G9A-OC-1eT" secondAttribute="height" multiplier="4:1" id="EPc-MR-dC3"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="18"/>
+                                <state key="normal" title="Save">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="saveTapped:" destination="LJ4-iU-IzR" eventType="touchUpInside" id="w3c-gd-Bax"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="rWa-U3-9HV" firstAttribute="top" secondItem="poh-nN-LsC" secondAttribute="bottom" constant="8" symbolic="YES" id="3tf-1N-CSw"/>
-                            <constraint firstItem="rWa-U3-9HV" firstAttribute="trailing" secondItem="6jD-aX-eC9" secondAttribute="trailingMargin" id="Cx4-ZG-VXl"/>
-                            <constraint firstItem="rWa-U3-9HV" firstAttribute="leading" secondItem="6jD-aX-eC9" secondAttribute="leadingMargin" id="ggU-fR-AZd"/>
-                            <constraint firstItem="poh-nN-LsC" firstAttribute="top" secondItem="tKs-OZ-tVz" secondAttribute="top" id="mlF-sx-Faa"/>
-                            <constraint firstItem="poh-nN-LsC" firstAttribute="centerX" secondItem="rWa-U3-9HV" secondAttribute="centerX" id="mnp-Q8-soN"/>
-                            <constraint firstItem="rWa-U3-9HV" firstAttribute="bottom" secondItem="tKs-OZ-tVz" secondAttribute="bottom" id="wmc-Pe-1GT"/>
+                            <constraint firstItem="G9A-OC-1eT" firstAttribute="leading" secondItem="Bpx-u4-mPT" secondAttribute="trailing" constant="25" id="EMy-dq-8ep"/>
+                            <constraint firstItem="rWa-U3-9HV" firstAttribute="top" secondItem="poh-nN-LsC" secondAttribute="bottom" constant="8" symbolic="YES" id="I0g-HO-En1"/>
+                            <constraint firstItem="rWa-U3-9HV" firstAttribute="leading" secondItem="6jD-aX-eC9" secondAttribute="leadingMargin" id="Rju-tt-7as"/>
+                            <constraint firstItem="poh-nN-LsC" firstAttribute="centerX" secondItem="rWa-U3-9HV" secondAttribute="centerX" id="TXE-sp-CS5"/>
+                            <constraint firstItem="rWa-U3-9HV" firstAttribute="trailing" secondItem="G9A-OC-1eT" secondAttribute="trailing" id="Wev-fZ-9Bn"/>
+                            <constraint firstItem="Bpx-u4-mPT" firstAttribute="baseline" secondItem="G9A-OC-1eT" secondAttribute="baseline" id="d6O-77-CoV"/>
+                            <constraint firstItem="Bpx-u4-mPT" firstAttribute="bottom" secondItem="tKs-OZ-tVz" secondAttribute="bottom" id="fI4-19-ggY"/>
+                            <constraint firstItem="rWa-U3-9HV" firstAttribute="trailing" secondItem="6jD-aX-eC9" secondAttribute="trailingMargin" id="hI1-HO-b2i"/>
+                            <constraint firstItem="rWa-U3-9HV" firstAttribute="leading" secondItem="Bpx-u4-mPT" secondAttribute="leading" id="jIz-VY-Xhl"/>
+                            <constraint firstItem="poh-nN-LsC" firstAttribute="top" secondItem="tKs-OZ-tVz" secondAttribute="top" id="knb-3z-b5i"/>
+                            <constraint firstItem="Bpx-u4-mPT" firstAttribute="top" secondItem="G9A-OC-1eT" secondAttribute="top" id="mMT-tq-Y0a"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="tKs-OZ-tVz"/>
                     </view>
@@ -210,6 +246,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3OE-fc-J8h" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="j2p-OJ-64T" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1554.4000000000001" y="120.44334975369459"/>
         </scene>

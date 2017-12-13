@@ -96,6 +96,8 @@ class AdvisorViewController: UIViewController {
     
     // MARK: - - Functions: IBActions
     
+    @IBAction func unwindToHome(segue: UIStoryboardSegue) { /* May need to reload view here... */ }
+    
     @IBAction func logoTapped(_ sender: UIButton) {
         if let url = URL(string: URL_str.homePage) { UIApplication.shared.open(url) }
     }

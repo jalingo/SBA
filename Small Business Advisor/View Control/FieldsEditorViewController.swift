@@ -78,6 +78,11 @@ class FieldsEditorViewController: UIViewController {
         self.view.addSubview(picker)
     }
     
+    @IBAction func saveTapped(_ sender: UIButton) {
+        saveChanges()
+        performSegue(withIdentifier: "unwindToHome", sender: sender)
+    }
+    
     // MARK: - Functions: UIViewController
     
     override func viewDidLoad() {
@@ -186,20 +191,15 @@ extension FieldsEditorViewController: UITextViewDelegate {
         toolBar.barStyle = .default
         toolBar.isTranslucent = true
         
-        let cancel = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(self.done))
+        let done = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(self.done))
         let space = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-        let save = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(self.save))
-        toolBar.setItems([cancel, space, save], animated: false)
+//        let save = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(self.save))
+        toolBar.setItems([space, done], animated: false)
         
         toolBar.isUserInteractionEnabled = true
         toolBar.sizeToFit()
         
         return toolBar
-    }
-
-    @objc func save() {
-        saveChanges()
-        done()
     }
     
     @objc func done() {
