@@ -42,7 +42,7 @@ class AnyPicker<T: Pickable>: NSObject, UIPickerViewDataSource, UIPickerViewDele
     // MARK: - Functions: Constuction
     
     init(type: T, database: MCDatabase, didSet: PickerBlock) {
-        receiver = MCReceiver<T>(db: database)
+        receiver = MCAnyReceiver<T>(db: database)
         selectionFollowUp = didSet
     }
 }
