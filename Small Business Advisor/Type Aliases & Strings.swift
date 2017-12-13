@@ -19,6 +19,9 @@ typealias ModifyBlock = ([CKRecord]?, [CKRecordID]?, Error?) -> Void
 
 typealias NotifyBlock = (Notification) -> Void
 
+/// Used by the AnyPicker class to pass activity for the didSelect method.
+typealias PickerBlock = ((Pickable) -> ())?
+
 // MARK: - Key Strings
 
 struct RecordType {
