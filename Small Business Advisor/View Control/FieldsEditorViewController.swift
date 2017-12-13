@@ -158,7 +158,7 @@ extension FieldsEditorViewController: UIPickerViewDelegate {
         }
     }
     
-    func recoverNewCategoryTitle() {
+    fileprivate func recoverNewCategoryTitle() {
         let alert = UIAlertController(title: "New Category Suggestion", message: nil, preferredStyle: .alert)
         
         alert.addTextField { textField in
@@ -179,13 +179,13 @@ extension FieldsEditorViewController: UITextViewDelegate {
     
     // MARK: - Functions
     
-    func addToolBarToFieldKeyboard(text: UITextView) {
+    fileprivate func addToolBarToFieldKeyboard(text: UITextView) {
         
         text.delegate = self
         text.inputAccessoryView = buildToolBar()
     }
     
-    func buildToolBar() -> UIToolbar {
+    fileprivate func buildToolBar() -> UIToolbar {
         let toolBar = UIToolbar()
         
         toolBar.barStyle = .default
@@ -202,7 +202,7 @@ extension FieldsEditorViewController: UITextViewDelegate {
         return toolBar
     }
     
-    @objc func done() {
+    @objc fileprivate func done() {
         self.view.endEditing(true)
     }
 }
