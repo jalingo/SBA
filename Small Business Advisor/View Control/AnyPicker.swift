@@ -38,4 +38,11 @@ class AnyPicker<T: Pickable>: NSObject, UIPickerViewDataSource, UIPickerViewDele
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return receiver.recordables[row].title
     }
+    
+    // MARK: - Functions: Constuction
+    
+    init(type: T, database: MCDatabase, didSet: PickerBlock) {
+        receiver = MCReceiver<T>(db: database)
+        selectionFollowUp = didSet
+    }
 }
