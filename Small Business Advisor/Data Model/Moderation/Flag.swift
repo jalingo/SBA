@@ -90,4 +90,6 @@ enum FlagReason {
         case .abusive:      return (5 as CKRecordValue, nil)
         }
     }
+    
+    static let count = 6
 }
