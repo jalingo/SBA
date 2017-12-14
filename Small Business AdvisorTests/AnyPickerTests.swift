@@ -22,7 +22,7 @@ class AnyPickerTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        mock = AnyPicker()
+        mock = AnyPicker(type: Tip.self, database: .publicDB, didSet: nil)
     }
     
     override func tearDown() {
@@ -31,8 +31,6 @@ class AnyPickerTests: XCTestCase {
     }
 
     // MARK: - Functions: Unit Tests
-    
-//    func testAnyPickerHasType() { XCTAssertNotNil(mock) }   // <-- Dependency injected in setUp()
     
     func testAnyPickerHasReceiver() { XCTAssertNotNil(mock?.receiver) }
     
@@ -44,5 +42,4 @@ class AnyPickerTests: XCTestCase {
         XCTAssert(mock is UIPickerViewDelegate)
         XCTAssert(mock is UIPickerViewDataSource)
     }
-    
 }
