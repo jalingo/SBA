@@ -149,6 +149,6 @@ class AdvisorViewController: UIViewController {
 
 // MARK: - Extensions
 
-extension AdvisorViewController: MCReceiver {
+extension AdvisorViewController: MCReceiverAbstraction {
     typealias type = TipCategory
 }

@@ -33,7 +33,7 @@ extension _TipFactoryAbstraction {
     }
 }
 
-class _TipFactory: MCAnyReceiver<Tip>, _TipFactoryAbstraction {
+class _TipFactory: MCReceiver<Tip>, _TipFactoryAbstraction {
     
     // MARK: - Properties
 
@@ -63,7 +63,7 @@ class _TipFactory: MCAnyReceiver<Tip>, _TipFactoryAbstraction {
     
     // MARK: - InnerClasses
     
-    class VotingBooth: MCAnyReceiver<Vote>, VoteCounter {
+    class VotingBooth: MCReceiver<Vote>, VoteCounter {
         var allVotes: [VoteAbstraction] { return recordables }
     }
 }

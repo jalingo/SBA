@@ -36,9 +36,9 @@ class EditorViewController: UIViewController {
     
     // MARK: - Properties: UIPickerView
     
-    let flags = MCAnyReceiver<Flag>(db: .publicDB)
+    let flags = MCReceiver<Flag>(db: .publicDB)
     
-    let votes = MCAnyReceiver<Vote>(db: .publicDB)
+    let votes = MCReceiver<Vote>(db: .publicDB)
     
     // MARK: - Functions
     

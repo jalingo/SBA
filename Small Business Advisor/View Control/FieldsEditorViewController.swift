@@ -37,7 +37,7 @@ class FieldsEditorViewController: UIViewController {
     
     // MARK: - Properties: UIPickerViewDataSource
     
-    fileprivate var categories = MCAnyReceiver<TipCategory>(db: .publicDB)
+    fileprivate var categories = MCReceiver<TipCategory>(db: .publicDB)
     
     // MARK: - Functions
     
@@ -56,13 +56,13 @@ class FieldsEditorViewController: UIViewController {
             edit.newCategory = category
             edit.newText = "customCat? \(String(describing: selectedCategory))\n\(textArea.text)"
             
-            let op = MCUpload([edit], from: MCAnyReceiver<TipEdit>(db: .publicDB), to: .publicDB)
+            let op = MCUpload([edit], from: MCReceiver<TipEdit>(db: .publicDB), to: .publicDB)
             OperationQueue().addOperation(op)
         } else {                                                                // <-- nil, will submit 'new'
             let id = CKRecordID(recordName: "New@\(Date().description)")
             let new = NewTip(text: textArea.text, category: selectedCategory ?? "NA", _recordID: id)
 
-            let op = MCUpload([new], from: MCAnyReceiver<NewTip>(db: .publicDB), to: .publicDB)
+            let op = MCUpload([new], from: MCReceiver<NewTip>(db: .publicDB), to: .publicDB)
             OperationQueue().addOperation(op)
         }
     }
