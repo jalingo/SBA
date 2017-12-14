@@ -53,7 +53,6 @@ class EditorViewController: UIViewController {
                             candidate: CKReference(recordID: tip.recordID, action: .deleteSelf),
                             constituent: CKReference(recordID: user, action: .deleteSelf))
             previousVote = vote
-            votes.recordables.append(vote)
             
             let op = MCUpload([vote], from: votes, to: .publicDB)
             op.completionBlock = { self.checkAvailability() }    // <-- This should reset vote buttons after
