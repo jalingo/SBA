@@ -11,13 +11,13 @@ import CloudKit
 
 // MARK: - Cloud Closures
 
-typealias QueryBlock = (CKQueryCursor?, Error?) -> Void
-
-typealias FetchBlock = (CKRecord) -> Void
-
-typealias ModifyBlock = ([CKRecord]?, [CKRecordID]?, Error?) -> Void
-
-typealias NotifyBlock = (Notification) -> Void
+//typealias QueryBlock = (CKQueryCursor?, Error?) -> Void
+//
+//typealias FetchBlock = (CKRecord) -> Void
+//
+//typealias ModifyBlock = ([CKRecord]?, [CKRecordID]?, Error?) -> Void
+//
+//typealias NotifyBlock = (Notification) -> Void
 
 /// Used by the AnyPicker class to pass activity for the didSelect method.
 typealias PickerBlock = ((Pickable) -> ())?
