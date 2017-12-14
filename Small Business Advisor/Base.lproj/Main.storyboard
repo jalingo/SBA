@@ -155,6 +155,7 @@
                         <outlet property="pageLabel" destination="V1D-2j-UIV" id="UFD-tC-RAN"/>
                         <outlet property="randomSwitch" destination="bmF-dq-gjo" id="TrW-aF-fnn"/>
                         <outlet property="textView" destination="hdv-jg-B6j" id="GIL-b8-cG0"/>
+                        <segue destination="LJ4-iU-IzR" kind="show" identifier="homeToEditor" id="MYd-5P-w2r"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -174,7 +175,7 @@
         <!--Fields Editor View Controller-->
         <scene sceneID="YUq-fS-Tym">
             <objects>
-                <viewController id="LJ4-iU-IzR" customClass="FieldsEditorViewController" customModule="Small_Biz_Advisor" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FieldsEditor" id="LJ4-iU-IzR" customClass="FieldsEditorViewController" customModule="Small_Biz_Advisor" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6jD-aX-eC9">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -249,7 +250,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3OE-fc-J8h" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="j2p-OJ-64T" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1554.4000000000001" y="120.44334975369459"/>
+            <point key="canvasLocation" x="1299" y="122"/>
         </scene>
         <!--Editor View Controller-->
         <scene sceneID="n2b-fj-IR6">
