@@ -29,6 +29,8 @@
 		A12656571FDF36EE00F37215 /* NewTip.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12656551FDF36EE00F37215 /* NewTip.swift */; };
 		A1265DBC1FAA83D900E4C712 /* PageTurner.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1265DBB1FAA83D900E4C712 /* PageTurner.swift */; };
 		A1265DBD1FAA83D900E4C712 /* PageTurner.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1265DBB1FAA83D900E4C712 /* PageTurner.swift */; };
+		A1299E761FE1EB0900030BB1 /* AnyPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1299E751FE1EB0900030BB1 /* AnyPicker.swift */; };
+		A1299E771FE1EB0900030BB1 /* AnyPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1299E751FE1EB0900030BB1 /* AnyPicker.swift */; };
 		A14B98AC1FB4DFDC00C04802 /* CurrentTipTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14B98AA1FB4DFAC00C04802 /* CurrentTipTests.swift */; };
 		A15043F51FA2B7AA0018B909 /* TipCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15043F41FA2B7AA0018B909 /* TipCategory.swift */; };
 		A15043F61FA2B7AA0018B909 /* TipCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15043F41FA2B7AA0018B909 /* TipCategory.swift */; };
@@ -51,6 +53,7 @@
 		A1734AF81FDFBF3B0025F56A /* Flagger.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1734AF61FDFBF3B0025F56A /* Flagger.swift */; };
 		A17DE9EE1FBEB63600D2EB4F /* VoteCounterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17DE9ED1FBEB63600D2EB4F /* VoteCounterTests.swift */; };
 		A17F19C31FABD32D0099B903 /* PageTurnerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1265DB91FAA747800E4C712 /* PageTurnerTests.swift */; };
+		A184ABE91FE1133500334F3C /* AnyPickerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A184ABE81FE1133500334F3C /* AnyPickerTests.swift */; };
 		A19AD9071FDA94D3001C5846 /* EditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19AD9061FDA94D3001C5846 /* EditorViewController.swift */; };
 		A19AD9081FDA94D3001C5846 /* EditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19AD9061FDA94D3001C5846 /* EditorViewController.swift */; };
 		A19AD90A1FDAA30E001C5846 /* FieldsEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19AD9091FDAA30E001C5846 /* FieldsEditorViewController.swift */; };
@@ -161,6 +164,7 @@
 		A12656551FDF36EE00F37215 /* NewTip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTip.swift; sourceTree = "<group>"; };
 		A1265DB91FAA747800E4C712 /* PageTurnerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageTurnerTests.swift; sourceTree = "<group>"; };
 		A1265DBB1FAA83D900E4C712 /* PageTurner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageTurner.swift; sourceTree = "<group>"; };
+		A1299E751FE1EB0900030BB1 /* AnyPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyPicker.swift; sourceTree = "<group>"; };
 		A14B98AA1FB4DFAC00C04802 /* CurrentTipTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CurrentTipTests.swift; path = "Small Business AdvisorTests/Deprecated/CurrentTipTests.swift"; sourceTree = SOURCE_ROOT; };
 		A15043F41FA2B7AA0018B909 /* TipCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipCategory.swift; sourceTree = "<group>"; };
 		A15043F71FA2B97B0018B909 /* TipFactoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipFactoryTests.swift; sourceTree = "<group>"; };
@@ -178,6 +182,7 @@
 		A1734AF41FDFA3460025F56A /* FlaggerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlaggerTests.swift; sourceTree = "<group>"; };
 		A1734AF61FDFBF3B0025F56A /* Flagger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flagger.swift; sourceTree = "<group>"; };
 		A17DE9ED1FBEB63600D2EB4F /* VoteCounterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteCounterTests.swift; sourceTree = "<group>"; };
+		A184ABE81FE1133500334F3C /* AnyPickerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyPickerTests.swift; sourceTree = "<group>"; };
 		A19AD9061FDA94D3001C5846 /* EditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorViewController.swift; sourceTree = "<group>"; };
 		A19AD9091FDAA30E001C5846 /* FieldsEditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldsEditorViewController.swift; sourceTree = "<group>"; };
 		A19AD90D1FDBD3F5001C5846 /* FlagTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlagTests.swift; sourceTree = "<group>"; };
@@ -262,6 +267,7 @@
 		A1265DBE1FAA853A00E4C712 /* View Control */ = {
 			isa = PBXGroup;
 			children = (
+				A1299E751FE1EB0900030BB1 /* AnyPicker.swift */,
 				A1AB0E4F1FA01A1D00F1D3FF /* AdvisorViewController.swift */,
 				A19AD9061FDA94D3001C5846 /* EditorViewController.swift */,
 				A19AD9091FDAA30E001C5846 /* FieldsEditorViewController.swift */,
@@ -374,6 +380,7 @@
 		A1AB0E341FA0185100F1D3FF /* Small Business AdvisorTests */ = {
 			isa = PBXGroup;
 			children = (
+				A184ABE81FE1133500334F3C /* AnyPickerTests.swift */,
 				A1734AED1FDF62CC0025F56A /* Deprecated */,
 				A1AB0E371FA0185100F1D3FF /* Info.plist */,
 				9033901B1FB4409400E7D7A9 /* TestTools.swift */,
@@ -612,6 +619,7 @@
 				A1AAB6A91FA939C000017C54 /* TipFactory.swift in Sources */,
 				A1265DBC1FAA83D900E4C712 /* PageTurner.swift in Sources */,
 				A1AB0E211FA0185100F1D3FF /* AppDelegate.swift in Sources */,
+				A1299E761FE1EB0900030BB1 /* AnyPicker.swift in Sources */,
 				A1734AF71FDFBF3B0025F56A /* Flagger.swift in Sources */,
 				A1D102B91FBD821900B89C53 /* TipReceiver.swift in Sources */,
 				A19AD90A1FDAA30E001C5846 /* FieldsEditorViewController.swift in Sources */,
@@ -646,9 +654,11 @@
 				A1734AF51FDFA3460025F56A /* FlaggerTests.swift in Sources */,
 				A17F19C31FABD32D0099B903 /* PageTurnerTests.swift in Sources */,
 				A1AB0E511FA01A1D00F1D3FF /* AdvisorViewController.swift in Sources */,
+				A184ABE91FE1133500334F3C /* AnyPickerTests.swift in Sources */,
 				90C4E87C1FC16F8400A8D329 /* VoteCounter.swift in Sources */,
 				9033901C1FB4409400E7D7A9 /* TestTools.swift in Sources */,
 				90C4E8751FC11B5500A8D329 /* VoteEditorTests.swift in Sources */,
+				A1299E771FE1EB0900030BB1 /* AnyPicker.swift in Sources */,
 				A19AD9081FDA94D3001C5846 /* EditorViewController.swift in Sources */,
 				A19AD90B1FDAA30E001C5846 /* FieldsEditorViewController.swift in Sources */,
 				A12656471FDF275500F37215 /* Flag.swift in Sources */,
