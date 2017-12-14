@@ -23,7 +23,9 @@ class AdvisorViewController: UIViewController {
        `response` will be used to provide the correct info from the data model (category and body strings now, but
        eventually ratings and thread links too).
      */
-    var response = ResponseText()
+//    var response = ResponseText()
+    
+    var tips = _TipFactory(db: .publicDB)
     
     /// `page` stores index of the current entry from the data model, and when set `pageLabel.text` is refreshed.
     var page = 0 {
@@ -36,7 +38,7 @@ class AdvisorViewController: UIViewController {
     var subscription = MCSubscriber(forRecordType: Tip().recordType)
     
     // !!
-    var recordables = [Tip]() {
+    var recordables = [TipCategory]() {
         didSet { print("** AVC.recordables didSet: \(recordables.count)") }
     }
     
@@ -54,9 +56,7 @@ class AdvisorViewController: UIViewController {
     // MARK: - - Properties: UIResponder
     
     /// This override allows `AdvisorViewController` to become first responder (to user interactions); always true.
-    @objc override var canBecomeFirstResponder: Bool {
-        get { return true }
-    }
+    @objc override var canBecomeFirstResponder: Bool { return true }
     
     // MARK: - Functions
     
@@ -69,13 +69,14 @@ class AdvisorViewController: UIViewController {
      */
     fileprivate func increasePage() {
         if randomSwitch.isOn {
-            let random = response.byRandom()
-            
-            textView.attributedText = random
-            page = response.lastIndex
+            if let random = tips.random() {
+                textView.attributedText = random.text
+                page = tips.lastRank
+            }
+          
         } else {
-            page < TipFactory.max ? (page += 1) : (page = 1)
-            textView.attributedText = response.byIndex(of: page)
+            page < tips.count ? (page += 1) : (page = 1)
+            if let tip = tips.rank(of: page) { textView.attributedText = tip.text }
         }
     }
 
@@ -90,8 +91,8 @@ class AdvisorViewController: UIViewController {
         guard !randomSwitch.isOn else { increasePage(); return }
         
         // Else, a swipe right means go back.
-        page > 1 ? (page -= 1) : (page = TipFactory.max)
-        textView.attributedText = response.byIndex(of: page)
+        page > 1 ? (page -= 1) : (page = tips.count)
+        if let tip = tips.rank(of: page) { textView.attributedText = tip.text }
     }
     
     // MARK: - - Functions: IBActions
@@ -135,11 +136,7 @@ class AdvisorViewController: UIViewController {
         textView.attributedText = NSAttributedString(string: Instructions.shake,
                                                      attributes: CategoryFormatting())
         
-        // TODO: BELOW IS FOR TESTING PURPOSES !! REMOVE BEFORE RELEASE (or convert type to Tip)
-
         subscribeToChanges(on: .publicDB)
-
-        // TODO: ABOVE IS FOR TESTING PURPOSES !! REMOVE BEFORE RELEASE
         
         self.becomeFirstResponder()
     }
@@ -150,10 +147,8 @@ class AdvisorViewController: UIViewController {
     }
 }
 
-// TODO: BELOW IS FOR TESTING PURPOSES !! REMOVE BEFORE RELEASE (or convert type to Tip)
+// MARK: - Extensions
 
 extension AdvisorViewController: MCReceiver {
-    typealias type = Tip
+    typealias type = TipCategory
 }
-
-// TODO: ABOVE IS FOR TESTING PURPOSES !! REMOVE BEFORE RELEASE
