@@ -14,6 +14,8 @@ protocol _TipFactoryAbstraction {
     
     var limitation: TipCategory? { get set }
     
+    var lastRank: Int { get set }
+    
     var count: Int { get }
     
     func rank(of: Int) -> Tip?
@@ -39,6 +41,8 @@ class _TipFactory: MCAnyReceiver<Tip>, _TipFactoryAbstraction {
     
     // MARK: - Properties: TipFactory
     
+    var lastRank = -1
+    
     var count: Int { return self.recordables.count }
     
     var limitation: TipCategory?
@@ -50,6 +54,8 @@ class _TipFactory: MCAnyReceiver<Tip>, _TipFactoryAbstraction {
     func rank(of place: Int) -> Tip? {
         guard place > 0 else { return rank(of: 1) }
         guard place < count + 1 else { return rank(of: count) }
+
+        lastRank = place
         
         // sort based on votes here...
         return votes.rank(for: recordables, by: limitation)[place - 1]

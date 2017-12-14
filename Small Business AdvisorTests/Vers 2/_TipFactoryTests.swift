@@ -57,6 +57,8 @@ class _TipFactoryTests: XCTestCase {
     
     func testTipFactoryCanProduceByRandom() { XCTAssertNotNil(mock?.random()) }
     
+    func testTipFactoryHasLastRank() { XCTAssertNotNil(mock?.lastRank) }
+    
     func testTipFactoryHasCategoryLimitation() {
         mock?.limitation = TipCategory.hr
         XCTAssertNotNil(mock?.limitation)
