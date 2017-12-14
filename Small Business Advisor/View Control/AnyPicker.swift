@@ -45,11 +45,12 @@ class AnyPicker<T: Pickable>: NSObject, UIPickerViewDataSource, UIPickerViewDele
     
     init(type: T.Type, database: MCDatabase, didSet: PickerBlock) {
         receiver = MCAnyReceiver<T>(db: database)
-
         view = UIPickerView()
+        selectionFollowUp = didSet
+        
+        super.init()
+        
         view.dataSource = self
         view.delegate = self
-        
-        selectionFollowUp = didSet
     }
 }
