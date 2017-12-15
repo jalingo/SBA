@@ -272,7 +272,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Ob-OY-oiy">
-                                <rect key="frame" x="0.0" y="-0.6666666666666643" width="69.666666666666671" height="108.33333333333331"/>
+                                <rect key="frame" x="0.0" y="-0.6666666666666643" width="69.333333333333329" height="108.33333333333331"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="2Ob-OY-oiy" secondAttribute="height" multiplier="35:54" id="jYy-fk-d4e"/>
                                 </constraints>
@@ -285,7 +285,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FSl-bi-14p">
-                                <rect key="frame" x="269" y="35.666666666666657" width="30" height="37.333333333333343"/>
+                                <rect key="frame" x="268.66666666666669" y="35.666666666666657" width="30" height="37.333333333333343"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="FSl-bi-14p" secondAttribute="height" multiplier="15:19" id="Rbf-Bu-q6B"/>
                                 </constraints>
@@ -293,7 +293,7 @@
                                 <state key="normal" title=" ✏️"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HWV-QS-doU">
-                                <rect key="frame" x="307" y="35.666666666666664" width="36" height="35.999999999999993"/>
+                                <rect key="frame" x="306.66666666666669" y="35.666666666666664" width="36.333333333333314" height="35.999999999999993"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="🚩"/>
                                 <connections>
@@ -301,7 +301,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ENA-Am-xwM">
-                                <rect key="frame" x="77.666666666666686" y="-0.6666666666666643" width="69.333333333333314" height="108.33333333333331"/>
+                                <rect key="frame" x="77.333333333333343" y="-0.6666666666666643" width="69.333333333333343" height="108.33333333333331"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="ENA-Am-xwM" secondAttribute="height" multiplier="35:54" id="6YB-76-f9B"/>
                                 </constraints>
@@ -314,7 +314,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BLj-Zw-kli">
-                                <rect key="frame" x="233" y="35.666666666666664" width="35" height="35.999999999999993"/>
+                                <rect key="frame" x="232.66666666666666" y="35.666666666666664" width="34.999999999999972" height="35.999999999999993"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="BLj-Zw-kli" secondAttribute="height" multiplier="35:36" id="I5q-fM-CSN"/>
                                 </constraints>
