@@ -18,16 +18,16 @@ protocol _TipFactoryAbstraction {
     
     var count: Int { get }
     
-    func rank(of: Int) -> Tip?
+    func rank(of: Int) -> Tip
     
-    func random() -> Tip?
+    func random() -> Tip
 }
 
 extension _TipFactoryAbstraction {
     
     // MARK: - Functions
     
-    func random() -> Tip? {
+    func random() -> Tip {
         let randomRank = Int(arc4random_uniform(UInt32(count)))
         return rank(of: randomRank)
     }
@@ -51,7 +51,7 @@ class _TipFactory: MCReceiver<Tip>, _TipFactoryAbstraction {
 
     // MARK: - Functions: TipFactory
 
-    func rank(of place: Int) -> Tip? {
+    func rank(of place: Int) -> Tip {
         guard place > 0 else { return rank(of: 1) }
         guard place < count + 1 else { return rank(of: count) }
 

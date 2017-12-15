@@ -62,14 +62,12 @@ class AdvisorViewController: UIViewController {
      */
     fileprivate func increasePage() {
         if randomSwitch.isOn {
-            if let random = tips.random() {
-                textView.attributedText = random.text
-                page = tips.lastRank
-            }
-          
+            let random = tips.random()
+            textView.attributedText = random.text
+            page = tips.lastRank
         } else {
             page < tips.count ? (page += 1) : (page = 1)
-            if let tip = tips.rank(of: page) { textView.attributedText = tip.text }
+            textView.attributedText = tips.rank(of: page).text
         }
     }
 
@@ -85,7 +83,7 @@ class AdvisorViewController: UIViewController {
         
         // Else, a swipe right means go back.
         page > 1 ? (page -= 1) : (page = tips.count)
-        if let tip = tips.rank(of: page) { textView.attributedText = tip.text }
+        textView.attributedText = tips.rank(of: page).text
     }
     
     // MARK: - - Functions: IBActions
