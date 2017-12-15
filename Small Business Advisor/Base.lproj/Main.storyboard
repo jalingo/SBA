@@ -163,6 +163,7 @@
                     <connections>
                         <outlet property="pageLabel" destination="V1D-2j-UIV" id="UFD-tC-RAN"/>
                         <outlet property="randomSwitch" destination="bmF-dq-gjo" id="TrW-aF-fnn"/>
+                        <outlet property="rankMeter" destination="kcS-WI-ruz" id="kwe-Gb-xrE"/>
                         <outlet property="selectCategoryButton" destination="eQQ-BK-4aL" id="ySb-fd-gQc"/>
                         <outlet property="textView" destination="hdv-jg-B6j" id="GIL-b8-cG0"/>
                         <segue destination="LJ4-iU-IzR" kind="show" identifier="homeToEditor" id="MYd-5P-w2r"/>

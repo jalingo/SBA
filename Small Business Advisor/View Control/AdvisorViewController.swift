@@ -24,20 +24,16 @@ class AdvisorViewController: UIViewController {
     
     /// `page` stores index of the current entry from the data model, and when set `pageLabel.text` is refreshed.
     var page = 0 {
-        didSet { pageLabel.text = String(page) }
+        didSet {
+            pageLabel.text = String(page)
+            rankMeter.progress = Float(1 - (page / tips.recordables.count))
+        }
     }
     
-    // MARK: - - Properties: ReceivesRecordable
-    
-    // !!
-//    var subscription = MCSubscriber(forRecordType: Tip().recordType)
-    
-    // !!
-//    var recordables = [TipCategory]() {
-//        didSet { print("** AVC.recordables didSet: \(recordables.count)") }
-//    }
-    
     // MARK: - - Properties: IBOutlets
+    
+    // !!
+    @IBOutlet weak var rankMeter: UIProgressView!
     
     /// `pageLabel` shows the index of the current entry from the data model.
     @IBOutlet weak var pageLabel: UILabel!
@@ -91,8 +87,10 @@ class AdvisorViewController: UIViewController {
     
     // MARK: - - Functions: IBActions
     
+    // !!
     @IBAction func unwindToHome(segue: UIStoryboardSegue) { /* May need to reload view here... */ }
     
+    // !!
     @IBAction func logoTapped(_ sender: UIButton) {
         if let url = URL(string: URL_str.homePage) { UIApplication.shared.open(url) }
     }
@@ -155,9 +153,6 @@ class AdvisorViewController: UIViewController {
         
         textView.attributedText = NSAttributedString(string: Instructions.shake,
                                                      attributes: Format.categoryTitle)
-        
-//        subscribeToChanges(on: .publicDB)
-        
         self.becomeFirstResponder()
     }
     
