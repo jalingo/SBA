@@ -268,6 +268,7 @@
 		A1265DBE1FAA853A00E4C712 /* View Control */ = {
 			isa = PBXGroup;
 			children = (
+				A1A0FCEA1FE34C6200E3D679 /* Text Formatting.swift */,
 				A1299E751FE1EB0900030BB1 /* AnyPicker.swift */,
 				A1AB0E4F1FA01A1D00F1D3FF /* AdvisorViewController.swift */,
 				A19AD9061FDA94D3001C5846 /* EditorViewController.swift */,
@@ -370,7 +371,6 @@
 				A1734AEE1FDF639D0025F56A /* Deprecated */,
 				A1AB0E241FA0185100F1D3FF /* Main.storyboard */,
 				90A16F451FAE48B1002D418B /* Type Aliases & Strings.swift */,
-				A1A0FCEA1FE34C6200E3D679 /* Text Formatting.swift */,
 				A1265DBE1FAA853A00E4C712 /* View Control */,
 				A15044011FA342740018B909 /* Data Model */,
 				A1AB0E4E1FA0187900F1D3FF /* Resources */,
@@ -381,10 +381,10 @@
 		A1AB0E341FA0185100F1D3FF /* Small Business AdvisorTests */ = {
 			isa = PBXGroup;
 			children = (
-				A184ABE81FE1133500334F3C /* AnyPickerTests.swift */,
 				A1734AED1FDF62CC0025F56A /* Deprecated */,
 				A1AB0E371FA0185100F1D3FF /* Info.plist */,
 				9033901B1FB4409400E7D7A9 /* TestTools.swift */,
+				A184ABE81FE1133500334F3C /* AnyPickerTests.swift */,
 				A12656581FDF378900F37215 /* Moderation */,
 				A1265DBF1FAA855C00E4C712 /* Data Model */,
 			);
