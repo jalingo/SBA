@@ -100,6 +100,9 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="🔒"/>
+                                <connections>
+                                    <action selector="categoryLockTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tdt-RK-p9x"/>
+                                </connections>
                             </button>
                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="kcS-WI-ruz">
                                 <rect key="frame" x="14" y="282" width="343" height="2"/>
@@ -250,7 +253,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3OE-fc-J8h" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="j2p-OJ-64T" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1299" y="122"/>
+            <point key="canvasLocation" x="1490" y="136"/>
         </scene>
         <!--Editor View Controller-->
         <scene sceneID="n2b-fj-IR6">
@@ -338,7 +341,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u1z-oG-dc5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="834" y="362"/>
+            <point key="canvasLocation" x="829" y="380"/>
         </scene>
     </scenes>
     <resources>
