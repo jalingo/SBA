@@ -30,12 +30,12 @@ class AdvisorViewController: UIViewController {
     // MARK: - - Properties: ReceivesRecordable
     
     // !!
-    var subscription = MCSubscriber(forRecordType: Tip().recordType)
+//    var subscription = MCSubscriber(forRecordType: Tip().recordType)
     
     // !!
-    var recordables = [TipCategory]() {
-        didSet { print("** AVC.recordables didSet: \(recordables.count)") }
-    }
+//    var recordables = [TipCategory]() {
+//        didSet { print("** AVC.recordables didSet: \(recordables.count)") }
+//    }
     
     // MARK: - - Properties: IBOutlets
     
@@ -47,6 +47,9 @@ class AdvisorViewController: UIViewController {
     
     /// `randomSwitch` is toggled between `on` (next entry determined at random) & `off` (entries come in order).
     @IBOutlet weak var randomSwitch: UISwitch!
+    
+    // !!
+    @IBOutlet weak var selectCategoryButton: UIButton!
     
     // MARK: - - Properties: UIResponder
     
@@ -118,14 +121,30 @@ class AdvisorViewController: UIViewController {
     /// Recognizes the USER performing swipe gesture on `textView` and takes action based on direction.
     @IBAction func swipeRight(_ sender: UISwipeGestureRecognizer) { decreasePage() }
     
+    // !!
     @IBAction func categoryLockTapped(_ sender: UIButton) {
         if let _ = tips.limitation {
             tips.limitation = nil
             sender.setTitle("🔓", for: .normal)
+            selectCategoryButton.isEnabled = false
         } else {
             tips.limitation = tips.rank(of: tips.lastRank).category
             sender.setTitle("🔒", for: .normal)
+            selectCategoryButton.isEnabled = true
         }
+    }
+    
+    // !!
+    @IBAction func categorySelectorTapped(_ sender: UIButton) {
+        let picker = AnyPicker(type: TipCategory.self, database: .publicDB) { pick in
+            if let category = pick as? TipCategory {
+                sender.setAttributedTitle(category.formatted, for: .normal)
+                self.tips.limitation = category
+                self.increasePage() // <-- May be problematic (force random first?)
+            }
+        }
+        
+        self.view.addSubview(picker.view)
     }
     
     // MARK: - - Functions: UIViewController
@@ -137,7 +156,7 @@ class AdvisorViewController: UIViewController {
         textView.attributedText = NSAttributedString(string: Instructions.shake,
                                                      attributes: Format.categoryTitle)
         
-        subscribeToChanges(on: .publicDB)
+//        subscribeToChanges(on: .publicDB)
         
         self.becomeFirstResponder()
     }
@@ -150,6 +169,7 @@ class AdvisorViewController: UIViewController {
 
 // MARK: - Extensions
 
-extension AdvisorViewController: MCReceiverAbstraction {
-    typealias type = TipCategory
-}
+//extension AdvisorViewController: MCReceiverAbstraction {
+//    typealias type = TipCategory
+//}
+
