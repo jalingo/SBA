@@ -19,19 +19,14 @@ class AdvisorViewController: UIViewController {
     
     // MARK: - Properties
     
-    /**
-       `response` will be used to provide the correct info from the data model (category and body strings now, but
-       eventually ratings and thread links too).
-     */
-//    var response = ResponseText()
-    
+    /// This receiver is the primary connection to the data model. Handles vote counting locally.
     var tips = _TipFactory(db: .publicDB)
     
     /// `page` stores index of the current entry from the data model, and when set `pageLabel.text` is refreshed.
     var page = 0 {
         didSet { pageLabel.text = String(page) }
     }
-
+    
     // MARK: - - Properties: ReceivesRecordable
     
     // !!
@@ -61,11 +56,9 @@ class AdvisorViewController: UIViewController {
     // MARK: - Functions
     
     /**
-        `increasePage` should be run whenever the USER performs shake gesture or swipes to move forward (swiping
-        backwards call `decreasePage` instead.
+        `increasePage` should be run whenever the USER performs shake gesture or swipes to move forward (swiping backwards call `decreasePage` instead).
      
-        Recognizes `increasePage` position, and ensures that page number doesn't exceed count (starting over again
-        at page '1').
+        Recognizes `increasePage` position, and ensures that page number doesn't exceed count (starting over again at page '1').
      */
     fileprivate func increasePage() {
         if randomSwitch.isOn {
@@ -126,6 +119,16 @@ class AdvisorViewController: UIViewController {
 
     /// Recognizes the USER performing swipe gesture on `textView` and takes action based on direction.
     @IBAction func swipeRight(_ sender: UISwipeGestureRecognizer) { decreasePage() }
+    
+    @IBAction func categoryLockTapped(_ sender: UIButton) {
+        if let _ = tips.limitation {
+            tips.limitation = nil
+            sender.setTitle("🔓", for: .normal)
+        } else {
+            tips.limitation = tips.rank(of: tips.lastRank).category
+            sender.setTitle("🔒", for: .normal)
+        }
+    }
     
     // MARK: - - Functions: UIViewController
     
