@@ -18,6 +18,44 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MCNotificationConverter {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         application.registerForRemoteNotifications()
+        
+        // This block checks to see that User is logged in to their iCloud Account.
+        CKContainer.default().accountStatus { status, possibleError in
+            if let error = possibleError as? CKError {
+                print("E!!: error @ credential check")
+                print("#\(error.errorCode) :: \(error.localizedDescription)")
+            }
+            
+            var msg: String?
+print("## status: \(status) \(status.rawValue)")
+            switch status {
+    /* 0 */ case .couldNotDetermine: msg = "This app requires internet access to work properly."
+    /* 1 */ case .available: break      // msg will remain nil, no message will be posted.
+    /* 2 */ case .restricted: msg = "This app requires internet access and an iCloud account to work properly. Access was denied due to Parental Controls or Mobile Device Management restrictions."
+    /* 3 */ case .noAccount: msg = "This app requires internet access and an iCloud account to work properly. From Settings, tap iCloud, authenticate your Apple ID and enable iCloud drive. If you don't have an account, tap Create a new Apple ID."
+            }
+            
+            if let message = msg {
+                let alertController = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+                
+                alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+                
+                let settings = UIAlertAction(title: "Settings", style: .default) { alert in
+                    
+                    // This will take the user to settings app if they hit 'Settings'.
+                    if let goToSettingsURL = URL(string: UIApplicationOpenSettingsURLString) {
+                        DispatchQueue(label: "App Switcher").async { UIApplication.shared.open(goToSettingsURL, options: [:], completionHandler: nil) }
+                    }
+                }
+                
+                alertController.addAction(settings)
+                
+                DispatchQueue.main.async {
+                    application.keyWindow?.rootViewController?.present(alertController, animated: true, completion: nil)
+                }
+            }
+        }
+        
         return true
     }
     
