@@ -53,7 +53,7 @@ var testRecords: [CKRecord] {
 
 func testTips() -> [Tip] {
     var tips = [Tip]()
-    for index in 1...TipFactory.max {
+    for index in 1...TipFactory(db: .publicDB).count {
         let tip = Tip(index: index,
                       category: TipCategoryFactory.produceByIndex(index: index),
                       text: TextFactory.produce(for: index))
@@ -67,7 +67,7 @@ func testVotes() -> [MockVote] {
     var votes = [MockVote]()
     
     // This test will have to be changed when entries move to the database
-    for index in 1...TipFactory.max {
+    for index in 1...TipFactory(db: .publicDB).count {
         let tip = CKRecordID(recordName: "\(index)")
         let candidate = CKReference(recordID: tip, action: .deleteSelf)
         
@@ -80,7 +80,7 @@ func testVotes() -> [MockVote] {
         }
         
         // Stack votes based on index order
-        for _ in 1...(TipFactory.max - index) {
+        for _ in 1...(TipFactory(db: .publicDB).count - index) {
             let vote = MockVote(up: true, candidate: candidate, constituent: ref)
             votes.append(vote)
         }

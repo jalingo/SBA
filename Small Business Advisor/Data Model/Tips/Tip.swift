@@ -54,7 +54,8 @@ struct Tip: Entry {
         self.text = str
         
         // These two lines keep the indexes constrained to range: 0 - max
-        guard integer < TipFactory.max else { self.index = 105; return }
+        let max = TipFactory(db: .publicDB).count
+        guard integer < max else { self.index = max; return }
         integer > 0 ? (self.index = integer) : (self.index = 1)
     }
 }

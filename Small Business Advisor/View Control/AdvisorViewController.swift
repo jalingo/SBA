@@ -20,7 +20,7 @@ class AdvisorViewController: UIViewController {
     // MARK: - Properties
     
     /// This receiver is the primary connection to the data model. Handles vote counting locally.
-    var tips = _TipFactory(db: .publicDB)
+    var tips = TipFactory(db: .publicDB)
     
     /// `page` stores index of the current entry from the data model, and when set `pageLabel.text` is refreshed.
     var page = 0 {

@@ -37,7 +37,7 @@ class VoteCounterTests: XCTestCase {
         
         let tips = testTips()
         if let results = mock?.tabulateResults(for: tips) {
-            XCTAssertEqual(results[tips[0]], TipFactory.max - 1)    // <-- This will need to change
+            XCTAssertEqual(results[tips[0]], TipFactory(db: .publicDB).count - 1)    // <-- This will need to change
         } else {
             XCTFail()
         }

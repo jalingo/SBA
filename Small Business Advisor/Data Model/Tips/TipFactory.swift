@@ -10,16 +10,36 @@ import Foundation
 
 import MagicCloud
 
+// MARK: Protocol
+
+/** !!
+ This protocol ensures that the factory produces entries by both random and specified index.
+ 
+ Contains `max` property, making it factory's responsibility to count total entries listed.
+ */
+
 protocol _TipFactoryAbstraction {
     
     var limitation: TipCategory? { get set }
     
     var lastRank: Int { get set }
     
+    /// This read only property returns the total number of entries.
     var count: Int { get }
     
+    /** !!
+     This method decorates and returns an Entry specified by index.
+     
+     - Parameter index: An integer reflecting the unique identifier for each entry.
+     - Returns: A specified instance conforming to Entry.
+     */
     func rank(of: Int) -> Tip
     
+    /** !!
+     This method decorates and returns a random Entry.
+     
+     - Returns: A random instance conforming to Entry.
+     */
     func random() -> Tip
 }
 
@@ -33,7 +53,9 @@ extension _TipFactoryAbstraction {
     }
 }
 
-class _TipFactory: MCReceiver<Tip>, _TipFactoryAbstraction {
+// MARK: - Class
+
+class TipFactory: MCReceiver<Tip>, _TipFactoryAbstraction {
     
     // MARK: - Properties
 
@@ -68,60 +90,3 @@ class _TipFactory: MCReceiver<Tip>, _TipFactoryAbstraction {
     }
 }
 
-// MARK: Protocol
-
-/**
-    This protocol ensures that the factory produces entries by both random and specified index.
- 
-    Contains `max` property, making it factory's responsibility to count total entries listed.
- */
-protocol EntryFactory {
-
-    /// This read only property returns the total number of entries.
-    static var max: Int { get }
-    
-    /**
-        This method decorates and returns an Entry specified by index.
-     
-        - Parameter index: An integer reflecting the unique identifier for each entry.
-        - Returns: A specified instance conforming to Entry.
-     */
-    static func produceByIndex(index: Int) -> Entry
-
-    /**
-        This method decorates and returns a random Entry.
-     
-        - Returns: A random instance conforming to Entry.
-     */
-    static func produceByRandom() -> Entry
-}
-
-// MARK: - Struct
-
-/// This struct conforming to `EntryFactory` produces tips for `ResponseText` to provide to `AdvisorVC`.
-struct TipFactory: EntryFactory {
-    
-    /// This constant property returns the total number of tips the factory can produce.
-    /// After the database is built, this will have to become a computed property.
-    static let max = 105
-
-    /**
-        This method decorates and returns a Tip specified by index.
-     
-        - Parameter index: An integer reflecting the unique identifier for each Tip.
-        - Returns: The Tip specified.
-     */
-    static func produceByIndex(index integer: Int) -> Entry {
-        return Tip(index: integer, category: TipCategoryFactory.produceByIndex(index: integer), text: TextFactory.produce(for: integer))
-    }
-    
-    /**
-        This method decorates and returns a random Entry.
-     
-        - Returns: A random Tip.
-     */
-    static func produceByRandom() -> Entry {
-        let random = Int(arc4random_uniform(UInt32(self.max)))
-        return produceByIndex(index: random)
-    }
-}
