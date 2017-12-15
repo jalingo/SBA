@@ -59,6 +59,8 @@
 		A19AD90A1FDAA30E001C5846 /* FieldsEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19AD9091FDAA30E001C5846 /* FieldsEditorViewController.swift */; };
 		A19AD90B1FDAA30E001C5846 /* FieldsEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19AD9091FDAA30E001C5846 /* FieldsEditorViewController.swift */; };
 		A19AD90E1FDBD3F5001C5846 /* FlagTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19AD90D1FDBD3F5001C5846 /* FlagTests.swift */; };
+		A1A0FCEB1FE34C6200E3D679 /* Text Formatting.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A0FCEA1FE34C6200E3D679 /* Text Formatting.swift */; };
+		A1A0FCEC1FE34C6200E3D679 /* Text Formatting.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A0FCEA1FE34C6200E3D679 /* Text Formatting.swift */; };
 		A1AAB6A91FA939C000017C54 /* TipFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AAB6A81FA939C000017C54 /* TipFactory.swift */; };
 		A1AAB6AA1FA939C000017C54 /* TipFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AAB6A81FA939C000017C54 /* TipFactory.swift */; };
 		A1AB0E211FA0185100F1D3FF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AB0E201FA0185100F1D3FF /* AppDelegate.swift */; };
@@ -186,6 +188,7 @@
 		A19AD9061FDA94D3001C5846 /* EditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorViewController.swift; sourceTree = "<group>"; };
 		A19AD9091FDAA30E001C5846 /* FieldsEditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldsEditorViewController.swift; sourceTree = "<group>"; };
 		A19AD90D1FDBD3F5001C5846 /* FlagTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlagTests.swift; sourceTree = "<group>"; };
+		A1A0FCEA1FE34C6200E3D679 /* Text Formatting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Text Formatting.swift"; sourceTree = "<group>"; };
 		A1AAB6A81FA939C000017C54 /* TipFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipFactory.swift; sourceTree = "<group>"; };
 		A1AB0E1D1FA0185100F1D3FF /* Small Biz Advisor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Small Biz Advisor.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1AB0E201FA0185100F1D3FF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -370,6 +373,7 @@
 				A1734AEE1FDF639D0025F56A /* Deprecated */,
 				A1AB0E241FA0185100F1D3FF /* Main.storyboard */,
 				90A16F451FAE48B1002D418B /* Type Aliases & Strings.swift */,
+				A1A0FCEA1FE34C6200E3D679 /* Text Formatting.swift */,
 				A1265DBE1FAA853A00E4C712 /* View Control */,
 				A15044011FA342740018B909 /* Data Model */,
 				A1AB0E4E1FA0187900F1D3FF /* Resources */,
@@ -614,6 +618,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1A0FCEB1FE34C6200E3D679 /* Text Formatting.swift in Sources */,
 				A11C3BB61FA54DEC000D2255 /* ResponseText.swift in Sources */,
 				A150440A1FA503920018B909 /* Entry.swift in Sources */,
 				A1AAB6A91FA939C000017C54 /* TipFactory.swift in Sources */,
@@ -659,6 +664,7 @@
 				9033901C1FB4409400E7D7A9 /* TestTools.swift in Sources */,
 				90C4E8751FC11B5500A8D329 /* VoteEditorTests.swift in Sources */,
 				A1299E771FE1EB0900030BB1 /* AnyPicker.swift in Sources */,
+				A1A0FCEC1FE34C6200E3D679 /* Text Formatting.swift in Sources */,
 				A19AD9081FDA94D3001C5846 /* EditorViewController.swift in Sources */,
 				A19AD90B1FDAA30E001C5846 /* FieldsEditorViewController.swift in Sources */,
 				A12656471FDF275500F37215 /* Flag.swift in Sources */,

@@ -106,7 +106,7 @@ extension Tip: MCRecordable {
         }
         set {
             if let num = newValue[RecordKey.indx] as? NSNumber { self.index = num.intValue }
-            if let txt = newValue[RecordKey.text] as? String { self.text = NSAttributedString(string: txt, attributes: BodyTextFormatting()) }
+            if let txt = newValue[RecordKey.text] as? String { self.text = NSAttributedString(string: txt, attributes: Format.bodyText) }
             if let num = newValue[RecordKey.catg] as? NSNumber {
                 if let category = TipCategory(rawValue: num.intValue) { self.category = category }
             }
@@ -127,22 +127,10 @@ extension Tip: MCRecordable {
 
     /// This init w/out parameters creates an empty recordable that can be overwritten by `prepare(from:)`.
     init() {
-        self.text = NSAttributedString(string: "blank text", attributes: BodyTextFormatting())
+        self.text = NSAttributedString(string: "blank text", attributes: Format.bodyText)
         self.category = .outOfRange
         self.index = -1
     }    
 }
 
-/// This global method provides the formatting for attributed strings representing entry text.
-func BodyTextFormatting() -> [NSAttributedStringKey : NSObject] {
-    
-    let style = NSMutableParagraphStyle()
-    style.alignment = NSTextAlignment.center
-    
-    let formatting = [
-        NSAttributedStringKey.font :            UIFont.boldSystemFont(ofSize: 18),
-        NSAttributedStringKey.foregroundColor:  UIColor(red: 0.55, green: 0.78, blue: 0.25, alpha: 1.0)
-    ]
-    
-    return formatting
-}
+

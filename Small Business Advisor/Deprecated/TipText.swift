@@ -42,7 +42,7 @@ struct TextFactory: StringFactory {
         - Returns: The formatted string of text specified.
      */
     static func produce(for index: Int) -> NSAttributedString {
-        return NSAttributedString(string: unattributedString(for: index), attributes: BodyTextFormatting())
+        return NSAttributedString(string: unattributedString(for: index), attributes: Format.bodyText)
     }
     
     /// This method returns specified strings without formatting.

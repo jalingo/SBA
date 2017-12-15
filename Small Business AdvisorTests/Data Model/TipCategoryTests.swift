@@ -16,7 +16,7 @@ class TipCategoryTests: XCTestCase {
 
     var mock: TipCategory?
     
-    let formatting = CategoryFormatting()
+    let formatting = Format.categoryTitle
 
     // MARK: - Functions
     

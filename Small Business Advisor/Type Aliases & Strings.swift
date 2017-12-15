@@ -6,9 +6,6 @@
 //  Copyright © 2017 Escape Chaos. All rights reserved.
 //
 
-import Foundation
-import CloudKit
-
 // MARK: - Cloud Closures
 
 //typealias QueryBlock = (CKQueryCursor?, Error?) -> Void
@@ -106,23 +103,4 @@ To contact the app's creators with any questions or comments: dev@escapechaos.co
 
 Or, check out our site escapechaos.com/advisor
 """
-}
-
-// MARK: - Formatting !!
-
-// MARK: - Extension: String
-
-extension String {
-    
-    subscript (r: Range<Int>) -> String {
-        let start = index(startIndex, offsetBy: r.lowerBound)
-        let end = index(startIndex, offsetBy: r.upperBound)
-        return String(self[start..<end])
-    }
-    
-    subscript (r: ClosedRange<Int>) -> String {
-        let start = index(startIndex, offsetBy: r.lowerBound)
-        let end = index(startIndex, offsetBy: r.upperBound)
-        return String(self[start...end])
-    }
 }

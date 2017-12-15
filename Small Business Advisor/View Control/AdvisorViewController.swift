@@ -108,7 +108,7 @@ class AdvisorViewController: UIViewController {
         let txt: String
         sender.isOn ? (txt = Instructions.shake) : (txt = Instructions.swipe)
 
-        textView.attributedText = NSAttributedString(string: txt, attributes: CategoryFormatting())
+        textView.attributedText = NSAttributedString(string: txt, attributes: Format.categoryTitle)
     }
     
     /**
@@ -118,7 +118,7 @@ class AdvisorViewController: UIViewController {
      */
     @IBAction func helpPressed(_ sender: UIButton) {
         textView.attributedText = NSAttributedString(string: Instructions.help,
-                                                     attributes: CategoryFormatting())
+                                                     attributes: Format.categoryTitle)
     }
     
     /// Recognizes the USER performing swipe gesture on `textView` and takes action based on direction.
@@ -134,7 +134,7 @@ class AdvisorViewController: UIViewController {
         super.viewDidLoad()
         
         textView.attributedText = NSAttributedString(string: Instructions.shake,
-                                                     attributes: CategoryFormatting())
+                                                     attributes: Format.categoryTitle)
         
         subscribeToChanges(on: .publicDB)
         

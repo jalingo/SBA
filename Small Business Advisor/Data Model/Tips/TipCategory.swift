@@ -78,34 +78,8 @@ enum TipCategory: Int {
         case .outOfRange:   text = "Error"
         }
         
-        return NSMutableAttributedString(string: text, attributes: CategoryFormatting())
+        return NSMutableAttributedString(string: text, attributes: Format.categoryTitle)
     }
-}
-
-/// This global method provides the formatting for attributed strings representing category titles.
-func CategoryFormatting() -> [NSAttributedStringKey: NSObject] {
-    
-    var shadow: NSShadow {
-        let _shadow = NSShadow()
-        
-        _shadow.shadowBlurRadius = 2
-        _shadow.shadowOffset = CGSize(width: 1, height: 1)
-        _shadow.shadowColor = UIColor.darkGray
-        
-        return _shadow
-    }
-
-    let style = NSMutableParagraphStyle()
-    style.alignment = NSTextAlignment.center
-    
-    let formatting = [
-        NSAttributedStringKey.font :            UIFont.boldSystemFont(ofSize: 24),
-        NSAttributedStringKey.foregroundColor:  UIColor(red: 0.55, green: 0.78, blue: 0.25, alpha: 1.0),
-        NSAttributedStringKey.shadow:           shadow,
-        NSAttributedStringKey.paragraphStyle:   style
-    ]
-    
-    return formatting
 }
 
 /// This protocol ensures conforming instances can produce a specified `TipCategory`.

@@ -69,7 +69,7 @@ class FlaggerTests: XCTestCase {
         let tip = MockTip(index: -1,
                           category: .outOfRange,
                           text: NSAttributedString(string: "Mock Tip Text",
-                                                   attributes: BodyTextFormatting()))
+                                                   attributes: Format.bodyText))
         
         attachThreeFlags(to: tip)
         mock?.downloadAll(from: .publicDB)
