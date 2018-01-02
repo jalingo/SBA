@@ -14,7 +14,7 @@ class _TipFactoryTests: XCTestCase {
     
     // MARK: - Properties
     
-    var mock: TipFactoryAbstraction?
+    var mock: _TipFactoryAbstraction?
     
     // MARK: - Functions
     
