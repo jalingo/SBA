@@ -44,7 +44,7 @@ print("## status: \(status) \(status.rawValue)")
                     
                     // This will take the user to settings app if they hit 'Settings'.
                     if let goToSettingsURL = URL(string: UIApplicationOpenSettingsURLString) {
-                        DispatchQueue(label: "App Switcher").async { UIApplication.shared.open(goToSettingsURL, options: [:], completionHandler: nil) }
+                        DispatchQueue.main.async { UIApplication.shared.open(goToSettingsURL, options: [:], completionHandler: nil) }
                     }
                 }
                 
