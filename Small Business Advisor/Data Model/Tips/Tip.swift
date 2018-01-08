@@ -30,7 +30,7 @@ struct Tip: Entry {
     /// This property stores an enumeration of the entry's category.
     var category: TipCategory
     
-    /// This property storea an unique index associated with the entry text.
+    /// This property stores an unique index associated with the entry text.
     var index: Int
     
     /// !! Not saved in database
