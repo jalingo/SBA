@@ -6,15 +6,7 @@
 //  Copyright © 2017 Escape Chaos. All rights reserved.
 //
 
-// MARK: - Cloud Closures
-
-//typealias QueryBlock = (CKQueryCursor?, Error?) -> Void
-//
-//typealias FetchBlock = (CKRecord) -> Void
-//
-//typealias ModifyBlock = ([CKRecord]?, [CKRecordID]?, Error?) -> Void
-//
-//typealias NotifyBlock = (Notification) -> Void
+// MARK: - Type Aliases
 
 /// Used by the AnyPicker class to pass activity for the didSelect method.
 typealias PickerBlock = ((Pickable) -> ())?
