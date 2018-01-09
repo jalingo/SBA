@@ -48,7 +48,9 @@ extension _TipFactoryAbstraction {
     // MARK: - Functions
     
     func random() -> Tip {
+        guard count != 0 else { return Tip() }
         let randomRank = Int(arc4random_uniform(UInt32(count)))
+
         return rank(of: randomRank)
     }
 }
