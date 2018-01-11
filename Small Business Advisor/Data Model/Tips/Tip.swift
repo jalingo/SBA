@@ -24,6 +24,16 @@ struct Tip: Entry {
     
     // MARK: - Properties
     
+    let defaultText = """
+Loading tips, try again shortly.
+
+If they do not finish downloading momentarily, please ensure you are connected to the internet and logged into an iCloud account in settings.
+
+This app requires an internet connection and valid iCloud account to connect to it's database of small business advice.
+"""
+    
+    // MARK: - Properties: Entry
+    
     /// This property stores a formatted version of the entry's text.
     var text: NSAttributedString
 
@@ -54,9 +64,10 @@ struct Tip: Entry {
         self.text = str
         
         // These two lines keep the indexes constrained to range: 0 - max
-        let max = TipFactory(db: .publicDB).count
-        guard integer < max else { self.index = max; return }
-        integer > 0 ? (self.index = integer) : (self.index = 1)
+        self.index = integer
+//        let max = TipFactory(db: .publicDB).count
+//        guard integer < max else { self.index = max; return }
+//        integer > 0 ? (self.index = integer) : (self.index = 1)
     }
 }
 
@@ -128,7 +139,7 @@ extension Tip: MCRecordable {
 
     /// This init w/out parameters creates an empty recordable that can be overwritten by `prepare(from:)`.
     init() {
-        self.text = NSAttributedString(string: "blank text", attributes: Format.bodyText)
+        self.text = NSAttributedString(string: defaultText, attributes: Format.bodyText)
         self.category = .outOfRange
         self.index = -1
     }    
