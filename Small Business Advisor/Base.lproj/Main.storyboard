@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -93,20 +93,20 @@
                                 <rect key="frame" x="16" y="262.66666666666669" width="343" height="2"/>
                                 <color key="tintColor" red="0.5490196078431373" green="0.7803921568627451" blue="0.24705882352941178" alpha="1" colorSpace="calibratedRGB"/>
                             </progressView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K7T-pN-pLV">
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K7T-pN-pLV">
                                 <rect key="frame" x="16" y="272.66666666666669" width="39" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="K7T-pN-pLV" secondAttribute="height" multiplier="39:31" id="fyD-pe-IgN"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="🔒"/>
+                                <state key="normal" title="🔐"/>
                                 <connections>
                                     <action selector="categoryLockTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tdt-RK-p9x"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eQQ-BK-4aL">
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eQQ-BK-4aL">
                                 <rect key="frame" x="63" y="273.66666666666669" width="296" height="30"/>
-                                <state key="normal" title="Select Category"/>
+                                <state key="normal" title="Category Selector"/>
                                 <connections>
                                     <action selector="categorySelectorTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="i6r-GY-8YT"/>
                                 </connections>
@@ -161,6 +161,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="categoryLock" destination="K7T-pN-pLV" id="4Ey-9v-tyM"/>
                         <outlet property="pageLabel" destination="V1D-2j-UIV" id="UFD-tC-RAN"/>
                         <outlet property="randomSwitch" destination="bmF-dq-gjo" id="TrW-aF-fnn"/>
                         <outlet property="rankMeter" destination="kcS-WI-ruz" id="kwe-Gb-xrE"/>
@@ -272,7 +273,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Ob-OY-oiy">
-                                <rect key="frame" x="0.0" y="-0.6666666666666643" width="69.333333333333329" height="108.33333333333331"/>
+                                <rect key="frame" x="0.0" y="-0.6666666666666643" width="69" height="108.33333333333331"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="2Ob-OY-oiy" secondAttribute="height" multiplier="35:54" id="jYy-fk-d4e"/>
                                 </constraints>
@@ -285,7 +286,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FSl-bi-14p">
-                                <rect key="frame" x="268.66666666666669" y="35.666666666666657" width="30" height="37.333333333333343"/>
+                                <rect key="frame" x="268.33333333333331" y="35.666666666666657" width="30" height="37.333333333333343"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="FSl-bi-14p" secondAttribute="height" multiplier="15:19" id="Rbf-Bu-q6B"/>
                                 </constraints>
@@ -293,7 +294,7 @@
                                 <state key="normal" title=" ✏️"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HWV-QS-doU">
-                                <rect key="frame" x="306.66666666666669" y="35.666666666666664" width="36.333333333333314" height="35.999999999999993"/>
+                                <rect key="frame" x="306.33333333333331" y="35.666666666666664" width="36.666666666666686" height="35.999999999999993"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="🚩"/>
                                 <connections>
@@ -301,7 +302,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ENA-Am-xwM">
-                                <rect key="frame" x="77.333333333333343" y="-0.6666666666666643" width="69.333333333333343" height="108.33333333333331"/>
+                                <rect key="frame" x="77" y="-0.6666666666666643" width="69.333333333333314" height="108.33333333333331"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="ENA-Am-xwM" secondAttribute="height" multiplier="35:54" id="6YB-76-f9B"/>
                                 </constraints>
@@ -314,7 +315,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BLj-Zw-kli">
-                                <rect key="frame" x="232.66666666666666" y="35.666666666666664" width="34.999999999999972" height="35.999999999999993"/>
+                                <rect key="frame" x="232.33333333333334" y="35.666666666666664" width="35.000000000000028" height="35.999999999999993"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="BLj-Zw-kli" secondAttribute="height" multiplier="35:36" id="I5q-fM-CSN"/>
                                 </constraints>
