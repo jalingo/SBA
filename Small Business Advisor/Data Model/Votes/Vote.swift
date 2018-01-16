@@ -40,6 +40,7 @@ struct Vote: VoteAbstraction {
     }
     
     fileprivate var voterID = MCUserRecord().singleton
+
     var constituent: CKReference {
         get {
             let id: CKRecordID
