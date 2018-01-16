@@ -12,6 +12,7 @@ import CloudKit
 
 // MARK: - Properties: Global
 
+// !!
 let testDatabase = CKContainer.default().publicCloudDatabase
 
 var mixedUpVotes: [CKRecordID]?
@@ -20,11 +21,11 @@ var testRecords: [CKRecord] {
     let rec0 = CKRecord(recordType: RecordType.entry, recordID: CKRecordID(recordName: "entry0"))
     let rec1 = CKRecord(recordType: RecordType.entry, recordID: CKRecordID(recordName: "entry1"))
     let rec2 = CKRecord(recordType: RecordType.entry, recordID: CKRecordID(recordName: "entry2"))
-    let rec3 = CKRecord(recordType: RecordType.vote, recordID: CKRecordID(recordName: "vote0"))
-    let rec4 = CKRecord(recordType: RecordType.vote, recordID: CKRecordID(recordName: "vote1"))
-    let rec5 = CKRecord(recordType: RecordType.vote, recordID: CKRecordID(recordName: "vote2"))
-    let rec6 = CKRecord(recordType: RecordType.vote, recordID: CKRecordID(recordName: "vote3"))
-    let rec7 = CKRecord(recordType: RecordType.vote, recordID: CKRecordID(recordName: "vote4"))
+    let rec3 = CKRecord(recordType: RecordType.vote,  recordID: CKRecordID(recordName: "vote0"))
+    let rec4 = CKRecord(recordType: RecordType.vote,  recordID: CKRecordID(recordName: "vote1"))
+    let rec5 = CKRecord(recordType: RecordType.vote,  recordID: CKRecordID(recordName: "vote2"))
+    let rec6 = CKRecord(recordType: RecordType.vote,  recordID: CKRecordID(recordName: "vote3"))
+    let rec7 = CKRecord(recordType: RecordType.vote,  recordID: CKRecordID(recordName: "vote4"))
     
     // Configure test entries
     rec0[RecordKey.rank] = NSNumber(integerLiteral: 1)
@@ -53,7 +54,7 @@ var testRecords: [CKRecord] {
 
 func testTips() -> [Tip] {
     var tips = [Tip]()
-    for index in 1...TipFactory(db: .publicDB).count {
+    for index in 1...TipFactory().count {
         let tip = Tip(index: index,
                       category: TipCategoryFactory.produceByIndex(index: index),
                       text: TextFactory.produce(for: index))
@@ -67,7 +68,7 @@ func testVotes() -> [MockVote] {
     var votes = [MockVote]()
     
     // This test will have to be changed when entries move to the database
-    for index in 1...TipFactory(db: .publicDB).count {
+    for index in 1...TipFactory().count {
         let tip = CKRecordID(recordName: "\(index)")
         let candidate = CKReference(recordID: tip, action: .deleteSelf)
         
@@ -80,7 +81,7 @@ func testVotes() -> [MockVote] {
         }
         
         // Stack votes based on index order
-        for _ in 1...(TipFactory(db: .publicDB).count - index) {
+        for _ in 1...(TipFactory().count - index) {
             let vote = MockVote(up: true, candidate: candidate, constituent: ref)
             votes.append(vote)
         }
