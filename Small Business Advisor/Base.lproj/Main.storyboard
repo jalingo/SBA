@@ -47,8 +47,8 @@
                                 <color key="textColor" red="0.54901960780000003" green="0.78039215689999997" blue="0.2470588235" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="XXX" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V1D-2j-UIV">
-                                <rect key="frame" x="16" y="20" width="59" height="33"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="   " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V1D-2j-UIV">
+                                <rect key="frame" x="16" y="20" width="18" height="33"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="33" id="amU-xf-B2u"/>
                                 </constraints>
