@@ -84,11 +84,21 @@ class TipFactory: MCReceiver<Tip>, _TipFactoryAbstraction {
         // sort based on votes here...
         return votes.rank(for: recordables, by: limitation)[place - 1]
     }
+ 
+    init() {
+print("TipFactory.init")
+        super.init(db: .publicDB)
+    }
     
     // MARK: - InnerClasses
     
     class VotingBooth: MCReceiver<Vote>, VoteCounter {
         var allVotes: [VoteAbstraction] { return recordables }
+        
+        override init(db: MCDatabase) {
+print("TipFactory.VotingBooth.init")
+            super.init(db: db)
+        }
     }
 }
 
