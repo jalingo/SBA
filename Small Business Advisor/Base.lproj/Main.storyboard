@@ -413,6 +413,9 @@
                                 <state key="normal" title="Flag">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="flagPressed:" destination="ZZo-nM-M2Q" eventType="touchUpInside" id="OO8-Mx-dVH"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -436,6 +439,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="pVF-MJ-IfN"/>
                     </view>
+                    <connections>
+                        <outlet property="flaggerLabel" destination="0ZX-2f-SwR" id="oJX-aq-rF7"/>
+                        <outlet property="flaggerPicker" destination="YOs-yo-Vy8" id="ObD-2Z-xN9"/>
+                        <outlet property="flaggerTextField" destination="vmk-AS-glg" id="Ise-6a-ttc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YQk-vy-hes" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="XWm-cb-fIh" userLabel="Exit" sceneMemberID="exit"/>
