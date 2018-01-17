@@ -60,6 +60,8 @@ struct RecordKey {
     
     static let crtr = "FLAG_CREATOR"
     
+    static let mail = "FLAG_EMAIL"
+    
     // NewTip / Edit Keys
     
     static let ncat = "SUGGESTED_CATEGORY"
