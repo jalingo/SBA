@@ -88,7 +88,7 @@ class FieldsEditorViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-//        decorateCategory()
+        decorateCategory()
         textArea.attributedText = NSAttributedString(string: text, attributes: Format.bodyText)
         
         addToolBarToFieldKeyboard(text: textArea)
