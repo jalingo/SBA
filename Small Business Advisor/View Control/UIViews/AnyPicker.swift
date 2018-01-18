@@ -37,9 +37,7 @@ class AnyPicker<T: Pickable>: NSObject, UIPickerViewDataSource, UIPickerViewDele
         if let followUp  = selectionFollowUp { followUp(receiver.recordables[row]) }
     }
     
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return receiver.recordables[row].title
-    }
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? { return receiver.recordables[row].title }
     
     // MARK: - Functions: Constuction
     
