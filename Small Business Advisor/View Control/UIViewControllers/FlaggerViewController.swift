@@ -14,17 +14,27 @@ class FlaggerViewController: UIViewController, TipEditor {
 
     // MARK: - Properties
     
-    var tip: Tip?
-
-    var flags = MCReceiver<Flag>(db: .publicDB)
+    fileprivate let tips = TipFactory()
     
-    var reason: FlagReason?
+    fileprivate let flags = MCReceiver<Flag>(db: .publicDB)
+    
+    fileprivate var reason: FlagReason?
     
     // When USER has an active flag, returns true.
-    var isFlagged: Bool {
+    fileprivate var isFlagged: Bool {
         return flags.recordables.contains { $0.creator == MCUserRecord().singleton }
     }
     
+    // MARK: - Properties: UIPickerViewDataSource
+    
+    fileprivate var sampleModel: Pickable? {
+        didSet { flaggerPicker.reloadAllComponents() }
+    }
+    
+    // MARK: - Properties: TipEditor
+    
+    var tip: Tip?
+
     // MARK: - Properties: IBOutlets
     
     @IBOutlet weak var flaggerLabel: UILabel!
@@ -34,32 +44,32 @@ class FlaggerViewController: UIViewController, TipEditor {
     @IBOutlet weak var flaggerPicker: UIPickerView!
     
     @IBOutlet weak var flagButton: UIButton!
-    
+
     // MARK: - Functions
     
-    func decorate() {
-        setupFlaggerPicker(for: self)
-        
-        flaggerTextField.delegate = self
-        
-        setFlagButtonState()
-    }
-    
-    func setFlagButtonState() {
-        if isFlagged {
-            flaggerLabel.textColor = .red
-//            flagButton.isEnabled = true
+    /// This method updates flaggerLabel and flagButton.
+    func updateViews() {
+        if let reason = self.reason {
+            self.flaggerLabel.text = "Flagging as \(reason.toStr())."
         } else {
-            flaggerLabel.textColor = .black
-//            flagButton.isEnabled = false
+            self.flaggerLabel.text = "Each user can only have one active flag at a time."
         }
         
-        flagButton.isEnabled = false
+        self.setFlagButtonState(enabled: !self.isFlagged)
     }
     
-    func setupFlaggerPicker(for model: UIPickerViewDataSource & UIPickerViewDelegate) {
-        flaggerPicker.delegate = model
-        flaggerPicker.dataSource = model
+    func setFlagButtonState(enabled: Bool) {
+        DispatchQueue.main.async {
+            self.flagButton.isEnabled = enabled
+            
+            if self.isFlagged {
+                self.flagButton.backgroundColor = UIColor(displayP3Red: 0.67, green: 0.67, blue: 0.67, alpha: 1.0)
+                self.flaggerLabel.textColor = .red
+            } else {
+                self.flagButton.backgroundColor = UIColor(displayP3Red: 0.55, green: 0.78, blue: 0.25, alpha: 1.0)
+                self.flaggerLabel.textColor = .black
+            }
+        }
     }
     
     // MARK: - Functions: IBActions
@@ -84,7 +94,13 @@ class FlaggerViewController: UIViewController, TipEditor {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        decorate()
+        flaggerPicker.dataSource = self
+        flaggerPicker.delegate = self
+        
+        flaggerTextField.delegate = self
+        
+        // This delay gives time for flags to download and draws attention  // <-- !! delay needs to move to MCR init
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) { self.setFlagButtonState(enabled: false) }
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -92,72 +108,63 @@ class FlaggerViewController: UIViewController, TipEditor {
     }
 }
 
+// MARK: - Extensions
+
 extension FlaggerViewController: UIPickerViewDelegate {
     
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        print("EditorVC.pickerView didSelectRow")
-        guard tip != nil else { return }
-        
-        let g = DispatchGroup()
-        
-        switch row - 1 {
-        case 2:
-            self.flaggerLabel.text = "Which Tip is this a duplicate of..."
-
-            g.enter()
-            let picker = AnyPicker(type: Tip.self, database: .publicDB) { tip in
-                self.reason = .duplicate(CKReference(recordID: tip.recordID, action: .deleteSelf))
-                g.leave()
-            }
-            
-            setupFlaggerPicker(for: picker)
-            self.view.setNeedsDisplay()
-            
-            g.wait()
-
-            if let reason = self.reason {
-                self.flaggerLabel.text = "Flagging as \(reason.toStr())"
-            } else {
-                self.flaggerLabel.text = "Each user can only have one active flag at a time."
-            }
-        case 3:
-            self.flaggerLabel.text = "Which Category should this tip be..."
-            
-            g.enter()
-            let picker = AnyPicker(type: TipCategory.self, database: .publicDB) { category in
-                self.reason = .duplicate(CKReference(recordID: category.recordID, action: .deleteSelf))
-                // remove view ? !!
-                
-                g.leave()
-            }
-
-            flaggerPicker.delegate = picker
-            flaggerPicker.dataSource = picker
-            
-            self.view.setNeedsDisplay()
-            
-            g.wait()
-            
-            if let reason = self.reason {
-                self.flaggerLabel.text = "Flagging as \(reason.toStr())"
-            } else {
-                self.flaggerLabel.text = "Each user can only have one active flag at a time."
-            }
-
-        default:
-            switch row {
-            case 0: reason = .offTopic
-            case 1: reason = .inaccurate
-            case 4: reason = .spam
-            case 5: reason = .abusive
+    // MARK: - Functions
+    
+    fileprivate func flagSelected(for row: Int) {
+        DispatchQueue(label: "async off main").async {  // <-- Try async from main, then we can get rid of all the returns to main...
+            switch row - 1 {
+            case 0: self.setReason(to: .offTopic)
+            case 1: self.setReason(to: .inaccurate)
+            case 2: self.wrongTipSelected()
+            case 3: self.wrongCategorySelected()
+            case 4: self.setReason(to: .spam)
+            case 5: self.setReason(to: .abusive)
             default: break
             }
         }
-
-        if !isFlagged { flagButton.isEnabled = true }
     }
     
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+    func setReason(to reason: FlagReason) {
+        self.reason = reason
+        DispatchQueue.main.async { self.updateViews() }
+    }
+    
+    func wrongCategorySelected() {
+        DispatchQueue.main.async {
+            self.flaggerLabel.text = "Which Category should this tip be..."
+            self.sampleModel = TipCategory.hr   // <-- Any category should trigger the correct delegate responses
+            self.updateViews()
+        }
+    }
+    
+    func wrongTipSelected() {
+        guard tip != nil else { return }
+
+        DispatchQueue.main.async {
+            self.flaggerLabel.text = "Which Tip is this a duplicate of..."
+            self.sampleModel = self.tip!        // <-- Any tip should trigger the correct delegate responses
+            self.updateViews()
+        }
+    }
+    
+    func categorySelected(for row: Int) {
+        if let cat = TipCategory(rawValue: row) {
+            let ref = CKReference(recordID: cat.recordID, action: .deleteSelf)
+            setReason(to: .wrongCategory(ref))
+        }
+    }
+    
+    func tipSelected(for row: Int) {
+        let tip = tips.rank(of: row)
+        let ref = CKReference(recordID: tip.recordID, action: .deleteSelf)
+        setReason(to: .duplicate(ref))
+    }
+    
+    func flagTitle(for row: Int) -> String {
         switch row - 1 {
         case 0: return "Off Topic / Irrelevant"
         case 1: return "Inaccurate / Disputed"
@@ -168,11 +175,57 @@ extension FlaggerViewController: UIPickerViewDelegate {
         default: return "Select reason..."    // <-- For row == 0
         }
     }
+    
+    // MARK: - Functions: UIPickerViewDelegate
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+print(" FlaggerVC.pickerView didSelectRow \(row)")
+        if let model = self.sampleModel {
+            switch model.self {
+            case is TipCategory:    categorySelected(for: row)
+            case is Tip:            tipSelected(for: row)
+            default:                break
+            }
+        } else {
+            flagSelected(for: row)
+        }
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
+        if sampleModel is TipCategory { return TipCategory(rawValue: row)?.formatted }
+        return nil
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        if let model = self.sampleModel {
+            switch model.self {
+            case is TipCategory: return TipCategory(rawValue: row)?.formatted.string
+            case is Tip:
+                let str = tips.rank(of: row).defaultText
+                let index = str.index(str.startIndex, offsetBy: 20)
+                
+                return String(str[..<index])
+            default:             return nil
+            }
+        } else {
+            return flagTitle(for: row)
+        }
+    }
 }
 
 extension FlaggerViewController: UIPickerViewDataSource {
     func numberOfComponents(in pickerView: UIPickerView) -> Int { return 1 }
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int { return FlagReason.count + 1 }
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        if let model = self.sampleModel {
+            switch model.self {
+            case is TipCategory: return TipCategory.max
+            case is Tip:         return tips.count
+            default:             return 0
+            }
+        } else {
+            return FlagReason.count + 1
+        }
+    }
 }
 
 extension FlaggerViewController: UITextFieldDelegate {
