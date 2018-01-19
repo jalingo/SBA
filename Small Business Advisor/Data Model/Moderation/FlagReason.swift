@@ -42,3 +42,7 @@ enum FlagReason {
         }
     }
 }
+
+extension FlagReason: Pickable {
+    var title: String { return toStr() }
+}
