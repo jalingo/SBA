@@ -142,11 +142,9 @@ extension FlaggerViewController: UIPickerViewDelegate {
     }
     
     func wrongTipSelected() {
-        guard tip != nil else { return }
-
         DispatchQueue.main.async {
             self.flaggerLabel.text = "Which Tip is this a duplicate of..."
-            self.sampleModel = self.tip!        // <-- Any tip should trigger the correct delegate responses
+            self.sampleModel = self.tip         // <-- Any tip should trigger the correct delegate responses
             self.updateViews()
         }
     }
@@ -179,7 +177,6 @@ extension FlaggerViewController: UIPickerViewDelegate {
     // MARK: - Functions: UIPickerViewDelegate
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-print(" FlaggerVC.pickerView didSelectRow \(row)")
         if let model = self.sampleModel {
             switch model.self {
             case is TipCategory:    categorySelected(for: row)
@@ -192,8 +189,11 @@ print(" FlaggerVC.pickerView didSelectRow \(row)")
     }
     
     func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
-        if sampleModel is TipCategory { return TipCategory(rawValue: row)?.formatted }
-        return nil
+        switch sampleModel {
+        case is TipCategory: return TipCategory(rawValue: row)?.formatted
+        case is Tip:         return tips.rank(of: row).text
+        default:             return nil
+        }
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
@@ -201,10 +201,10 @@ print(" FlaggerVC.pickerView didSelectRow \(row)")
             switch model.self {
             case is TipCategory: return TipCategory(rawValue: row)?.formatted.string
             case is Tip:
-                let str = tips.rank(of: row).defaultText
+                let str = tips.rank(of: row).text.string
                 let index = str.index(str.startIndex, offsetBy: 20)
                 
-                return String(str[..<index])
+                return String(str[..<index]) + "..."
             default:             return nil
             }
         } else {
