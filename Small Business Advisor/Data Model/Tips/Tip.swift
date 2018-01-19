@@ -65,9 +65,6 @@ This app requires an internet connection and valid iCloud account to connect to 
         
         // These two lines keep the indexes constrained to range: 0 - max
         self.index = integer
-//        let max = TipFactory(db: .publicDB).count
-//        guard integer < max else { self.index = max; return }
-//        integer > 0 ? (self.index = integer) : (self.index = 1)
     }
 }
 
