@@ -10,21 +10,62 @@ import Foundation
 import CloudKit
 import MagicCloud
 
+// MARK: Protocol
+
+protocol FlagAbstraction: MCRecordable {
+    
+    // !!
+    var reason: FlagReason { get set }
+    
+    var tip: CKReference { get set }
+    
+    var creator: CKRecordID? { get set }
+    
+    var email: String { get set }
+}
+
+// MARK: - Struct
+
 struct Flag: FlagAbstraction {
     
     // MARK: - Properties
     
-    // MARK: - Properties: Flag
+    // MARK: - Properties: Flag !!
     
-    var reason: FlagReason = .offTopic
-    var tip: CKReference = CKReference(recordID: Tip().recordID, action: .deleteSelf)
+    var reason: FlagReason
+
+    var tip: CKReference
+    
     var creator = MCUserRecord().singleton
+    
+    var email: String = "empty"
     
     // MARK: - Properties: MCRecordable
     
     fileprivate var _recordID: CKRecordID?
+ 
     fileprivate let dummyRec = CKRecordID(recordName: "FLAG_ERROR")
+    
+    // MARK: - Functions
+    
+    // MARK: - Functions: Constructors
+    
+    init() {
+        reason = .offTopic
+        tip = CKReference(recordID: Tip().recordID, action: .deleteSelf)
+    }
+    
+    init(tip: Tip, for reason: FlagReason) {
+        let ref = CKReference(recordID: tip.recordID, action: .deleteSelf)
+        self.tip = ref
+        
+        self.reason = reason
+        
+        self._recordID = CKRecordID(recordName: "FLAGGED: \(tip.recordID.recordName) CUZ: \(reason.toStr())")
+    }
 }
+
+// MARK: - Extensions
 
 extension Flag: MCRecordable {
     var recordType: String { return RecordType.flag }
@@ -39,6 +80,8 @@ extension Flag: MCRecordable {
             
             dictionary[RecordKey.crtr] = CKReference(recordID: creator ?? MCUserRecord().singleton ?? dummyRec, action: .deleteSelf)
             dictionary[RecordKey.refs] = tip
+            
+            dictionary[RecordKey.mail] = email as CKRecordValue
             
             return dictionary
         }
@@ -58,6 +101,7 @@ extension Flag: MCRecordable {
                 }
             }
             
+            if let str = newValue[RecordKey.mail] as? String      { email = str }
             if let ref = newValue[RecordKey.crtr] as? CKReference { creator = ref.recordID }
             if let ref = newValue[RecordKey.refs] as? CKReference { tip = ref }
         }
@@ -69,27 +113,4 @@ extension Flag: MCRecordable {
     }
 }
 
-protocol FlagAbstraction: MCRecordable {
-    var reason: FlagReason { get set }
-    var tip: CKReference { get set }
-    var creator: CKRecordID? { get set }
-}
 
-enum FlagReason {
-    case offTopic, inaccurate, duplicate(CKReference), wrongCategory(CKReference), spam, abusive
-    
-    var cloudValues: (CKRecordValue, CKRecordValue?) {
-        switch self {
-        case .offTopic:     return (0 as CKRecordValue, nil)
-        case .inaccurate:   return (1 as CKRecordValue, nil)
-        case .duplicate(let tip):
-            return (2 as CKRecordValue, tip)
-        case .wrongCategory(let category):
-            return (3 as CKRecordValue, category)
-        case .spam:         return (4 as CKRecordValue, nil)
-        case .abusive:      return (5 as CKRecordValue, nil)
-        }
-    }
-    
-    static let count = 6
-}
