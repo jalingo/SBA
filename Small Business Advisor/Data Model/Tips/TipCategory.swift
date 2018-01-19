@@ -36,7 +36,7 @@ enum TipCategory: Int {
     case outOfRange = -1
     
     /// This static constant property returns the total number of categories.
-    static let max = TipCategory.legal.rawValue + 1
+    static let max = TipCategory.legal.rawValue + 1     // <-- If legal is no longer last in the case order, change!
     
     /// This computed property returns the range of tip indices associated with each category.
     var indexRange: CountableClosedRange<Int> {   
