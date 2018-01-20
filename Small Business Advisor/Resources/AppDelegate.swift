@@ -17,12 +17,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MCNotificationConverter {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         application.registerForRemoteNotifications()
-        
+
+        // This verifies that user is logged in to their icloud account
         MCUserRecord.verifyAccountAuthentication(application: application)
-        
-        var election = ElectionDay()
-        election.manipulate()
-        
+
         return true
     }
     
@@ -32,12 +30,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MCNotificationConverter {
     }
     
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
-print("** registered with token")
+print("                 registered with token")
     }
     
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
-print("!! Error @ UIApp.didFailToRegister")
-print("\(error.localizedDescription)")
+print("                 !! Error @ UIApp.didFailToRegister")
+print("                 \(error.localizedDescription)")
         
         // TODO !! graceful disable &or error handling...
     }
@@ -63,7 +61,5 @@ print("\(error.localizedDescription)")
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
-
 }
 
