@@ -16,7 +16,9 @@ class FieldsEditorViewController: UIViewController {
     
     /// When this property is nil, VC is being used to create a new tip suggestion. Otherwise, the stored tip is being edited.
     var tipBeingEdited: Tip? {
-        didSet { categoryButton.setTitle(category.formatted.string, for: .normal) }
+        didSet {
+            guard categoryButton != nil else { return }
+            categoryButton.setTitle(category.formatted.string, for: .normal) }
     }
     
     fileprivate var category: TipCategory { return tipBeingEdited?.category ?? .outOfRange }
@@ -50,7 +52,6 @@ class FieldsEditorViewController: UIViewController {
     }
     
     fileprivate func saveChanges() {
-        
         if let _ = tipBeingEdited {                                             // <-- will submit 'edit'
             var edit = TipEdit()
             edit.newCategory = category
@@ -90,8 +91,11 @@ class FieldsEditorViewController: UIViewController {
 
         decorateCategory()
         textArea.attributedText = NSAttributedString(string: text, attributes: Format.bodyText)
-        
-        addToolBarToFieldKeyboard(text: textArea)
+        textArea.delegate = self
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if textArea.isFocused { textArea.resignFirstResponder() }
     }
 
     /*
@@ -120,6 +124,16 @@ All changes and new tips must be approved by our moderators before they join the
 }
 
 // MARK: - Extensions
+
+// MARK: - Extension: TipEditor
+
+// !!
+extension FieldsEditorViewController: TipEditor {
+    var tip: Tip? {
+        get { return tipBeingEdited }
+        set { tipBeingEdited = newValue }
+    }
+}
 
 // MARK: - Extension: UIPickerViewDataSource
 
@@ -178,32 +192,13 @@ extension FieldsEditorViewController: UIPickerViewDelegate {
 extension FieldsEditorViewController: UITextViewDelegate {
     
     // MARK: - Functions
-    
-    fileprivate func addToolBarToFieldKeyboard(text: UITextView) {
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        if (text == "\n") {
+            textView.resignFirstResponder()
+            return false
+        }
         
-        text.delegate = self
-        text.inputAccessoryView = buildToolBar()
-    }
-    
-    fileprivate func buildToolBar() -> UIToolbar {
-        let toolBar = UIToolbar()
-        
-        toolBar.barStyle = .default
-        toolBar.isTranslucent = true
-        
-        let done = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(self.done))
-        let space = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-//        let save = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(self.save))
-        toolBar.setItems([space, done], animated: false)
-        
-        toolBar.isUserInteractionEnabled = true
-        toolBar.sizeToFit()
-        
-        return toolBar
-    }
-    
-    @objc fileprivate func done() {
-        self.view.endEditing(true)
+        return true
     }
 }
 
