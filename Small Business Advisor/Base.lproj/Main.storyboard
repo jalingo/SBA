@@ -195,38 +195,24 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="poh-nN-LsC">
-                                <rect key="frame" x="132.66666666666666" y="44" width="110" height="30"/>
+                                <rect key="frame" x="132" y="60" width="110" height="30"/>
                                 <state key="normal" title="Select Category"/>
                                 <connections>
                                     <action selector="categoryTapped:" destination="LJ4-iU-IzR" eventType="touchUpInside" id="DKL-VA-Bhk"/>
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="rWa-U3-9HV">
-                                <rect key="frame" x="16" y="82" width="341.66666666666669" height="634"/>
+                                <rect key="frame" x="16" y="98.000000000000028" width="343" height="508.66666666666674"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bpx-u4-mPT">
-                                <rect key="frame" x="16" y="724" width="134.66666666666666" height="34"/>
-                                <color key="backgroundColor" red="0.55096650120000001" green="0.77892380949999995" blue="0.247182399" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="Bpx-u4-mPT" secondAttribute="height" multiplier="79:20" id="hnI-Xc-fnV"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="18"/>
-                                <state key="normal" title="Cancel">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <segue destination="j2p-OJ-64T" kind="unwind" identifier="unwindToHome" unwindAction="unwindToHomeWithSegue:" id="ldc-er-4QH"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G9A-OC-1eT">
-                                <rect key="frame" x="221.66666666666663" y="724" width="136" height="34"/>
+                                <rect key="frame" x="190" y="714.66666666666663" width="169" height="43.333333333333371"/>
                                 <color key="backgroundColor" red="0.55096650120000001" green="0.77892380949999995" blue="0.247182399" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="G9A-OC-1eT" secondAttribute="height" multiplier="4:1" id="Nla-Ak-F7M"/>
+                                    <constraint firstAttribute="width" secondItem="G9A-OC-1eT" secondAttribute="height" multiplier="133:34" id="fNj-Kh-YGn"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="18"/>
                                 <state key="normal" title="Save">
@@ -236,22 +222,55 @@
                                     <action selector="saveTapped:" destination="LJ4-iU-IzR" eventType="touchUpInside" id="w3c-gd-Bax"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="email@address.com" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nhQ-NX-pE7">
+                                <rect key="frame" x="16" y="614.66666666666663" width="343" height="30"/>
+                                <color key="backgroundColor" red="0.54901960780000003" green="0.78039215689999997" blue="0.2470588235" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="emailAddress" textContentType="email"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To find out the results of your flag request, input your email above." lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gku-BR-bqA">
+                                <rect key="frame" x="16" y="652.66666666666663" width="343" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="A0h-3Z-9GE"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                <color key="textColor" red="0.54901960780000003" green="0.78039215689999997" blue="0.2470588235" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PwW-B2-Kpd">
+                                <rect key="frame" x="16" y="714.66666666666663" width="169" height="43.333333333333371"/>
+                                <color key="backgroundColor" red="0.55096650120000001" green="0.77892380949999995" blue="0.247182399" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="18"/>
+                                <state key="normal" title="Cancel">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="j2p-OJ-64T" kind="unwind" unwindAction="unwindToHomeWithSegue:" id="BbB-w3-bqu"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="rWa-U3-9HV" firstAttribute="centerX" secondItem="poh-nN-LsC" secondAttribute="centerX" id="1fr-rj-bbV"/>
-                            <constraint firstItem="tKs-OZ-tVz" firstAttribute="bottom" secondItem="G9A-OC-1eT" secondAttribute="bottom" constant="20" id="8gT-uR-sYE"/>
-                            <constraint firstItem="tKs-OZ-tVz" firstAttribute="bottom" secondItem="Bpx-u4-mPT" secondAttribute="bottom" constant="20" id="Egl-vL-4lS"/>
-                            <constraint firstItem="rWa-U3-9HV" firstAttribute="top" secondItem="poh-nN-LsC" secondAttribute="bottom" constant="8" id="JJU-Qg-0GA"/>
-                            <constraint firstItem="G9A-OC-1eT" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6jD-aX-eC9" secondAttribute="leading" constant="20" symbolic="YES" id="N7n-1O-H1k"/>
-                            <constraint firstItem="rWa-U3-9HV" firstAttribute="leading" secondItem="6jD-aX-eC9" secondAttribute="leadingMargin" id="UoA-v8-mdn"/>
-                            <constraint firstItem="G9A-OC-1eT" firstAttribute="trailing" secondItem="rWa-U3-9HV" secondAttribute="trailing" id="fx6-Rn-USc"/>
-                            <constraint firstItem="G9A-OC-1eT" firstAttribute="top" secondItem="rWa-U3-9HV" secondAttribute="bottom" constant="8" id="hVA-mU-9xN"/>
-                            <constraint firstItem="Bpx-u4-mPT" firstAttribute="top" secondItem="rWa-U3-9HV" secondAttribute="bottom" constant="8" id="mlJ-cX-9eX"/>
-                            <constraint firstItem="poh-nN-LsC" firstAttribute="centerX" secondItem="tKs-OZ-tVz" secondAttribute="centerX" id="tnq-KZ-tUf"/>
-                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Bpx-u4-mPT" secondAttribute="trailing" constant="20" symbolic="YES" id="vCt-dI-9JD"/>
-                            <constraint firstItem="Bpx-u4-mPT" firstAttribute="leading" secondItem="rWa-U3-9HV" secondAttribute="leading" id="wtO-4S-YuW"/>
-                            <constraint firstItem="poh-nN-LsC" firstAttribute="top" secondItem="tKs-OZ-tVz" secondAttribute="top" id="yKc-sO-T48"/>
+                            <constraint firstItem="rWa-U3-9HV" firstAttribute="top" secondItem="poh-nN-LsC" secondAttribute="bottom" constant="8" id="1md-Pj-p4F"/>
+                            <constraint firstItem="poh-nN-LsC" firstAttribute="top" secondItem="tKs-OZ-tVz" secondAttribute="top" constant="16" id="3pt-rA-UMV"/>
+                            <constraint firstItem="tKs-OZ-tVz" firstAttribute="bottom" secondItem="PwW-B2-Kpd" secondAttribute="bottom" constant="20" id="4Yu-fK-cGW"/>
+                            <constraint firstItem="rWa-U3-9HV" firstAttribute="trailing" secondItem="nhQ-NX-pE7" secondAttribute="trailing" id="6m9-BG-8wZ"/>
+                            <constraint firstItem="nhQ-NX-pE7" firstAttribute="top" secondItem="rWa-U3-9HV" secondAttribute="bottom" constant="8" id="9fD-fa-TNF"/>
+                            <constraint firstItem="G9A-OC-1eT" firstAttribute="trailing" secondItem="gku-BR-bqA" secondAttribute="trailing" id="D38-Pr-i4W"/>
+                            <constraint firstItem="nhQ-NX-pE7" firstAttribute="leading" secondItem="gku-BR-bqA" secondAttribute="leading" id="EeK-eC-AX8"/>
+                            <constraint firstItem="rWa-U3-9HV" firstAttribute="leading" secondItem="nhQ-NX-pE7" secondAttribute="leading" id="KMJ-6y-uLN"/>
+                            <constraint firstItem="nhQ-NX-pE7" firstAttribute="trailing" secondItem="gku-BR-bqA" secondAttribute="trailing" id="L2R-Ec-3yK"/>
+                            <constraint firstItem="PwW-B2-Kpd" firstAttribute="leading" secondItem="gku-BR-bqA" secondAttribute="leading" id="LfD-vE-rkp"/>
+                            <constraint firstItem="PwW-B2-Kpd" firstAttribute="top" secondItem="gku-BR-bqA" secondAttribute="bottom" constant="14" id="MVn-nK-NsM"/>
+                            <constraint firstItem="rWa-U3-9HV" firstAttribute="leading" secondItem="6jD-aX-eC9" secondAttribute="leadingMargin" id="R3h-a4-xK8"/>
+                            <constraint firstItem="gku-BR-bqA" firstAttribute="top" secondItem="nhQ-NX-pE7" secondAttribute="bottom" constant="8" id="Z1c-UI-eIt"/>
+                            <constraint firstItem="tKs-OZ-tVz" firstAttribute="bottom" secondItem="G9A-OC-1eT" secondAttribute="bottom" constant="20" id="iwF-8L-6cD"/>
+                            <constraint firstItem="G9A-OC-1eT" firstAttribute="leading" relation="lessThanOrEqual" secondItem="PwW-B2-Kpd" secondAttribute="trailing" constant="5" id="mgk-h4-jW5"/>
+                            <constraint firstItem="G9A-OC-1eT" firstAttribute="top" secondItem="gku-BR-bqA" secondAttribute="bottom" constant="14" id="r8k-Uf-woY"/>
+                            <constraint firstItem="PwW-B2-Kpd" firstAttribute="width" secondItem="PwW-B2-Kpd" secondAttribute="height" multiplier="133:34" id="rlg-37-OPV"/>
+                            <constraint firstItem="poh-nN-LsC" firstAttribute="centerX" secondItem="tKs-OZ-tVz" secondAttribute="centerX" id="uke-n7-GTW"/>
+                            <constraint firstItem="rWa-U3-9HV" firstAttribute="centerX" secondItem="poh-nN-LsC" secondAttribute="centerX" id="xDy-CU-K7u"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="tKs-OZ-tVz"/>
                     </view>
@@ -263,7 +282,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3OE-fc-J8h" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="j2p-OJ-64T" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1488.8" y="-310.79460269865069"/>
+            <point key="canvasLocation" x="1488.8" y="-311.08374384236453"/>
         </scene>
         <!--Editor View Controller-->
         <scene sceneID="n2b-fj-IR6">
@@ -294,6 +313,9 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title=" ✏️"/>
+                                <connections>
+                                    <action selector="editTapped:" destination="ePh-lw-o4K" eventType="touchUpInside" id="Qiz-VL-wcZ"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HWV-QS-doU">
                                 <rect key="frame" x="308" y="41.666666666666664" width="35" height="35.999999999999993"/>
@@ -317,7 +339,6 @@
                                 <state key="normal" title="➕"/>
                                 <connections>
                                     <action selector="addTapped:" destination="ePh-lw-o4K" eventType="touchUpInside" id="CVp-Yb-rpa"/>
-                                    <action selector="editTapped:" destination="ePh-lw-o4K" eventType="touchUpInside" id="3Cf-yY-unc"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ENA-Am-xwM">
