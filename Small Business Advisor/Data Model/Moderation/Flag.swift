@@ -16,23 +16,17 @@ protocol FlagAbstraction: SuggestedModeration {
     
     // !!
     var reason: FlagReason { get set }
-    
-    var tip: CKReference { get set }
-    
-    var creator: CKRecordID? { get set }
 }
 
 // MARK: - Struct
 
-struct Flag: FlagAbstraction, SuggestedModeration {
+struct Flag: FlagAbstraction {
     
     // MARK: - Properties
     
     // MARK: - Properties: Flag !!
     
     var reason: FlagReason
-
-    var creator = MCUserRecord().singleton
     
     // MARK: - Properties: SuggestedModeration
     
@@ -40,6 +34,8 @@ struct Flag: FlagAbstraction, SuggestedModeration {
 
     var editorEmail: String?
 
+    var creator: CKRecordID?
+    
     // MARK: - Properties: MCRecordable
     
     fileprivate var _recordID: CKRecordID?
@@ -61,6 +57,7 @@ struct Flag: FlagAbstraction, SuggestedModeration {
         
         self.reason = reason
         
+        creator = MCUserRecord().singleton
         self._recordID = CKRecordID(recordName: "FLAG: \(tip.recordID.recordName) CUZ: \(reason.toStr())")
     }
 }
