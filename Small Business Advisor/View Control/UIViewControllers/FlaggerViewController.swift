@@ -79,7 +79,7 @@ class FlaggerViewController: UIViewController, TipEditor {
         
         if let tip = self.tip {
             var flag = Flag(tip: tip, for: reason!)
-            if let str = flaggerTextField.text { flag.email = str }
+            flag.editorEmail = flaggerTextField.text
             
             let save = MCUpload([flag], from: flags, to: .publicDB)
             let q = OperationQueue()
