@@ -18,6 +18,7 @@ class FieldsEditorViewController: UIViewController {
     var tipBeingEdited: Tip? {
         didSet {
             guard categoryButton != nil else { return }
+print("                                 REACHED !! !! !!")
             categoryButton.setTitle(category.formatted.string, for: .normal) }
     }
     
@@ -52,20 +53,19 @@ class FieldsEditorViewController: UIViewController {
     }
     
     fileprivate func saveChanges() {
-        if let _ = tipBeingEdited {                                             // <-- will submit 'edit'
-            var edit = TipEdit()
-            edit.newCategory = category
-            edit.newText = "customCat? \(String(describing: selectedCategory))\n\(textArea.text)"
-            
-            let op = MCUpload([edit], from: MCReceiver<TipEdit>(db: .publicDB), to: .publicDB)
-            OperationQueue().addOperation(op)
-        } else {                                                                // <-- nil, will submit 'new'
+        let op: Operation
+        
+        if let tip = tipBeingEdited {                                                   // <-- will submit 'edit'
+            let edit = TipEdit(newText: textArea.text, newCategory: selectedCategory, for: tip)
+            op = MCUpload([edit], from: MCReceiver<TipEdit>(db: .publicDB), to: .publicDB)
+        } else {                                                                        // <-- nil, will submit 'new'
             let id = CKRecordID(recordName: "New@\(Date().description)")
             let new = NewTip(text: textArea.text, category: selectedCategory ?? "NA", _recordID: id)
 
-            let op = MCUpload([new], from: MCReceiver<NewTip>(db: .publicDB), to: .publicDB)
-            OperationQueue().addOperation(op)
+            op = MCUpload([new], from: MCReceiver<NewTip>(db: .publicDB), to: .publicDB)
         }
+
+        OperationQueue().addOperation(op)
     }
     
     // MARK: - Functions: IBActions
@@ -81,7 +81,7 @@ class FieldsEditorViewController: UIViewController {
     
     @IBAction func saveTapped(_ sender: UIButton) {
         saveChanges()
-        performSegue(withIdentifier: "unwindToHome", sender: sender)
+        performSegue(withIdentifier: "unwindToHome", sender: self)
     }
     
     // MARK: - Functions: UIViewController
