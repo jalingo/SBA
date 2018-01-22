@@ -12,7 +12,7 @@ import MagicCloud
 
 // MARK: Protocol
 
-protocol FlagAbstraction: MCRecordable {
+protocol FlagAbstraction: SuggestedModeration {
     
     // !!
     var reason: FlagReason { get set }
@@ -20,13 +20,11 @@ protocol FlagAbstraction: MCRecordable {
     var tip: CKReference { get set }
     
     var creator: CKRecordID? { get set }
-    
-    var email: String { get set }
 }
 
 // MARK: - Struct
 
-struct Flag: FlagAbstraction {
+struct Flag: FlagAbstraction, SuggestedModeration {
     
     // MARK: - Properties
     
@@ -34,12 +32,14 @@ struct Flag: FlagAbstraction {
     
     var reason: FlagReason
 
-    var tip: CKReference
-    
     var creator = MCUserRecord().singleton
     
-    var email: String = "empty"
+    // MARK: - Properties: SuggestedModeration
     
+    var tip: CKReference
+
+    var editorEmail: String?
+
     // MARK: - Properties: MCRecordable
     
     fileprivate var _recordID: CKRecordID?
@@ -61,7 +61,7 @@ struct Flag: FlagAbstraction {
         
         self.reason = reason
         
-        self._recordID = CKRecordID(recordName: "FLAGGED: \(tip.recordID.recordName) CUZ: \(reason.toStr())")
+        self._recordID = CKRecordID(recordName: "FLAG: \(tip.recordID.recordName) CUZ: \(reason.toStr())")
     }
 }
 
@@ -81,8 +81,8 @@ extension Flag: MCRecordable {
             dictionary[RecordKey.crtr] = CKReference(recordID: creator ?? MCUserRecord().singleton ?? dummyRec, action: .deleteSelf)
             dictionary[RecordKey.refs] = tip
             
-            dictionary[RecordKey.mail] = email as CKRecordValue
-            
+            if let str = editorEmail { dictionary[RecordKey.mail] = str as CKRecordValue }
+
             return dictionary
         }
         
@@ -101,7 +101,7 @@ extension Flag: MCRecordable {
                 }
             }
             
-            if let str = newValue[RecordKey.mail] as? String      { email = str }
+            if let str = newValue[RecordKey.mail] as? String      { editorEmail = str }
             if let ref = newValue[RecordKey.crtr] as? CKReference { creator = ref.recordID }
             if let ref = newValue[RecordKey.refs] as? CKReference { tip = ref }
         }
