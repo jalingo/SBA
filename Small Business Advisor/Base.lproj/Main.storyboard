@@ -246,7 +246,7 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="j2p-OJ-64T" kind="unwind" unwindAction="unwindToHomeWithSegue:" id="BbB-w3-bqu"/>
+                                    <segue destination="j2p-OJ-64T" kind="unwind" identifier="unwindToHome" unwindAction="unwindToHomeWithSegue:" id="BbB-w3-bqu"/>
                                 </connections>
                             </button>
                         </subviews>
