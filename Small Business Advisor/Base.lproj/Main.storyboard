@@ -277,6 +277,7 @@
                     <connections>
                         <outlet property="categoryButton" destination="poh-nN-LsC" id="eZO-t0-pBc"/>
                         <outlet property="emailField" destination="nhQ-NX-pE7" id="ESi-uD-ymj"/>
+                        <outlet property="saveButton" destination="G9A-OC-1eT" id="tyZ-sv-vXD"/>
                         <outlet property="textArea" destination="rWa-U3-9HV" id="qpg-d9-u3m"/>
                     </connections>
                 </viewController>
