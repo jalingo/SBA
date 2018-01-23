@@ -229,7 +229,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress" textContentType="email"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To find out the results of your flag request, input your email above." lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gku-BR-bqA">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To find out the results of your suggestion, input a contact email above." lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gku-BR-bqA">
                                 <rect key="frame" x="16" y="652.66666666666663" width="343" height="48"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="A0h-3Z-9GE"/>
@@ -276,6 +276,7 @@
                     </view>
                     <connections>
                         <outlet property="categoryButton" destination="poh-nN-LsC" id="eZO-t0-pBc"/>
+                        <outlet property="emailField" destination="nhQ-NX-pE7" id="ESi-uD-ymj"/>
                         <outlet property="textArea" destination="rWa-U3-9HV" id="qpg-d9-u3m"/>
                     </connections>
                 </viewController>
@@ -430,7 +431,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress" textContentType="email"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To find out the results of your flag request, input your email above." lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K9p-zz-cfA">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To find out the results of your flag request, input a contact email above." lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K9p-zz-cfA">
                                 <rect key="frame" x="17" y="433" width="343" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="EVB-bg-WTj"/>
