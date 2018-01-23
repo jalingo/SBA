@@ -59,7 +59,7 @@ struct Format {
 
 // !! factor out into it's own file
 protocol CategoryPicker: UIPickerViewDelegate, UIPickerViewDataSource {
-    func decorate(_ picker: UIPickerView, in vc: UIViewController)
+    func decorate(_ picker: UIPickerView, for vc: UIViewController)
 }
 
 extension CategoryPicker {
@@ -75,7 +75,7 @@ extension CategoryPicker {
     }
     
     // !!
-    func decorate(_ picker: UIPickerView, in vc: UIViewController) {
+    func decorate(_ picker: UIPickerView, for vc: UIViewController) {
         picker.showsSelectionIndicator = true
         picker.selectedRow(inComponent: 0)
         
