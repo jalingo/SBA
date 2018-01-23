@@ -55,8 +55,16 @@ struct Format {
     }
     
     static func font(size: CGFloat) -> UIFont { return UIFont.boldSystemFont(ofSize: size) }
+}
+
+// !! factor out into it's own file
+protocol CategoryPicker: UIPickerViewDelegate, UIPickerViewDataSource {
+    func decorate(_ picker: UIPickerView, in vc: UIViewController)
+}
+
+extension CategoryPicker {
     
-    static func centeredBox(inside view: UIView) -> CGRect {
+    func centeredBox(inside view: UIView) -> CGRect {
         let width = view.frame.width * 0.9
         let height = view.frame.height * 0.6
         
@@ -64,6 +72,19 @@ struct Format {
         let y = height * 0.3
         
         return CGRect(x: x, y: y, width: width, height: height)
+    }
+    
+    // !!
+    func decorate(_ picker: UIPickerView, in vc: UIViewController) {
+        picker.showsSelectionIndicator = true
+        picker.selectedRow(inComponent: 0)
+        
+        picker.frame = centeredBox(inside: vc.view)
+        picker.layer.borderWidth = 2.0
+        picker.backgroundColor = .white
+        
+        picker.delegate = self
+        picker.dataSource = self
     }
 }
 
