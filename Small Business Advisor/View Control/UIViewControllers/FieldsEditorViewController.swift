@@ -11,7 +11,7 @@ import MagicCloud
 import CloudKit
 
 // what if we made this generic...how would we set it? can it be? !!
-class FieldsEditorViewController: UIViewController {
+class FieldsEditorViewController: UIViewController, CategoryPicker {
 
     // MARK: - Properties
     
@@ -116,8 +116,9 @@ print("                                 REACHED !! !! !!")  // <-- Not ever happ
     
     @IBAction func categoryTapped(_ sender: UIButton) {
         let picker = UIPickerView()
-        picker.dataSource = self
-        picker.delegate = self
+//        picker.dataSource = self
+//        picker.delegate = self
+        decorate(picker, for: self)
         
         self.view.addSubview(picker)
     }
@@ -211,6 +212,8 @@ extension FieldsEditorViewController: UIPickerViewDelegate {
                 selectedCategory = cat.formatted.string
             }
         }
+        
+        pickerView.removeFromSuperview()
     }
     
     fileprivate func recoverNewCategoryTitle() {
@@ -227,8 +230,6 @@ extension FieldsEditorViewController: UIPickerViewDelegate {
         self.present(alert, animated: true, completion: nil)
     }
 }
-
-// MARK: - Extensions
 
 // MARK: - Extension: UITextViewDelegate
 
@@ -259,4 +260,3 @@ extension FieldsEditorViewController: UITextFieldDelegate {
 extension FieldsEditorViewController: ButtonEnabler {
     var updateButton: UIButton { return saveButton }
 }
-
