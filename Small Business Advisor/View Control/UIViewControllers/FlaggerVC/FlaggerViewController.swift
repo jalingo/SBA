@@ -47,7 +47,7 @@ class FlaggerViewController: UIViewController, TipEditor {
     
     /// This method updates flaggerLabel and flagButton.
     func updateViews() {
-        if let reason = self.reason {
+        if let reason = self.reason, !isFlagged {
             self.flaggerLabel.text = "Flagging as \(reason.toStr())."
         } else {
             self.flaggerLabel.text = "Each user can only have one active flag at a time."
@@ -58,13 +58,11 @@ class FlaggerViewController: UIViewController, TipEditor {
     
     func setFlagButtonState(enabled: Bool) {
         DispatchQueue.main.async {
-            self.flagButton.isEnabled = enabled
-            
             if self.isFlagged {
-                self.flagButton.backgroundColor = UIColor(displayP3Red: 0.67, green: 0.67, blue: 0.67, alpha: 1.0)
+                self.disableChanges()
                 self.flaggerLabel.textColor = .red
             } else {
-                self.flagButton.backgroundColor = UIColor(displayP3Red: 0.55, green: 0.78, blue: 0.25, alpha: 1.0)
+                self.enableChanges()
                 self.flaggerLabel.textColor = .black
             }
         }
@@ -114,3 +112,10 @@ extension FlaggerViewController: UITextFieldDelegate {
         return true
     }
 }
+
+// !!
+extension FlaggerViewController: ButtonEnabler {
+    var updateButton: UIButton { return flagButton }
+}
+
+
