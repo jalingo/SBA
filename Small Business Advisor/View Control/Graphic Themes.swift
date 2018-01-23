@@ -56,7 +56,7 @@ struct Format {
     
     static func font(size: CGFloat) -> UIFont { return UIFont.boldSystemFont(ofSize: size) }
     
-    static func centeredBock(inside view: UIView) -> CGRect {
+    static func centeredBox(inside view: UIView) -> CGRect {
         let width = view.frame.width * 0.9
         let height = view.frame.height * 0.6
         
