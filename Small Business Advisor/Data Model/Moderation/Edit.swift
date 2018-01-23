@@ -32,6 +32,10 @@ struct TipEdit: EditAbstraction {
     
     var editorEmail: String?
     
+    var creator: CKRecordID?
+    
+    static var limit: Int? = 5
+    
     // MARK: - Properties: MCRecordable
     
     var _recordID: CKRecordID?
@@ -50,6 +54,7 @@ struct TipEdit: EditAbstraction {
         tip = CKReference(recordID: editedTip.recordID, action: .deleteSelf)
         
         recordID = CKRecordID(recordName: "EDIT: \(editedTip.recordID.recordName)")
+        creator = MCUserRecord().singleton
     }
 }
 
@@ -63,6 +68,8 @@ extension TipEdit: MCRecordable {
             
             if let txt = newText        { dict[RecordKey.ntxt] = txt as CKRecordValue }
             if let str = newCategory    { dict[RecordKey.ncat] = str as CKRecordValue }
+
+            dict[RecordKey.crtr] = CKReference(recordID: creator ?? MCUserRecord().singleton ?? dummyRec, action: .deleteSelf)
             dict[RecordKey.refs] = tip
             
             return dict
@@ -71,6 +78,7 @@ extension TipEdit: MCRecordable {
             if let ref = newValue[RecordKey.refs] as? CKReference { tip = ref }
             if let txt = newValue[RecordKey.ntxt] as? String      { newText = txt }
             if let str = newValue[RecordKey.ncat] as? String      { newCategory = str }
+            if let ref = newValue[RecordKey.crtr] as? CKReference { creator = ref.recordID }
         }
     }
     
@@ -78,9 +86,4 @@ extension TipEdit: MCRecordable {
         get { return _recordID ?? dummyRec }
         set(newValue) { _recordID = newValue }
     }
-}
-
-protocol SuggestedModeration {
-    var editorEmail: String? { get set }
-    var tip: CKReference     { get set }
 }

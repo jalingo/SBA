@@ -31,6 +31,10 @@ struct NewTip: NewTipAbstraction {
 
     var tip: CKReference = CKReference(recordID: CKRecordID(recordName: "Do NOT use..."), action: .deleteSelf)
 
+    var creator: CKRecordID?
+    
+    static var limit: Int? = 5
+    
     // MARK: - Properties: MCRecordable
     
     var _recordID: CKRecordID?
@@ -44,10 +48,12 @@ struct NewTip: NewTipAbstraction {
     init() { /* This init creates a dummy record used by MCRecordable for replication. */ }
     
     init(text txt: String, category cat: String) {
-        _recordID = CKRecordID(recordName: "New@\(Date().description)")
+        _recordID = CKRecordID(recordName: "NEW: \(Date().description)")
         
         text = txt
         category = cat
+        
+        creator = MCUserRecord().singleton
     }
 }
 
@@ -61,12 +67,14 @@ extension NewTip: MCRecordable {
             
             dict[RecordKey.ntxt] = text     as CKRecordValue
             dict[RecordKey.ncat] = category as CKRecordValue
+            dict[RecordKey.crtr] = CKReference(recordID: creator ?? MCUserRecord().singleton ?? dummyRec, action: .deleteSelf)
             
             return dict
         }
         set {
             if let txt = newValue[RecordKey.ntxt] as? String { text = txt }
             if let txt = newValue[RecordKey.ncat] as? String { category = txt }
+            if let ref = newValue[RecordKey.crtr] as? CKReference { creator = ref.recordID }
         }
     }
     

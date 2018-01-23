@@ -36,6 +36,8 @@ struct Flag: FlagAbstraction {
 
     var creator: CKRecordID?
     
+    static var limit: Int? = 1
+    
     // MARK: - Properties: MCRecordable
     
     fileprivate var _recordID: CKRecordID?
