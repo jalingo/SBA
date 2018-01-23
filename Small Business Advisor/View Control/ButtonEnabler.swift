@@ -24,10 +24,6 @@ protocol ButtonEnabler {
 
 extension ButtonEnabler {
     
-    var activeColor: UIColor { return UIColor(displayP3Red: 0.55, green: 0.78, blue: 0.25, alpha: 1.0) }
-    
-    var inactiveColor: UIColor { return UIColor(displayP3Red: 0.67, green: 0.67, blue: 0.67, alpha: 1.0) }
-    
     func enableChanges() {
         updateButton.isEnabled = true
         updateButton.backgroundColor = activeColor

@@ -1,5 +1,5 @@
 //
-//  Text Formatting.swift
+//  Graphic Themes.swift
 //  Small Biz Advisor
 //
 //  Created by James Lingo on 12/14/17.
@@ -72,4 +72,12 @@ extension String {
         let end = index(startIndex, offsetBy: r.upperBound)
         return String(self[start...end])
     }
+}
+
+// MARK: - Extension: ButtonEnabler
+
+// Set color themes for this app.
+extension ButtonEnabler {
+    var activeColor: UIColor { return UIColor(displayP3Red: 0.55, green: 0.78, blue: 0.25, alpha: 1.0) }
+    var inactiveColor: UIColor { return UIColor(displayP3Red: 0.67, green: 0.67, blue: 0.67, alpha: 1.0) }
 }
