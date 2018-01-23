@@ -68,6 +68,7 @@ extension TipEdit: MCRecordable {
             
             if let txt = newText        { dict[RecordKey.ntxt] = txt as CKRecordValue }
             if let str = newCategory    { dict[RecordKey.ncat] = str as CKRecordValue }
+            if let str = editorEmail    { dict[RecordKey.mail] = str as CKRecordValue }
 
             dict[RecordKey.crtr] = CKReference(recordID: creator ?? MCUserRecord().singleton ?? dummyRec, action: .deleteSelf)
             dict[RecordKey.refs] = tip
@@ -78,6 +79,7 @@ extension TipEdit: MCRecordable {
             if let ref = newValue[RecordKey.refs] as? CKReference { tip = ref }
             if let txt = newValue[RecordKey.ntxt] as? String      { newText = txt }
             if let str = newValue[RecordKey.ncat] as? String      { newCategory = str }
+            if let str = newValue[RecordKey.mail] as? String      { editorEmail = str }
             if let ref = newValue[RecordKey.crtr] as? CKReference { creator = ref.recordID }
         }
     }
