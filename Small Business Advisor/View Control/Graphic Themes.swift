@@ -55,6 +55,16 @@ struct Format {
     }
     
     static func font(size: CGFloat) -> UIFont { return UIFont.boldSystemFont(ofSize: size) }
+    
+    static func centeredBock(inside view: UIView) -> CGRect {
+        let width = view.frame.width * 0.9
+        let height = view.frame.height * 0.6
+        
+        let x = width / 18
+        let y = height * 0.3
+        
+        return CGRect(x: x, y: y, width: width, height: height)
+    }
 }
 
 // MARK: - Extension: String
@@ -78,6 +88,6 @@ extension String {
 
 // Set color themes for this app.
 extension ButtonEnabler {
-    var activeColor: UIColor { return UIColor(displayP3Red: 0.55, green: 0.78, blue: 0.25, alpha: 1.0) }
+    var activeColor: UIColor { return Format.ecGreen }
     var inactiveColor: UIColor { return UIColor(displayP3Red: 0.67, green: 0.67, blue: 0.67, alpha: 1.0) }
 }
