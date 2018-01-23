@@ -33,7 +33,7 @@ enum FlagReason {
     
     func toStr() -> String {
         switch self {
-        case .offTopic:                     return "Off_Topic"
+        case .offTopic:                     return "Off Topic"
         case .inaccurate:                   return "Inaccurate"
         case .duplicate(let tip):           return "Duplicate of \(tip.recordID.recordName)"
         case .wrongCategory(let category):  return "Actual Category is \(category.recordID.recordName)"
