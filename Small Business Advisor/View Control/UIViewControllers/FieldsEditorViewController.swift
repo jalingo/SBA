@@ -23,7 +23,7 @@ class FieldsEditorViewController: UIViewController {
     var tipBeingEdited: Tip? {
         didSet {
             guard categoryButton != nil else { return }
-print("                                 REACHED !! !! !!")
+print("                                 REACHED !! !! !!")  // <-- Not ever happening...
             categoryButton.setTitle(category.formatted.string, for: .normal) }
     }
     
@@ -54,23 +54,30 @@ print("                                 REACHED !! !! !!")
     // MARK: - Functions
     
     fileprivate func decorate() {
-print("         decorating...")
         textArea.attributedText = NSAttributedString(string: text, attributes: Format.bodyText)
         textArea.delegate = self
         
         emailField.delegate = self
         
         if let tip = tipBeingEdited {
-print("         tip found...")
             categoryButton.setTitle(tip.category.formatted.string, for: .normal)
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                if !AnyModerator<TipEdit>().isUnderLimit(for: self.suggestedEdits.recordables) { self.disableEditing() }
+                if AnyModerator<TipEdit>().isUnderLimit(for: self.suggestedEdits.recordables) {
+                    self.saveButton.setTitleColor(.white, for: .normal)
+                    self.enableChanges()
+                } else {
+                    self.disableDatabaseChanges()
+                }
             }
         } else {
-print("         tip NOT found...")
             categoryButton.setTitle(Default.categoryText, for: .normal)
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                if !AnyModerator<NewTip>().isUnderLimit(for: self.suggestedTips.recordables) { self.disableEditing() }
+                if AnyModerator<NewTip>().isUnderLimit(for: self.suggestedTips.recordables) {
+                    self.saveButton.setTitleColor(.white, for: .normal)
+                    self.enableChanges()
+                } else {
+                    self.disableDatabaseChanges()
+                }
             }
         }
     }
@@ -93,11 +100,10 @@ print("         tip NOT found...")
         if let op = possibleOp { OperationQueue().addOperation(op) }
     }
     
-    fileprivate func disableEditing() {
-print("         disabling edits")
-        saveButton.isEnabled = false
-        saveButton.backgroundColor = .gray
-
+    fileprivate func disableDatabaseChanges() {
+        disableChanges()
+        saveButton.setTitleColor(.red, for: .normal)
+        
         textArea.textColor = .red
         textArea.text = """
         Each user is limited to five active suggestions for edits and new tips. Once your existing suggestions have been reviewed, you will be able to make more suggestions.
@@ -125,7 +131,6 @@ print("         disabling edits")
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         decorate()
     }
     
@@ -223,6 +228,8 @@ extension FieldsEditorViewController: UIPickerViewDelegate {
     }
 }
 
+// MARK: - Extensions
+
 // MARK: - Extension: UITextViewDelegate
 
 extension FieldsEditorViewController: UITextViewDelegate {
@@ -246,3 +253,10 @@ extension FieldsEditorViewController: UITextFieldDelegate {
         return true
     }
 }
+
+// MARK: - Extension: ButtonEnabler
+
+extension FieldsEditorViewController: ButtonEnabler {
+    var updateButton: UIButton { return saveButton }
+}
+
