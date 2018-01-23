@@ -21,9 +21,7 @@ class FlaggerViewController: UIViewController, TipEditor {
     var reason: FlagReason?
     
     // When USER has an active flag, returns true.
-    var isFlagged: Bool {
-        return flags.recordables.contains { $0.creator == MCUserRecord().singleton }
-    }
+    var isFlagged: Bool { return !AnyModerator<Flag>().isUnderLimit(for: flags.recordables) }
     
     // MARK: - Properties: UIPickerViewDataSource
     
