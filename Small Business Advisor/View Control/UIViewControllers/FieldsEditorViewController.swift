@@ -10,9 +10,14 @@ import UIKit
 import MagicCloud
 import CloudKit
 
+// what if we made this generic...how would we set it? can it be? !!
 class FieldsEditorViewController: UIViewController {
 
     // MARK: - Properties
+    
+    fileprivate var suggestedEdits = MCReceiver<TipEdit>(db: .publicDB)
+    
+    fileprivate var suggestedTips = MCReceiver<NewTip>(db: .publicDB)
     
     /// When this property is nil, VC is being used to create a new tip suggestion. Otherwise, the stored tip is being edited.
     var tipBeingEdited: Tip? {
@@ -38,40 +43,72 @@ print("                                 REACHED !! !! !!")
     
     @IBOutlet weak var textArea: UITextView!
     
+    @IBOutlet weak var emailField: UITextField!
+    
+    @IBOutlet weak var saveButton: UIButton!
+    
     // MARK: - Properties: UIPickerViewDataSource
     
     fileprivate var categories = MCReceiver<TipCategory>(db: .publicDB)
     
     // MARK: - Functions
     
-    fileprivate func decorateCategory() {
+    fileprivate func decorate() {
+print("         decorating...")
+        textArea.attributedText = NSAttributedString(string: text, attributes: Format.bodyText)
+        textArea.delegate = self
+        
+        emailField.delegate = self
+        
         if let tip = tipBeingEdited {
+print("         tip found...")
             categoryButton.setTitle(tip.category.formatted.string, for: .normal)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                if !AnyModerator<TipEdit>().isUnderLimit(for: self.suggestedEdits.recordables) { self.disableEditing() }
+            }
         } else {
+print("         tip NOT found...")
             categoryButton.setTitle(Default.categoryText, for: .normal)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                if !AnyModerator<NewTip>().isUnderLimit(for: self.suggestedTips.recordables) { self.disableEditing() }
+            }
         }
     }
     
     fileprivate func saveChanges() {
-        let op: Operation
+        var possibleOp: Operation?
         
         if let tip = tipBeingEdited {                                                   // <-- will submit 'edit'
-            let edit = TipEdit(newText: textArea.text, newCategory: selectedCategory, for: tip)
-            op = MCUpload([edit], from: MCReceiver<TipEdit>(db: .publicDB), to: .publicDB)
+            var edit = TipEdit(newText: textArea.text, newCategory: selectedCategory, for: tip)
+            edit.editorEmail = emailField.text
+            
+            possibleOp = MCUpload([edit], from: suggestedEdits, to: .publicDB)
         } else {                                                                        // <-- nil, will submit 'new'
-            let id = CKRecordID(recordName: "New@\(Date().description)")
-            let new = NewTip(text: textArea.text, category: selectedCategory ?? "NA", _recordID: id)
-
-            op = MCUpload([new], from: MCReceiver<NewTip>(db: .publicDB), to: .publicDB)
+            var new = NewTip(text: textArea.text, category: selectedCategory ?? "NA")
+            new.editorEmail = emailField.text
+            
+            possibleOp = MCUpload([new], from: suggestedTips, to: .publicDB)
         }
 
-        OperationQueue().addOperation(op)
+        if let op = possibleOp { OperationQueue().addOperation(op) }
+    }
+    
+    fileprivate func disableEditing() {
+print("         disabling edits")
+        saveButton.isEnabled = false
+        saveButton.backgroundColor = .gray
+
+        textArea.textColor = .red
+        textArea.text = """
+        Each user is limited to five active suggestions for edits and new tips. Once your existing suggestions have been reviewed, you will be able to make more suggestions.
+        
+        Thank you so much for being so helpful! Suggestions like yours improves the quality of our advice.
+        """
     }
     
     // MARK: - Functions: IBActions
     
     @IBAction func categoryTapped(_ sender: UIButton) {
-        
         let picker = UIPickerView()
         picker.dataSource = self
         picker.delegate = self
@@ -89,13 +126,12 @@ print("                                 REACHED !! !! !!")
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        decorateCategory()
-        textArea.attributedText = NSAttributedString(string: text, attributes: Format.bodyText)
-        textArea.delegate = self
+        decorate()
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if textArea.isFocused { textArea.resignFirstResponder() }
+        if emailField.isEditing { emailField.resignFirstResponder() }
     }
 
     /*
@@ -202,4 +238,11 @@ extension FieldsEditorViewController: UITextViewDelegate {
     }
 }
 
+// MARK: - Extension: UITextFieldDelegate
 
+extension FieldsEditorViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return true
+    }
+}
