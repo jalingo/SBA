@@ -116,8 +116,6 @@ print("                                 REACHED !! !! !!")  // <-- Not ever happ
     
     @IBAction func categoryTapped(_ sender: UIButton) {
         let picker = UIPickerView()
-//        picker.dataSource = self
-//        picker.delegate = self
         decorate(picker, for: self)
         
         self.view.addSubview(picker)
