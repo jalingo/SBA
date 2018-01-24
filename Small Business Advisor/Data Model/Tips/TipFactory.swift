@@ -67,7 +67,18 @@ class TipFactory: MCReceiver<Tip>, _TipFactoryAbstraction {
     
     var lastRank = -1
     
-    var count: Int { return self.recordables.count }
+    var count: Int {
+        if let cat = limitation {
+            var count = 0
+            for tip in recordables {
+                if tip.category == cat { count += 1 }
+            }
+            
+            return count
+        } else {
+            return self.recordables.count
+        }
+    }
     
     var limitation: TipCategory?
     
@@ -86,7 +97,7 @@ class TipFactory: MCReceiver<Tip>, _TipFactoryAbstraction {
     }
  
     init() {
-print("TipFactory.init")
+print("     TipFactory.init")
         super.init(db: .publicDB)
     }
     
@@ -96,7 +107,7 @@ print("TipFactory.init")
         var allVotes: [VoteAbstraction] { return recordables }
         
         override init(db: MCDatabase) {
-print("TipFactory.VotingBooth.init")
+print("     TipFactory.VotingBooth.init")
             super.init(db: db)
         }
     }
