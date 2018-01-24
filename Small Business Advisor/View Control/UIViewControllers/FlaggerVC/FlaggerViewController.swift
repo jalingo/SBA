@@ -59,10 +59,10 @@ class FlaggerViewController: UIViewController, TipEditor {
     func setFlagButtonState(enabled: Bool) {
         DispatchQueue.main.async {
             if self.isFlagged {
-                self.disableChanges()
+                self.disableChangesWhileIgnoringFgColor()
                 self.flaggerLabel.textColor = .red
             } else {
-                self.enableChanges()
+                self.enableChangesWhileIgnoringFgColor()
                 if self.flaggerLabel.textColor == .red { self.flaggerLabel.textColor = .black }
             }
         }

@@ -64,7 +64,7 @@ print("                                 REACHED !! !! !!")  // <-- Not ever happ
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                 if AnyModerator<TipEdit>().isUnderLimit(for: self.suggestedEdits.recordables) {
                     self.saveButton.setTitleColor(.white, for: .normal)
-                    self.enableChanges()
+                    self.enableChangesWhileIgnoringFgColor()
                 } else {
                     self.disableDatabaseChanges()
                 }
@@ -74,7 +74,7 @@ print("                                 REACHED !! !! !!")  // <-- Not ever happ
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                 if AnyModerator<NewTip>().isUnderLimit(for: self.suggestedTips.recordables) {
                     self.saveButton.setTitleColor(.white, for: .normal)
-                    self.enableChanges()
+                    self.enableChangesWhileIgnoringFgColor()
                 } else {
                     self.disableDatabaseChanges()
                 }
@@ -101,7 +101,7 @@ print("                                 REACHED !! !! !!")  // <-- Not ever happ
     }
     
     fileprivate func disableDatabaseChanges() {
-        disableChanges()
+        disableChangesWhileIgnoringFgColor()
         saveButton.setTitleColor(.red, for: .normal)
         
         textArea.textColor = .red
