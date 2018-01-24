@@ -8,7 +8,6 @@
 
 import UIKit
 
-// !! funcs need to run on main thread
 protocol ButtonEnabler {
     
     var updateButton: UIButton { get }
@@ -17,20 +16,31 @@ protocol ButtonEnabler {
     
     var inactiveColor: UIColor { get }
     
-    func enableChanges()
+    func enableChanges(fgChange: Bool, bgChange: Bool)
     
-    func disableChanges()
+    func disableChanges(fgChange: Bool, bgChange: Bool)
 }
 
+// !! funcs need to run on main thread
 extension ButtonEnabler {
     
-    func enableChanges() {
+    func enableChangesWhileIgnoringFgColor() { enableChanges(fgChange: false, bgChange: true) }
+    
+    func disableChangesWhileIgnoringFgColor() { disableChanges(fgChange: false, bgChange: true) }
+    
+    func enableChangesWhileIgnoringBgColor() { enableChanges(fgChange: true, bgChange: false) }
+    
+    func disableChangesWhileIgnoringBgColor() { disableChanges(fgChange: true, bgChange: false) }
+    
+    func enableChanges(fgChange: Bool, bgChange: Bool) {
         updateButton.isEnabled = true
-        updateButton.backgroundColor = activeColor
+        if fgChange { updateButton.setTitleColor(activeColor, for: .normal) }
+        if bgChange { updateButton.backgroundColor = activeColor }
     }
     
-    func disableChanges() {
+    func disableChanges(fgChange: Bool, bgChange: Bool) {
         updateButton.isEnabled = false
-        updateButton.backgroundColor = inactiveColor
+        if fgChange { updateButton.setTitleColor(inactiveColor, for: .normal) }
+        if bgChange { updateButton.backgroundColor = inactiveColor }
     }
 }
