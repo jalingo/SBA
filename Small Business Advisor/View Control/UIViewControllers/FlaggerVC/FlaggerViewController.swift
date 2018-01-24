@@ -63,7 +63,7 @@ class FlaggerViewController: UIViewController, TipEditor {
                 self.flaggerLabel.textColor = .red
             } else {
                 self.enableChanges()
-                self.flaggerLabel.textColor = .black
+                if self.flaggerLabel.textColor == .red { self.flaggerLabel.textColor = .black }
             }
         }
     }
@@ -97,6 +97,7 @@ class FlaggerViewController: UIViewController, TipEditor {
         
         // This delay gives time for flags to download and draws attention  // <-- !! delay needs to move to MCR init
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) { self.setFlagButtonState(enabled: false) }
+        flaggerLabel.attributedText = tip?.text
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
