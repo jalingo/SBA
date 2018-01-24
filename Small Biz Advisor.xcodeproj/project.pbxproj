@@ -55,13 +55,17 @@
 		A17DE9EE1FBEB63600D2EB4F /* VoteCounterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17DE9ED1FBEB63600D2EB4F /* VoteCounterTests.swift */; };
 		A17F19C31FABD32D0099B903 /* PageTurnerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1265DB91FAA747800E4C712 /* PageTurnerTests.swift */; };
 		A184ABE91FE1133500334F3C /* AnyPickerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A184ABE81FE1133500334F3C /* AnyPickerTests.swift */; };
+		A197E64D2017BE5800B62ED2 /* ButtonEnabler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A197E64C2017BE5800B62ED2 /* ButtonEnabler.swift */; };
+		A197E64E2017BE5800B62ED2 /* ButtonEnabler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A197E64C2017BE5800B62ED2 /* ButtonEnabler.swift */; };
+		A197E657201817EF00B62ED2 /* PickerDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A197E656201817EF00B62ED2 /* PickerDecorator.swift */; };
+		A197E658201817EF00B62ED2 /* PickerDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A197E656201817EF00B62ED2 /* PickerDecorator.swift */; };
 		A19AD9071FDA94D3001C5846 /* EditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19AD9061FDA94D3001C5846 /* EditorViewController.swift */; };
 		A19AD9081FDA94D3001C5846 /* EditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19AD9061FDA94D3001C5846 /* EditorViewController.swift */; };
 		A19AD90A1FDAA30E001C5846 /* FieldsEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19AD9091FDAA30E001C5846 /* FieldsEditorViewController.swift */; };
 		A19AD90B1FDAA30E001C5846 /* FieldsEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19AD9091FDAA30E001C5846 /* FieldsEditorViewController.swift */; };
 		A19AD90E1FDBD3F5001C5846 /* FlagTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19AD90D1FDBD3F5001C5846 /* FlagTests.swift */; };
-		A1A0FCEB1FE34C6200E3D679 /* Text Formatting.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A0FCEA1FE34C6200E3D679 /* Text Formatting.swift */; };
-		A1A0FCEC1FE34C6200E3D679 /* Text Formatting.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A0FCEA1FE34C6200E3D679 /* Text Formatting.swift */; };
+		A1A0FCEB1FE34C6200E3D679 /* Graphic Themes.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A0FCEA1FE34C6200E3D679 /* Graphic Themes.swift */; };
+		A1A0FCEC1FE34C6200E3D679 /* Graphic Themes.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A0FCEA1FE34C6200E3D679 /* Graphic Themes.swift */; };
 		A1AAB6A91FA939C000017C54 /* TipFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AAB6A81FA939C000017C54 /* TipFactory.swift */; };
 		A1AAB6AA1FA939C000017C54 /* TipFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AAB6A81FA939C000017C54 /* TipFactory.swift */; };
 		A1AB0E211FA0185100F1D3FF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AB0E201FA0185100F1D3FF /* AppDelegate.swift */; };
@@ -71,6 +75,10 @@
 		A1AB0E411FA0185100F1D3FF /* Small_Business_AdvisorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AB0E401FA0185100F1D3FF /* Small_Business_AdvisorUITests.swift */; };
 		A1AB0E501FA01A1D00F1D3FF /* AdvisorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AB0E4F1FA01A1D00F1D3FF /* AdvisorViewController.swift */; };
 		A1AB0E511FA01A1D00F1D3FF /* AdvisorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AB0E4F1FA01A1D00F1D3FF /* AdvisorViewController.swift */; };
+		A1B6943C20169ACD0052DF8C /* FlaggerPickerDelegation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B6943B20169ACD0052DF8C /* FlaggerPickerDelegation.swift */; };
+		A1B6943D20169ACD0052DF8C /* FlaggerPickerDelegation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B6943B20169ACD0052DF8C /* FlaggerPickerDelegation.swift */; };
+		A1B6943F2016B4D20052DF8C /* Suggestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B6943E2016B4D20052DF8C /* Suggestion.swift */; };
+		A1B694402016B4D20052DF8C /* Suggestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B6943E2016B4D20052DF8C /* Suggestion.swift */; };
 		A1CB777D1FBABD61008ADF09 /* MagicCloud.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1CB777A1FBABD03008ADF09 /* MagicCloud.framework */; };
 		A1CB777E1FBABD61008ADF09 /* MagicCloud.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A1CB777A1FBABD03008ADF09 /* MagicCloud.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A1D102B91FBD821900B89C53 /* TipReceiver.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D102B81FBD821900B89C53 /* TipReceiver.swift */; };
@@ -188,10 +196,12 @@
 		A1734AF61FDFBF3B0025F56A /* _Flagger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _Flagger.swift; sourceTree = "<group>"; };
 		A17DE9ED1FBEB63600D2EB4F /* VoteCounterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteCounterTests.swift; sourceTree = "<group>"; };
 		A184ABE81FE1133500334F3C /* AnyPickerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyPickerTests.swift; sourceTree = "<group>"; };
+		A197E64C2017BE5800B62ED2 /* ButtonEnabler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonEnabler.swift; sourceTree = "<group>"; };
+		A197E656201817EF00B62ED2 /* PickerDecorator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PickerDecorator.swift; path = "Small Business Advisor/View Control/PickerDecorator.swift"; sourceTree = SOURCE_ROOT; };
 		A19AD9061FDA94D3001C5846 /* EditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorViewController.swift; sourceTree = "<group>"; };
 		A19AD9091FDAA30E001C5846 /* FieldsEditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldsEditorViewController.swift; sourceTree = "<group>"; };
 		A19AD90D1FDBD3F5001C5846 /* FlagTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlagTests.swift; sourceTree = "<group>"; };
-		A1A0FCEA1FE34C6200E3D679 /* Text Formatting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Text Formatting.swift"; sourceTree = "<group>"; };
+		A1A0FCEA1FE34C6200E3D679 /* Graphic Themes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Graphic Themes.swift"; sourceTree = "<group>"; };
 		A1AAB6A81FA939C000017C54 /* TipFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipFactory.swift; sourceTree = "<group>"; };
 		A1AB0E1D1FA0185100F1D3FF /* Small Biz Advisor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Small Biz Advisor.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1AB0E201FA0185100F1D3FF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -205,6 +215,8 @@
 		A1AB0E401FA0185100F1D3FF /* Small_Business_AdvisorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Small_Business_AdvisorUITests.swift; sourceTree = "<group>"; };
 		A1AB0E421FA0185100F1D3FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A1AB0E4F1FA01A1D00F1D3FF /* AdvisorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvisorViewController.swift; sourceTree = "<group>"; };
+		A1B6943B20169ACD0052DF8C /* FlaggerPickerDelegation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlaggerPickerDelegation.swift; sourceTree = "<group>"; };
+		A1B6943E2016B4D20052DF8C /* Suggestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Suggestion.swift; path = "Small Business Advisor/Data Model/Moderation/Suggestion.swift"; sourceTree = SOURCE_ROOT; };
 		A1CB77741FBABD03008ADF09 /* MagicCloud.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MagicCloud.xcodeproj; path = ../MagicCloud/MagicCloud.xcodeproj; sourceTree = "<group>"; };
 		A1D102B81FBD821900B89C53 /* TipReceiver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipReceiver.swift; sourceTree = "<group>"; };
 		A1D545D1200EBEC4004C1DC8 /* FlaggerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlaggerViewController.swift; sourceTree = "<group>"; };
@@ -252,6 +264,7 @@
 		A12656521FDF2F9800F37215 /* Moderation */ = {
 			isa = PBXGroup;
 			children = (
+				A1B6943E2016B4D20052DF8C /* Suggestion.swift */,
 				A12656551FDF36EE00F37215 /* NewTip.swift */,
 				A12656451FDF275500F37215 /* Flag.swift */,
 				A12904C0201050720086C0E7 /* FlagReason.swift */,
@@ -274,8 +287,9 @@
 		A1265DBE1FAA853A00E4C712 /* View Control */ = {
 			isa = PBXGroup;
 			children = (
-				A1A0FCEA1FE34C6200E3D679 /* Text Formatting.swift */,
-				A12904BE200FED220086C0E7 /* UIViews */,
+				A197E64C2017BE5800B62ED2 /* ButtonEnabler.swift */,
+				A197E656201817EF00B62ED2 /* PickerDecorator.swift */,
+				A1A0FCEA1FE34C6200E3D679 /* Graphic Themes.swift */,
 				A12904BF200FED360086C0E7 /* UIViewControllers */,
 			);
 			path = "View Control";
@@ -293,20 +307,12 @@
 			path = "Data Model";
 			sourceTree = "<group>";
 		};
-		A12904BE200FED220086C0E7 /* UIViews */ = {
-			isa = PBXGroup;
-			children = (
-				A1299E751FE1EB0900030BB1 /* AnyPicker.swift */,
-			);
-			path = UIViews;
-			sourceTree = "<group>";
-		};
 		A12904BF200FED360086C0E7 /* UIViewControllers */ = {
 			isa = PBXGroup;
 			children = (
 				A1AB0E4F1FA01A1D00F1D3FF /* AdvisorViewController.swift */,
 				A19AD9061FDA94D3001C5846 /* EditorViewController.swift */,
-				A1D545D1200EBEC4004C1DC8 /* FlaggerViewController.swift */,
+				A1B6943620169A6F0052DF8C /* FlaggerVC */,
 				A19AD9091FDAA30E001C5846 /* FieldsEditorViewController.swift */,
 			);
 			path = UIViewControllers;
@@ -347,6 +353,7 @@
 		A1734AEE1FDF639D0025F56A /* Deprecated */ = {
 			isa = PBXGroup;
 			children = (
+				A1299E751FE1EB0900030BB1 /* AnyPicker.swift */,
 				A1734AF61FDFBF3B0025F56A /* _Flagger.swift */,
 				A11C3BB51FA54DEC000D2255 /* ResponseText.swift */,
 				A15044041FA42E260018B909 /* TipText.swift */,
@@ -433,6 +440,15 @@
 				A1AB0E2C1FA0185100F1D3FF /* Info.plist */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		A1B6943620169A6F0052DF8C /* FlaggerVC */ = {
+			isa = PBXGroup;
+			children = (
+				A1D545D1200EBEC4004C1DC8 /* FlaggerViewController.swift */,
+				A1B6943B20169ACD0052DF8C /* FlaggerPickerDelegation.swift */,
+			);
+			path = FlaggerVC;
 			sourceTree = "<group>";
 		};
 		A1CB77751FBABD03008ADF09 /* Products */ = {
@@ -639,8 +655,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A1A0FCEB1FE34C6200E3D679 /* Text Formatting.swift in Sources */,
+				A1A0FCEB1FE34C6200E3D679 /* Graphic Themes.swift in Sources */,
 				A11C3BB61FA54DEC000D2255 /* ResponseText.swift in Sources */,
+				A1B6943C20169ACD0052DF8C /* FlaggerPickerDelegation.swift in Sources */,
 				A150440A1FA503920018B909 /* Entry.swift in Sources */,
 				A1AAB6A91FA939C000017C54 /* TipFactory.swift in Sources */,
 				A1D545D2200EBEC4004C1DC8 /* FlaggerViewController.swift in Sources */,
@@ -651,12 +668,15 @@
 				A1734AF71FDFBF3B0025F56A /* _Flagger.swift in Sources */,
 				A1D102B91FBD821900B89C53 /* TipReceiver.swift in Sources */,
 				A19AD90A1FDAA30E001C5846 /* FieldsEditorViewController.swift in Sources */,
+				A197E64D2017BE5800B62ED2 /* ButtonEnabler.swift in Sources */,
 				90C4E87B1FC16F8400A8D329 /* VoteCounter.swift in Sources */,
+				A197E657201817EF00B62ED2 /* PickerDecorator.swift in Sources */,
 				90A16F461FAE48B1002D418B /* Type Aliases & Strings.swift in Sources */,
 				90C4E8771FC14D5600A8D329 /* Vote.swift in Sources */,
 				A12656561FDF36EE00F37215 /* NewTip.swift in Sources */,
 				A126564F1FDF2F1D00F37215 /* Edit.swift in Sources */,
 				A15044051FA42E260018B909 /* TipText.swift in Sources */,
+				A1B6943F2016B4D20052DF8C /* Suggestion.swift in Sources */,
 				A15043FF1FA33C210018B909 /* Tip.swift in Sources */,
 				A1AB0E501FA01A1D00F1D3FF /* AdvisorViewController.swift in Sources */,
 				A15043F51FA2B7AA0018B909 /* TipCategory.swift in Sources */,
@@ -669,11 +689,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A197E64E2017BE5800B62ED2 /* ButtonEnabler.swift in Sources */,
 				A12656541FDF306E00F37215 /* NewTipTests.swift in Sources */,
 				A126564D1FDF27E700F37215 /* EditTests.swift in Sources */,
 				A1265DBD1FAA83D900E4C712 /* PageTurner.swift in Sources */,
 				A150440B1FA503920018B909 /* Entry.swift in Sources */,
 				A15043FA1FA336520018B909 /* TipCategoryFactoryTests.swift in Sources */,
+				A1B694402016B4D20052DF8C /* Suggestion.swift in Sources */,
 				A15044031FA3EFA10018B909 /* TextFactoryTests.swift in Sources */,
 				A15044001FA33C210018B909 /* Tip.swift in Sources */,
 				A16756BE1FA14BD90002E820 /* TipTests.swift in Sources */,
@@ -682,12 +704,13 @@
 				A1734AF51FDFA3460025F56A /* FlaggerTests.swift in Sources */,
 				A17F19C31FABD32D0099B903 /* PageTurnerTests.swift in Sources */,
 				A1AB0E511FA01A1D00F1D3FF /* AdvisorViewController.swift in Sources */,
+				A1B6943D20169ACD0052DF8C /* FlaggerPickerDelegation.swift in Sources */,
 				A184ABE91FE1133500334F3C /* AnyPickerTests.swift in Sources */,
 				90C4E87C1FC16F8400A8D329 /* VoteCounter.swift in Sources */,
 				9033901C1FB4409400E7D7A9 /* TestTools.swift in Sources */,
 				90C4E8751FC11B5500A8D329 /* VoteEditorTests.swift in Sources */,
 				A1299E771FE1EB0900030BB1 /* AnyPicker.swift in Sources */,
-				A1A0FCEC1FE34C6200E3D679 /* Text Formatting.swift in Sources */,
+				A1A0FCEC1FE34C6200E3D679 /* Graphic Themes.swift in Sources */,
 				A19AD9081FDA94D3001C5846 /* EditorViewController.swift in Sources */,
 				A19AD90B1FDAA30E001C5846 /* FieldsEditorViewController.swift in Sources */,
 				A12656471FDF275500F37215 /* Flag.swift in Sources */,
@@ -695,6 +718,7 @@
 				A1734AF81FDFBF3B0025F56A /* _Flagger.swift in Sources */,
 				90A16F471FAE48B1002D418B /* Type Aliases & Strings.swift in Sources */,
 				90C4E8781FC14D5600A8D329 /* Vote.swift in Sources */,
+				A197E658201817EF00B62ED2 /* PickerDecorator.swift in Sources */,
 				A15044061FA42E260018B909 /* TipText.swift in Sources */,
 				A1D545D3200EBEC4004C1DC8 /* FlaggerViewController.swift in Sources */,
 				A1D102BA1FBD821900B89C53 /* TipReceiver.swift in Sources */,

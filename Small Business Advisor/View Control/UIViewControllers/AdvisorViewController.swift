@@ -9,24 +9,36 @@
 import UIKit
 import MagicCloud
 
-// MARK: Class
+// MARK: Protocols
+
+protocol TipEditor: AnyObject {
+    var tip: Tip? { get set }
+}
+
+// MARK: - Class
 
 /**
-   The `AdvisorViewController` is the only view controller for the entire app. It handles all user interactions
-   (swipes, shakes and taps) and displays the appropriate strings harvested from the data model: `ResponseText`.
+   The `AdvisorViewController` is the only view controller for the entire app. It handles all user interactions (swipes, shakes and taps) and displays the appropriate strings harvested from the data model: `ResponseText`.
  */
-class AdvisorViewController: UIViewController {
+class AdvisorViewController: UIViewController, PickerDecorator {
     
     // MARK: - Properties
     
     /// This receiver is the primary connection to the data model. Handles vote counting locally.
-    var tips = TipFactory(db: .publicDB)
+    var tips = TipFactory()
+    
+    /// This boolean can be used to prevent AdvisorVC from passing tip to TipEditor in AdvisorVC.prepare:forSegue:
+    var tipPassingAllowed = true
     
     /// `page` stores index of the current entry from the data model, and when set `pageLabel.text` is refreshed.
     var page = 0 {
         didSet {
+            categoryLock.isEnabled = true
             pageLabel.text = String(page)
-            rankMeter.progress = Float(1 - (page / tips.recordables.count))
+
+            if tips.recordables.count != 0 { rankMeter.progress = Float(1.0 - (Double(page) / Double(tips.recordables.count))) }
+            
+            selectCategoryButton.setAttributedTitle(tips.rank(of: page).category.formatted, for: .normal)
         }
     }
     
@@ -47,12 +59,22 @@ class AdvisorViewController: UIViewController {
     // !!
     @IBOutlet weak var selectCategoryButton: UIButton!
     
+    // !!
+    @IBOutlet weak var categoryLock: UIButton!
+    
     // MARK: - - Properties: UIResponder
     
     /// This override allows `AdvisorViewController` to become first responder (to user interactions); always true.
     @objc override var canBecomeFirstResponder: Bool { return true }
     
     // MARK: - Functions
+    
+    func pick() {
+        let picker = UIPickerView()
+        decorate(picker, for: self)
+        
+        view.addSubview(picker)
+    }
     
     /**
         `increasePage` should be run whenever the USER performs shake gesture or swipes to move forward (swiping backwards call `decreasePage` instead).
@@ -123,36 +145,30 @@ class AdvisorViewController: UIViewController {
     @IBAction func categoryLockTapped(_ sender: UIButton) {
         if let _ = tips.limitation {
             tips.limitation = nil
-            sender.setTitle("🔓", for: .normal)
+            sender.setTitle("🔐", for: .normal)
             selectCategoryButton.isEnabled = false
         } else {
             tips.limitation = tips.rank(of: tips.lastRank).category
             sender.setTitle("🔒", for: .normal)
             selectCategoryButton.isEnabled = true
         }
+        
+        sender.setNeedsDisplay()
     }
     
     // !!
-    @IBAction func categorySelectorTapped(_ sender: UIButton) {
-        let picker = AnyPicker(type: TipCategory.self, database: .publicDB) { pick in
-            if let category = pick as? TipCategory {
-                sender.setAttributedTitle(category.formatted, for: .normal)
-                self.tips.limitation = category
-                self.increasePage() // <-- May be problematic (force random first?)
-            }
-        }
-        
-        self.view.addSubview(picker.view)
-    }
+    @IBAction func categorySelectorTapped(_ sender: UIButton) { pick() }
     
     // MARK: - - Functions: UIViewController
     
     /// The only configurations in this override are setting first responder and initializing instruction text.
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         textView.attributedText = NSAttributedString(string: Instructions.shake,
                                                      attributes: Format.categoryTitle)
+        rankMeter.trackTintColor = .white
+        
         self.becomeFirstResponder()
     }
     
@@ -160,11 +176,44 @@ class AdvisorViewController: UIViewController {
     override func motionEnded(_ motion: UIEventSubtype, with event: UIEvent?) {
         if event?.subtype == .motionShake { increasePage() }
     }
+    
+    /// This method passes current tip to destination if it is TipEditor and tipPassingAllowed.
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        if let controller = segue.destination as? TipEditor { tipPassingAllowed ? (controller.tip = tips.rank(of: page)) : (tipPassingAllowed = true) }
+    }    
 }
+
 
 // MARK: - Extensions
 
-//extension AdvisorViewController: MCReceiverAbstraction {
-//    typealias type = TipCategory
-//}
+extension AdvisorViewController: UIPickerViewDelegate {
+    func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
+        return TipCategory(rawValue: row)?.formatted
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return TipCategory(rawValue: row)?.formatted.string
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+print("     AdvisorVC.pickerView didSelectRow")
+        if let category = TipCategory(rawValue: row) {
+print("     category found")
+            selectCategoryButton.setAttributedTitle(category.formatted, for: .normal)
+print("     setting limitation")
+            self.tips.limitation = category
+print("     increasing page")
+            self.increasePage() // <-- May be problematic (force random first?)
+        }
+print("     removing from view")
+        pickerView.removeFromSuperview()
+    }
+}
+
+extension AdvisorViewController: UIPickerViewDataSource {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int { return 1 }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int { return TipCategory.max }
+}
 

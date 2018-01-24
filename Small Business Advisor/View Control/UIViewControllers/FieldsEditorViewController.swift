@@ -11,7 +11,7 @@ import MagicCloud
 import CloudKit
 
 // what if we made this generic...how would we set it? can it be? !!
-class FieldsEditorViewController: UIViewController, CategoryPicker {
+class FieldsEditorViewController: UIViewController, PickerDecorator {
 
     // MARK: - Properties
     

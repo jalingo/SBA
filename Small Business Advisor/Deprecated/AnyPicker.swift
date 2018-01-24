@@ -27,9 +27,10 @@ class AnyPicker<T: Pickable>: NSObject, UIPickerViewDataSource, UIPickerViewDele
     
     // MARK: - Functions: UIPickerViewDataSource
     
-    func numberOfComponents(in pickerView: UIPickerView) -> Int { return receiver.recordables.count }
+    func numberOfComponents(in pickerView: UIPickerView) -> Int { return 1 }
     
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int { return 1 }
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return receiver.recordables.count }
     
     // MARK: - Functions: UIPickerViewDelegate
     
@@ -37,18 +38,25 @@ class AnyPicker<T: Pickable>: NSObject, UIPickerViewDataSource, UIPickerViewDele
         if let followUp  = selectionFollowUp { followUp(receiver.recordables[row]) }
     }
     
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? { return receiver.recordables[row].title }
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return receiver.recordables[row].title }
+    
+//    func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
+//print("   AnyPicker<\(T.self)>.pickerView attributedTitle \(row) x \(component)")
+//        return nil }
     
     // MARK: - Functions: Constuction
     
     init(type: T.Type, database: MCDatabase, didSet: PickerBlock) {
+print("   AnyPicker<\(type)>(@\(database.rawValue)).init start")
         receiver = MCReceiver<T>(db: database)
         view = UIPickerView()
         selectionFollowUp = didSet
         
-        super.init()
+        super.init()    // <-- Move down?
         
         view.dataSource = self
         view.delegate = self
+print("   AnyPicker<\(type)>(@\(database.rawValue)).init end")
     }
 }

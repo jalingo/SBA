@@ -16,7 +16,7 @@ protocol FlaggerAbstraction {
     func post(_ flag: Flag)
 }
 
-class Flagger: MCReceiver<Flag>, FlaggerAbstraction {
+class _Flagger: MCReceiver<Flag>, FlaggerAbstraction {
     func flags(for id: CKRecordID) -> [Flag]? {
         return recordables.filter { $0.recordID.recordName == id.recordName }
     }
