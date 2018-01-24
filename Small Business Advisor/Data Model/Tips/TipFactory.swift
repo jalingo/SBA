@@ -87,6 +87,7 @@ class TipFactory: MCReceiver<Tip>, _TipFactoryAbstraction {
     // MARK: - Functions: TipFactory
 
     func rank(of place: Int) -> Tip {
+        guard recordables.count != 0 else { return Tip() }
         guard place > 0 else { return rank(of: 1) }
         guard place < count + 1 else { return rank(of: count) }
 
