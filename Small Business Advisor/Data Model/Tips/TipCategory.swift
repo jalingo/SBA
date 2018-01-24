@@ -114,7 +114,15 @@ struct TipCategoryFactory: CategoryFactory {
     }
 }
 
-// MARK: - Extensions: MCRecordable
+// MARK: - Extensions
+
+// MARK: - Extension: Pickable
+
+extension TipCategory: Pickable {
+    var title: String { return self.formatted.string }
+}
+
+// MARK: - Extension: MCRecordable
 
 extension TipCategory: MCRecordable {
     
