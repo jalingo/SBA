@@ -18,7 +18,12 @@ class EditorViewController: UIViewController {
 
     // MARK: - Properties
     
-    var currentTip: Tip?
+    var currentTip: Tip? {
+        didSet {
+            previousVote = nil
+            checkAvailability()
+        }
+    }
     
     var previousVote: Vote?
     
@@ -43,10 +48,22 @@ class EditorViewController: UIViewController {
     // MARK: - Functions
     
     fileprivate func vote(up vote: Bool) {
-print("EditorVC.vote")
         if let oldVote = previousVote {
             let op = MCDelete([oldVote], of: votes, from: .publicDB)
             OperationQueue().addOperation(op)
+            
+            // this constraint can signal undo situation, when not set nil
+            if oldVote.isFor != vote { previousVote = nil }
+        }
+
+        // before proceeeding, need to check for undo situation...
+        guard previousVote == nil else {
+            
+            // After undoing vote, reset states
+            adjustVoteButtonStatesForReset()
+            previousVote = nil
+            
+            return
         }
         
         if let tip = currentTip, let user = MCUserRecord().singleton {
@@ -62,18 +79,34 @@ print("EditorVC.vote")
     }
     
     fileprivate func checkAvailability() {
-print("EditorVC.checkAvailability")
         if let user = MCUserRecord().singleton?.recordName {
             let results = votes.recordables.filter {
                 $0.candidate.recordID.recordName == currentTip?.recordID.recordName &&
                     $0.constituent.recordID.recordName == user }
+
+            if let result = results.last { previousVote = result }
             
-            if let result = results.last {
-                previousVote = result
-                upVoteButton.isEnabled = !result.isFor
-                downVoteButton.isEnabled = result.isFor
-            }
+            // if results.last == nil, button states will be reset; otherwise set to match result.
+            DispatchQueue.main.async { self.adjustVoteButtonStates(for: results.last) }
         }
+    }
+    
+    fileprivate func adjustVoteButtonStates(for result: Vote?) {
+        if let result = result {
+            adjustVote(button: upVoteButton, enable: !result.isFor)
+            adjustVote(button: downVoteButton, enable: result.isFor)
+        } else {
+            adjustVoteButtonStatesForReset()
+        }
+    }
+    
+    fileprivate func adjustVoteButtonStatesForReset() {
+        adjustVote(button: upVoteButton, enable: true)
+        adjustVote(button: downVoteButton, enable: true)
+    }
+    
+    fileprivate func adjustVote(button: UIButton, enable: Bool) {
+        enable ? button.setTitleColor(Format.ecGreen, for: .normal) : button.setTitleColor(.gray, for: .normal)
     }
     
     func segue(from id: String) { self.parent?.performSegue(withIdentifier: id, sender: nil) }
@@ -101,21 +134,20 @@ print("EditorVC.checkAvailability")
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        checkAvailability()
+        self.checkAvailability()
     }
     
 // MARK: - Functions: Constuction !!
     
-deinit { print("EditorViewController.deinit") }
-required init?(coder aDecoder: NSCoder) { print("EditorVC.init coder"); super.init(coder: aDecoder) }
+deinit { print("   EditorViewController.deinit") }
+required init?(coder aDecoder: NSCoder) { super.init(coder: aDecoder); print("   EditorVC.init coder \(String(describing: self.nibName))") }
 }
 
-// MARK: - Extensions !! rm pickable?
+// MARK: - Extension: TipEditor
 
-extension Tip: Pickable {
-    var title: String { return self.text.string[0...30] }
-}
-
-extension TipCategory: Pickable {
-    var title: String { return self.formatted.string }
+extension EditorViewController: TipEditor {
+    var tip: Tip? {
+        get { return currentTip }
+        set { currentTip = newValue }
+    }
 }
