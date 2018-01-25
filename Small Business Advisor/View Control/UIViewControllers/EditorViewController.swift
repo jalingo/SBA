@@ -60,7 +60,7 @@ class EditorViewController: UIViewController {
         guard previousVote == nil else {
             
             // After undoing vote, reset states
-            adjustVoteButtonStatesForReset()
+            adjustVoteButtonStatesForReset(enabled: true)
             previousVote = nil
             
             return
@@ -96,13 +96,13 @@ class EditorViewController: UIViewController {
             adjustVote(button: upVoteButton, enable: !result.isFor)
             adjustVote(button: downVoteButton, enable: result.isFor)
         } else {
-            adjustVoteButtonStatesForReset()
+            adjustVoteButtonStatesForReset(enabled: true)
         }
     }
     
-    fileprivate func adjustVoteButtonStatesForReset() {
-        adjustVote(button: upVoteButton, enable: true)
-        adjustVote(button: downVoteButton, enable: true)
+    fileprivate func adjustVoteButtonStatesForReset(enabled: Bool) {
+        adjustVote(button: upVoteButton, enable: enabled)
+        adjustVote(button: downVoteButton, enable: enabled)
     }
     
     fileprivate func adjustVote(button: UIButton, enable: Bool) {
@@ -134,7 +134,12 @@ class EditorViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.checkAvailability()
+
+        if currentTip?.index == -1 {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) { self.adjustVoteButtonStatesForReset(enabled: false) }
+        } else {
+            self.checkAvailability()
+        }
     }
     
 // MARK: - Functions: Constuction !!
