@@ -36,7 +36,10 @@ class AdvisorViewController: UIViewController, PickerDecorator {
             categoryLock.isEnabled = true
             pageLabel.text = String(page)
 
-            if tips.recordables.count != 0 { rankMeter.progress = Float(1.0 - (Double(page) / Double(tips.recordables.count))) }
+            if tips.recordables.count != 0 {
+                rankMeter.progress = Float(1.0 - (Double(page) / Double(tips.recordables.count)))
+                passTipToChildren()
+            }
             
             selectCategoryButton.setAttributedTitle(tips.rank(of: page).category.formatted, for: .normal)
         }
@@ -69,11 +72,18 @@ class AdvisorViewController: UIViewController, PickerDecorator {
     
     // MARK: - Functions
     
+    // !!
     func pick() {
         let picker = UIPickerView()
         decorate(picker, for: self)
         
         view.addSubview(picker)
+    }
+    
+    fileprivate func passTipToChildren() {
+        for child in childViewControllers {
+            if let controller = child as? TipEditor { tipPassingAllowed ? (controller.tip = tips.rank(of: page)) : (tipPassingAllowed = true) }
+        }
     }
     
     /**
@@ -197,16 +207,12 @@ extension AdvisorViewController: UIPickerViewDelegate {
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-print("     AdvisorVC.pickerView didSelectRow")
         if let category = TipCategory(rawValue: row) {
-print("     category found")
             selectCategoryButton.setAttributedTitle(category.formatted, for: .normal)
-print("     setting limitation")
             self.tips.limitation = category
-print("     increasing page")
             self.increasePage() // <-- May be problematic (force random first?)
         }
-print("     removing from view")
+
         pickerView.removeFromSuperview()
     }
 }
