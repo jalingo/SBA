@@ -57,23 +57,6 @@ struct Format {
     static func font(size: CGFloat) -> UIFont { return UIFont.boldSystemFont(ofSize: size) }
 }
 
-// MARK: - Extension: String
-
-extension String {
-    
-    subscript (r: Range<Int>) -> String {
-        let start = index(startIndex, offsetBy: r.lowerBound)
-        let end = index(startIndex, offsetBy: r.upperBound)
-        return String(self[start..<end])
-    }
-    
-    subscript (r: ClosedRange<Int>) -> String {
-        let start = index(startIndex, offsetBy: r.lowerBound)
-        let end = index(startIndex, offsetBy: r.upperBound)
-        return String(self[start...end])
-    }
-}
-
 // MARK: - Extension: ButtonEnabler
 
 // Set color themes for this app.
