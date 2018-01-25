@@ -36,10 +36,39 @@ extension String {
         let end = index(startIndex, offsetBy: r.upperBound)
         return String(self[start...end])
     }
+    
+    // creates subscript accessor for substring (as str) in specified partial range.
+    subscript (r: PartialRangeFrom<Int>) -> String {
+        let start = index(startIndex, offsetBy: r.lowerBound)
+        return String(self[start...])
+    }
+    
+    // creates subscript accessor for substring (as str) in specified partial range.
+    subscript (r: PartialRangeUpTo<Int>) -> String {
+        let end = index(startIndex, offsetBy: r.upperBound)
+        return String(self[..<end])
+    }
+    
+    // creates subscript accessor for substring (as str) in specified partial range.
+    subscript (r: PartialRangeThrough<Int>) -> String {
+        let end = index(startIndex, offsetBy: r.upperBound)
+        return String(self[...end])
+    }
 }
 
 // This extension contains methods that access string aspects of the attributed string.
 extension NSAttributedString {
+    
+    subscript (r: PartialRangeThrough<Int>) -> NSAttributedString {
+        let startIndex = self.string.startIndex
+        let end = self.string.index(startIndex, offsetBy: r.upperBound)
+
+        let str = String(self.string[...end])
+        let mutableVersion = NSMutableAttributedString(attributedString: self)
+        mutableVersion.mutableString.setString(str)
+        
+        return mutableVersion
+    }
     
     // this method returns range of string in attributed string, or nil if not present.
     func rangeOf(string: String) -> Range<String.Index>? {
