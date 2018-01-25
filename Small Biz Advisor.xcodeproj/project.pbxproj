@@ -33,6 +33,8 @@
 		A12904C2201050720086C0E7 /* FlagReason.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12904C0201050720086C0E7 /* FlagReason.swift */; };
 		A1299E761FE1EB0900030BB1 /* AnyPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1299E751FE1EB0900030BB1 /* AnyPicker.swift */; };
 		A1299E771FE1EB0900030BB1 /* AnyPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1299E751FE1EB0900030BB1 /* AnyPicker.swift */; };
+		A136A0B820195EFA00F53594 /* String Manipulation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A136A0B720195EFA00F53594 /* String Manipulation.swift */; };
+		A136A0B920195EFA00F53594 /* String Manipulation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A136A0B720195EFA00F53594 /* String Manipulation.swift */; };
 		A14B98AC1FB4DFDC00C04802 /* CurrentTipTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14B98AA1FB4DFAC00C04802 /* CurrentTipTests.swift */; };
 		A15043F51FA2B7AA0018B909 /* TipCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15043F41FA2B7AA0018B909 /* TipCategory.swift */; };
 		A15043F61FA2B7AA0018B909 /* TipCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15043F41FA2B7AA0018B909 /* TipCategory.swift */; };
@@ -179,6 +181,7 @@
 		A1265DBB1FAA83D900E4C712 /* PageTurner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageTurner.swift; sourceTree = "<group>"; };
 		A12904C0201050720086C0E7 /* FlagReason.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlagReason.swift; sourceTree = "<group>"; };
 		A1299E751FE1EB0900030BB1 /* AnyPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyPicker.swift; sourceTree = "<group>"; };
+		A136A0B720195EFA00F53594 /* String Manipulation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String Manipulation.swift"; sourceTree = "<group>"; };
 		A14B98AA1FB4DFAC00C04802 /* CurrentTipTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CurrentTipTests.swift; path = "Small Business AdvisorTests/Deprecated/CurrentTipTests.swift"; sourceTree = SOURCE_ROOT; };
 		A15043F41FA2B7AA0018B909 /* TipCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipCategory.swift; sourceTree = "<group>"; };
 		A15043F91FA336520018B909 /* TipCategoryFactoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipCategoryFactoryTests.swift; sourceTree = "<group>"; };
@@ -290,6 +293,7 @@
 				A197E64C2017BE5800B62ED2 /* ButtonEnabler.swift */,
 				A197E656201817EF00B62ED2 /* PickerDecorator.swift */,
 				A1A0FCEA1FE34C6200E3D679 /* Graphic Themes.swift */,
+				A136A0B720195EFA00F53594 /* String Manipulation.swift */,
 				A12904BF200FED360086C0E7 /* UIViewControllers */,
 			);
 			path = "View Control";
@@ -655,6 +659,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A136A0B820195EFA00F53594 /* String Manipulation.swift in Sources */,
 				A1A0FCEB1FE34C6200E3D679 /* Graphic Themes.swift in Sources */,
 				A11C3BB61FA54DEC000D2255 /* ResponseText.swift in Sources */,
 				A1B6943C20169ACD0052DF8C /* FlaggerPickerDelegation.swift in Sources */,
@@ -727,6 +732,7 @@
 				A14B98AC1FB4DFDC00C04802 /* CurrentTipTests.swift in Sources */,
 				A17DE9EE1FBEB63600D2EB4F /* VoteCounterTests.swift in Sources */,
 				A19AD90E1FDBD3F5001C5846 /* FlagTests.swift in Sources */,
+				A136A0B920195EFA00F53594 /* String Manipulation.swift in Sources */,
 				A10935841FBF8B4100C21C6E /* VoteTests.swift in Sources */,
 				A15044081FA4F94D0018B909 /* ResponseTests.swift in Sources */,
 				A12656571FDF36EE00F37215 /* NewTip.swift in Sources */,

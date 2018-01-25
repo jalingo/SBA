@@ -43,9 +43,6 @@ This app requires an internet connection and valid iCloud account to connect to 
     /// This property stores an unique index associated with the entry text.
     var index: Int
     
-    /// !! Not saved in database
-    var score: Int = 0
-    
     // MARK: - Properties: Recordable
     
     /// This property acts as storage for `recordID` computed property.
