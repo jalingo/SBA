@@ -56,6 +56,7 @@ class FlaggerViewController: UIViewController, TipEditor {
         self.setFlagButtonState(enabled: !self.isFlagged)
     }
     
+    // !!
     func setFlagButtonState(enabled: Bool) {
         DispatchQueue.main.async {
             if self.isFlagged {
@@ -66,6 +67,14 @@ class FlaggerViewController: UIViewController, TipEditor {
                 if self.flaggerLabel.textColor == .red { self.flaggerLabel.textColor = .black }
             }
         }
+    }
+    
+    // !!
+    func delegation() {
+        flaggerPicker.dataSource = self
+        flaggerPicker.delegate = self
+        
+        flaggerTextField.delegate = self
     }
     
     // MARK: - Functions: IBActions
@@ -90,14 +99,16 @@ class FlaggerViewController: UIViewController, TipEditor {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        flaggerPicker.dataSource = self
-        flaggerPicker.delegate = self
-        
-        flaggerTextField.delegate = self
+        delegation()
         
         // This delay gives time for flags to download and draws attention  // <-- !! delay needs to move to MCR init
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) { self.setFlagButtonState(enabled: false) }
-        flaggerLabel.attributedText = tip?.text
+        
+        if let txt = tip?.text[...65] {
+            let mutableVersion = NSMutableAttributedString(attributedString: txt)
+            mutableVersion.mutableString.setString(txt.string + "...")
+            flaggerLabel.attributedText = mutableVersion
+        }
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
