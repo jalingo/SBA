@@ -62,5 +62,5 @@ struct Format {
 // Set color themes for this app.
 extension ButtonEnabler {
     var activeColor: UIColor { return Format.ecGreen }
-    var inactiveColor: UIColor { return UIColor(displayP3Red: 0.67, green: 0.67, blue: 0.67, alpha: 1.0) }
+    var inactiveColor: UIColor { return .gray }
 }
