@@ -24,12 +24,18 @@ extension VoteCounter {
     
     // MARK: - Functions
     
-    fileprivate func sort(_ dictionary: [Tip: Int], by category: TipCategory) -> [Tip] {
-        return dictionary.keys.filter({ $0.category == category }).sorted { $0.score > $1.score }
+    fileprivate func sort(_ dictionary: [Tip: Int], filteredBy category: TipCategory) -> [Tip] {
+        let subSet = dictionary.filter { $0.key.category == category }
+        return sortBy(rank: subSet)
     }
     
     fileprivate func sortBy(rank dictionary: [Tip: Int]) -> [Tip] {
-        return dictionary.keys.sorted() { $0.score > $1.score }
+        return dictionary.keys.sorted {
+            guard dictionary[$0] != nil else { return false }   // <-- Test direction pointing: true v false
+            guard dictionary[$1] != nil else { return true }
+            
+            return dictionary[$0]! > dictionary[$1]!
+        }
     }
     
     // MARK: - Functions: VoteCounter
@@ -37,7 +43,7 @@ extension VoteCounter {
     func rank(for tips: [Tip], by category: TipCategory? = nil) -> [Tip] {
         let result = tabulateResults(for: tips)
         if let category = category {
-            return sort(result, by: category)
+            return sort(result, filteredBy: category)
         } else {
             return sortBy(rank: result)
         }
@@ -50,9 +56,10 @@ extension VoteCounter {
         
         for entry in copy {
             for vote in allVotes {
-                if let index = Int(vote.candidate.recordID.recordName), entry.key.index == index {
+                let name = vote.candidate.recordID.recordName
+                if let index = Int(name[5...]), entry.key.index == index {
                     vote.isFor ?
-                        (dictionary[entry.key] = entry.value + 1) : (dictionary[entry.key] = entry.value - 1)
+                        (dictionary[entry.key]! += 1) : (dictionary[entry.key]! -= 1)
                 }
             }
         }
