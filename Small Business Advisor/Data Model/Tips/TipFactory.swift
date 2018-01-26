@@ -18,7 +18,7 @@ import MagicCloud
  Contains `max` property, making it factory's responsibility to count total entries listed.
  */
 
-protocol _TipFactoryAbstraction {
+protocol TipFactoryAbstraction {
     
     var limitation: TipCategory? { get set }
     
@@ -43,7 +43,7 @@ protocol _TipFactoryAbstraction {
     func random() -> Tip
 }
 
-extension _TipFactoryAbstraction {
+extension TipFactoryAbstraction {
     
     // MARK: - Functions
     
@@ -57,7 +57,7 @@ extension _TipFactoryAbstraction {
 
 // MARK: - Class
 
-class TipFactory: MCReceiver<Tip>, _TipFactoryAbstraction {
+class TipFactory: MCReceiver<Tip>, TipFactoryAbstraction {
     
     // MARK: - Properties
 
