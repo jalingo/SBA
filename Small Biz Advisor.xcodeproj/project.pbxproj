@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		9033901C1FB4409400E7D7A9 /* TestTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9033901B1FB4409400E7D7A9 /* TestTools.swift */; };
-		90A16F461FAE48B1002D418B /* Type Aliases & Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A16F451FAE48B1002D418B /* Type Aliases & Strings.swift */; };
-		90A16F471FAE48B1002D418B /* Type Aliases & Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A16F451FAE48B1002D418B /* Type Aliases & Strings.swift */; };
+		90A16F461FAE48B1002D418B /* KVO Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A16F451FAE48B1002D418B /* KVO Strings.swift */; };
+		90A16F471FAE48B1002D418B /* KVO Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A16F451FAE48B1002D418B /* KVO Strings.swift */; };
 		90C4E8751FC11B5500A8D329 /* VoteEditorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C4E8741FC11B5500A8D329 /* VoteEditorTests.swift */; };
 		90C4E8771FC14D5600A8D329 /* Vote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C4E8761FC14D5600A8D329 /* Vote.swift */; };
 		90C4E8781FC14D5600A8D329 /* Vote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C4E8761FC14D5600A8D329 /* Vote.swift */; };
@@ -155,7 +155,7 @@
 
 /* Begin PBXFileReference section */
 		9033901B1FB4409400E7D7A9 /* TestTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestTools.swift; sourceTree = "<group>"; };
-		90A16F451FAE48B1002D418B /* Type Aliases & Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Type Aliases & Strings.swift"; sourceTree = "<group>"; };
+		90A16F451FAE48B1002D418B /* KVO Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KVO Strings.swift"; sourceTree = "<group>"; };
 		90C4E8741FC11B5500A8D329 /* VoteEditorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteEditorTests.swift; sourceTree = "<group>"; };
 		90C4E8761FC14D5600A8D329 /* Vote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vote.swift; sourceTree = "<group>"; };
 		90C4E87A1FC16F8400A8D329 /* VoteCounter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteCounter.swift; sourceTree = "<group>"; };
@@ -377,7 +377,7 @@
 			isa = PBXGroup;
 			children = (
 				A1AB0E241FA0185100F1D3FF /* Main.storyboard */,
-				90A16F451FAE48B1002D418B /* Type Aliases & Strings.swift */,
+				90A16F451FAE48B1002D418B /* KVO Strings.swift */,
 				A1265DBE1FAA853A00E4C712 /* View Control */,
 				A15044011FA342740018B909 /* Data Model */,
 				A1AB0E4E1FA0187900F1D3FF /* Resources */,
@@ -644,7 +644,7 @@
 				A197E64D2017BE5800B62ED2 /* ButtonEnabler.swift in Sources */,
 				90C4E87B1FC16F8400A8D329 /* VoteCounter.swift in Sources */,
 				A197E657201817EF00B62ED2 /* PickerDecorator.swift in Sources */,
-				90A16F461FAE48B1002D418B /* Type Aliases & Strings.swift in Sources */,
+				90A16F461FAE48B1002D418B /* KVO Strings.swift in Sources */,
 				90C4E8771FC14D5600A8D329 /* Vote.swift in Sources */,
 				A12656561FDF36EE00F37215 /* NewTip.swift in Sources */,
 				A126564F1FDF2F1D00F37215 /* Edit.swift in Sources */,
@@ -684,7 +684,7 @@
 				A19AD90B1FDAA30E001C5846 /* FieldsEditorViewController.swift in Sources */,
 				A12656471FDF275500F37215 /* Flag.swift in Sources */,
 				A1D9555F1FA17BF2002C7563 /* TipCategoryTests.swift in Sources */,
-				90A16F471FAE48B1002D418B /* Type Aliases & Strings.swift in Sources */,
+				90A16F471FAE48B1002D418B /* KVO Strings.swift in Sources */,
 				90C4E8781FC14D5600A8D329 /* Vote.swift in Sources */,
 				A197E658201817EF00B62ED2 /* PickerDecorator.swift in Sources */,
 				A1D545D3200EBEC4004C1DC8 /* FlaggerViewController.swift in Sources */,

@@ -21,3 +21,8 @@ extension Tip: Pickable {
     var title: String { return self.text.string[0...30] }
 }
 
+// MARK: - Extension: TipCategory
+
+extension TipCategory: Pickable {
+    var title: String { return self.formatted.string }
+}
