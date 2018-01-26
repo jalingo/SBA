@@ -17,6 +17,8 @@
 		90C4E87C1FC16F8400A8D329 /* VoteCounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C4E87A1FC16F8400A8D329 /* VoteCounter.swift */; };
 		A10935841FBF8B4100C21C6E /* VoteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10935831FBF8B4100C21C6E /* VoteTests.swift */; };
 		A10F51BC1FA01D4300680AE6 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A10F51BB1FA01D4300680AE6 /* Default-568h@2x.png */; };
+		A119F8B4201A7C8F00AE983A /* Activity Indicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A119F8B3201A7C8F00AE983A /* Activity Indicator.swift */; };
+		A119F8B5201A7C8F00AE983A /* Activity Indicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A119F8B3201A7C8F00AE983A /* Activity Indicator.swift */; };
 		A11C3BB61FA54DEC000D2255 /* ResponseText.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11C3BB51FA54DEC000D2255 /* ResponseText.swift */; };
 		A11C3BB71FA54DEC000D2255 /* ResponseText.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11C3BB51FA54DEC000D2255 /* ResponseText.swift */; };
 		A12656461FDF275500F37215 /* Flag.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12656451FDF275500F37215 /* Flag.swift */; };
@@ -171,6 +173,7 @@
 		90C4E87A1FC16F8400A8D329 /* VoteCounter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteCounter.swift; sourceTree = "<group>"; };
 		A10935831FBF8B4100C21C6E /* VoteTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = VoteTests.swift; path = "Small Business AdvisorTests/Data Model/VoteTests.swift"; sourceTree = SOURCE_ROOT; };
 		A10F51BB1FA01D4300680AE6 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		A119F8B3201A7C8F00AE983A /* Activity Indicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Activity Indicator.swift"; path = "View Control/Activity Indicator.swift"; sourceTree = "<group>"; };
 		A11C3BB51FA54DEC000D2255 /* ResponseText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseText.swift; sourceTree = "<group>"; };
 		A12656451FDF275500F37215 /* Flag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flag.swift; sourceTree = "<group>"; };
 		A126564C1FDF27E700F37215 /* EditTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTests.swift; sourceTree = "<group>"; };
@@ -405,6 +408,7 @@
 			children = (
 				A1734AEE1FDF639D0025F56A /* Deprecated */,
 				A1AB0E241FA0185100F1D3FF /* Main.storyboard */,
+				A119F8B3201A7C8F00AE983A /* Activity Indicator.swift */,
 				90A16F451FAE48B1002D418B /* Type Aliases & Strings.swift */,
 				A1265DBE1FAA853A00E4C712 /* View Control */,
 				A15044011FA342740018B909 /* Data Model */,
@@ -672,6 +676,7 @@
 				A1299E761FE1EB0900030BB1 /* AnyPicker.swift in Sources */,
 				A1734AF71FDFBF3B0025F56A /* _Flagger.swift in Sources */,
 				A1D102B91FBD821900B89C53 /* TipReceiver.swift in Sources */,
+				A119F8B4201A7C8F00AE983A /* Activity Indicator.swift in Sources */,
 				A19AD90A1FDAA30E001C5846 /* FieldsEditorViewController.swift in Sources */,
 				A197E64D2017BE5800B62ED2 /* ButtonEnabler.swift in Sources */,
 				90C4E87B1FC16F8400A8D329 /* VoteCounter.swift in Sources */,
@@ -713,6 +718,7 @@
 				A184ABE91FE1133500334F3C /* AnyPickerTests.swift in Sources */,
 				90C4E87C1FC16F8400A8D329 /* VoteCounter.swift in Sources */,
 				9033901C1FB4409400E7D7A9 /* TestTools.swift in Sources */,
+				A119F8B5201A7C8F00AE983A /* Activity Indicator.swift in Sources */,
 				90C4E8751FC11B5500A8D329 /* VoteEditorTests.swift in Sources */,
 				A1299E771FE1EB0900030BB1 /* AnyPicker.swift in Sources */,
 				A1A0FCEC1FE34C6200E3D679 /* Graphic Themes.swift in Sources */,

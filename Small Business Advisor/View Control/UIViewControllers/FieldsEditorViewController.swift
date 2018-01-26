@@ -39,6 +39,8 @@ print("                                 REACHED !! !! !!")  // <-- Not ever happ
     
     // MARK: - Properties: IBOutlets
     
+    @IBOutlet weak var editorTypeIndicator: UILabel!
+    
     @IBOutlet weak var categoryButton: UIButton!
     
     @IBOutlet weak var textArea: UITextView!
@@ -54,6 +56,8 @@ print("                                 REACHED !! !! !!")  // <-- Not ever happ
     // MARK: - Functions
     
     fileprivate func decorate() {
+        if tipBeingEdited == nil { editorTypeIndicator.text = "➕" }
+        
         textArea.attributedText = NSAttributedString(string: text, attributes: Format.bodyText)
         textArea.delegate = self
         
