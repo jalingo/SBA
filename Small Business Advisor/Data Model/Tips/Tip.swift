@@ -67,12 +67,6 @@ This app requires an internet connection and valid iCloud account to connect to 
 
 // MARK: - Extensions
 
-// MARK: - Extension: Pickable
-
-extension Tip: Pickable {
-    var title: String { return self.text.string[0...30] }
-}
-
 // MARK: - Extension: Equatable
 
 extension Tip: Equatable {
