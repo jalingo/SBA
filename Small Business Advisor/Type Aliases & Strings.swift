@@ -1,15 +1,10 @@
 //
-//  Type Aliases & Strings.swift
+//  KVO Strings.swift
 //  Small Biz Advisor
 //
 //  Created by James Lingo on 11/4/17.
 //  Copyright © 2017 Escape Chaos. All rights reserved.
 //
-
-// MARK: - Type Aliases
-
-/// Used by the AnyPicker class to pass activity for the didSelect method.
-typealias PickerBlock = ((Pickable) -> ())?
 
 // MARK: - Key Strings
 

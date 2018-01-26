@@ -36,8 +36,6 @@ print("                 registered with token")
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
 print("                 !! Error @ UIApp.didFailToRegister")
 print("                 \(error.localizedDescription)")
-        
-        // TODO !! graceful disable &or error handling...
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
