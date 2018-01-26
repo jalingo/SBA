@@ -25,7 +25,7 @@ struct Tip: Entry {
     // MARK: - Properties
     
     let defaultText = """
-Loading tips, try again shortly.
+We did not load advice, try again shortly.
 
 If they do not finish downloading momentarily, please ensure you are connected to the internet and logged into an iCloud account in settings.
 
