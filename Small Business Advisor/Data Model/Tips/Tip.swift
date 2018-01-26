@@ -24,7 +24,7 @@ struct Tip: Entry {
     
     // MARK: - Properties
     
-    let defaultText = """
+    static let defaultText = """
 We did not load advice, try again shortly.
 
 If they do not finish downloading momentarily, please ensure you are connected to the internet and logged into an iCloud account in settings.
@@ -139,7 +139,7 @@ extension Tip: MCRecordable {
 
     /// This init w/out parameters creates an empty recordable that can be overwritten by `prepare(from:)`.
     init() {
-        self.text = NSAttributedString(string: defaultText, attributes: Format.bodyText)
+        self.text = NSAttributedString(string: Tip.defaultText, attributes: Format.bodyText)
         self.category = .outOfRange
         self.index = -1
     }    
