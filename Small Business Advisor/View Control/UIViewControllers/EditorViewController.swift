@@ -129,8 +129,14 @@ class EditorViewController: UIViewController {
     
     // This method checks that there's no network error (defaultText).
     @IBAction func addTapped(_ sender: UIButton) {
-        if let parent = self.parent as? AdvisorViewController, currentTip?.text.string != Tip.defaultText { parent.tipPassingAllowed = false }
-        segue(from: "homeToEditor") }
+        if let parent = self.parent as? AdvisorViewController,
+            parent.page == 0 || currentTip?.text.string != Tip.defaultText, // <- first page or no net errors
+            parent.tips.count != 0      // <-- This ensures that first page fails w/network errors
+        {
+            parent.tipPassingAllowed = false
+            segue(from: "homeToEditor")
+        }
+    }
     
     // This method checks that AdvisorVC has a page value and that there's no network error (defaultText).
     @IBAction func flagTapped(_ sender: UIButton) {
