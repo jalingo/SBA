@@ -21,7 +21,7 @@ class EditorViewController: UIViewController {
     var currentTip: Tip? {
         didSet {
             previousVote = nil
-            checkAvailability()
+            if currentTip?.text.string != Tip.defaultText { checkAvailability() }
         }
     }
     
@@ -103,10 +103,14 @@ class EditorViewController: UIViewController {
     fileprivate func adjustVoteButtonStatesForReset(enabled: Bool) {
         adjustVote(button: upVoteButton, enable: enabled)
         adjustVote(button: downVoteButton, enable: enabled)
+        
+        upVoteButton.isEnabled = enabled
+        downVoteButton.isEnabled = enabled
     }
     
     fileprivate func adjustVote(button: UIButton, enable: Bool) {
         enable ? button.setTitleColor(Format.ecGreen, for: .normal) : button.setTitleColor(.gray, for: .normal)
+        button.isEnabled = true // <-- This ensure that false state from adjustVoteButtonStatesForReset:enabled:false is corrected if encountered.
     }
     
     func segue(from id: String) { self.parent?.performSegue(withIdentifier: id, sender: nil) }
@@ -115,19 +119,22 @@ class EditorViewController: UIViewController {
     
     @IBAction func upVoteTapped(_ sender: UIButton) { vote(up: true) }
     
+    // !!
     @IBAction func downVoteTapped(_ sender: UIButton) { vote(up: false) }
     
+    // This method checks that AdvisorVC has a page value and that there's no network error (defaultText).
     @IBAction func editTapped(_ sender: UIButton) {
-        if let parent = self.parent as? AdvisorViewController, parent.page != 0 { segue(from: "homeToEditor") }   // <- How do I differentiate w/out currentTip & still need currentTip ?
+        if let parent = self.parent as? AdvisorViewController, parent.page != 0, currentTip?.text.string != Tip.defaultText { segue(from: "homeToEditor") }
     }
     
-    // restraint not needed, can add from the get go.
+    // This method checks that there's no network error (defaultText).
     @IBAction func addTapped(_ sender: UIButton) {
-        if let parent = self.parent as? AdvisorViewController { parent.tipPassingAllowed = false }
-        segue(from: "homeToEditor") }                                  // <- How do I differentiate w/out currentTip & still need currentTip ?
+        if let parent = self.parent as? AdvisorViewController, currentTip?.text.string != Tip.defaultText { parent.tipPassingAllowed = false }
+        segue(from: "homeToEditor") }
     
+    // This method checks that AdvisorVC has a page value and that there's no network error (defaultText).
     @IBAction func flagTapped(_ sender: UIButton) {
-        if let parent = self.parent as? AdvisorViewController, parent.page != 0 { self.segue(from: "homeToFlagger") }
+        if let parent = self.parent as? AdvisorViewController, parent.page != 0, currentTip?.text.string != Tip.defaultText { self.segue(from: "homeToFlagger") }
     }
     
     // MARK: - Functions: UIViewController
