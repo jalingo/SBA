@@ -116,10 +116,10 @@ class AdvisorViewController: UIViewController, PickerDecorator {
     
     // MARK: - - Functions: IBActions
     
-    // !!
+    /// This IBAction method is used by other view controllers to unwind back to AdvisorViewController.
     @IBAction func unwindToHome(segue: UIStoryboardSegue) { /* May need to reload view here... */ }
     
-    // !!
+    /// This IBAction method exits the app and opens browser (w/specified site) when user taps logo.
     @IBAction func logoTapped(_ sender: UIButton) {
         if let url = URL(string: URL_str.homePage) { UIApplication.shared.open(url) }
     }
@@ -135,7 +135,7 @@ class AdvisorViewController: UIViewController, PickerDecorator {
     /**
         When `helpPressed` this method populates screen with help message and support links.
      
-     - Warning: Links are left out of formatting, because `textView` is set to recognize links in text.
+        - Warning: Links are left out of formatting, because `textView` is set to recognize links in text.
      */
     @IBAction func helpPressed(_ sender: UIButton) {
         textView.attributedText = NSAttributedString(string: UserFacingText.helpInstructions,
@@ -148,7 +148,7 @@ class AdvisorViewController: UIViewController, PickerDecorator {
     /// Recognizes the USER performing swipe gesture on `textView` and takes action based on direction.
     @IBAction func swipeRight(_ sender: UISwipeGestureRecognizer) { decreasePage() }
     
-    // !!
+    /// This IBAction method switches category limitation lock state when user taps category lock button.
     @IBAction func categoryLockTapped(_ sender: UIButton) {
         if let _ = tips.limitation {
             tips.limitation = nil
@@ -163,7 +163,7 @@ class AdvisorViewController: UIViewController, PickerDecorator {
         sender.setNeedsDisplay()
     }
     
-    // !!
+    /// This IBAction method presents category pickerView selector when category limited and USER taps.
     @IBAction func categorySelectorTapped(_ sender: UIButton) { pick() }
     
     // MARK: - - Functions: UIViewController
@@ -190,33 +190,3 @@ class AdvisorViewController: UIViewController, PickerDecorator {
         if let controller = segue.destination as? TipEditor { tipPassingAllowed ? (controller.tip = tips.rank(of: page)) : (tipPassingAllowed = true) }
     }    
 }
-
-
-// MARK: - Extensions
-
-extension AdvisorViewController: UIPickerViewDelegate {
-    func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
-        return TipCategory(rawValue: row)?.formatted
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return TipCategory(rawValue: row)?.formatted.string
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        if let category = TipCategory(rawValue: row) {
-            selectCategoryButton.setAttributedTitle(category.formatted, for: .normal)
-            self.tips.limitation = category
-            self.increasePage() // <-- May be problematic (force random first?)
-        }
-
-        pickerView.removeFromSuperview()
-    }
-}
-
-extension AdvisorViewController: UIPickerViewDataSource {
-    func numberOfComponents(in pickerView: UIPickerView) -> Int { return 1 }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int { return TipCategory.max }
-}
-
