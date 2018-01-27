@@ -17,12 +17,19 @@ extension FlaggerViewController: UIPickerViewDelegate {
     
     // MARK: - Functions
     
+    /**
+        This method sets flag based on the row USER selected from pickerView.
+     
+        This is an asynchronous method, which leaves main thread. This results in several called methods needing to return to main thread to edit view components.
+     
+        - Parameter row: Represents the FlagReason selected. Offsets by -1 to account for first row in pickerView not being a FlagReason.
+    */
     fileprivate func flagSelected(for row: Int) {
-        DispatchQueue(label: "async off main").async {  // <-- !! Try async from main, then we can get rid of all the returns to main...
+        DispatchQueue(label: "async off main").async {
             switch row - 1 {
             case 0: self.setReason(to: .offTopic)
             case 1: self.setReason(to: .inaccurate)
-            case 2: self.wrongTipSelected()
+            case 2: self.duplicateTipSelected()
             case 3: self.wrongCategorySelected()
             case 4: self.setReason(to: .spam)
             case 5: self.setReason(to: .abusive)
@@ -31,12 +38,18 @@ extension FlaggerViewController: UIPickerViewDelegate {
         }
     }
     
-    func setReason(to reason: FlagReason) {
+    /**
+        This method sets FlaggerViewController.reason with argument passed and then runs .updateViews.
+     
+        - Parameter reason: The FlagReason USER is flagging current tip for.
+     */
+    fileprivate func setReason(to reason: FlagReason) {
         self.reason = reason
         DispatchQueue.main.async { self.updateViews() }
     }
-    
-    func wrongCategorySelected() {
+
+    /// This method follows up for auxiliary data when wrong category selected in picker view.
+    fileprivate func wrongCategorySelected() {
         DispatchQueue.main.async {
             self.flaggerLabel.text = "Which Category should this tip be..."
             self.sampleModel = TipCategory.hr   // <-- Any category should trigger the correct delegate responses
@@ -44,7 +57,8 @@ extension FlaggerViewController: UIPickerViewDelegate {
         }
     }
     
-    func wrongTipSelected() {
+    /// This method follows up for auxiliary data when duplicate tip selected in picker view.
+    fileprivate func duplicateTipSelected() {
         DispatchQueue.main.async {
             self.flaggerLabel.text = "Which Tip is this a duplicate of..."
             self.sampleModel = self.tip         // <-- Any tip should trigger the correct delegate responses
@@ -52,20 +66,35 @@ extension FlaggerViewController: UIPickerViewDelegate {
         }
     }
     
-    func categorySelected(for row: Int) {
+    /**
+        This method sets correct category based on the row USER selected from pickerView.
+
+        - Parameter row: Represents the category selected.
+     */
+    fileprivate func categorySelected(for row: Int) {
         if let cat = TipCategory(rawValue: row) {
             let ref = CKReference(recordID: cat.recordID, action: .deleteSelf)
             setReason(to: .wrongCategory(ref))
         }
     }
     
-    func tipSelected(for row: Int) {
+    /**
+        This method sets duplicate tip based on the row USER selected from pickerView.
+     
+        - Parameter row: Represents the tip selected.
+     */
+    fileprivate func tipSelected(for row: Int) {
         let tip = tips.rank(of: row)
         let ref = CKReference(recordID: tip.recordID, action: .deleteSelf)
         setReason(to: .duplicate(ref))
     }
     
-    func flagTitle(for row: Int) -> String {
+    /**
+        This method returns a string to display in picker view cells, one for each FlagReason along w/"Select reason..."
+     
+        - Parameter row: The row that needs to be titled in picker view.
+     */
+    fileprivate func flagTitle(for row: Int) -> String {
         switch row - 1 {
         case 0: return "Off Topic / Irrelevant"
         case 1: return "Inaccurate / Disputed"

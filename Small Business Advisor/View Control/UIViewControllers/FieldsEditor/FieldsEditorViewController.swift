@@ -14,27 +14,26 @@ import CloudKit
 class FieldsEditorViewController: UIViewController, PickerDecorator {
 
     // MARK: - Properties
-    
+
+    /// This property stores an MCReceiver associated w/TipEdit recordable.
+    /// To access an array of all existing types in .recordables
     fileprivate var suggestedEdits = MCReceiver<TipEdit>(db: .publicDB)
     
+    /// This property stores an MCReceiver associated w/NewTip recordable.
+    /// To access an array of all existing types in .recordables
     fileprivate var suggestedTips = MCReceiver<NewTip>(db: .publicDB)
+    
+    /// This computed property returns the category of the tipBeingEdited, or if nil then ".outOfRange".
+    fileprivate var category: TipCategory { return tipBeingEdited?.category ?? .outOfRange }
+    
+    /// This computed property returns the body text for the tipBeingEdited, or if nil then "Default.bodyText".
+    fileprivate var text: String { return tipBeingEdited?.text.string ?? Default.bodyText }
     
     /// When this property is nil, VC is being used to create a new tip suggestion. Otherwise, the stored tip is being edited.
     var tipBeingEdited: Tip?
-
-    // !!
-//        {
-//        didSet {
-//            guard categoryButton != nil else { return }
-//print("                                 REACHED !! !! !!")  // <-- Not ever happening...
-//            categoryButton.setTitle(category.formatted.string, for: .normal) }
-//    }
     
-    fileprivate var category: TipCategory { return tipBeingEdited?.category ?? .outOfRange }
-    
-    fileprivate var text: String { return tipBeingEdited?.text.string ?? Default.bodyText }
-    
-    fileprivate var selectedCategory: String? {
+    /// This optional property stores new category selected, or nil if USER has not made a selection.
+    var selectedCategory: String? {
         didSet {
             if let txt = selectedCategory { categoryButton.setTitle(txt, for: .normal) }
         }
@@ -42,22 +41,30 @@ class FieldsEditorViewController: UIViewController, PickerDecorator {
     
     // MARK: - Properties: IBOutlets
     
+    /// This IBOutlet property references a label that indicates type of editor: create new v. edit existing.
     @IBOutlet weak var editorTypeIndicator: UILabel!
     
+    /// This IBOutlet property references the category button used to display current category and tap for more.
     @IBOutlet weak var categoryButton: UIButton!
     
+    /// This IBOutlet property references the textArea used to communicate with USER.
     @IBOutlet weak var textArea: UITextView!
     
+    /// This IBOutlet property references the text field USER can input email address in.
     @IBOutlet weak var emailField: UITextField!
     
+    /// This IBOutlet property references the save button USER taps to save changes they've made.
     @IBOutlet weak var saveButton: UIButton!
     
     // MARK: - Properties: UIPickerViewDataSource
     
-    fileprivate var categories = MCReceiver<TipCategory>(db: .publicDB)
+    /// This property stores an MCReceiver associated w/TipCategory recordable.
+    /// Access an array of all existing types in .recordables
+    var categories = MCReceiver<TipCategory>(db: .publicDB)
     
     // MARK: - Functions
     
+    /// This method decorates UI elements based on tipBeingEdited.
     fileprivate func decorate() {
         if tipBeingEdited == nil { editorTypeIndicator.text = "➕" }
         
@@ -66,6 +73,11 @@ class FieldsEditorViewController: UIViewController, PickerDecorator {
         
         emailField.delegate = self
         
+        decorateButtons()
+    }
+    
+    /// This method decorates buttons from view based on tipBeingEdited.
+    fileprivate func decorateButtons() {
         if let tip = tipBeingEdited {
             categoryButton.setTitle(tip.category.formatted.string, for: .normal)
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
@@ -89,15 +101,16 @@ class FieldsEditorViewController: UIViewController, PickerDecorator {
         }
     }
     
+    /// This method saves changes made by USER to tipBeingEdited or new tip to be created.
     fileprivate func saveChanges() {
         var possibleOp: Operation?
         
-        if let tip = tipBeingEdited {                                                   // <-- will submit 'edit'
+        if let tip = tipBeingEdited {                                               // <-- will submit 'edit'
             var edit = TipEdit(newText: textArea.text, newCategory: selectedCategory, for: tip)
             edit.editorEmail = emailField.text
             
             possibleOp = MCUpload([edit], from: suggestedEdits, to: .publicDB)
-        } else {                                                                        // <-- nil, will submit 'new'
+        } else {                                                                    // <-- nil, will submit 'new'
             var new = NewTip(text: textArea.text, category: selectedCategory ?? "NA")
             new.editorEmail = emailField.text
             
@@ -107,6 +120,7 @@ class FieldsEditorViewController: UIViewController, PickerDecorator {
         if let op = possibleOp { OperationQueue().addOperation(op) }
     }
     
+    /// This method disables buttons that allow USER to interact with database.
     fileprivate func disableDatabaseChanges() {
         disableChangesWhileIgnoringFgColor()
         saveButton.setTitleColor(.red, for: .normal)
@@ -116,6 +130,7 @@ class FieldsEditorViewController: UIViewController, PickerDecorator {
     }
     
     // MARK: - Functions: IBActions
+    
     
     @IBAction func categoryTapped(_ sender: UIButton) {
         let picker = UIPickerView()
@@ -162,60 +177,6 @@ class FieldsEditorViewController: UIViewController, PickerDecorator {
 }
 
 // MARK: - Extensions
-
-// MARK: - Extension: UIPickerViewDataSource
-
-extension FieldsEditorViewController: UIPickerViewDataSource {
-    
-    /// There is only ever one section (categories)...
-    func numberOfComponents(in pickerView: UIPickerView) -> Int { return 1 }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return categories.recordables.count + 1
-    }
-}
-
-// MARK: - Extension: UIPickerViewDelegate
-
-extension FieldsEditorViewController: UIPickerViewDelegate {
-    
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return TipCategory(rawValue: row)?.formatted.string
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
-        return TipCategory(rawValue: row)?.formatted
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        if row == categories.recordables.count + 1 {
-            recoverNewCategoryTitle()
-        } else {
-            guard let cat = TipCategory(rawValue: row) else { return }
-            if tipBeingEdited != nil {
-                tipBeingEdited!.category = cat
-            } else {
-                selectedCategory = cat.formatted.string
-            }
-        }
-        
-        pickerView.removeFromSuperview()
-    }
-    
-    fileprivate func recoverNewCategoryTitle() {
-        let alert = UIAlertController(title: "New Category Suggestion", message: nil, preferredStyle: .alert)
-        
-        alert.addTextField { textField in
-            textField.text = "Spaces are fine..."
-        }
-        
-        alert.addAction(UIAlertAction(title: "Save", style: .default) { [weak alert] (_) in
-            self.selectedCategory = alert?.textFields?[0].text
-        })
-        
-        self.present(alert, animated: true, completion: nil)
-    }
-}
 
 // MARK: - Extension: UITextViewDelegate
 

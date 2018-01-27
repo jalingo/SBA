@@ -21,7 +21,7 @@ class AdvisorViewController: UIViewController, PickerDecorator {
     // MARK: - Properties
     
     /// This receiver is the primary connection to the data model. Handles vote counting locally.
-    /// To access an array of all existing types in .recordables
+    /// Access an array of all existing types in .recordables
     var tips = TipFactory()
     
     /// This boolean can be used to prevent AdvisorVC from passing tip to TipEditor in AdvisorVC.prepare:forSegue:
