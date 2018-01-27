@@ -24,7 +24,7 @@ extension AdvisorViewController: UIPickerViewDelegate {
         if let category = TipCategory(rawValue: row) {
             selectCategoryButton.setAttributedTitle(category.formatted, for: .normal)
             self.tips.limitation = category
-            self.increasePage() // <-- May be problematic (force random first?)
+            self.increasePage()
         }
         
         pickerView.removeFromSuperview()

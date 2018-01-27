@@ -21,6 +21,7 @@ class AdvisorViewController: UIViewController, PickerDecorator {
     // MARK: - Properties
     
     /// This receiver is the primary connection to the data model. Handles vote counting locally.
+    /// To access an array of all existing types in .recordables
     var tips = TipFactory()
     
     /// This boolean can be used to prevent AdvisorVC from passing tip to TipEditor in AdvisorVC.prepare:forSegue:
@@ -88,7 +89,7 @@ class AdvisorViewController: UIViewController, PickerDecorator {
      
         Recognizes `increasePage` position, and ensures that page number doesn't exceed count (starting over again at page '1').
      */
-    fileprivate func increasePage() {
+    func increasePage() {
         if randomSwitch.isOn {
             let random = tips.random()
             textView.attributedText = random.text
@@ -104,7 +105,7 @@ class AdvisorViewController: UIViewController, PickerDecorator {
      
         Ensures page doesn't go below '1' (starting over at `TipFactory.max`).
      */
-    fileprivate func decreasePage() {
+    func decreasePage() {
         
         // If in "Random Mode", a swipe is treated as a shake.
         guard !randomSwitch.isOn else { increasePage(); return }
