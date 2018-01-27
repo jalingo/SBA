@@ -163,16 +163,6 @@ class FieldsEditorViewController: UIViewController, PickerDecorator {
 
 // MARK: - Extensions
 
-// MARK: - Extension: TipEditor
-
-// !!
-extension FieldsEditorViewController: TipEditor {
-    var tip: Tip? {
-        get { return tipBeingEdited }
-        set { tipBeingEdited = newValue }
-    }
-}
-
 // MARK: - Extension: UIPickerViewDataSource
 
 extension FieldsEditorViewController: UIPickerViewDataSource {

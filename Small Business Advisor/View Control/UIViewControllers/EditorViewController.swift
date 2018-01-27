@@ -160,12 +160,3 @@ class EditorViewController: UIViewController {
 deinit { print("   EditorViewController.deinit") }
 required init?(coder aDecoder: NSCoder) { super.init(coder: aDecoder); print("   EditorVC.init coder \(String(describing: self.nibName))") }
 }
-
-// MARK: - Extension: TipEditor
-
-extension EditorViewController: TipEditor {
-    var tip: Tip? {
-        get { return currentTip }
-        set { currentTip = newValue }
-    }
-}

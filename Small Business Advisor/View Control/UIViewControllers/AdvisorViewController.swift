@@ -9,16 +9,12 @@
 import UIKit
 import MagicCloud
 
-// MARK: Protocols
-
-protocol TipEditor: AnyObject {
-    var tip: Tip? { get set }
-}
-
 // MARK: - Class
 
 /**
-   The `AdvisorViewController` is the only view controller for the entire app. It handles all user interactions (swipes, shakes and taps) and displays the appropriate strings harvested from the data model: `ResponseText`.
+    The `AdvisorViewController` is the primary view controller for the entire app. It handles all user interactions (swipes, shakes and taps) and displays the appropriate strings harvested from the data model: `ResponseText`.
+ 
+    It contains `EditorViewController` as a child view controller and can segue to `FlaggerVC` and `FieldsEditorVC` for list moderation suggestions.
  */
 class AdvisorViewController: UIViewController, PickerDecorator {
     
@@ -47,7 +43,7 @@ class AdvisorViewController: UIViewController, PickerDecorator {
     
     // MARK: - - Properties: IBOutlets
     
-    // !!
+    /// This IBOutlet property shows a visual representation of presented tip's strength (based on rank).
     @IBOutlet weak var rankMeter: UIProgressView!
     
     /// `pageLabel` shows the index of the current entry from the data model.
@@ -59,10 +55,10 @@ class AdvisorViewController: UIViewController, PickerDecorator {
     /// `randomSwitch` is toggled between `on` (next entry determined at random) & `off` (entries come in order).
     @IBOutlet weak var randomSwitch: UISwitch!
     
-    // !!
+    /// This IBOutlet property displays current tip's category and serves a button to limit list by category.
     @IBOutlet weak var selectCategoryButton: UIButton!
     
-    // !!
+    /// This IBOutlet property displays category lock status and switchs category limitation state.
     @IBOutlet weak var categoryLock: UIButton!
     
     // MARK: - - Properties: UIResponder
@@ -72,14 +68,15 @@ class AdvisorViewController: UIViewController, PickerDecorator {
     
     // MARK: - Functions
     
-    // !!
-    func pick() {
+    /// This method presents a pickerView representing categories when USER specifies category limitation.
+    fileprivate func pick() {
         let picker = UIPickerView()
         decorate(picker, for: self)
         
         view.addSubview(picker)
     }
     
+    /// This method will pass current tip to any child view controllers conforming to TipEditor (see above).
     fileprivate func passTipToChildren() {
         for child in childViewControllers {
             if let controller = child as? TipEditor { tipPassingAllowed ? (controller.tip = tips.rank(of: page)) : (tipPassingAllowed = true) }
