@@ -24,13 +24,7 @@ struct Tip: Entry {
     
     // MARK: - Properties
     
-    static let defaultText = """
-We did not load advice, try again shortly.
-
-If they do not finish downloading momentarily, please ensure you are connected to the internet and logged into an iCloud account in settings.
-
-This app requires an internet connection and valid iCloud account to connect to it's database of small business advice.
-"""
+    static let defaultText = UserFacingText.networkIssueInstructions
     
     // MARK: - Properties: Entry
     

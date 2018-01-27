@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		9033901C1FB4409400E7D7A9 /* TestTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9033901B1FB4409400E7D7A9 /* TestTools.swift */; };
-		90A16F461FAE48B1002D418B /* KVO Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A16F451FAE48B1002D418B /* KVO Strings.swift */; };
-		90A16F471FAE48B1002D418B /* KVO Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A16F451FAE48B1002D418B /* KVO Strings.swift */; };
+		90A16F461FAE48B1002D418B /* Key Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A16F451FAE48B1002D418B /* Key Strings.swift */; };
+		90A16F471FAE48B1002D418B /* Key Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A16F451FAE48B1002D418B /* Key Strings.swift */; };
 		90C4E8751FC11B5500A8D329 /* VoteEditorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C4E8741FC11B5500A8D329 /* VoteEditorTests.swift */; };
 		90C4E8771FC14D5600A8D329 /* Vote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C4E8761FC14D5600A8D329 /* Vote.swift */; };
 		90C4E8781FC14D5600A8D329 /* Vote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C4E8761FC14D5600A8D329 /* Vote.swift */; };
@@ -69,6 +69,8 @@
 		A1AB0E411FA0185100F1D3FF /* Small_Business_AdvisorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AB0E401FA0185100F1D3FF /* Small_Business_AdvisorUITests.swift */; };
 		A1AB0E501FA01A1D00F1D3FF /* AdvisorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AB0E4F1FA01A1D00F1D3FF /* AdvisorViewController.swift */; };
 		A1AB0E511FA01A1D00F1D3FF /* AdvisorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AB0E4F1FA01A1D00F1D3FF /* AdvisorViewController.swift */; };
+		A1AC8F29201C011B000B02E8 /* UserFacingText.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AC8F28201C011B000B02E8 /* UserFacingText.swift */; };
+		A1AC8F2A201C011B000B02E8 /* UserFacingText.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AC8F28201C011B000B02E8 /* UserFacingText.swift */; };
 		A1B6943C20169ACD0052DF8C /* FlaggerPickerDelegation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B6943B20169ACD0052DF8C /* FlaggerPickerDelegation.swift */; };
 		A1B6943D20169ACD0052DF8C /* FlaggerPickerDelegation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B6943B20169ACD0052DF8C /* FlaggerPickerDelegation.swift */; };
 		A1B6943F2016B4D20052DF8C /* Suggestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B6943E2016B4D20052DF8C /* Suggestion.swift */; };
@@ -155,7 +157,7 @@
 
 /* Begin PBXFileReference section */
 		9033901B1FB4409400E7D7A9 /* TestTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestTools.swift; sourceTree = "<group>"; };
-		90A16F451FAE48B1002D418B /* KVO Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KVO Strings.swift"; sourceTree = "<group>"; };
+		90A16F451FAE48B1002D418B /* Key Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Key Strings.swift"; sourceTree = "<group>"; };
 		90C4E8741FC11B5500A8D329 /* VoteEditorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteEditorTests.swift; sourceTree = "<group>"; };
 		90C4E8761FC14D5600A8D329 /* Vote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vote.swift; sourceTree = "<group>"; };
 		90C4E87A1FC16F8400A8D329 /* VoteCounter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteCounter.swift; sourceTree = "<group>"; };
@@ -204,6 +206,7 @@
 		A1AB0E401FA0185100F1D3FF /* Small_Business_AdvisorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Small_Business_AdvisorUITests.swift; sourceTree = "<group>"; };
 		A1AB0E421FA0185100F1D3FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A1AB0E4F1FA01A1D00F1D3FF /* AdvisorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvisorViewController.swift; sourceTree = "<group>"; };
+		A1AC8F28201C011B000B02E8 /* UserFacingText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFacingText.swift; sourceTree = "<group>"; };
 		A1B6943B20169ACD0052DF8C /* FlaggerPickerDelegation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlaggerPickerDelegation.swift; sourceTree = "<group>"; };
 		A1B6943E2016B4D20052DF8C /* Suggestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Suggestion.swift; path = "Small Business Advisor/Data Model/Moderation/Suggestion.swift"; sourceTree = SOURCE_ROOT; };
 		A1CB77741FBABD03008ADF09 /* MagicCloud.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MagicCloud.xcodeproj; path = ../MagicCloud/MagicCloud.xcodeproj; sourceTree = "<group>"; };
@@ -277,6 +280,7 @@
 			children = (
 				A119F8BA201AC3DF00AE983A /* Pickable.swift */,
 				A197E64C2017BE5800B62ED2 /* ButtonEnabler.swift */,
+				A1AC8F28201C011B000B02E8 /* UserFacingText.swift */,
 				A197E656201817EF00B62ED2 /* PickerDecorator.swift */,
 				A1A0FCEA1FE34C6200E3D679 /* Graphic Themes.swift */,
 				A136A0B720195EFA00F53594 /* String Manipulation.swift */,
@@ -377,7 +381,7 @@
 			isa = PBXGroup;
 			children = (
 				A1AB0E241FA0185100F1D3FF /* Main.storyboard */,
-				90A16F451FAE48B1002D418B /* KVO Strings.swift */,
+				90A16F451FAE48B1002D418B /* Key Strings.swift */,
 				A1265DBE1FAA853A00E4C712 /* View Control */,
 				A15044011FA342740018B909 /* Data Model */,
 				A1AB0E4E1FA0187900F1D3FF /* Resources */,
@@ -642,9 +646,10 @@
 				A1AB0E211FA0185100F1D3FF /* AppDelegate.swift in Sources */,
 				A19AD90A1FDAA30E001C5846 /* FieldsEditorViewController.swift in Sources */,
 				A197E64D2017BE5800B62ED2 /* ButtonEnabler.swift in Sources */,
+				A1AC8F29201C011B000B02E8 /* UserFacingText.swift in Sources */,
 				90C4E87B1FC16F8400A8D329 /* VoteCounter.swift in Sources */,
 				A197E657201817EF00B62ED2 /* PickerDecorator.swift in Sources */,
-				90A16F461FAE48B1002D418B /* KVO Strings.swift in Sources */,
+				90A16F461FAE48B1002D418B /* Key Strings.swift in Sources */,
 				90C4E8771FC14D5600A8D329 /* Vote.swift in Sources */,
 				A12656561FDF36EE00F37215 /* NewTip.swift in Sources */,
 				A126564F1FDF2F1D00F37215 /* Edit.swift in Sources */,
@@ -663,6 +668,7 @@
 			files = (
 				A197E64E2017BE5800B62ED2 /* ButtonEnabler.swift in Sources */,
 				A12656541FDF306E00F37215 /* NewTipTests.swift in Sources */,
+				A1AC8F2A201C011B000B02E8 /* UserFacingText.swift in Sources */,
 				A126564D1FDF27E700F37215 /* EditTests.swift in Sources */,
 				A150440B1FA503920018B909 /* Entry.swift in Sources */,
 				A15043FA1FA336520018B909 /* TipCategoryFactoryTests.swift in Sources */,
@@ -684,7 +690,7 @@
 				A19AD90B1FDAA30E001C5846 /* FieldsEditorViewController.swift in Sources */,
 				A12656471FDF275500F37215 /* Flag.swift in Sources */,
 				A1D9555F1FA17BF2002C7563 /* TipCategoryTests.swift in Sources */,
-				90A16F471FAE48B1002D418B /* KVO Strings.swift in Sources */,
+				90A16F471FAE48B1002D418B /* Key Strings.swift in Sources */,
 				90C4E8781FC14D5600A8D329 /* Vote.swift in Sources */,
 				A197E658201817EF00B62ED2 /* PickerDecorator.swift in Sources */,
 				A1D545D3200EBEC4004C1DC8 /* FlaggerViewController.swift in Sources */,

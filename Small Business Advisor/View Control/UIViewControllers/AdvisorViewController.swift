@@ -130,7 +130,7 @@ class AdvisorViewController: UIViewController, PickerDecorator {
     /// When `randomSwitch` tapped, this populates screen with instructions, based on switch outcome.
     @IBAction func randomSwitched(_ sender: UISwitch) {
         let txt: String
-        sender.isOn ? (txt = Instructions.shake) : (txt = Instructions.swipe)
+        sender.isOn ? (txt = UserFacingText.shakeInstructions) : (txt = UserFacingText.swipeInstructions)
 
         textView.attributedText = NSAttributedString(string: txt, attributes: Format.categoryTitle)
     }
@@ -141,7 +141,7 @@ class AdvisorViewController: UIViewController, PickerDecorator {
      - Warning: Links are left out of formatting, because `textView` is set to recognize links in text.
      */
     @IBAction func helpPressed(_ sender: UIButton) {
-        textView.attributedText = NSAttributedString(string: Instructions.help,
+        textView.attributedText = NSAttributedString(string: UserFacingText.helpInstructions,
                                                      attributes: Format.categoryTitle)
     }
     
@@ -175,7 +175,7 @@ class AdvisorViewController: UIViewController, PickerDecorator {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        textView.attributedText = NSAttributedString(string: Instructions.shake,
+        textView.attributedText = NSAttributedString(string: UserFacingText.shakeInstructions,
                                                      attributes: Format.categoryTitle)
         rankMeter.trackTintColor = .white
         

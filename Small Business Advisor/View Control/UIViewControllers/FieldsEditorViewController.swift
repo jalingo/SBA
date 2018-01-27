@@ -20,12 +20,15 @@ class FieldsEditorViewController: UIViewController, PickerDecorator {
     fileprivate var suggestedTips = MCReceiver<NewTip>(db: .publicDB)
     
     /// When this property is nil, VC is being used to create a new tip suggestion. Otherwise, the stored tip is being edited.
-    var tipBeingEdited: Tip? {
-        didSet {
-            guard categoryButton != nil else { return }
-print("                                 REACHED !! !! !!")  // <-- Not ever happening...
-            categoryButton.setTitle(category.formatted.string, for: .normal) }
-    }
+    var tipBeingEdited: Tip?
+
+    // !!
+//        {
+//        didSet {
+//            guard categoryButton != nil else { return }
+//print("                                 REACHED !! !! !!")  // <-- Not ever happening...
+//            categoryButton.setTitle(category.formatted.string, for: .normal) }
+//    }
     
     fileprivate var category: TipCategory { return tipBeingEdited?.category ?? .outOfRange }
     
@@ -109,11 +112,7 @@ print("                                 REACHED !! !! !!")  // <-- Not ever happ
         saveButton.setTitleColor(.red, for: .normal)
         
         textArea.textColor = .red
-        textArea.text = """
-        Each user is limited to five active suggestions for edits and new tips. Once your existing suggestions have been reviewed, you will be able to make more suggestions.
-        
-        Thank you so much for being so helpful! Suggestions like yours improves the quality of our advice.
-        """
+        textArea.text = UserFacingText.suggestionLimitExplanation
     }
     
     // MARK: - Functions: IBActions
@@ -158,12 +157,7 @@ print("                                 REACHED !! !! !!")  // <-- Not ever happ
     
     struct Default {
         static let categoryText = "Select Category"
-        static let bodyText =
-"""
-Tap to edit.
-
-All changes and new tips must be approved by our moderators before they join the list. Tap 'Save' on the keyboard to submit your update.
-"""
+        static let bodyText = UserFacingText.moderatorApprovalExplanation
     }
 }
 

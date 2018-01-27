@@ -50,7 +50,7 @@ class FlaggerViewController: UIViewController, TipEditor {
         if let reason = self.reason, !isFlagged {
             self.flaggerLabel.text = "Flagging as \(reason.toStr())."
         } else {
-            self.flaggerLabel.text = "Each user can only have one active flag at a time."
+            self.flaggerLabel.text = UserFacingText.flagLimitExplanation
         }
         
         self.setFlagButtonState(enabled: !self.isFlagged)
