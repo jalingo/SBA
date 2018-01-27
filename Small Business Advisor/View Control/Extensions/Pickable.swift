@@ -20,11 +20,15 @@ protocol Pickable: MCRecordable {
 // MARK: - Extension: Tip
 
 extension Tip: Pickable {
+    
+    /// This read-only property returns a title string for display in UIPickerView cell.
     var title: String { return self.text.string[0...30] }
 }
 
 // MARK: - Extension: TipCategory
 
 extension TipCategory: Pickable {
+    
+    /// This read-only property returns a title string for display in UIPickerView cell.
     var title: String { return self.formatted.string }
 }
