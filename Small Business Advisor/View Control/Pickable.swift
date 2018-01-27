@@ -8,8 +8,10 @@
 
 import MagicCloud
 
-// !!
+/// This protocol supports conforming instances being listed in a UIPickerView.
 protocol Pickable: MCRecordable {
+    
+    /// This read-only property returns a title string for display in UIPickerView cell.
     var title: String { get }
 }
 
