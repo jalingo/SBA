@@ -131,14 +131,15 @@ class FieldsEditorViewController: UIViewController, PickerDecorator {
     
     // MARK: - Functions: IBActions
     
-    
+    /// This IBAction method adds a category pickerView as subView when sender is tapped.
     @IBAction func categoryTapped(_ sender: UIButton) {
         let picker = UIPickerView()
         decorate(picker, for: self)
         
         self.view.addSubview(picker)
     }
-    
+
+    /// This IBAction method saves changes and unwindes back to AdvisorVC when sender is tapped.
     @IBAction func saveTapped(_ sender: UIButton) {
         saveChanges()
         performSegue(withIdentifier: "unwindToHome", sender: self)
@@ -156,20 +157,9 @@ class FieldsEditorViewController: UIViewController, PickerDecorator {
         if emailField.isEditing { emailField.resignFirstResponder() }
     }
 
-    /*
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
-    // MARK: - Functions: Construction
+    // MARK: - Inner Classes
     
-    deinit {
-        print("** FieldsEditorViewController deinitializing.")
-    }
-    
+    /// This struct contains default strings for User Facing text in view controller.
     struct Default {
         static let categoryText = "Select Category"
         static let bodyText = UserFacingText.moderatorApprovalExplanation
