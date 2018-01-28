@@ -10,7 +10,7 @@ import UIKit
 import MagicCloud
 import CloudKit
 
-// what if we made this generic...how would we set it? can it be? !!
+/// This view controller is presented by AdvisorVC when either USER requests to create a new tip (tipBeingEdited is nil) or edit an existing tip (tipBeingEdited != nil).
 class FieldsEditorViewController: UIViewController, PickerDecorator {
 
     // MARK: - Properties
