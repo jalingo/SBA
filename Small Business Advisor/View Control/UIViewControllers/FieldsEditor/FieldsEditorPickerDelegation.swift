@@ -34,10 +34,12 @@ extension FieldsEditorViewController: UIPickerViewDelegate {
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        if row == categories.recordables.count + 1 {
+        if row == categories.recordables.count {    // <-- Last cell (rows start at 0)
             recoverNewCategoryTitle()
         } else {
-            guard let cat = TipCategory(rawValue: row) else { return }
+            guard let cat = TipCategory(rawValue: row) else {
+                pickerView.removeFromSuperview()
+                return }
             if tipBeingEdited != nil {
                 tipBeingEdited!.category = cat
             } else {
@@ -49,7 +51,6 @@ extension FieldsEditorViewController: UIPickerViewDelegate {
     }
     
     /// This method asks USER to input new category title from an alert message.
-    // !! TODO NOT TESTED
     fileprivate func recoverNewCategoryTitle() {
         let alert = UIAlertController(title: "New Category Suggestion", message: nil, preferredStyle: .alert)
         
