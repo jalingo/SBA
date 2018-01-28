@@ -94,7 +94,7 @@ struct TipCategoryFactory: CategoryFactory {
         This static func creates a TipCategory based on specified index.
      
         - Parameter index: An integer reflecting the unique identifier for a tip in TipCategory.
-            - Returns: The TipCategory for the specified index.
+        - Returns: The TipCategory for the specified index.
      */
     static func produceByIndex(index: Int) -> TipCategory {
         switch index {
@@ -119,9 +119,9 @@ struct TipCategoryFactory: CategoryFactory {
 // MARK: - Extension: MCRecordable
 
 extension TipCategory: MCRecordable {
-    
+
     var recordType: String { return RecordType.category }
-    
+
     var recordFields: Dictionary<String, CKRecordValue> {
         get {
             var d = Dictionary<String, CKRecordValue>()

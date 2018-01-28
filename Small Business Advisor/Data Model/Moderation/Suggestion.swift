@@ -9,17 +9,29 @@
 import MagicCloud
 import CloudKit
 
-// !!
+/// !!
 protocol ModerationSuggester {
+   
+    /// !!
     associatedtype type: SuggestedModeration
     
+    /// !!
     func isUnderLimit(for recordable: [MCRecordable]) -> Bool
 }
 
+/// !!
 protocol SuggestedModeration {
+
+    /// !!
     var editorEmail: String? { get set }
+
+    /// !!
     var tip: CKReference     { get set }
+  
+    /// !!
     var creator: CKRecordID? { get set }
+
+    /// !!
     static var limit: Int?   { get }
 }
 
@@ -38,6 +50,7 @@ extension ModerationSuggester {
     }
 }
 
+/// !!
 struct AnyModerator<T: SuggestedModeration>: ModerationSuggester {
     typealias type = T
 }

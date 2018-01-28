@@ -8,6 +8,7 @@
 
 import CloudKit
 
+/// !!
 enum FlagReason {
     
     // MARK: - Cases
@@ -16,6 +17,7 @@ enum FlagReason {
     
     // MARK: - Properties
     
+    /// !!
     var cloudValues: (CKRecordValue, CKRecordValue?) {
         switch self {
         case .offTopic:                     return (0 as CKRecordValue, nil)
@@ -27,10 +29,12 @@ enum FlagReason {
         }
     }
     
+    /// !!
     static let count = 6
     
     // MARK: - Functions
     
+    /// !!
     func toStr() -> String {
         switch self {
         case .offTopic:                     return "Off Topic"

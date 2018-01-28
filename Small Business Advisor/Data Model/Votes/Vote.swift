@@ -11,6 +11,7 @@ import MagicCloud
 
 // MARK: Protocol
 
+/// Votes track the for
 protocol VoteAbstraction: MCRecordable {
     
     /// This property stores the direction vote was cast: for (true) or against (false).
@@ -33,12 +34,15 @@ struct Vote: VoteAbstraction {
     
     var isFor = true
     
+    /// This optional property serves as storage for computed property candidate.
     fileprivate var ballotMeasure = CKRecordID(recordName: "\(-1)")
+    
     var candidate: CKReference {
         get { return CKReference(recordID: ballotMeasure, action: .deleteSelf) }
         set { ballotMeasure = newValue.recordID }
     }
-    
+
+    /// This optional property serves as storage for computed property constituent.
     fileprivate var voterID = MCUserRecord().singleton
 
     var constituent: CKReference {
@@ -88,6 +92,12 @@ struct Vote: VoteAbstraction {
         self.constituent = CKReference(recordID: defaultConstituent, action: .deleteSelf)
     }
     
+    /**
+        - Parameters:
+            - direction: If true, vote is for candidate. Else, vote is against.
+            - subject: The reference for database record being voted for / against.
+            - voter: The reference for database record associated with vote caster.
+     */
     init(up direction: Bool, candidate subject: CKReference, constituent voter: CKReference) {
         self.isFor = direction
         self.candidate = subject

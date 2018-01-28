@@ -12,9 +12,10 @@ import MagicCloud
 
 // MARK: Protocol
 
+/// !!
 protocol FlagAbstraction: SuggestedModeration {
     
-    // !!
+    /// !!
     var reason: FlagReason { get set }
 }
 
@@ -24,7 +25,7 @@ struct Flag: FlagAbstraction {
     
     // MARK: - Properties
     
-    // MARK: - Properties: Flag !!
+    // MARK: - Properties: Flag
     
     var reason: FlagReason
     
@@ -40,8 +41,10 @@ struct Flag: FlagAbstraction {
     
     // MARK: - Properties: MCRecordable
     
+    /// !!
     fileprivate var _recordID: CKRecordID?
  
+    /// !!
     fileprivate let dummyRec = CKRecordID(recordName: "FLAG_ERROR")
     
     // MARK: - Functions
@@ -53,6 +56,7 @@ struct Flag: FlagAbstraction {
         tip = CKReference(recordID: Tip().recordID, action: .deleteSelf)
     }
     
+    /// !!
     init(tip: Tip, for reason: FlagReason) {
         let ref = CKReference(recordID: tip.recordID, action: .deleteSelf)
         self.tip = ref

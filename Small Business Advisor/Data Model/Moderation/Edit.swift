@@ -9,11 +9,14 @@
 import MagicCloud
 import CloudKit
 
-// !!
+/// !!
 protocol EditAbstraction: SuggestedModeration {
+
+    /// !!
     var newText: String? { get set }
+
+    /// !!
     var newCategory: String? { get set }
-    var tip: CKReference { get set }
 }
 
 struct TipEdit: EditAbstraction {
@@ -38,8 +41,10 @@ struct TipEdit: EditAbstraction {
     
     // MARK: - Properties: MCRecordable
     
+    /// !!
     var _recordID: CKRecordID?
     
+    /// !!
     fileprivate let dummyRec = CKRecordID(recordName: "EDIT_ERROR")
     
     // MARK: - Functions
@@ -48,6 +53,7 @@ struct TipEdit: EditAbstraction {
     
     init() { tip = CKReference(recordID: dummyRec, action: .deleteSelf) }
     
+    /// !!
     init(newText str: String?, newCategory cat: String?, for editedTip: Tip) {
         newText = str
         newCategory = cat

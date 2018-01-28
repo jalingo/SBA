@@ -9,12 +9,17 @@
 import CloudKit
 import MagicCloud
 
-//!!
+/// !!
 protocol NewTipAbstraction: SuggestedModeration {
+
+    /// !!
     var text: String { get set }
+
+    /// !!
     var category: String { get set }
 }
 
+/// !!
 struct NewTip: NewTipAbstraction {
     
     // MARK: - Properties
@@ -37,8 +42,10 @@ struct NewTip: NewTipAbstraction {
     
     // MARK: - Properties: MCRecordable
     
+    /// !!
     var _recordID: CKRecordID?
     
+    /// !!
     fileprivate let dummyRec = CKRecordID(recordName: "NEWTIP_ERROR")
     
     // MARK: - Functions
@@ -47,6 +54,7 @@ struct NewTip: NewTipAbstraction {
 
     init() { /* This init creates a dummy record used by MCRecordable for replication. */ }
     
+    /// !!
     init(text txt: String, category cat: String) {
         _recordID = CKRecordID(recordName: "NEW: \(Date().description)")
         
