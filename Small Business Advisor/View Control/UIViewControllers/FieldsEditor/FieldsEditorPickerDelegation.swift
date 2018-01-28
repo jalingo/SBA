@@ -26,11 +26,13 @@ extension FieldsEditorViewController: UIPickerViewDataSource {
 extension FieldsEditorViewController: UIPickerViewDelegate {
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return TipCategory(rawValue: row)?.formatted.string
+        return TipCategory(rawValue: row)?.formatted.string ?? "New Category..."
     }
     
     func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
-        return TipCategory(rawValue: row)?.formatted
+        
+        let nonCategoryStr = NSAttributedString(string: "New Category...", attributes: Format.categoryTitle)
+        return TipCategory(rawValue: row)?.formatted ?? nonCategoryStr
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
