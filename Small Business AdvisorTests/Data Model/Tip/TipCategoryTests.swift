@@ -22,13 +22,11 @@ class TipCategoryTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        
         mock = .planning
     }
     
     override func tearDown() {
         mock = nil
-        
         super.tearDown()
     }
     

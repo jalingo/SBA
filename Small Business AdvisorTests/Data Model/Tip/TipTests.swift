@@ -20,29 +20,27 @@ class TipTests: XCTestCase {
     override func setUp() {
         super.setUp()
         
-        mock = MockTip(index: 0,
-                       category: .planning,
-                       text: NSAttributedString(string: "TestText"))
+        mock = Tip(index: 0,
+                   category: .planning,
+                   text: NSAttributedString(string: "TestText"))
     }
     
     override func tearDown() {
-
         mock = nil
-        
         super.tearDown()
     }
     
     // MARK: - Functions: Tests
     
-    func testCanReadText()      { XCTAssertNotNil(mock?.text) }
+    func testCanReadText() { XCTAssertNotNil(mock?.text) }
     
-    func testCanWriteText()     {
+    func testCanWriteText() {
         let test: NSAttributedString = NSAttributedString(string: "TEST")
         mock?.text = test
         XCTAssertEqual(test, mock?.text)
     }
     
-    func testCanReadCategory()  { XCTAssertNotNil(mock?.category) }
+    func testCanReadCategory() { XCTAssertNotNil(mock?.category) }
     
     func testCanWriteCategory() {
         let test: TipCategory = .outOfRange
@@ -50,9 +48,9 @@ class TipTests: XCTestCase {
         XCTAssertEqual(test, mock?.category)
     }
     
-    func testCanReadIndex()     { XCTAssertNotNil(mock?.index) }
+    func testCanReadIndex() { XCTAssertNotNil(mock?.index) }
     
-    func testCanWriteIndex()    {
+    func testCanWriteIndex() {
         let test = -1
         mock?.index = test
         XCTAssertEqual(test, mock?.index)
@@ -68,11 +66,11 @@ class TipTests: XCTestCase {
         XCTAssertFalse(nextMock.index < 1)
     }
     
-    func testTipIsEquatable()   { XCTAssert(mock is Equatable) }
+    func testTipIsEquatable() { XCTAssert(mock is Equatable) }
 
-    func testTipIsHashable()    { XCTAssert(mock is Hashable) }
+    func testTipIsHashable() { XCTAssert(mock is Hashable) }
     
-//    func testIsRecordable() { XCTAssert(mock is Recordable) }     // <-- Vers .3
+    func testIsRecordable() { XCTAssert(mock is MCRecordable) }
 }
 
 struct MockTip: Entry {
