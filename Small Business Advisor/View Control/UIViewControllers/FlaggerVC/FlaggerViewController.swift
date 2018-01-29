@@ -59,6 +59,10 @@ class FlaggerViewController: UIViewController, TipEditor {
     
     /// This method updates flaggerLabel and flagButton.
     func updateViews() {
+        
+        // prevents update when no network connectivity
+        guard tips.count != 0 else { return }
+        
         if let reason = self.reason, !isFlagged {
             self.flaggerLabel.text = "Flagging as \(reason.toStr())."
         } else {
@@ -119,10 +123,10 @@ class FlaggerViewController: UIViewController, TipEditor {
         delegation()
         
         // This delay gives time for flags to download and draws attention cloud update reception.
-        // !! CAUTION: Currently, flagger view cannot be reached without network connectivity already being established. In the event of a connectivity loss, this could loop infinitely.
-        DispatchQueue.main.async {
+        // CAUTION: Currently, flagger view cannot be reached without network connectivity already being established. In the event of a connectivity loss, this could loop infinitely.
+        DispatchQueue(label: "delay").async {
             while self.flags.recordables.count == 0 { /* wait until tips have been downloaded */ } // Then...
-            self.setFlagButtonState(enabled: false)
+            DispatchQueue.main.async { self.setFlagButtonState(enabled: false) }
         }
         
         if let txt = tip?.text[...65] {
