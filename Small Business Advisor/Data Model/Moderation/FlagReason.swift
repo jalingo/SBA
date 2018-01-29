@@ -8,7 +8,16 @@
 
 import CloudKit
 
-/// !!
+/**
+    An enumeration of the criteria for which a USER has flagged tip.
+
+    - Off Topic: Said tip is not actually small business advice, but instead concerns something besides small business advice.
+    - Inaccurate: Said tip contains, relies on or expounds false information.
+    - Duplicate: Said tip is already better represented by another tip, or presents an existing tip redundantly.
+    - Wrong Category: Said tip has been mis-categorized.
+    - Spam: Said tip's purpose is to advertise or solicit, rather than actually profer advice.
+    - Abusive / Obscene: Said tip contains NSFW content, or its purpose is to generate controversy, cause harm or be pornographic.
+ */
 enum FlagReason {
     
     // MARK: - Cases
@@ -17,7 +26,7 @@ enum FlagReason {
     
     // MARK: - Properties
     
-    /// !!
+    /// This read-only, computed property returns a tuple of cloud values representing a primary reason (tuple index 0) and where necessary an auxiliary reason (tuple index 1).
     var cloudValues: (CKRecordValue, CKRecordValue?) {
         switch self {
         case .offTopic:                     return (0 as CKRecordValue, nil)
@@ -29,12 +38,12 @@ enum FlagReason {
         }
     }
     
-    /// !!
+    /// This static constant returns the number of possible reasons enumerated by the FlagReason type.
     static let count = 6
     
     // MARK: - Functions
     
-    /// !!
+    /// This method returns enumeration as a string.
     func toStr() -> String {
         switch self {
         case .offTopic:                     return "Off Topic"

@@ -9,16 +9,17 @@
 import MagicCloud
 import CloudKit
 
-/// !!
+/// This abstraction of Edit functionality ensures this form of moderation contains properties that match Tip properties that can be modified.
 protocol EditAbstraction: SuggestedModeration {
 
-    /// !!
+    /// This optional property can store changes to tip body text which USER is modifying.
     var newText: String? { get set }
 
-    /// !!
+    /// This optional property can store changes to tip category which USER is modifying.
     var newCategory: String? { get set }
 }
 
+/// This concrete sub class of Edit abstraction creates instances of Edit's that can be saved as records in the database.
 struct TipEdit: EditAbstraction {
     
     // MARK: - Properties
@@ -41,10 +42,10 @@ struct TipEdit: EditAbstraction {
     
     // MARK: - Properties: MCRecordable
     
-    /// !!
+    /// This property acts as storage for `recordID` computed property.
     var _recordID: CKRecordID?
     
-    /// !!
+    /// This default record is only returned when recordable has not been properly configured.
     fileprivate let dummyRec = CKRecordID(recordName: "EDIT_ERROR")
     
     // MARK: - Functions
@@ -53,7 +54,14 @@ struct TipEdit: EditAbstraction {
     
     init() { tip = CKReference(recordID: dummyRec, action: .deleteSelf) }
     
-    /// !!
+    /**
+        This concrete sub class of Edit abstraction creates instances of Edit's that can be saved as records in the database.
+     
+        - Parameters:
+            - newText: A textual representation of advice that would be embodied in editedTip, containing any modifications or revisions made by the USER.
+            - newCategory: A string representation of the new categorical type being suggested by the USER for editedTip.
+            - editedTip: The subject suggested moderation concerns.
+     */
     init(newText str: String?, newCategory cat: String?, for editedTip: Tip) {
         newText = str
         newCategory = cat

@@ -9,17 +9,17 @@
 import CloudKit
 import MagicCloud
 
-/// !!
+/// This abstraction of NewTip functionality ensures this form of moderation contains properties that match necessary dependencies for potential Tip to be created.
 protocol NewTipAbstraction: SuggestedModeration {
 
-    /// !!
+    /// This property stores the textual representation of advice that would be embodied in the potential tip.
     var text: String { get set }
 
-    /// !!
+    /// This property stores a string representation of the categorical type that encompasses the potential tip.
     var category: String { get set }
 }
 
-/// !!
+/// This concrete sub class of NewTip abstraction creates instances of NewTip's that can be saved as records in the database.
 struct NewTip: NewTipAbstraction {
     
     // MARK: - Properties
@@ -42,10 +42,10 @@ struct NewTip: NewTipAbstraction {
     
     // MARK: - Properties: MCRecordable
     
-    /// !!
+    /// This property acts as storage for `recordID` computed property.
     var _recordID: CKRecordID?
     
-    /// !!
+    /// This default record is only returned when recordable has not been properly configured.
     fileprivate let dummyRec = CKRecordID(recordName: "NEWTIP_ERROR")
     
     // MARK: - Functions
@@ -54,7 +54,13 @@ struct NewTip: NewTipAbstraction {
 
     init() { /* This init creates a dummy record used by MCRecordable for replication. */ }
     
-    /// !!
+    /**
+        This concrete sub class of NewTip abstraction creates instances of NewTip's that can be saved as records in the database.
+
+        - Parameters:
+            - text: A textual representation of advice that would be embodied in the potential tip.
+            - category: A string representation of the categorical type that encompasses the potential tip.
+     */
     init(text txt: String, category cat: String) {
         _recordID = CKRecordID(recordName: "NEW: \(Date().description)")
         

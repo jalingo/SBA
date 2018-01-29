@@ -118,8 +118,12 @@ class FlaggerViewController: UIViewController, TipEditor {
         
         delegation()
         
-        // This delay gives time for flags to download and draws attention  // <-- !! delay needs to move to MCR init
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) { self.setFlagButtonState(enabled: false) }
+        // This delay gives time for flags to download and draws attention cloud update reception.
+        // !! CAUTION: Currently, flagger view cannot be reached without network connectivity already being established. In the event of a connectivity loss, this could loop infinitely.
+        DispatchQueue.main.async {
+            while self.flags.recordables.count == 0 { /* wait until tips have been downloaded */ } // Then...
+            self.setFlagButtonState(enabled: false)
+        }
         
         if let txt = tip?.text[...65] {
             let mutableVersion = NSMutableAttributedString(attributedString: txt)

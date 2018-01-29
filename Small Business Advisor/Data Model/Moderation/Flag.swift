@@ -12,15 +12,16 @@ import MagicCloud
 
 // MARK: Protocol
 
-/// !!
+/// This abstracts the concept of flagging content for removal based on a specific criterion.
 protocol FlagAbstraction: SuggestedModeration {
     
-    /// !!
+    /// This property stores the criteria for which a USER has flagged tip.
     var reason: FlagReason { get set }
 }
 
 // MARK: - Struct
 
+/// This concrete sub class of Flag abstraction creates instances of Flag's that can be saved as records in the database.
 struct Flag: FlagAbstraction {
     
     // MARK: - Properties
@@ -41,10 +42,10 @@ struct Flag: FlagAbstraction {
     
     // MARK: - Properties: MCRecordable
     
-    /// !!
+    /// This property acts as storage for `recordID` computed property.
     fileprivate var _recordID: CKRecordID?
  
-    /// !!
+    /// This default record is only returned when recordable has not been properly configured.
     fileprivate let dummyRec = CKRecordID(recordName: "FLAG_ERROR")
     
     // MARK: - Functions
@@ -56,7 +57,13 @@ struct Flag: FlagAbstraction {
         tip = CKReference(recordID: Tip().recordID, action: .deleteSelf)
     }
     
-    /// !!
+    /**
+        This concrete sub class of Flag abstraction creates instances of Flag's that can be saved as records in the database.
+     
+        - Parameters:
+            - tip: The subject suggested moderation concerns.
+            - reason: The criteria for which a USER has flagged tip.
+     */
     init(tip: Tip, for reason: FlagReason) {
         let ref = CKReference(recordID: tip.recordID, action: .deleteSelf)
         self.tip = ref

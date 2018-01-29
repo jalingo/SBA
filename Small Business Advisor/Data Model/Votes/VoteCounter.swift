@@ -30,13 +30,25 @@ extension VoteCounter {
     
     // MARK: - Functions
     
-    /// !!
+    /**
+        This method sorts dictionary passed, filtering out entries that do not match the category passed, by vote popularity (higher rank = lower index).
+     
+        - Parameters:
+            - dictionary: An argument containing a key for each Tip and a score value that corresponds to the Tip's net vote score.
+            - category: The category results will be filtered against (only returns matching).
+        - Returns: An array of Tips, sorted with greater score = lower index, containing only tips matching the specified category.
+     */
     fileprivate func sort(_ dictionary: [Tip: Int], filteredBy category: TipCategory) -> [Tip] {
         let subSet = dictionary.filter { $0.key.category == category }
         return sortBy(rank: subSet)
     }
     
-    /// !!
+    /**
+        This method sorts dictionary passed, by vote popularity (higher rank = lower index).
+     
+        - Parameter dictionary: An argument containing a key for each Tip and a score value that corresponds to the Tip's net vote score.
+        - Returns: An array of Tips, sorted with greater score = lower index.
+     */
     fileprivate func sortBy(rank dictionary: [Tip: Int]) -> [Tip] {
         return dictionary.keys.sorted {
             guard dictionary[$0] != nil else { return false }   // <-- Test direction pointing: true v false
@@ -46,7 +58,12 @@ extension VoteCounter {
         }
     }
     
-    /// !!
+    /**
+        This method compares votes cast for each tip in tips passed, generating a score (+1 for, -1 against) for each one. The result returned is a dictionary with a key for each tip and corresponding score as value.
+     
+        - Parameter tips: An array of tips to be scored based on votes cast.
+        - Returns: A dictionary containing a key for each Tip and a score value that corresponds to the Tip's net vote score.
+     */
     fileprivate func tabulateResults(for tips: [Tip]) -> [Tip: Int] {
         var dictionary = [Tip: Int]()
         for tip in tips { dictionary[tip] = 0 }     // <-- Initializes dictionary with all tips as keys.
