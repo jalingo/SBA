@@ -14,7 +14,7 @@ class _TipFactoryTests: XCTestCase {
     
     // MARK: - Properties
     
-    var mock: _TipFactoryAbstraction?
+    var mock: TipFactoryAbstraction?
     
     // MARK: - Functions
     
@@ -22,7 +22,7 @@ class _TipFactoryTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        mock = TipFactory(db: .publicDB)
+        mock = TipFactory()
     }
     
     override func tearDown() {

@@ -22,7 +22,7 @@ class EditTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        mock = TipEdit()
+        mock = TipEdit(newText: "Test Text", newCategory: "Test Category", for: Tip())
     }
     
     override func tearDown() {

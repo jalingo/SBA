@@ -21,7 +21,7 @@ class FlagTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        mock = Flag()
+        mock = Flag(tip: Tip(), for: .offTopic)
     }
     
     override func tearDown() {

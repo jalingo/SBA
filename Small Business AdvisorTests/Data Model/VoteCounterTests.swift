@@ -31,18 +31,7 @@ class VoteCounterTests: XCTestCase {
     // MARK: - Functions: Tests
     
     func testVoteCounterHasAllVotes() { XCTAssertNotNil(mock?.allVotes) }
-    
-    func testVoteReceiverCanTabulateVotes() {
-        mock?.allVotes = testVotes()
-        
-        let tips = testTips()
-        if let results = mock?.tabulateResults(for: tips) {
-            XCTAssertEqual(results[tips[0]], TipFactory(db: .publicDB).count - 1)    // <-- This will need to change
-        } else {
-            XCTFail()
-        }
-    }
-    
+
     func testVoteCounterCanTallyVotesByTotal() {
         mock?.allVotes = testVotes()
         

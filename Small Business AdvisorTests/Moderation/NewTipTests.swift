@@ -22,7 +22,7 @@ class NewTipTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        mock = NewTip()
+        mock = NewTip(text: "blah", category: "blah")
     }
     
     override func tearDown() {

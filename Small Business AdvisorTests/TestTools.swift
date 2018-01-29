@@ -28,11 +28,8 @@ var testRecords: [CKRecord] {
     let rec7 = CKRecord(recordType: RecordType.vote,  recordID: CKRecordID(recordName: "vote4"))
     
     // Configure test entries
-    rec0[RecordKey.rank] = NSNumber(integerLiteral: 1)
     rec0[RecordKey.indx] = NSNumber(integerLiteral: 1)
-    rec1[RecordKey.rank] = NSNumber(integerLiteral: 2)
     rec1[RecordKey.indx] = NSNumber(integerLiteral: 2)
-    rec2[RecordKey.rank] = NSNumber(integerLiteral: 3)
     rec2[RecordKey.indx] = NSNumber(integerLiteral: 3)
 
     // Configure test votes
@@ -53,15 +50,12 @@ var testRecords: [CKRecord] {
 // MARK: - Functions: Global
 
 func testTips() -> [Tip] {
-    var tips = [Tip]()
-    for index in 1...TipFactory().count {
-        let tip = Tip(index: index,
-                      category: TipCategoryFactory.produceByIndex(index: index),
-                      text: TextFactory.produce(for: index))
-        tips.append(tip)
-    }
+    let tips = TipFactory()
+
+    // Can loop infinitely !!
+    while tips.count == 0 { /* wait for tips to load, possibly*/ }
     
-    return tips
+    return tips.recordables
 }
 
 func testVotes() -> [MockVote] {
