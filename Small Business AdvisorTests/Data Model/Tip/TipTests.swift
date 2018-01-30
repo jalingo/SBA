@@ -56,16 +56,6 @@ class TipTests: XCTestCase {
         XCTAssertEqual(test, mock?.index)
     }
     
-    func testIndexCantBeZeroOrNegative() {
-        XCTAssertFalse(mock!.index < 1)
-        
-        let newMock = MockTip(index: -1, category: .planning, text: NSAttributedString(string: "A"))
-        XCTAssertFalse(newMock.index < 1)
-        
-        let nextMock = MockTip(index: 0, category: .planning, text: NSAttributedString(string: "B"))
-        XCTAssertFalse(nextMock.index < 1)
-    }
-    
     func testTipIsEquatable() { XCTAssert(mock is Equatable) }
 
     func testTipIsHashable() { XCTAssert(mock is Hashable) }
