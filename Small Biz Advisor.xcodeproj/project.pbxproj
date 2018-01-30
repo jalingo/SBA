@@ -335,13 +335,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		A1734AED1FDF62CC0025F56A /* Deprecated */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Deprecated;
-			sourceTree = "<group>";
-		};
 		A19AD9011FDA8A64001C5846 /* Votes */ = {
 			isa = PBXGroup;
 			children = (
@@ -389,7 +382,6 @@
 		A1AB0E341FA0185100F1D3FF /* Small Business AdvisorTests */ = {
 			isa = PBXGroup;
 			children = (
-				A1734AED1FDF62CC0025F56A /* Deprecated */,
 				A1AB0E371FA0185100F1D3FF /* Info.plist */,
 				9033901B1FB4409400E7D7A9 /* TestTools.swift */,
 				A1265DBF1FAA855C00E4C712 /* Data Model */,
