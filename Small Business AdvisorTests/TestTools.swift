@@ -15,6 +15,8 @@ import CloudKit
 // !!
 let testDatabase = CKContainer.default().publicCloudDatabase
 
+let tips = TipFactory()
+
 var mixedUpVotes: [CKRecordID]?
 
 var testRecords: [CKRecord] {
@@ -50,7 +52,6 @@ var testRecords: [CKRecord] {
 // MARK: - Functions: Global
 
 func testTips() -> [Tip] {
-    let tips = TipFactory()
 
     // Can loop infinitely !!
     while tips.count == 0 { /* wait for tips to load, possibly*/ }
@@ -62,7 +63,7 @@ func testVotes() -> [MockVote] {
     var votes = [MockVote]()
     
     // This test will have to be changed when entries move to the database
-    for index in 1...TipFactory().count {
+    for index in 1...tips.count {
         let tip = CKRecordID(recordName: "\(index)")
         let candidate = CKReference(recordID: tip, action: .deleteSelf)
         
@@ -75,7 +76,7 @@ func testVotes() -> [MockVote] {
         }
         
         // Stack votes based on index order
-        for _ in 1...(TipFactory().count - index) {
+        for _ in 1...(tips.count - index) {
             let vote = MockVote(up: true, candidate: candidate, constituent: ref)
             votes.append(vote)
         }
