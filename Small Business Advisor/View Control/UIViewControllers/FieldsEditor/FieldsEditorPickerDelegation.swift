@@ -60,6 +60,8 @@ extension FieldsEditorViewController: UIPickerViewDelegate {
             textField.text = "Spaces are fine..."
         }
         
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        
         alert.addAction(UIAlertAction(title: "Save", style: .default) { [weak alert] (_) in
             self.selectedCategory = alert?.textFields?[0].text
         })
