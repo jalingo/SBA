@@ -7,6 +7,8 @@
 //
 
 import XCTest
+import MagicCloud
+import CloudKit
 
 class TipCategoryTests: XCTestCase {
     
@@ -14,19 +16,17 @@ class TipCategoryTests: XCTestCase {
 
     var mock: TipCategory?
     
-    let formatting = CategoryFormatting()
+    let formatting = Format.categoryTitle
 
     // MARK: - Functions
     
     override func setUp() {
         super.setUp()
-        
         mock = .planning
     }
     
     override func tearDown() {
         mock = nil
-        
         super.tearDown()
     }
     
@@ -123,4 +123,6 @@ class TipCategoryTests: XCTestCase {
     func testLegalHasAttributedString() {
         XCTAssert(TipCategory.legal.formatted == NSMutableAttributedString(string: "Legal", attributes: formatting))
     }
+    
+    func testCategoriesConformsToRecordable() { XCTAssert(mock is MCRecordable) }
 }

@@ -8,6 +8,8 @@
 
 import Foundation
 import UIKit
+import MagicCloud
+import CloudKit
 
 // MARK: Enum
 
@@ -34,7 +36,7 @@ enum TipCategory: Int {
     case outOfRange = -1
     
     /// This static constant property returns the total number of categories.
-    static let max = TipCategory.legal.rawValue + 1
+    static let max = TipCategory.legal.rawValue + 1     // <-- If legal is no longer last in the case order, change!
     
     /// This computed property returns the range of tip indices associated with each category.
     var indexRange: CountableClosedRange<Int> {   
@@ -76,34 +78,8 @@ enum TipCategory: Int {
         case .outOfRange:   text = "Error"
         }
         
-        return NSMutableAttributedString(string: text, attributes: CategoryFormatting())
+        return NSMutableAttributedString(string: text, attributes: Format.categoryTitle)
     }
-}
-
-/// This global method provides the formatting for attributed strings representing category titles.
-func CategoryFormatting() -> [NSAttributedStringKey: NSObject] {
-    
-    var shadow: NSShadow {
-        let _shadow = NSShadow()
-        
-        _shadow.shadowBlurRadius = 2
-        _shadow.shadowOffset = CGSize(width: 1, height: 1)
-        _shadow.shadowColor = UIColor.darkGray
-        
-        return _shadow
-    }
-
-    let style = NSMutableParagraphStyle()
-    style.alignment = NSTextAlignment.center
-    
-    let formatting = [
-        NSAttributedStringKey.font :            UIFont.boldSystemFont(ofSize: 24),
-        NSAttributedStringKey.foregroundColor:  UIColor(red: 0.55, green: 0.78, blue: 0.25, alpha: 1.0),
-        NSAttributedStringKey.shadow:           shadow,
-        NSAttributedStringKey.paragraphStyle:   style
-    ]
-    
-    return formatting
 }
 
 /// This protocol ensures conforming instances can produce a specified `TipCategory`.
@@ -117,8 +93,8 @@ struct TipCategoryFactory: CategoryFactory {
     /**
         This static func creates a TipCategory based on specified index.
      
-     - Parameter index: An integer reflecting the unique identifier for a tip in TipCategory.
-     - Returns: The TipCategory for the specified index.
+        - Parameter index: An integer reflecting the unique identifier for a tip in TipCategory.
+        - Returns: The TipCategory for the specified index.
      */
     static func produceByIndex(index: Int) -> TipCategory {
         switch index {
@@ -136,4 +112,33 @@ struct TipCategoryFactory: CategoryFactory {
         default:                                    return .outOfRange
         }
     }
+}
+
+// MARK: - Extensions
+
+// MARK: - Extension: MCRecordable
+
+extension TipCategory: MCRecordable {
+
+    var recordType: String { return RecordType.category }
+
+    var recordFields: Dictionary<String, CKRecordValue> {
+        get {
+            var d = Dictionary<String, CKRecordValue>()
+            d[RecordKey.catg] = NSNumber(value: self.rawValue)
+            
+            return d
+        }
+        
+        set {
+            if let num = newValue[RecordKey.catg] as? NSNumber, let value = TipCategory(rawValue: num.intValue) { self = value }
+        }
+    }
+    
+    var recordID: CKRecordID {
+        get { return CKRecordID(recordName: self.formatted.string) }
+        set { }
+    }
+    
+    init() { self = .outOfRange }
 }

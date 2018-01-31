@@ -22,14 +22,14 @@ protocol Entry {
     
     // MARK: - Properties
     
-    /// This read only property returns the actual string of text composing each entry, with formatting.
-    var text: NSAttributedString { get }
+    /// This property stores the actual string of text composing each entry, with formatting.
+    var text: NSAttributedString { get set }
     
-    /// This read only property returns the category the entry's text is associated with.
-    var category: TipCategory { get }
+    /// This property stores the category the entry's text is associated with.
+    var category: TipCategory { get set }
 
-    /// This read only property returns the index used as an unique identifier for the entry's text.
-    var index: Int { get }
+    /// This property stores the index used as an unique identifier for the entry's text.
+    var index: Int { get set }
     
     // MARK: - Functions
 
@@ -124,16 +124,25 @@ struct AnyEntry: Entry {
     // MARK: - Properties
     
     /// This constant property stores the instance conforming to Entry that needs to be wrapped and compared.
-    let wrappedEntry: Entry
+    var wrappedEntry: Entry
     
     /// This computed property returns the entry text derived from `wrappedEntry`.
-    var text: NSAttributedString { return wrappedEntry.text }
+    var text: NSAttributedString {
+        get { return wrappedEntry.text }
+        set { wrappedEntry.text = newValue }
+    }
     
     /// This computed property returns the entry category derived from `wrappedEntry`.
-    var category: TipCategory { return wrappedEntry.category }
+    var category: TipCategory {
+        get { return wrappedEntry.category }
+        set { wrappedEntry.category = newValue }
+    }
     
     /// This computed property returns the entry category derived from `wrappedEntry`.
-    var index: Int { return wrappedEntry.index }
+    var index: Int {
+        get { return wrappedEntry.index }
+        set { wrappedEntry.index = newValue }
+    }
     
     // MARK: - Functions
     

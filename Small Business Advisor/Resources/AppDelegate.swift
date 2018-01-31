@@ -7,16 +7,35 @@
 //
 
 import UIKit
+import MagicCloud
+import CloudKit
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, MCNotificationConverter {
 
     var window: UIWindow?
-
-
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        application.registerForRemoteNotifications()
+
+        // This verifies that user is logged in to their icloud account
+        MCUserRecord.verifyAccountAuthentication(application: application)
+
         return true
+    }
+    
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any],
+                     fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        convertToLocal(from: userInfo)
+    }
+    
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+print("                 registered with token")
+    }
+    
+    func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
+print("                 Error @ UIApp.didFailToRegister")
+print("                 \(error.localizedDescription)")
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
@@ -40,7 +59,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
-
 }
 
