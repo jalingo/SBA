@@ -405,7 +405,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H2w-MJ-Q2z">
-                                <rect key="frame" x="16" y="723.66666666666663" width="205.66666666666666" height="52.333333333333371"/>
+                                <rect key="frame" x="16" y="723.66666666666663" width="169" height="52.333333333333371"/>
                                 <color key="backgroundColor" red="0.55096650120000001" green="0.77892380949999995" blue="0.247182399" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="H2w-MJ-Q2z" secondAttribute="height" multiplier="133:34" id="Je6-Vz-5s0"/>
@@ -419,7 +419,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mhB-GD-mpn">
-                                <rect key="frame" x="226.66666666666663" y="723.66666666666663" width="132.33333333333337" height="52.333333333333371"/>
+                                <rect key="frame" x="190" y="723.66666666666663" width="169" height="52.333333333333371"/>
                                 <color key="backgroundColor" red="0.67000000000000004" green="0.67000000000000004" blue="0.67000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="mhB-GD-mpn" secondAttribute="height" multiplier="133:34" id="jol-XF-SQX"/>
@@ -500,6 +500,7 @@
                             <constraint firstItem="YOs-yo-Vy8" firstAttribute="centerX" secondItem="pVF-MJ-IfN" secondAttribute="centerX" id="cN5-dz-JBZ"/>
                             <constraint firstItem="pVF-MJ-IfN" firstAttribute="trailing" secondItem="YOs-yo-Vy8" secondAttribute="trailing" constant="16" id="dtC-yy-nlj"/>
                             <constraint firstItem="0ZX-2f-SwR" firstAttribute="leading" secondItem="YOs-yo-Vy8" secondAttribute="leading" id="eQa-XM-R0W"/>
+                            <constraint firstItem="H2w-MJ-Q2z" firstAttribute="width" secondItem="mhB-GD-mpn" secondAttribute="width" id="fbX-sS-aiI"/>
                             <constraint firstItem="mhB-GD-mpn" firstAttribute="leading" secondItem="H2w-MJ-Q2z" secondAttribute="trailing" constant="5" id="ioA-ky-8NY"/>
                             <constraint firstItem="pVF-MJ-IfN" firstAttribute="trailing" secondItem="2KY-qj-JSS" secondAttribute="trailing" constant="277" id="jJi-G4-wfS"/>
                             <constraint firstItem="K9p-zz-cfA" firstAttribute="top" secondItem="vmk-AS-glg" secondAttribute="bottom" constant="8" id="yOJ-TS-JfE"/>
