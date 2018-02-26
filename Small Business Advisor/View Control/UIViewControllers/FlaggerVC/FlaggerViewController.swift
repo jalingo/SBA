@@ -21,13 +21,13 @@ class FlaggerViewController: UIViewController, TipEditor {
     
     /// This property stores an MCReceiver associated w/Flag recordable.
     /// Access an array of all existing types in .recordables
-    let flags = MCReceiver<Flag>(db: .publicDB)
+    let flags = MCMirror<Flag>(db: .publicDB)
     
     /// This optional property is set when a reason for flagging tip specified by USER. Otherwise, is nil.
     var reason: FlagReason?
     
     /// When USER has an active flag, returns true.
-    var isFlagged: Bool { return !AnyModerator<Flag>().isUnderLimit(for: flags.recordables) }
+    var isFlagged: Bool { return !AnyModerator<Flag>().isUnderLimit(for: flags.cloudRecordables) }
     
     // MARK: - Properties: UIPickerViewDataSource
     
@@ -125,7 +125,7 @@ class FlaggerViewController: UIViewController, TipEditor {
         // This delay gives time for flags to download and draws attention cloud update reception.
         // CAUTION: Currently, flagger view cannot be reached without network connectivity already being established. In the event of a connectivity loss, this could loop infinitely.
         DispatchQueue(label: "delay").async {
-            while self.flags.recordables.count == 0 { /* wait until tips have been downloaded */ } // Then...
+            while self.flags.cloudRecordables.count == 0 { /* wait until tips have been downloaded */ } // Then...
             DispatchQueue.main.async { self.setFlagButtonState(enabled: false) }
         }
         

@@ -33,8 +33,8 @@ class AdvisorViewController: UIViewController, PickerDecorator {
             categoryLock.isEnabled = true
             pageLabel.text = String(page)
 
-            if tips.recordables.count != 0 {
-                rankMeter.progress = Float(1.0 - (Double(page) / Double(tips.recordables.count)))
+            if tips.cloudRecordables.count != 0 {
+                rankMeter.progress = Float(1.0 - (Double(page) / Double(tips.cloudRecordables.count)))
                 passTipToChildren()
             }
             

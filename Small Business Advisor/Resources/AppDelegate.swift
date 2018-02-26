@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MCNotificationConverter {
         application.registerForRemoteNotifications()
 
         // This verifies that user is logged in to their icloud account
-        MCUserRecord.verifyAccountAuthentication(application: application)
+        MCUserRecord.verifyAccountAuthentication()
 
         return true
     }

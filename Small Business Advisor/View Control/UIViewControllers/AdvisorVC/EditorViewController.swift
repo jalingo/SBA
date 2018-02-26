@@ -51,11 +51,11 @@ class EditorViewController: UIViewController {
     
     /// This property stores an MCReceiver associated w/Flag recordable.
     /// To access an array of all existing types in .recordables
-    var flags = MCReceiver<Flag>(db: .publicDB)
+    var flags = MCMirror<Flag>(db: .publicDB)
     
     /// This property stores an MCReceiver associated w/Vote recordable.
     /// To access an array of all existing types in .recordables
-    var votes = MCReceiver<Vote>(db: .publicDB)
+    var votes = MCMirror<Vote>(db: .publicDB)
 
     // MARK: - Functions
     
@@ -119,7 +119,9 @@ class EditorViewController: UIViewController {
     /// This method checks database for any existing vote that matches this USER and currentTip.
     fileprivate func checkAvailability() {
         if let user = MCUserRecord().singleton?.recordName {
-            let results = votes.recordables.filter {
+            switchButtons(visible: true)
+            
+            let results = votes.cloudRecordables.filter {
                 $0.candidate.recordID.recordName == currentTip?.recordID.recordName &&
                     $0.constituent.recordID.recordName == user }
 
@@ -127,6 +129,8 @@ class EditorViewController: UIViewController {
             
             // if results.last == nil, button states will be reset; otherwise set to match result.
             DispatchQueue.main.async { self.adjustVoteButtonStates(for: results.last) }
+        } else {
+            switchButtons(visible: false)
         }
     }
     
@@ -140,7 +144,24 @@ class EditorViewController: UIViewController {
             adjustVote(button: upVoteButton, enable: !result.isFor)
             adjustVote(button: downVoteButton, enable: result.isFor)
         } else {
+            
+            // This gracefully disables cloud features that require an account.
             adjustVoteButtonStatesForReset(enabled: true)
+        }
+    }
+    
+    /**
+        This method adjust button visibility for the entire editor row together.
+     
+        - Parameter visible: Argument representing whether method should make buttons visible (true), or not (false).
+     */
+    fileprivate func switchButtons(visible: Bool) {
+        DispatchQueue.main.async {
+            self.upVoteButton.isHidden =   !visible
+            self.downVoteButton.isHidden = !visible
+            self.addTipButton.isHidden =   !visible
+            self.editTipButton.isHidden =  !visible
+            self.flagTipButton.isHidden =  !visible
         }
     }
     
@@ -213,6 +234,10 @@ class EditorViewController: UIViewController {
         if currentTip?.index == -1 {
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) { self.adjustVoteButtonStatesForReset(enabled: false) }
         } else {
+            self.checkAvailability()
+        }
+        
+        NotificationCenter.default.addObserver(forName: Notification.Name.CKAccountChanged, object: nil, queue: nil) { note in
             self.checkAvailability()
         }
     }
