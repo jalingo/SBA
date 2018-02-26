@@ -51,11 +51,11 @@ class EditorViewController: UIViewController {
     
     /// This property stores an MCReceiver associated w/Flag recordable.
     /// To access an array of all existing types in .recordables
-    var flags = MCReceiver<Flag>(db: .publicDB)
+    var flags = MCMirror<Flag>(db: .publicDB)
     
     /// This property stores an MCReceiver associated w/Vote recordable.
     /// To access an array of all existing types in .recordables
-    var votes = MCReceiver<Vote>(db: .publicDB)
+    var votes = MCMirror<Vote>(db: .publicDB)
 
     // MARK: - Functions
     
@@ -121,7 +121,7 @@ class EditorViewController: UIViewController {
         if let user = MCUserRecord().singleton?.recordName {
             switchButtons(visible: true)
             
-            let results = votes.recordables.filter {
+            let results = votes.cloudRecordables.filter {
                 $0.candidate.recordID.recordName == currentTip?.recordID.recordName &&
                     $0.constituent.recordID.recordName == user }
 

@@ -67,7 +67,7 @@ extension TipFactoryAbstraction {
 // MARK: - Class
 
 /// This class produces entries (tips) recovered from the database, both by random and by rank. Also, maintains an up-to-date count of entries in database. Sub-class of MCReceiver<Tip>.
-class TipFactory: MCReceiver<Tip>, TipFactoryAbstraction {
+class TipFactory: MCMirror<Tip>, TipFactoryAbstraction {
     
     // MARK: - Properties
 
@@ -86,13 +86,13 @@ class TipFactory: MCReceiver<Tip>, TipFactoryAbstraction {
     var count: Int {
         if let cat = limitation {
             var count = 0
-            for tip in recordables {
+            for tip in cloudRecordables {
                 if tip.category == cat { count += 1 }
             }
             
             return count
         } else {
-            return self.recordables.count
+            return self.cloudRecordables.count
         }
     }
     
@@ -107,14 +107,14 @@ class TipFactory: MCReceiver<Tip>, TipFactoryAbstraction {
         - Returns: A specified instance conforming to Entry.
      */
     func rank(of place: Int) -> Tip {
-        guard recordables.count != 0 else { return Tip() }
+        guard cloudRecordables.count != 0 else { return Tip() }
         guard place > 0 else { return rank(of: 1) }
         guard place < count + 1 else { return rank(of: count) }
 
         lastRank = place
         
         // sort based on votes here...
-        return votes.rank(for: recordables, by: limitation)[place - 1]
+        return votes.rank(for: cloudRecordables, by: limitation)[place - 1]
     }
  
     /// This constructor allows initialization with no parameter (defaults to .publicDB).
@@ -123,8 +123,8 @@ class TipFactory: MCReceiver<Tip>, TipFactoryAbstraction {
     // MARK: - InnerClasses
     
     /// This inner class connects to the cloud and manages all vote records, conforming to MCReciever<Vote>. Access votes as array in votes.recordables. Also, contains vote counting / tip ranking methods.
-    class VotingBooth: MCReceiver<Vote>, VoteCounter {
-        var allVotes: [VoteAbstraction] { return recordables }
+    class VotingBooth: MCMirror<Vote>, VoteCounter {
+        var allVotes: [VoteAbstraction] { return cloudRecordables }
     }
 }
 

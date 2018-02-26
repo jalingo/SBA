@@ -17,7 +17,7 @@ extension FieldsEditorViewController: UIPickerViewDataSource {
     func numberOfComponents(in pickerView: UIPickerView) -> Int { return 1 }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return categories.recordables.count + 1
+        return categories.cloudRecordables.count + 1
     }
 }
 
@@ -36,7 +36,7 @@ extension FieldsEditorViewController: UIPickerViewDelegate {
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        if row == categories.recordables.count {    // <-- Last cell (rows start at 0)
+        if row == categories.cloudRecordables.count {    // <-- Last cell (rows start at 0)
             recoverNewCategoryTitle()
         } else {
             guard let cat = TipCategory(rawValue: row) else {
