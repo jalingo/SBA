@@ -12,7 +12,6 @@ import CloudKit
 
 // MARK: - Properties: Global
 
-// !!
 let testDatabase = CKContainer.default().publicCloudDatabase
 
 let tips = TipFactory()
@@ -20,32 +19,35 @@ let tips = TipFactory()
 var mixedUpVotes: [CKRecordID]?
 
 var testRecords: [CKRecord] {
-    let rec0 = CKRecord(recordType: RecordType.entry, recordID: CKRecordID(recordName: "entry0"))
-    let rec1 = CKRecord(recordType: RecordType.entry, recordID: CKRecordID(recordName: "entry1"))
-    let rec2 = CKRecord(recordType: RecordType.entry, recordID: CKRecordID(recordName: "entry2"))
+    let _recs = tips.cloudRecordables.filter { $0.index == 1 || $0.index == 2 || $0.index == 3 }
+    var recs = [CKRecord]()
+
+    for recordable in _recs {
+        let rec = CKRecord(recordType: recordable.recordType, recordID: recordable.recordID)
+        for entry in recordable.recordFields { rec[entry.key] = entry.value }
+        recs.append(rec)
+    }
+
+    guard let rec2 = recs.popLast(), let rec1 = recs.popLast(), let rec0 = recs.popLast() else { return [] }
+
     let rec3 = CKRecord(recordType: RecordType.vote,  recordID: CKRecordID(recordName: "vote0"))
     let rec4 = CKRecord(recordType: RecordType.vote,  recordID: CKRecordID(recordName: "vote1"))
     let rec5 = CKRecord(recordType: RecordType.vote,  recordID: CKRecordID(recordName: "vote2"))
     let rec6 = CKRecord(recordType: RecordType.vote,  recordID: CKRecordID(recordName: "vote3"))
     let rec7 = CKRecord(recordType: RecordType.vote,  recordID: CKRecordID(recordName: "vote4"))
-    
-    // Configure test entries
-    rec0[RecordKey.indx] = NSNumber(integerLiteral: 1)
-    rec1[RecordKey.indx] = NSNumber(integerLiteral: 2)
-    rec2[RecordKey.indx] = NSNumber(integerLiteral: 3)
 
     // Configure test votes
-    rec3[RecordKey.refs] = CKReference(record: rec0, action: .deleteSelf)
+    rec3[RecordKey.subj] = CKReference(record: rec0, action: .deleteSelf)
     rec3[RecordKey.appr] = true as CKRecordValue
-    rec4[RecordKey.refs] = CKReference(record: rec0, action: .deleteSelf)
+    rec4[RecordKey.subj] = CKReference(record: rec0, action: .deleteSelf)
     rec4[RecordKey.appr] = true as CKRecordValue
-    rec5[RecordKey.refs] = CKReference(record: rec1, action: .deleteSelf)
+    rec5[RecordKey.subj] = CKReference(record: rec1, action: .deleteSelf)
     rec5[RecordKey.appr] = true as CKRecordValue
-    rec6[RecordKey.refs] = CKReference(record: rec1, action: .deleteSelf)
+    rec6[RecordKey.subj] = CKReference(record: rec1, action: .deleteSelf)
     rec6[RecordKey.appr] = false as CKRecordValue
-    rec7[RecordKey.refs] = CKReference(record: rec2, action: .deleteSelf)
+    rec7[RecordKey.subj] = CKReference(record: rec2, action: .deleteSelf)
     rec7[RecordKey.appr] = false as CKRecordValue
-    
+
     return [rec0, rec1, rec2, rec3, rec4, rec5, rec6, rec7]
 }
 
@@ -54,7 +56,9 @@ var testRecords: [CKRecord] {
 func testTips() -> [Tip] {
 
     // Can loop infinitely !!
-    while tips.count == 0 { /* wait for tips to load, possibly*/ }
+    while tips.count == 0 {
+print("         ** waiting for tips.count @Global.testTips in TestTools")
+        /* wait for tips to load, possibly*/ }
     
     return tips.cloudRecordables
 }
@@ -62,9 +66,11 @@ func testTips() -> [Tip] {
 func testVotes() -> [MockVote] {
     var votes = [MockVote]()
     
+    guard tips.count != 0 else { print("        ** testVotes failed"); return [] }
+
     // This test will have to be changed when entries move to the database
     for index in 1...tips.count {
-        let tip = CKRecordID(recordName: "\(index)")
+        let tip = CKRecordID(recordName: "Tip #\(index)")
         let candidate = CKReference(recordID: tip, action: .deleteSelf)
         
         let ref: CKReference
@@ -76,9 +82,11 @@ func testVotes() -> [MockVote] {
         }
         
         // Stack votes based on index order
-        for _ in 1...(tips.count - index) {
-            let vote = MockVote(up: true, candidate: candidate, constituent: ref)
-            votes.append(vote)
+        if index < tips.count {
+            for _ in 1...(tips.count - index) {
+                let vote = MockVote(up: true, candidate: candidate, constituent: ref)
+                votes.append(vote)
+            }
         }
     }
     
@@ -97,7 +105,7 @@ func uploadTestRecords(completion: (()->())? = nil) {
     op.savePolicy = .changedKeys
     op.modifyRecordsCompletionBlock = { _, _, possibleError in
         guard let error = possibleError else { return }
-        print("** CKInteractorTests.upload: \(error.localizedDescription)")  // <-- !! This can be fleshed out as errors emerge.
+print("** CKInteractorTests.upload: \(error.localizedDescription)")  // <-- !! This can be fleshed out as errors emerge.
     }
     
     testDatabase.add(op)
@@ -123,7 +131,7 @@ func deleteTestRecords(completion: (()->())? = nil) {
     op.isLongLived = true
     op.modifyRecordsCompletionBlock = { _, _, possibleError in
         guard let error = possibleError else { return }
-        print("** CKInteractorTests.delete: \(error)")  // <-- This can be fleshed out as errors emerge.
+print("** CKInteractorTests.delete: \(error)")  // <-- This can be fleshed out as errors emerge.
     }
     
     testDatabase.add(op)
@@ -181,7 +189,7 @@ func mixUpVoteOutcomes(completion: (()->())? = nil) {
         modifyOp.modifyRecordsCompletionBlock = { _, possibleIDs, possibleError in
             mixedUpVotes = possibleIDs                 // <-- This line is required for cleanUp to be effective later.
             guard let error = possibleError else { return }
-            print("** CKInteractor.disorder: \(error)")                     // <-- This can be fleshed out as errors emerge.
+print("** CKInteractor.disorder: \(error)")                     // <-- This can be fleshed out as errors emerge.
         }
         
         testDatabase.add(modifyOp)
