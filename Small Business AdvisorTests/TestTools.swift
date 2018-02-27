@@ -56,7 +56,7 @@ func testTips() -> [Tip] {
     // Can loop infinitely !!
     while tips.count == 0 { /* wait for tips to load, possibly*/ }
     
-    return tips.recordables
+    return tips.cloudRecordables
 }
 
 func testVotes() -> [MockVote] {

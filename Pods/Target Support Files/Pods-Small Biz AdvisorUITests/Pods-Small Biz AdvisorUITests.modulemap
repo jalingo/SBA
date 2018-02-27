@@ -1,0 +1,6 @@
+framework module Pods_Small_Biz_AdvisorUITests {
+  umbrella header "Pods-Small Biz AdvisorUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

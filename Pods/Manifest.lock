@@ -1,0 +1,12 @@
+PODS:
+  - MagicCloud (2.9.8)
+
+DEPENDENCIES:
+  - MagicCloud (~> 2.9.8)
+
+SPEC CHECKSUMS:
+  MagicCloud: 9bc1c989b2c72cf68ead101e99f45e84c5cd0147
+
+PODFILE CHECKSUM: b8190ee179fdc2fda77784d76dff4925a81931e4
+
+COCOAPODS: 1.4.0

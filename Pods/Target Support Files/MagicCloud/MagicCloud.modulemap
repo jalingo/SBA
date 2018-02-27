@@ -1,0 +1,6 @@
+framework module MagicCloud {
+  umbrella header "MagicCloud-umbrella.h"
+
+  export *
+  module * { export * }
+}

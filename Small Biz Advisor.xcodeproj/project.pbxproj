@@ -52,6 +52,8 @@
 		A19AD90E1FDBD3F5001C5846 /* FlagTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19AD90D1FDBD3F5001C5846 /* FlagTests.swift */; };
 		A1A0FCEB1FE34C6200E3D679 /* Graphic Themes.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A0FCEA1FE34C6200E3D679 /* Graphic Themes.swift */; };
 		A1A0FCEC1FE34C6200E3D679 /* Graphic Themes.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A0FCEA1FE34C6200E3D679 /* Graphic Themes.swift */; };
+		A1A933082044E095001D7A4F /* Pods_Small_Biz_Advisor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1A933092044E095001D7A4F /* Pods_Small_Biz_Advisor.framework */; };
+		A1A9330A2044E0A0001D7A4F /* MagicCloud.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1A9330B2044E0A0001D7A4F /* MagicCloud.framework */; };
 		A1AAB6A91FA939C000017C54 /* TipFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AAB6A81FA939C000017C54 /* TipFactory.swift */; };
 		A1AAB6AA1FA939C000017C54 /* TipFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AAB6A81FA939C000017C54 /* TipFactory.swift */; };
 		A1AB0E211FA0185100F1D3FF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AB0E201FA0185100F1D3FF /* AppDelegate.swift */; };
@@ -76,6 +78,9 @@
 		A1D545D2200EBEC4004C1DC8 /* FlaggerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D545D1200EBEC4004C1DC8 /* FlaggerViewController.swift */; };
 		A1D545D3200EBEC4004C1DC8 /* FlaggerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D545D1200EBEC4004C1DC8 /* FlaggerViewController.swift */; };
 		A1D9555F1FA17BF2002C7563 /* TipCategoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D9555E1FA17BF2002C7563 /* TipCategoryTests.swift */; };
+		EC1A35230ECA3082C2B0EFB1 /* Pods_Small_Biz_AdvisorTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F27F5636C6B5118BBD2705F /* Pods_Small_Biz_AdvisorTests.framework */; };
+		ED6090F072AAA9CF02FCC5F7 /* Pods_Small_Biz_AdvisorUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D671BD000981B147F34A804B /* Pods_Small_Biz_AdvisorUITests.framework */; };
+		FCC69855BF1AF23FBE2B5F58 /* Pods_Small_Biz_Advisor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1A933092044E095001D7A4F /* Pods_Small_Biz_Advisor.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -110,7 +115,11 @@
 
 /* Begin PBXFileReference section */
 		07F5E587D73098672E5537BD /* Pods_Small_Biz_Advisor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Small_Biz_Advisor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1BA62EA531AFBA18EFA5B3B5 /* Pods-Small Biz AdvisorTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Small Biz AdvisorTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Small Biz AdvisorTests/Pods-Small Biz AdvisorTests.release.xcconfig"; sourceTree = "<group>"; };
+		214151169CF6CC1995735367 /* Pods-Small Biz AdvisorUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Small Biz AdvisorUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Small Biz AdvisorUITests/Pods-Small Biz AdvisorUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		5D919E8E2BDEF24C56FB3160 /* Pods-Small Biz Advisor.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Small Biz Advisor.release.xcconfig"; path = "Pods/Target Support Files/Pods-Small Biz Advisor/Pods-Small Biz Advisor.release.xcconfig"; sourceTree = "<group>"; };
+		68E7CAF43361427BE784B3BD /* Pods-Small Biz AdvisorUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Small Biz AdvisorUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Small Biz AdvisorUITests/Pods-Small Biz AdvisorUITests.release.xcconfig"; sourceTree = "<group>"; };
+		8F27F5636C6B5118BBD2705F /* Pods_Small_Biz_AdvisorTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Small_Biz_AdvisorTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9033901B1FB4409400E7D7A9 /* TestTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestTools.swift; sourceTree = "<group>"; };
 		90A16F451FAE48B1002D418B /* Key Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Key Strings.swift"; sourceTree = "<group>"; };
 		90C4E8761FC14D5600A8D329 /* Vote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vote.swift; sourceTree = "<group>"; };
@@ -139,6 +148,8 @@
 		A19AD9091FDAA30E001C5846 /* FieldsEditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldsEditorViewController.swift; sourceTree = "<group>"; };
 		A19AD90D1FDBD3F5001C5846 /* FlagTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlagTests.swift; sourceTree = "<group>"; };
 		A1A0FCEA1FE34C6200E3D679 /* Graphic Themes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Graphic Themes.swift"; sourceTree = "<group>"; };
+		A1A933092044E095001D7A4F /* Pods_Small_Biz_Advisor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_Small_Biz_Advisor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A1A9330B2044E0A0001D7A4F /* MagicCloud.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MagicCloud.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1AAB6A81FA939C000017C54 /* TipFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipFactory.swift; sourceTree = "<group>"; };
 		A1AB0E1D1FA0185100F1D3FF /* Small Biz Advisor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Small Biz Advisor.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1AB0E201FA0185100F1D3FF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -161,6 +172,8 @@
 		A1B6943E2016B4D20052DF8C /* Suggestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Suggestion.swift; path = "Small Business Advisor/Data Model/Moderation/Suggestion.swift"; sourceTree = SOURCE_ROOT; };
 		A1D545D1200EBEC4004C1DC8 /* FlaggerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlaggerViewController.swift; sourceTree = "<group>"; };
 		A1D9555E1FA17BF2002C7563 /* TipCategoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipCategoryTests.swift; sourceTree = "<group>"; };
+		ABBAF1B53E618ABD0AE8F264 /* Pods-Small Biz AdvisorTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Small Biz AdvisorTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Small Biz AdvisorTests/Pods-Small Biz AdvisorTests.debug.xcconfig"; sourceTree = "<group>"; };
+		D671BD000981B147F34A804B /* Pods_Small_Biz_AdvisorUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Small_Biz_AdvisorUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE1DAAEF1D11D5279C5D918B /* Pods-Small Biz Advisor.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Small Biz Advisor.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Small Biz Advisor/Pods-Small Biz Advisor.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -171,6 +184,7 @@
 			files = (
 				A1642F761FB0D3EF004534EB /* CloudKit.framework in Frameworks */,
 				A199C5470CFA88B8C4C9950B /* Pods_Small_Biz_Advisor.framework in Frameworks */,
+				FCC69855BF1AF23FBE2B5F58 /* Pods_Small_Biz_Advisor.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -178,6 +192,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1A9330A2044E0A0001D7A4F /* MagicCloud.framework in Frameworks */,
+				A1A933082044E095001D7A4F /* Pods_Small_Biz_Advisor.framework in Frameworks */,
+				EC1A35230ECA3082C2B0EFB1 /* Pods_Small_Biz_AdvisorTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -185,6 +202,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED6090F072AAA9CF02FCC5F7 /* Pods_Small_Biz_AdvisorUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -289,9 +307,13 @@
 		A1642F741FB0D3EF004534EB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A1A9330B2044E0A0001D7A4F /* MagicCloud.framework */,
+				A1A933092044E095001D7A4F /* Pods_Small_Biz_Advisor.framework */,
 				A1AE75962044D99B001B7B2E /* MagicCloud.framework */,
 				A1642F751FB0D3EF004534EB /* CloudKit.framework */,
 				07F5E587D73098672E5537BD /* Pods_Small_Biz_Advisor.framework */,
+				8F27F5636C6B5118BBD2705F /* Pods_Small_Biz_AdvisorTests.framework */,
+				D671BD000981B147F34A804B /* Pods_Small_Biz_AdvisorUITests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -414,6 +436,10 @@
 			children = (
 				EE1DAAEF1D11D5279C5D918B /* Pods-Small Biz Advisor.debug.xcconfig */,
 				5D919E8E2BDEF24C56FB3160 /* Pods-Small Biz Advisor.release.xcconfig */,
+				ABBAF1B53E618ABD0AE8F264 /* Pods-Small Biz AdvisorTests.debug.xcconfig */,
+				1BA62EA531AFBA18EFA5B3B5 /* Pods-Small Biz AdvisorTests.release.xcconfig */,
+				214151169CF6CC1995735367 /* Pods-Small Biz AdvisorUITests.debug.xcconfig */,
+				68E7CAF43361427BE784B3BD /* Pods-Small Biz AdvisorUITests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -446,9 +472,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A1AB0E481FA0185100F1D3FF /* Build configuration list for PBXNativeTarget "Small Biz AdvisorTests" */;
 			buildPhases = (
+				E477D43454EE31C7A640F030 /* [CP] Check Pods Manifest.lock */,
 				A1AB0E2D1FA0185100F1D3FF /* Sources */,
 				A1AB0E2E1FA0185100F1D3FF /* Frameworks */,
 				A1AB0E2F1FA0185100F1D3FF /* Resources */,
+				AB93509F765EABEC286EAB5E /* [CP] Embed Pods Frameworks */,
+				F15A1ADF90492ED351414034 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -464,9 +493,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A1AB0E4B1FA0185100F1D3FF /* Build configuration list for PBXNativeTarget "Small Biz AdvisorUITests" */;
 			buildPhases = (
+				B6AA7B89C4B9E9FAB9858B14 /* [CP] Check Pods Manifest.lock */,
 				A1AB0E381FA0185100F1D3FF /* Sources */,
 				A1AB0E391FA0185100F1D3FF /* Frameworks */,
 				A1AB0E3A1FA0185100F1D3FF /* Resources */,
+				4A85A9419C89315B25189CF7 /* [CP] Embed Pods Frameworks */,
+				663120B4D75F183EBF756255 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -585,6 +617,36 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Small Biz Advisor/Pods-Small Biz Advisor-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		4A85A9419C89315B25189CF7 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Small Biz AdvisorUITests/Pods-Small Biz AdvisorUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		663120B4D75F183EBF756255 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Small Biz AdvisorUITests/Pods-Small Biz AdvisorUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		9B22CABACDA31C595E88B55B /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -598,6 +660,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Small Biz Advisor/Pods-Small Biz Advisor-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AB93509F765EABEC286EAB5E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Small Biz AdvisorTests/Pods-Small Biz AdvisorTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		B33F4E2BD576141DB2A3CADC /* [CP] Check Pods Manifest.lock */ = {
@@ -616,6 +693,57 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B6AA7B89C4B9E9FAB9858B14 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Small Biz AdvisorUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E477D43454EE31C7A640F030 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Small Biz AdvisorTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F15A1ADF90492ED351414034 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Small Biz AdvisorTests/Pods-Small Biz AdvisorTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -887,6 +1015,7 @@
 		};
 		A1AB0E491FA0185100F1D3FF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = ABBAF1B53E618ABD0AE8F264 /* Pods-Small Biz AdvisorTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -903,6 +1032,7 @@
 		};
 		A1AB0E4A1FA0185100F1D3FF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1BA62EA531AFBA18EFA5B3B5 /* Pods-Small Biz AdvisorTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -919,6 +1049,7 @@
 		};
 		A1AB0E4C1FA0185100F1D3FF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 214151169CF6CC1995735367 /* Pods-Small Biz AdvisorUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -936,6 +1067,7 @@
 		};
 		A1AB0E4D1FA0185100F1D3FF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 68E7CAF43361427BE784B3BD /* Pods-Small Biz AdvisorUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
