@@ -103,21 +103,17 @@ class FieldsEditorViewController: UIViewController, PickerDecorator {
     
     /// This method saves changes made by USER to tipBeingEdited or new tip to be created.
     fileprivate func saveChanges() {
-        var possibleOp: Operation?
-        
-        if let tip = tipBeingEdited {                                               // <-- will submit 'edit'
+        if let tip = tipBeingEdited {
             var edit = TipEdit(newText: textArea.text, newCategory: selectedCategory, for: tip)
             edit.editorEmail = emailField.text
             
-            possibleOp = MCUpload([edit], from: suggestedEdits, to: .publicDB)
-        } else {                                                                    // <-- nil, will submit 'new'
+            suggestedEdits.cloudRecordables.append(edit)
+        } else {
             var new = NewTip(text: textArea.text, category: selectedCategory ?? "NA")
             new.editorEmail = emailField.text
-            
-            possibleOp = MCUpload([new], from: suggestedTips, to: .publicDB)
+  
+            suggestedTips.cloudRecordables.append(new)
         }
-
-        if let op = possibleOp { OperationQueue().addOperation(op) }
     }
     
     /// This method disables buttons that allow USER to interact with database.

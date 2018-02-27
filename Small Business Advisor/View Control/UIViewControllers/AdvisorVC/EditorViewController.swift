@@ -23,7 +23,7 @@ class EditorViewController: UIViewController {
     var currentTip: Tip? {
         didSet {
             previousVote = nil
-            if currentTip?.text.string != Tip.defaultText { checkAvailability() }
+            if oldValue != nil && currentTip?.text.string != Tip.defaultText { checkAvailability() }
         }
     }
     
@@ -89,9 +89,8 @@ class EditorViewController: UIViewController {
         - Parameter vote: A boolean indicating whether vote is for (true) or against (false).
      */
     fileprivate func removeExisting(_ vote: Bool) {
-        if let oldVote = previousVote {
-            let op = MCDelete([oldVote], of: votes, from: .publicDB)
-            OperationQueue().addOperation(op)
+        if let oldVote = previousVote {            
+            if let index = votes.cloudRecordables.index(of: oldVote) { votes.cloudRecordables.remove(at: index) }
             
             // This constraint can signal undo situation, when not set nil
             if oldVote.isFor != vote { previousVote = nil }
@@ -110,6 +109,9 @@ class EditorViewController: UIViewController {
                             constituent: CKReference(recordID: user, action: .deleteSelf))
             previousVote = vote
             
+            // !!!!
+//            votes.cloudRecordables.append(vote)
+
             let op = MCUpload([vote], from: votes, to: .publicDB)
             op.completionBlock = { self.checkAvailability() }    // <-- This should reset vote buttons after
             OperationQueue().addOperation(op)
@@ -231,14 +233,17 @@ class EditorViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        if currentTip?.index == -1 {
+        if currentTip?.index == -1 || previousVote == nil {
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) { self.adjustVoteButtonStatesForReset(enabled: false) }
         } else {
             self.checkAvailability()
         }
         
-        NotificationCenter.default.addObserver(forName: Notification.Name.CKAccountChanged, object: nil, queue: nil) { note in
+        NotificationCenter.default.addObserver(forName: Notification.Name.CKAccountChanged, object: nil, queue: nil) { _ in
             self.checkAvailability()
         }
+//        NotificationCenter.default.addObserver(forName: votes.changeNotification, object: nil, queue: nil) { _ in
+//            self.checkAvailability()
+//        }
     }
 }

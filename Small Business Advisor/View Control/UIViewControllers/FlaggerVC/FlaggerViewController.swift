@@ -107,9 +107,7 @@ class FlaggerViewController: UIViewController, TipEditor {
             var flag = Flag(tip: tip, for: reason!)
             flag.editorEmail = flaggerTextField.text
             
-            let save = MCUpload([flag], from: flags, to: .publicDB)
-            let q = OperationQueue()
-            q.addOperation(save)
+            flags.cloudRecordables.append(flag)
         }
         
         self.dismiss(animated: true, completion: nil)
