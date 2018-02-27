@@ -47,7 +47,7 @@ class AdvisorViewController: UIViewController, PickerDecorator {
     /// This IBOutlet property shows a visual representation of presented tip's strength (based on rank).
     @IBOutlet weak var rankMeter: UIProgressView!
     
-    /// `pageLabel` shows the index of the current entry from the data model.
+    /// `pageLabel` shows the rank of the current entry from the data model.
     @IBOutlet weak var pageLabel: UILabel!
     
     /// `textView` shows the body text from the current entry from the data model.
