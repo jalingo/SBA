@@ -59,14 +59,14 @@ class VoteTests: XCTestCase {
         let testTip = CKRecordID(recordName: "\(Tip().index)")
         mock?.candidate = CKReference(recordID: testTip, action: .deleteSelf)
 
-        XCTAssertEqual(testTip, mock?.candidate)
+        XCTAssertEqual(testTip, mock?.candidate.recordID)
     }
     
     func testVoteHasConstituent() { XCTAssertNotNil(mock?.constituent) }
     
     func testVoteCanWriteConstituent() {
         mock?.constituent = CKReference(recordID: testVoter, action: .deleteSelf)
-        XCTAssertEqual(testVoter, mock?.constituent)
+        XCTAssertEqual(testVoter, mock?.constituent.recordID)
     }
 }
 
