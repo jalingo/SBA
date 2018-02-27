@@ -34,12 +34,12 @@ class VoteCounterTests: XCTestCase {
 
     func testVoteCounterCanTallyVotesByTotal() {
         mock?.allVotes = testVotes()
-        
         let tips = testTips()
+        
         if let sortedTips = mock?.rank(for: tips) {
-            XCTAssertEqual(tips, sortedTips)
-            XCTAssertEqual(tips.first, sortedTips.first)
-            XCTAssertEqual(tips[3], sortedTips[3])
+            XCTAssertEqual(tips.count, sortedTips.count)
+            XCTAssertEqual(1, sortedTips.first?.index)
+            XCTAssertEqual(3, sortedTips[2].index)
         } else {
             XCTFail()
         }
@@ -47,8 +47,8 @@ class VoteCounterTests: XCTestCase {
     
     func testVoteCounterCanTallyVotesByCategory() {
         mock?.allVotes = testVotes()
-        
         let tips = testTips()
+        
         if let sortedTips = mock?.rank(for: tips, by: TipCategory.hr) {
             let validation = tips.filter { $0.category == .hr }
             
