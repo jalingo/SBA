@@ -17,12 +17,31 @@
                     <view key="view" opaque="NO" contentMode="scaleToFill" id="aMk-rz-L8n">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Launch" highlightedImage="Escape_Chaos_Logo_Translucent" translatesAutoresizingMaskIntoConstraints="NO" id="PSq-HP-7Wv">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="701"/>
+                                <color key="backgroundColor" red="0.55096650120000001" green="0.77892380949999995" blue="0.247182399" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" image="YES" notEnabled="YES"/>
+                                </accessibility>
+                            </imageView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="PSq-HP-7Wv" firstAttribute="leading" secondItem="aMk-rz-L8n" secondAttribute="leading" id="6Zm-ld-Qq1"/>
+                            <constraint firstItem="PSq-HP-7Wv" firstAttribute="top" secondItem="aMk-rz-L8n" secondAttribute="top" id="GTb-Ui-UkQ"/>
+                            <constraint firstItem="PSq-HP-7Wv" firstAttribute="bottom" secondItem="7MR-ls-4aG" secondAttribute="bottom" constant="34" id="QPP-JW-KC8"/>
+                            <constraint firstAttribute="trailing" secondItem="PSq-HP-7Wv" secondAttribute="trailing" id="fFd-lx-ZPi"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="7MR-ls-4aG"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="52" y="374.66266866566718"/>
+            <point key="canvasLocation" x="52" y="374.6305418719212"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Escape_Chaos_Logo_Translucent" width="2583" height="1359"/>
+        <image name="Launch" width="320" height="568"/>
+    </resources>
 </document>

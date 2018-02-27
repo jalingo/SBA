@@ -15,7 +15,6 @@
 		90C4E87B1FC16F8400A8D329 /* VoteCounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C4E87A1FC16F8400A8D329 /* VoteCounter.swift */; };
 		90C4E87C1FC16F8400A8D329 /* VoteCounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C4E87A1FC16F8400A8D329 /* VoteCounter.swift */; };
 		A10935841FBF8B4100C21C6E /* VoteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10935831FBF8B4100C21C6E /* VoteTests.swift */; };
-		A10F51BC1FA01D4300680AE6 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A10F51BB1FA01D4300680AE6 /* Default-568h@2x.png */; };
 		A119F8BB201AC3DF00AE983A /* Pickable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A119F8BA201AC3DF00AE983A /* Pickable.swift */; };
 		A119F8BC201AC3DF00AE983A /* Pickable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A119F8BA201AC3DF00AE983A /* Pickable.swift */; };
 		A12656461FDF275500F37215 /* Flag.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12656451FDF275500F37215 /* Flag.swift */; };
@@ -52,13 +51,13 @@
 		A19AD90E1FDBD3F5001C5846 /* FlagTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19AD90D1FDBD3F5001C5846 /* FlagTests.swift */; };
 		A1A0FCEB1FE34C6200E3D679 /* Graphic Themes.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A0FCEA1FE34C6200E3D679 /* Graphic Themes.swift */; };
 		A1A0FCEC1FE34C6200E3D679 /* Graphic Themes.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A0FCEA1FE34C6200E3D679 /* Graphic Themes.swift */; };
+		A1A3F0322045E1C3005E0667 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1A3F0312045E1C3005E0667 /* Assets.xcassets */; };
 		A1A933082044E095001D7A4F /* Pods_Small_Biz_Advisor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1A933092044E095001D7A4F /* Pods_Small_Biz_Advisor.framework */; };
 		A1A9330A2044E0A0001D7A4F /* MagicCloud.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1A9330B2044E0A0001D7A4F /* MagicCloud.framework */; };
 		A1AAB6A91FA939C000017C54 /* TipFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AAB6A81FA939C000017C54 /* TipFactory.swift */; };
 		A1AAB6AA1FA939C000017C54 /* TipFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AAB6A81FA939C000017C54 /* TipFactory.swift */; };
 		A1AB0E211FA0185100F1D3FF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AB0E201FA0185100F1D3FF /* AppDelegate.swift */; };
 		A1AB0E261FA0185100F1D3FF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1AB0E241FA0185100F1D3FF /* Main.storyboard */; };
-		A1AB0E281FA0185100F1D3FF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1AB0E271FA0185100F1D3FF /* Assets.xcassets */; };
 		A1AB0E2B1FA0185100F1D3FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1AB0E291FA0185100F1D3FF /* LaunchScreen.storyboard */; };
 		A1AB0E411FA0185100F1D3FF /* Small_Business_AdvisorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AB0E401FA0185100F1D3FF /* Small_Business_AdvisorUITests.swift */; };
 		A1AB0E501FA01A1D00F1D3FF /* AdvisorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AB0E4F1FA01A1D00F1D3FF /* AdvisorViewController.swift */; };
@@ -125,7 +124,6 @@
 		90C4E8761FC14D5600A8D329 /* Vote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vote.swift; sourceTree = "<group>"; };
 		90C4E87A1FC16F8400A8D329 /* VoteCounter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteCounter.swift; sourceTree = "<group>"; };
 		A10935831FBF8B4100C21C6E /* VoteTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = VoteTests.swift; path = "Small Business AdvisorTests/Data Model/Votes/VoteTests.swift"; sourceTree = SOURCE_ROOT; };
-		A10F51BB1FA01D4300680AE6 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		A119F8BA201AC3DF00AE983A /* Pickable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pickable.swift; sourceTree = "<group>"; };
 		A12656451FDF275500F37215 /* Flag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flag.swift; sourceTree = "<group>"; };
 		A126564C1FDF27E700F37215 /* EditTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTests.swift; sourceTree = "<group>"; };
@@ -148,13 +146,13 @@
 		A19AD9091FDAA30E001C5846 /* FieldsEditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldsEditorViewController.swift; sourceTree = "<group>"; };
 		A19AD90D1FDBD3F5001C5846 /* FlagTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlagTests.swift; sourceTree = "<group>"; };
 		A1A0FCEA1FE34C6200E3D679 /* Graphic Themes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Graphic Themes.swift"; sourceTree = "<group>"; };
+		A1A3F0312045E1C3005E0667 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A1A933092044E095001D7A4F /* Pods_Small_Biz_Advisor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_Small_Biz_Advisor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1A9330B2044E0A0001D7A4F /* MagicCloud.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MagicCloud.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1AAB6A81FA939C000017C54 /* TipFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipFactory.swift; sourceTree = "<group>"; };
 		A1AB0E1D1FA0185100F1D3FF /* Small Biz Advisor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Small Biz Advisor.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1AB0E201FA0185100F1D3FF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A1AB0E251FA0185100F1D3FF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		A1AB0E271FA0185100F1D3FF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A1AB0E2A1FA0185100F1D3FF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A1AB0E2C1FA0185100F1D3FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A1AB0E311FA0185100F1D3FF /* Small Biz AdvisorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Small Biz AdvisorTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -331,7 +329,6 @@
 			isa = PBXGroup;
 			children = (
 				A1642F731FB0D3EC004534EB /* Small Biz Advisor.entitlements */,
-				A10F51BB1FA01D4300680AE6 /* Default-568h@2x.png */,
 				A1AB0E1F1FA0185100F1D3FF /* Small Business Advisor */,
 				A1AB0E341FA0185100F1D3FF /* Small Business AdvisorTests */,
 				A1AB0E3F1FA0185100F1D3FF /* Small Business AdvisorUITests */,
@@ -384,8 +381,8 @@
 		A1AB0E4E1FA0187900F1D3FF /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				A1A3F0312045E1C3005E0667 /* Assets.xcassets */,
 				A1AB0E201FA0185100F1D3FF /* AppDelegate.swift */,
-				A1AB0E271FA0185100F1D3FF /* Assets.xcassets */,
 				A1AB0E291FA0185100F1D3FF /* LaunchScreen.storyboard */,
 				A1AB0E2C1FA0185100F1D3FF /* Info.plist */,
 			);
@@ -576,9 +573,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				A1AB0E2B1FA0185100F1D3FF /* LaunchScreen.storyboard in Resources */,
-				A1AB0E281FA0185100F1D3FF /* Assets.xcassets in Resources */,
-				A10F51BC1FA01D4300680AE6 /* Default-568h@2x.png in Resources */,
 				A1AB0E261FA0185100F1D3FF /* Main.storyboard in Resources */,
+				A1A3F0322045E1C3005E0667 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -983,7 +979,6 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-2";
 				CODE_SIGN_ENTITLEMENTS = "Small Biz Advisor.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2ASS3F562Z;
@@ -1002,7 +997,6 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-2";
 				CODE_SIGN_ENTITLEMENTS = "Small Biz Advisor.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2ASS3F562Z;
