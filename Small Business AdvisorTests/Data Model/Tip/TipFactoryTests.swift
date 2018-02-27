@@ -10,7 +10,7 @@ import XCTest
 import MagicCloud
 import CloudKit
 
-class _TipFactoryTests: XCTestCase {
+class TipFactoryTests: XCTestCase {
     
     // MARK: - Properties
     
