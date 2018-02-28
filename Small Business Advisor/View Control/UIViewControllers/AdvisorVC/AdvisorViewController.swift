@@ -197,8 +197,7 @@ class AdvisorViewController: UIViewController, PickerDecorator {
     
     // !!
     fileprivate func setBackgroundImg() {
-        let img = UIImage(named: ImageKeys.AdvisorView.bg)
-        let imgView = UIImageView(image: img)
+        let imgView = UIImageView(image: #imageLiteral(resourceName: "Main BG"))
         imgView.frame = self.view.frame
         
         self.view.addSubview(imgView)
