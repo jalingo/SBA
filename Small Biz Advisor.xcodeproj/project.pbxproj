@@ -52,7 +52,6 @@
 		A1A0FCEB1FE34C6200E3D679 /* Graphic Themes.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A0FCEA1FE34C6200E3D679 /* Graphic Themes.swift */; };
 		A1A0FCEC1FE34C6200E3D679 /* Graphic Themes.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A0FCEA1FE34C6200E3D679 /* Graphic Themes.swift */; };
 		A1A3F0322045E1C3005E0667 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1A3F0312045E1C3005E0667 /* Assets.xcassets */; };
-		A1A3F03620462E68005E0667 /* Image Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A3F03520462E68005E0667 /* Image Keys.swift */; };
 		A1A933082044E095001D7A4F /* Pods_Small_Biz_Advisor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1A933092044E095001D7A4F /* Pods_Small_Biz_Advisor.framework */; };
 		A1A9330A2044E0A0001D7A4F /* MagicCloud.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1A9330B2044E0A0001D7A4F /* MagicCloud.framework */; };
 		A1AAB6A91FA939C000017C54 /* TipFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AAB6A81FA939C000017C54 /* TipFactory.swift */; };
@@ -148,7 +147,6 @@
 		A19AD90D1FDBD3F5001C5846 /* FlagTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlagTests.swift; sourceTree = "<group>"; };
 		A1A0FCEA1FE34C6200E3D679 /* Graphic Themes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Graphic Themes.swift"; sourceTree = "<group>"; };
 		A1A3F0312045E1C3005E0667 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		A1A3F03520462E68005E0667 /* Image Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image Keys.swift"; sourceTree = "<group>"; };
 		A1A933092044E095001D7A4F /* Pods_Small_Biz_Advisor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_Small_Biz_Advisor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1A9330B2044E0A0001D7A4F /* MagicCloud.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MagicCloud.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1AAB6A81FA939C000017C54 /* TipFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipFactory.swift; sourceTree = "<group>"; };
@@ -246,7 +244,6 @@
 			isa = PBXGroup;
 			children = (
 				A1AC8F28201C011B000B02E8 /* User Facing Text.swift */,
-				A1A3F03520462E68005E0667 /* Image Keys.swift */,
 				A136A0B720195EFA00F53594 /* String Manipulation.swift */,
 				A1A0FCEA1FE34C6200E3D679 /* Graphic Themes.swift */,
 				A1AC8F2F201C04F9000B02E8 /* Protocols */,
@@ -770,7 +767,6 @@
 				90C4E87B1FC16F8400A8D329 /* VoteCounter.swift in Sources */,
 				A197E657201817EF00B62ED2 /* PickerDecorator.swift in Sources */,
 				90A16F461FAE48B1002D418B /* Key Strings.swift in Sources */,
-				A1A3F03620462E68005E0667 /* Image Keys.swift in Sources */,
 				90C4E8771FC14D5600A8D329 /* Vote.swift in Sources */,
 				A12656561FDF36EE00F37215 /* NewTip.swift in Sources */,
 				A126564F1FDF2F1D00F37215 /* Edit.swift in Sources */,

@@ -71,14 +71,13 @@ class EditorViewController: UIViewController {
 
         // Before proceeeding, need to check for undo situation...
         guard previousVote == nil else {
-            
             // After undoing vote, reset states
             adjustVoteButtonStatesForReset(enabled: true)
             previousVote = nil
             
             return
         }
-        
+
         // Save new vote to the database.
         cast(vote)
     }
@@ -122,7 +121,7 @@ class EditorViewController: UIViewController {
     fileprivate func checkAvailability() {
         if let user = MCUserRecord().singleton?.recordName {
             switchButtons(visible: true)
-            
+
             let results = votes.cloudRecordables.filter {
                 $0.candidate.recordID.recordName == currentTip?.recordID.recordName &&
                     $0.constituent.recordID.recordName == user }
@@ -188,7 +187,8 @@ class EditorViewController: UIViewController {
             - enable: The state to adjust button for. If true, button will be enabled, else disabled.
      */
     fileprivate func adjustVote(button: UIButton, enable: Bool) {
-        enable ? button.setTitleColor(Format.ecGreen, for: .normal) : button.setTitleColor(.gray, for: .normal)
+//        enable ? button.setTitleColor(Format.ecGreen, for: .normal) : button.setTitleColor(.gray, for: .normal)
+        enable ? button.setImage(#imageLiteral(resourceName: "Up_green"), for: .normal) : button.setImage(#imageLiteral(resourceName: "Up_gray"), for: .normal)
         button.isEnabled = true // <-- This ensure that false state from adjustVoteButtonStatesForReset:enabled:false is corrected if encountered.
     }
     
@@ -233,7 +233,7 @@ class EditorViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        if currentTip?.index == -1 {
+        if currentTip?.index == -1 || self.previousVote == nil {
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) { self.adjustVoteButtonStatesForReset(enabled: false) }
         } else {
             self.checkAvailability()
