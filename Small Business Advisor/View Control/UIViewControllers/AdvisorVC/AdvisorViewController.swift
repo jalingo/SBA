@@ -39,17 +39,33 @@ class AdvisorViewController: UIViewController, PickerDecorator {
         }
     }
     
+    /// `isRandom` is toggled between `true` (next entry determined at random) & `false` (entries come in order).
+    var isRandom = true {
+        didSet { adjustChangeType(when: isRandom) }
+    }
+    
+    // !!
+    fileprivate func adjustChangeType(when random: Bool) {
+        randomBar.isHidden = !random
+        rankedBar.isHidden = random
+        
+        randomSwitched()
+    }
+    
     // MARK: - - Properties: IBOutlets
+    
+    /// This IBOutlet property serves as change type indicator. When visible, change order is random.
+    @IBOutlet weak var randomBar: UIImageView!
+    
+    /// This IBOutlet property serves as change type indicator. When visible, change order is according to rank.
+    @IBOutlet weak var rankedBar: UIImageView!
     
     /// `pageLabel` shows the rank of the current entry from the data model.
     @IBOutlet weak var pageLabel: UILabel!
     
     /// `textView` shows the body text from the current entry from the data model.
     @IBOutlet weak var textView: UITextView!
-    
-    /// `randomSwitch` is toggled between `on` (next entry determined at random) & `off` (entries come in order).
-    @IBOutlet weak var randomSwitch: UISwitch!
-    
+
     /// This IBOutlet property displays current tip's category and serves a button to limit list by category.
     @IBOutlet weak var selectCategoryButton: UIButton!
     
@@ -84,7 +100,7 @@ class AdvisorViewController: UIViewController, PickerDecorator {
         Recognizes `increasePage` position, and ensures that page number doesn't exceed count (starting over again at page '1').
      */
     func increasePage() {
-        if randomSwitch.isOn {
+        if isRandom {
             let random = tips.random()
             textView.attributedText = random.text
             page = tips.lastRank
@@ -102,7 +118,7 @@ class AdvisorViewController: UIViewController, PickerDecorator {
     func decreasePage() {
         
         // If in "Random Mode", a swipe is treated as a shake.
-        guard !randomSwitch.isOn else { increasePage(); return }
+        guard !isRandom else { increasePage(); return }
         
         // Else, a swipe right means go back.
         page > 1 ? (page -= 1) : (page = tips.count)
@@ -118,11 +134,16 @@ class AdvisorViewController: UIViewController, PickerDecorator {
     @IBAction func logoTapped(_ sender: UIButton) {
         if let url = URL(string: URL_str.homePage) { UIApplication.shared.open(url) }
     }
+
+    @IBAction func randomPressed(_ sender: UIButton) { isRandom = true }
+
+    @IBAction func rankedPressed(_ sender: UIButton) { isRandom = false }
     
+    // !!
     /// When `randomSwitch` tapped, this populates screen with instructions, based on switch outcome.
-    @IBAction func randomSwitched(_ sender: UISwitch) {
+    fileprivate func randomSwitched() {
         let txt: String
-        sender.isOn ? (txt = UserFacingText.shakeInstructions) : (txt = UserFacingText.swipeInstructions)
+        isRandom ? (txt = UserFacingText.shakeInstructions) : (txt = UserFacingText.swipeInstructions)
 
         textView.attributedText = NSAttributedString(string: txt, attributes: Format.categoryTitle)
     }
