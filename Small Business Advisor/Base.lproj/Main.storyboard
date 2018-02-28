@@ -60,7 +60,7 @@
                                 </connections>
                             </button>
                             <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cqP-Uv-tjc" userLabel="Editor Container">
-                                <rect key="frame" x="16" y="558" width="343" height="109"/>
+                                <rect key="frame" x="16" y="599" width="343" height="68"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
                                     <segue destination="ePh-lw-o4K" kind="embed" id="MVs-pb-Vbt"/>
@@ -256,83 +256,60 @@
             <objects>
                 <viewController id="ePh-lw-o4K" customClass="EditorViewController" customModule="Small_Biz_Advisor" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OYX-XA-tHA">
-                        <rect key="frame" x="0.0" y="0.0" width="343" height="109"/>
+                        <rect key="frame" x="0.0" y="0.0" width="343" height="68"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Ob-OY-oiy">
-                                <rect key="frame" x="0.0" y="0.5" width="69" height="108"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="69" id="5Ej-kd-uXd"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="80"/>
-                                <state key="normal" title="↑">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Ob-OY-oiy">
+                                <rect key="frame" x="18" y="12" width="53" height="45"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="Up_green">
                                     <color key="titleColor" red="0.5490196078431373" green="0.7803921568627451" blue="0.24705882352941178" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <state key="disabled" image="Up_gray"/>
                                 <connections>
                                     <action selector="upVoteTapped:" destination="ePh-lw-o4K" eventType="touchUpInside" id="mEe-04-hvX"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FSl-bi-14p">
-                                <rect key="frame" x="265" y="36" width="35" height="37"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="FSl-bi-14p" secondAttribute="height" multiplier="35:37" id="EpU-8Y-Juy"/>
-                                    <constraint firstAttribute="height" constant="37" id="Vil-mb-o1A"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title=" ✏️"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FSl-bi-14p">
+                                <rect key="frame" x="202" y="12" width="58" height="45"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title=" ✏️" image="Pencil_green"/>
+                                <state key="disabled" image="Pencil_gray"/>
                                 <connections>
                                     <action selector="editTapped:" destination="ePh-lw-o4K" eventType="touchUpInside" id="Qiz-VL-wcZ"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HWV-QS-doU">
-                                <rect key="frame" x="308" y="36.5" width="35" height="36"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="36" id="SQT-5A-DpE"/>
-                                    <constraint firstAttribute="width" secondItem="HWV-QS-doU" secondAttribute="height" multiplier="35:36" id="cXg-US-DaP"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="🚩"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HWV-QS-doU">
+                                <rect key="frame" x="268" y="12" width="56" height="45"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="Flag_green"/>
+                                <state key="disabled" image="Flag_gray"/>
                                 <connections>
                                     <action selector="flagTapped:" destination="ePh-lw-o4K" eventType="touchUpInside" id="eTe-Q9-7Ks"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BLj-Zw-kli">
-                                <rect key="frame" x="222" y="36.5" width="35" height="36"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="36" id="Aym-kZ-Xk2"/>
-                                    <constraint firstAttribute="width" secondItem="BLj-Zw-kli" secondAttribute="height" multiplier="35:36" id="Jh9-6w-YNf"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="➕"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BLj-Zw-kli">
+                                <rect key="frame" x="139" y="12" width="55" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="Add_green"/>
+                                <state key="disabled" image="Add_gray"/>
                                 <connections>
                                     <action selector="addTapped:" destination="ePh-lw-o4K" eventType="touchUpInside" id="CVp-Yb-rpa"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ENA-Am-xwM">
-                                <rect key="frame" x="77" y="0.5" width="125" height="108"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="80"/>
-                                <state key="normal" title="↓">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ENA-Am-xwM">
+                                <rect key="frame" x="79" y="12" width="52" height="45"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="Down_green">
                                     <color key="titleColor" red="0.5490196078431373" green="0.7803921568627451" blue="0.24705882352941178" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <state key="disabled" image="Down_gray"/>
                                 <connections>
                                     <action selector="downVoteTapped:" destination="ePh-lw-o4K" eventType="touchUpInside" id="kH5-w9-hRT"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="2Ob-OY-oiy" firstAttribute="centerY" secondItem="6aZ-NI-XTU" secondAttribute="centerY" id="9r5-KD-jc0"/>
-                            <constraint firstItem="HWV-QS-doU" firstAttribute="leading" secondItem="FSl-bi-14p" secondAttribute="trailing" constant="8" symbolic="YES" id="JOz-Gr-QnB"/>
-                            <constraint firstItem="ENA-Am-xwM" firstAttribute="centerY" secondItem="6aZ-NI-XTU" secondAttribute="centerY" id="JpS-He-goX"/>
-                            <constraint firstItem="BLj-Zw-kli" firstAttribute="leading" secondItem="ENA-Am-xwM" secondAttribute="trailing" constant="20" id="N3o-MX-YvS"/>
-                            <constraint firstItem="FSl-bi-14p" firstAttribute="centerY" secondItem="6aZ-NI-XTU" secondAttribute="centerY" id="cSx-Gm-KwI"/>
-                            <constraint firstAttribute="trailing" secondItem="HWV-QS-doU" secondAttribute="trailing" id="h7w-jP-m1w"/>
-                            <constraint firstItem="BLj-Zw-kli" firstAttribute="centerY" secondItem="6aZ-NI-XTU" secondAttribute="centerY" id="l1l-yy-044"/>
-                            <constraint firstItem="FSl-bi-14p" firstAttribute="leading" secondItem="BLj-Zw-kli" secondAttribute="trailing" constant="8" symbolic="YES" id="n9X-nK-NAQ"/>
-                            <constraint firstItem="2Ob-OY-oiy" firstAttribute="leading" secondItem="OYX-XA-tHA" secondAttribute="leading" id="qec-Ck-Npa"/>
-                            <constraint firstItem="HWV-QS-doU" firstAttribute="centerY" secondItem="6aZ-NI-XTU" secondAttribute="centerY" id="txU-4S-Kel"/>
-                            <constraint firstItem="ENA-Am-xwM" firstAttribute="leading" secondItem="2Ob-OY-oiy" secondAttribute="trailing" constant="8" symbolic="YES" id="yBo-Of-z1f"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6aZ-NI-XTU"/>
                     </view>
                     <connections>
@@ -345,7 +322,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u1z-oG-dc5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="825" y="378.125"/>
+            <point key="canvasLocation" x="824.79999999999995" y="377.36131934032989"/>
         </scene>
         <!--Flagger View Controller-->
         <scene sceneID="tjJ-Gi-xtm">
@@ -472,10 +449,20 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Add_gray" width="100" height="100"/>
+        <image name="Add_green" width="100" height="100"/>
+        <image name="Down_gray" width="100" height="100"/>
+        <image name="Down_green" width="100" height="100"/>
         <image name="Escape_Chaos_R102 white" width="2583" height="1359"/>
+        <image name="Flag_gray" width="100" height="100"/>
+        <image name="Flag_green" width="100" height="100"/>
         <image name="Help_Button" width="68" height="65"/>
+        <image name="Pencil_gray" width="100" height="100"/>
+        <image name="Pencil_green" width="100" height="100"/>
         <image name="Random" width="200" height="50"/>
         <image name="Ranked" width="200" height="50"/>
+        <image name="Up_gray" width="100" height="100"/>
+        <image name="Up_green" width="100" height="100"/>
         <image name="brick" width="200" height="50"/>
     </resources>
 </document>

@@ -233,7 +233,7 @@ class EditorViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        if currentTip?.index == -1 || previousVote == nil {
+        if currentTip?.index == -1 {
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) { self.adjustVoteButtonStatesForReset(enabled: false) }
         } else {
             self.checkAvailability()
