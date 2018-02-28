@@ -187,7 +187,6 @@ class EditorViewController: UIViewController {
             - enable: The state to adjust button for. If true, button will be enabled, else disabled.
      */
     fileprivate func adjustVote(button: UIButton, enable: Bool) {
-//        enable ? button.setTitleColor(Format.ecGreen, for: .normal) : button.setTitleColor(.gray, for: .normal)
         enable ? button.setImage(#imageLiteral(resourceName: "Up_green"), for: .normal) : button.setImage(#imageLiteral(resourceName: "Up_gray"), for: .normal)
         button.isEnabled = true // <-- This ensure that false state from adjustVoteButtonStatesForReset:enabled:false is corrected if encountered.
     }
