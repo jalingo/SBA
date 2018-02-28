@@ -77,3 +77,16 @@ extension ButtonEnabler {
     /// This read-only property returns the color updateButton will display to indicate disabled.
     var inactiveColor: UIColor { return .gray }
 }
+
+// !!
+extension UITextView {
+    
+    func centerVertically() {
+        let fittingSize = CGSize(width: bounds.width, height: CGFloat.greatestFiniteMagnitude)
+        let size = sizeThatFits(fittingSize)
+        let topOffset = (bounds.size.height - size.height * zoomScale) / 2
+        let positiveTopOffset = max(1, topOffset)
+        contentOffset.y = -positiveTopOffset
+    }
+    
+}
