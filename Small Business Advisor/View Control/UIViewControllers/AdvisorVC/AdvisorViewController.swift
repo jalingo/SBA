@@ -167,10 +167,19 @@ class AdvisorViewController: UIViewController, PickerDecorator {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        setBackgroundImg()
         textView.attributedText = NSAttributedString(string: UserFacingText.shakeInstructions,
                                                      attributes: Format.categoryTitle)
         
         self.becomeFirstResponder()
+    }
+    
+    // !!
+    fileprivate func setBackgroundImg() {
+        let img = UIImage(named: ImageKeys.AdvisorView.bg)
+        let imgView = UIImageView(image: img)
+        self.view.addSubview(imgView)
+        self.view.sendSubview(toBack: imgView)
     }
     
     /// This method triggers `shakeRoutine` after USER performs shake gesture.
