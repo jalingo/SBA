@@ -33,19 +33,13 @@ class AdvisorViewController: UIViewController, PickerDecorator {
             categoryLock.isEnabled = true
             pageLabel.text = String(page)
 
-            if tips.cloudRecordables.count != 0 {
-                rankMeter.progress = Float(1.0 - (Double(page) / Double(tips.cloudRecordables.count)))
-                passTipToChildren()
-            }
+            if tips.cloudRecordables.count != 0 { passTipToChildren() }
             
             selectCategoryButton.setAttributedTitle(tips.rank(of: page).category.formatted, for: .normal)
         }
     }
     
     // MARK: - - Properties: IBOutlets
-    
-    /// This IBOutlet property shows a visual representation of presented tip's strength (based on rank).
-    @IBOutlet weak var rankMeter: UIProgressView!
     
     /// `pageLabel` shows the rank of the current entry from the data model.
     @IBOutlet weak var pageLabel: UILabel!
@@ -175,7 +169,6 @@ class AdvisorViewController: UIViewController, PickerDecorator {
 
         textView.attributedText = NSAttributedString(string: UserFacingText.shakeInstructions,
                                                      attributes: Format.categoryTitle)
-        rankMeter.trackTintColor = .white
         
         self.becomeFirstResponder()
     }
