@@ -11,6 +11,7 @@ import MagicCloud
 import CloudKit
 
 /// This sub-class inherits from UIViewController, and manages USER's ability to flag tips for removal / correction.
+@IBDesignable
 class FlaggerViewController: UIViewController, TipEditor {
 
     // MARK: - Properties

@@ -42,7 +42,7 @@ class FieldsEditorViewController: UIViewController, PickerDecorator {
     // MARK: - Properties: IBOutlets
     
     /// This IBOutlet property references a label that indicates type of editor: create new v. edit existing.
-    @IBOutlet weak var editorTypeIndicator: UILabel!
+    @IBOutlet weak var editorTypeIndicator: UIImageView!
     
     /// This IBOutlet property references the category button used to display current category and tap for more.
     @IBOutlet weak var categoryButton: UIButton!
@@ -66,7 +66,7 @@ class FieldsEditorViewController: UIViewController, PickerDecorator {
     
     /// This method decorates UI elements based on tipBeingEdited.
     fileprivate func decorate() {
-        if tipBeingEdited == nil { editorTypeIndicator.text = "➕" }
+        if tipBeingEdited == nil { editorTypeIndicator.image = #imageLiteral(resourceName: "Add_white") }
         
         textArea.attributedText = NSAttributedString(string: text, attributes: Format.bodyText)
         textArea.delegate = self
