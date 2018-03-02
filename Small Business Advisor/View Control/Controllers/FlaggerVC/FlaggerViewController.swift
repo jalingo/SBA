@@ -124,8 +124,8 @@ class FlaggerViewController: UIViewController, TipEditor {
             
             flags.append(flag)
         }
-        
-        self.dismiss(animated: true, completion: nil)
+
+        self.navigationController?.popViewController(animated: true)
     }
 
     // MARK: - Functions: UIViewController
