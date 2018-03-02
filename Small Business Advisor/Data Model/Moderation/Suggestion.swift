@@ -9,6 +9,8 @@
 import MagicCloud
 import CloudKit
 
+// MARK: Protocols
+
 /// This protocol is conformed by view controllers that will save moderation records to database.
 protocol ModerationSuggester {
    
@@ -36,9 +38,21 @@ protocol SuggestedModeration {
     /// This optional property stores database identifier for the USER suggesting moderation.
     var creator: CKRecordID? { get set }
 
+    //  !!
+    var state: ModerationState { get set }
+    
     /// This static, read-only & optional property returns the maximum amount of active moderation records in the database (by type) the USER is limited to.
     static var limit: Int?   { get }
 }
+
+// MARK: - Enums
+
+// !!
+enum ModerationState: Int {
+    case submitted = 0, opened, closedApproved, closedRejected
+}
+
+// MARK: - Extensions
 
 extension ModerationSuggester {
     

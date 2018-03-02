@@ -38,6 +38,8 @@ struct NewTip: NewTipAbstraction {
 
     var creator: CKRecordID?
     
+    var state: ModerationState = .submitted
+    
     static var limit: Int? = 5
     
     // MARK: - Properties: MCRecordable
@@ -83,11 +85,15 @@ extension NewTip: MCRecordable {
             dict[RecordKey.ncat] = category as CKRecordValue
             dict[RecordKey.crtr] = CKReference(recordID: creator ?? MCUserRecord().singleton ?? dummyRec, action: .deleteSelf)
 
+            dict[RecordKey.stat] = state.rawValue as CKRecordValue
             if let str = editorEmail    { dict[RecordKey.mail] = str as CKRecordValue }
 
             return dict
         }
+        
         set {
+            if let num = newValue[RecordKey.stat] as? NSNumber,
+                let modState = ModerationState(rawValue: num.intValue) { state = modState }
             if let txt = newValue[RecordKey.ntxt] as? String { text = txt }
             if let txt = newValue[RecordKey.ncat] as? String { category = txt }
             if let ref = newValue[RecordKey.crtr] as? CKReference { creator = ref.recordID }

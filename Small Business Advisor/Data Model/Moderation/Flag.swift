@@ -38,6 +38,8 @@ struct Flag: FlagAbstraction {
 
     var creator: CKRecordID?
     
+    var state: ModerationState = .submitted
+    
     static var limit: Int? = 3
     
     // MARK: - Properties: MCRecordable
@@ -91,6 +93,7 @@ extension Flag: MCRecordable {
             dictionary[RecordKey.crtr] = CKReference(recordID: creator ?? MCUserRecord().singleton ?? dummyRec, action: .deleteSelf)
             dictionary[RecordKey.refs] = tip
             
+            dictionary[RecordKey.stat] = state.rawValue as CKRecordValue
             if let str = editorEmail { dictionary[RecordKey.mail] = str as CKRecordValue }
 
             return dictionary
@@ -111,6 +114,8 @@ extension Flag: MCRecordable {
                 }
             }
             
+            if let num = newValue[RecordKey.stat] as? NSNumber,
+                let modState = ModerationState(rawValue: num.intValue) { state = modState }
             if let str = newValue[RecordKey.mail] as? String      { editorEmail = str }
             if let ref = newValue[RecordKey.crtr] as? CKReference { creator = ref.recordID }
             if let ref = newValue[RecordKey.refs] as? CKReference { tip = ref }

@@ -83,6 +83,9 @@ struct RecordKey {
     /// This CKRecord key matches "index: Int" value in "Suggestion" database records: "SUGGESTED_TEXT".
     static let ntxt = "SUGGESTED_TEXT"
     
+    /// !! SUGGESTED_STATE
+    static let stat = "SUGGESTED_STATE"
+    
     // Universal Keys
         
     /// This CKRecord key matches various CKReference or [CKReference] values in various database records: "RECORD_OWNERS".
