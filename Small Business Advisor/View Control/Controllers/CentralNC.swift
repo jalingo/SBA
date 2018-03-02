@@ -13,26 +13,16 @@ import MagicCloud
 class CentralNC: UINavigationController {
 
     // MARK: - Properties
-    
-    let _tips = MCMirror<Tip>(db: .publicDB)
-    
-    var tips: [Tip] { return _tips.cloudRecordables }
 
-    let _votes = MCMirror<Vote>(db: .publicDB)
-
-    var votes: [Vote] { return _votes.cloudRecordables }
+    let tips = TipFactory()
     
-    let _flags = MCMirror<Flag>(db: .publicDB)
+    let votes = MCMirror<Vote>(db: .publicDB)
     
-    var flags: [Flag] { return _flags.cloudRecordables }
+    let flags = MCMirror<Flag>(db: .publicDB)
     
-    let _edits = MCMirror<TipEdit>(db: .publicDB)
+    let edits = MCMirror<TipEdit>(db: .publicDB)
     
-    var edits: [TipEdit] { return _edits.cloudRecordables }
-    
-    let _newTips = MCMirror<NewTip>(db: .publicDB)
-    
-    var newTips: [NewTip] { return _newTips.cloudRecordables }
+    let newTips = MCMirror<NewTip>(db: .publicDB)
     
     // MARK: - Functions
     

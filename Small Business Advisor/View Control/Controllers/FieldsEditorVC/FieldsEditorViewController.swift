@@ -16,12 +16,18 @@ class FieldsEditorViewController: UIViewController, PickerDecorator {
     // MARK: - Properties
 
     /// This property stores an MCReceiver associated w/TipEdit recordable.
-    /// To access an array of all existing types in .recordables
-    fileprivate var suggestedEdits = MCMirror<TipEdit>(db: .publicDB)
+    /// To access an array of all existing types in .cloudRrecordables
+    fileprivate var suggestedEdits: MCMirror<TipEdit>? {
+        guard let nav = self.navigationController as? CentralNC else { return nil }
+        return nav.edits
+    } // = MCMirror<TipEdit>(db: .publicDB)
     
     /// This property stores an MCReceiver associated w/NewTip recordable.
-    /// To access an array of all existing types in .recordables
-    fileprivate var suggestedTips = MCMirror<NewTip>(db: .publicDB)
+    /// To access an array of all existing types in .cloudRecordables
+    fileprivate var suggestedTips: MCMirror<NewTip>? {
+        guard let nav = self.navigationController as? CentralNC else { return nil }
+        return nav.newTips
+    } //= MCMirror<NewTip>(db: .publicDB)
     
     /// This computed property returns the category of the tipBeingEdited, or if nil then ".outOfRange".
     fileprivate var category: TipCategory { return tipBeingEdited?.category ?? .outOfRange }
@@ -81,7 +87,9 @@ class FieldsEditorViewController: UIViewController, PickerDecorator {
         if let tip = tipBeingEdited {
             categoryButton.setTitle(tip.category.formatted.string, for: .normal)
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                if AnyModerator<TipEdit>().isUnderLimit(for: self.suggestedEdits.cloudRecordables) {
+                guard let suggestedEdits = self.suggestedEdits else { return }
+
+                if AnyModerator<TipEdit>().isUnderLimit(for: suggestedEdits.cloudRecordables) {
                     self.saveButton.setTitleColor(.white, for: .normal)
                     self.enableChangesWhileIgnoringFgColor()
                 } else {
@@ -91,7 +99,9 @@ class FieldsEditorViewController: UIViewController, PickerDecorator {
         } else {
             categoryButton.setTitle(Default.categoryText, for: .normal)
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                if AnyModerator<NewTip>().isUnderLimit(for: self.suggestedTips.cloudRecordables) {
+                guard let suggestedTips = self.suggestedTips else { return }
+
+                if AnyModerator<NewTip>().isUnderLimit(for: suggestedTips.cloudRecordables) {
                     self.saveButton.setTitleColor(.white, for: .normal)
                     self.enableChangesWhileIgnoringFgColor()
                 } else {
@@ -107,12 +117,12 @@ class FieldsEditorViewController: UIViewController, PickerDecorator {
             var edit = TipEdit(newText: textArea.text, newCategory: selectedCategory, for: tip)
             edit.editorEmail = emailField.text
             
-            suggestedEdits.cloudRecordables.append(edit)
+            suggestedEdits?.cloudRecordables.append(edit)
         } else {
             var new = NewTip(text: textArea.text, category: selectedCategory ?? "NA")
             new.editorEmail = emailField.text
   
-            suggestedTips.cloudRecordables.append(new)
+            suggestedTips?.cloudRecordables.append(new)
         }
     }
     

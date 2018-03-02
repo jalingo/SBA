@@ -23,7 +23,7 @@ extension AdvisorViewController: UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if let category = TipCategory(rawValue: row) {
             selectCategoryButton.setAttributedTitle(category.formatted, for: .normal)
-            self.tips.limitation = category
+            self.tips?.limitation = category
             self.increasePage()
         }
         

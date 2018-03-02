@@ -50,12 +50,26 @@ class EditorViewController: UIViewController {
     // MARK: - Properties: UIPickerView
     
     /// This property stores an MCReceiver associated w/Flag recordable.
-    /// To access an array of all existing types in .recordables
-    var flags = MCMirror<Flag>(db: .publicDB)
+    /// To access an array of all existing types in .cloudRecordables
+//   !! var flags = MCMirror<Flag>(db: .publicDB)
+//    var flags: [Flag] {
+//        if let nav = self.navigationController as? CentralNC { return nav.flags }
+//        return []
+//    }
     
     /// This property stores an MCReceiver associated w/Vote recordable.
-    /// To access an array of all existing types in .recordables
-    var votes = MCMirror<Vote>(db: .publicDB)
+    /// To access an array of all existing types in .cloudRecordables
+//  !!  var votes = MCMirror<Vote>(db: .publicDB)
+    var votes: [Vote] {
+        get {
+            if let nav = self.navigationController as? CentralNC { return nav.votes.cloudRecordables }
+            return []
+        }
+        
+        set {
+            if let nav = self.navigationController as? CentralNC { nav.votes.cloudRecordables = newValue }
+        }
+    }
 
     // MARK: - Functions
     
@@ -89,7 +103,7 @@ class EditorViewController: UIViewController {
      */
     fileprivate func removeExisting(_ vote: Bool) {
         if let oldVote = previousVote {            
-            if let index = votes.cloudRecordables.index(of: oldVote) { votes.cloudRecordables.remove(at: index) }
+            if let index = votes.index(of: oldVote) { votes.remove(at: index) }
             
             // This constraint can signal undo situation, when not set nil
             if oldVote.isFor != vote { previousVote = nil }
@@ -110,8 +124,10 @@ class EditorViewController: UIViewController {
             
             // !!!!
 //            votes.cloudRecordables.append(vote)
-
-            let op = MCUpload([vote], from: votes, to: .publicDB)
+            
+            guard let voteMirror = (self.navigationController as? CentralNC)?.votes else { return }
+            
+            let op = MCUpload([vote], from: voteMirror, to: .publicDB)
             op.completionBlock = { self.checkAvailability() }    // <-- This should reset vote buttons after
             OperationQueue().addOperation(op)
         }
@@ -122,7 +138,7 @@ class EditorViewController: UIViewController {
         if let user = MCUserRecord().singleton?.recordName {
             switchButtons(visible: true)
 
-            let results = votes.cloudRecordables.filter {
+            let results = votes.filter {
                 $0.candidate.recordID.recordName == currentTip?.recordID.recordName &&
                     $0.constituent.recordID.recordName == user }
 
@@ -215,7 +231,7 @@ class EditorViewController: UIViewController {
     @IBAction func addTapped(_ sender: UIButton) {
         if let parent = self.parent as? AdvisorViewController,
             parent.page == 0 || currentTip?.text.string != Tip.defaultText, // <- first page or no net errors
-            parent.tips.count != 0      // <-- This ensures that first page fails w/network errors
+            parent.tips?.count != 0      // <-- This ensures that first page fails w/network errors
         {
             parent.tipPassingAllowed = false
             segue(from: "homeToEditor")

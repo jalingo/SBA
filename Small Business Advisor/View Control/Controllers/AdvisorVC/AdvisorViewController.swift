@@ -22,7 +22,10 @@ class AdvisorViewController: UIViewController, PickerDecorator {
     
     /// This receiver is the primary connection to the data model. Handles vote counting locally.
     /// Access an array of all existing types in .recordables
-    var tips = TipFactory()
+    var tips: TipFactory? {
+        guard let nav = self.navigationController as? CentralNC else { return nil }
+        return nav.tips
+    }
     
     /// This boolean can be used to prevent AdvisorVC from passing tip to TipEditor in AdvisorVC.prepare:forSegue:
     var tipPassingAllowed = true
@@ -33,9 +36,9 @@ class AdvisorViewController: UIViewController, PickerDecorator {
             categoryLock.isEnabled = true
             pageLabel.text = String(page)
 
-            if tips.cloudRecordables.count != 0 { passTipToChildren() }
+            if tips?.cloudRecordables.count != 0 { passTipToChildren() }
             
-            selectCategoryButton.setAttributedTitle(tips.rank(of: page).category.formatted, for: .normal)
+            if let txt = tips?.rank(of: page).category.formatted { selectCategoryButton.setAttributedTitle(txt, for: .normal) }
         }
     }
     
@@ -90,7 +93,7 @@ class AdvisorViewController: UIViewController, PickerDecorator {
     /// This method will pass current tip to any child view controllers conforming to TipEditor (see above).
     fileprivate func passTipToChildren() {
         for child in childViewControllers {
-            if let controller = child as? TipEditor { tipPassingAllowed ? (controller.tip = tips.rank(of: page)) : (tipPassingAllowed = true) }
+            if let controller = child as? TipEditor { tipPassingAllowed ? (controller.tip = tips?.rank(of: page)) : (tipPassingAllowed = true) }
         }
     }
     
@@ -100,6 +103,8 @@ class AdvisorViewController: UIViewController, PickerDecorator {
         Recognizes `increasePage` position, and ensures that page number doesn't exceed count (starting over again at page '1').
      */
     func increasePage() {
+        guard let tips = tips else { return }
+
         if isRandom {
             let random = tips.random()
             textView.attributedText = random.text
@@ -116,7 +121,8 @@ class AdvisorViewController: UIViewController, PickerDecorator {
         Ensures page doesn't go below '1' (starting over at `TipFactory.max`).
      */
     func decreasePage() {
-        
+        guard let tips = tips else { return }
+
         // If in "Random Mode", a swipe is treated as a shake.
         guard !isRandom else { increasePage(); return }
         
@@ -166,6 +172,8 @@ class AdvisorViewController: UIViewController, PickerDecorator {
     
     /// This IBAction method switches category limitation lock state when user taps category lock button.
     @IBAction func categoryLockTapped(_ sender: UIButton) {
+        guard let tips = tips else { return }
+
         if let _ = tips.limitation {
             tips.limitation = nil
             sender.setTitle("🔐", for: .normal)
@@ -212,6 +220,6 @@ class AdvisorViewController: UIViewController, PickerDecorator {
     /// This method passes current tip to destination if it is TipEditor and tipPassingAllowed.
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
-        if let controller = segue.destination as? TipEditor { tipPassingAllowed ? (controller.tip = tips.rank(of: page)) : (tipPassingAllowed = true) }
+        if let controller = segue.destination as? TipEditor { tipPassingAllowed ? (controller.tip = tips?.rank(of: page)) : (tipPassingAllowed = true) }
     }    
 }

@@ -18,17 +18,31 @@ class FlaggerViewController: UIViewController, TipEditor {
     
     /// This property stores an MCReceiver associated w/Tip recordable.
     /// Access an array of all existing types in .recordables
-    let tips = TipFactory()
+// !!   let tips = TipFactory()
+    var tips: TipFactory {
+        if let nav = self.navigationController as? CentralNC { return nav.tips }
+        return TipFactory()
+    }
     
     /// This property stores an MCReceiver associated w/Flag recordable.
     /// Access an array of all existing types in .recordables
-    let flags = MCMirror<Flag>(db: .publicDB)
+// !!   let flags = MCMirror<Flag>(db: .publicDB)
+    var flags: [Flag] {
+        get {
+            if let nav = self.navigationController as? CentralNC { return nav.flags.cloudRecordables }
+            return []
+        }
+        
+        set {
+            if let nav = self.navigationController as? CentralNC { nav.flags.cloudRecordables = newValue }
+        }
+    }
     
     /// This optional property is set when a reason for flagging tip specified by USER. Otherwise, is nil.
     var reason: FlagReason?
     
     /// When USER has an active flag, returns true.
-    var isFlagged: Bool { return !AnyModerator<Flag>().isUnderLimit(for: flags.cloudRecordables) }
+    var isFlagged: Bool { return !AnyModerator<Flag>().isUnderLimit(for: flags) }
     
     // MARK: - Properties: UIPickerViewDataSource
     
@@ -108,7 +122,7 @@ class FlaggerViewController: UIViewController, TipEditor {
             var flag = Flag(tip: tip, for: reason!)
             flag.editorEmail = flaggerTextField.text
             
-            flags.cloudRecordables.append(flag)
+            flags.append(flag)
         }
         
         self.dismiss(animated: true, completion: nil)
@@ -124,7 +138,7 @@ class FlaggerViewController: UIViewController, TipEditor {
         // This delay gives time for flags to download and draws attention cloud update reception.
         // CAUTION: Currently, flagger view cannot be reached without network connectivity already being established. In the event of a connectivity loss, this could loop infinitely.
         DispatchQueue(label: "delay").async {
-            while self.flags.cloudRecordables.count == 0 { /* wait until tips have been downloaded */ } // Then...
+            while self.flags.count == 0 { /* wait until tips have been downloaded */ } // Then...
             DispatchQueue.main.async { self.setFlagButtonState(enabled: false) }
         }
         

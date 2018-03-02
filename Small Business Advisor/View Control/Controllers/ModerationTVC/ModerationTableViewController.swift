@@ -29,26 +29,15 @@ class ModerationTableViewController: UITableViewController {
     
     let currentUser = MCUserRecord().singleton
     
-    
-    var flags: [Flag] {
-        if let nav = self.navigationController as? CentralNC { return nav.flags }
+    var suggestions: [SuggestedModeration] {
+        if let nav = self.navigationController as? CentralNC {
+            var array: [SuggestedModeration] = nav.flags.cloudRecordables
+            array += nav.edits.cloudRecordables as [SuggestedModeration] + nav.newTips.cloudRecordables as [SuggestedModeration]
+            
+            return array
+        }
         
         return []
-    }
-    
-    let _edits = MCMirror<TipEdit>(db: .publicDB)
-    
-    var edits: [TipEdit] { return _edits.cloudRecordables.filter { $0.creator == currentUser } }
-    
-    let _newTips = MCMirror<NewTip>(db: .publicDB)
-    
-    var newTips: [NewTip] { return _newTips.cloudRecordables.filter { $0.creator == currentUser } }
-    
-    var suggestions: [SuggestedModeration] {
-        var array: [SuggestedModeration] = flags
-        array += edits as [SuggestedModeration] + newTips as [SuggestedModeration]
-        
-        return array
     }
     
     // MARK: - Functions
@@ -58,16 +47,13 @@ class ModerationTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        if let nav = self.navigationController as? CentralNC { nav.decorateForModerationTVC() }
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 }
 

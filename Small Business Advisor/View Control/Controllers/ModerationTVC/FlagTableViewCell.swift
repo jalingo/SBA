@@ -33,7 +33,7 @@ class FlagTableViewCell: UITableViewCell {
 
 extension FlagTableViewCell: SuggestionCell {
     var suggestion: SuggestedModeration {
-        get { return _suggestion ?? NewTip() }
+        get { return _suggestion ?? Flag() }
         set { _suggestion = newValue }
     }
 }
