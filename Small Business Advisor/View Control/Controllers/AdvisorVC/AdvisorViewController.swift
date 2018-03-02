@@ -75,6 +75,9 @@ class AdvisorViewController: UIViewController, PickerDecorator {
     /// This IBOutlet property displays category lock status and switchs category limitation state.
     @IBOutlet weak var categoryLock: UIButton!
     
+    // !!
+    @IBOutlet weak var suggestionsButton: UIButton!
+    
     // MARK: - - Properties: UIResponder
     
     /// This override allows `AdvisorViewController` to become first responder (to user interactions); always true.
@@ -196,11 +199,16 @@ class AdvisorViewController: UIViewController, PickerDecorator {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        decorateView()
+        self.becomeFirstResponder()
+    }
+    
+    // !!
+    fileprivate func decorateView() {
+        if let nav = self.navigationController as? CentralNC { suggestionsButton.isHidden = !nav.userHasSuggestions }
         setBackgroundImg()
         textView.attributedText = NSAttributedString(string: UserFacingText.shakeInstructions,
                                                      attributes: Format.categoryTitle)
-        
-        self.becomeFirstResponder()
     }
     
     // !!
