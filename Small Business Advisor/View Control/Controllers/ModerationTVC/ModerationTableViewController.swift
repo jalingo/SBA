@@ -30,13 +30,7 @@ class ModerationTableViewController: UITableViewController {
     let currentUser = MCUserRecord().singleton
     
     var suggestions: [SuggestedModeration] {
-        if let nav = self.navigationController as? CentralNC {
-            var array: [SuggestedModeration] = nav.flags.cloudRecordables
-            array += nav.edits.cloudRecordables as [SuggestedModeration] + nav.newTips.cloudRecordables as [SuggestedModeration]
-            
-            return array
-        }
-        
+        if let nav = self.navigationController as? CentralNC { return nav.allSuggestions }
         return []
     }
     
@@ -54,6 +48,11 @@ class ModerationTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        if let nav = self.navigationController as? CentralNC { nav.isNavigationBarHidden = true }
+        super.viewWillDisappear(animated)
     }
 }
 
