@@ -85,6 +85,8 @@
 		A1FBF17620490F9300AEE363 /* EditTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FBF17420490F9300AEE363 /* EditTableViewCell.swift */; };
 		A1FBF17820490FA100AEE363 /* NewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FBF17720490FA100AEE363 /* NewTableViewCell.swift */; };
 		A1FBF17920490FA100AEE363 /* NewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FBF17720490FA100AEE363 /* NewTableViewCell.swift */; };
+		A1FBF17B2049261200AEE363 /* CentralNC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FBF17A2049261200AEE363 /* CentralNC.swift */; };
+		A1FBF17C2049261200AEE363 /* CentralNC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FBF17A2049261200AEE363 /* CentralNC.swift */; };
 		EC1A35230ECA3082C2B0EFB1 /* Pods_Small_Biz_AdvisorTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F27F5636C6B5118BBD2705F /* Pods_Small_Biz_AdvisorTests.framework */; };
 		ED6090F072AAA9CF02FCC5F7 /* Pods_Small_Biz_AdvisorUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D671BD000981B147F34A804B /* Pods_Small_Biz_AdvisorUITests.framework */; };
 		FCC69855BF1AF23FBE2B5F58 /* Pods_Small_Biz_Advisor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1A933092044E095001D7A4F /* Pods_Small_Biz_Advisor.framework */; };
@@ -182,6 +184,7 @@
 		A1FBF17120490F8000AEE363 /* FlagTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlagTableViewCell.swift; sourceTree = "<group>"; };
 		A1FBF17420490F9300AEE363 /* EditTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTableViewCell.swift; sourceTree = "<group>"; };
 		A1FBF17720490FA100AEE363 /* NewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTableViewCell.swift; sourceTree = "<group>"; };
+		A1FBF17A2049261200AEE363 /* CentralNC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CentralNC.swift; sourceTree = "<group>"; };
 		ABBAF1B53E618ABD0AE8F264 /* Pods-Small Biz AdvisorTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Small Biz AdvisorTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Small Biz AdvisorTests/Pods-Small Biz AdvisorTests.debug.xcconfig"; sourceTree = "<group>"; };
 		D671BD000981B147F34A804B /* Pods_Small_Biz_AdvisorUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Small_Biz_AdvisorUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE1DAAEF1D11D5279C5D918B /* Pods-Small Biz Advisor.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Small Biz Advisor.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Small Biz Advisor/Pods-Small Biz Advisor.debug.xcconfig"; sourceTree = "<group>"; };
@@ -259,7 +262,7 @@
 				A136A0B720195EFA00F53594 /* String Manipulation.swift */,
 				A1A0FCEA1FE34C6200E3D679 /* Graphic Themes.swift */,
 				A1AC8F2F201C04F9000B02E8 /* Protocols */,
-				A12904BF200FED360086C0E7 /* UIViewControllers */,
+				A12904BF200FED360086C0E7 /* Controllers */,
 			);
 			path = "View Control";
 			sourceTree = "<group>";
@@ -274,15 +277,16 @@
 			path = "Data Model";
 			sourceTree = "<group>";
 		};
-		A12904BF200FED360086C0E7 /* UIViewControllers */ = {
+		A12904BF200FED360086C0E7 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				A1FBF17A2049261200AEE363 /* CentralNC.swift */,
 				A1FBF16D2048C28A00AEE363 /* ModerationTVC */,
 				A1AC8F33201C0F46000B02E8 /* AdvisorVC */,
 				A1B6943620169A6F0052DF8C /* FlaggerVC */,
 				A1AC8F37201C464D000B02E8 /* FieldsEditorVC */,
 			);
-			path = UIViewControllers;
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 		A14E3EF9201FBC6E00F3D0C6 /* Tip */ = {
@@ -777,6 +781,7 @@
 				A136A0B820195EFA00F53594 /* String Manipulation.swift in Sources */,
 				A1A0FCEB1FE34C6200E3D679 /* Graphic Themes.swift in Sources */,
 				A1B6943C20169ACD0052DF8C /* FlaggerPickerDelegation.swift in Sources */,
+				A1FBF17B2049261200AEE363 /* CentralNC.swift in Sources */,
 				A150440A1FA503920018B909 /* Entry.swift in Sources */,
 				A1AAB6A91FA939C000017C54 /* TipFactory.swift in Sources */,
 				A1D545D2200EBEC4004C1DC8 /* FlaggerViewController.swift in Sources */,
@@ -815,6 +820,7 @@
 				A12656541FDF306E00F37215 /* NewTipTests.swift in Sources */,
 				A1AC8F2A201C011B000B02E8 /* User Facing Text.swift in Sources */,
 				A126564D1FDF27E700F37215 /* EditTests.swift in Sources */,
+				A1FBF17C2049261200AEE363 /* CentralNC.swift in Sources */,
 				A150440B1FA503920018B909 /* Entry.swift in Sources */,
 				A1B694402016B4D20052DF8C /* Suggestion.swift in Sources */,
 				A15044001FA33C210018B909 /* Tip.swift in Sources */,

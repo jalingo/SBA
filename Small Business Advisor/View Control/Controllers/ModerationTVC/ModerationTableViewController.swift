@@ -29,9 +29,12 @@ class ModerationTableViewController: UITableViewController {
     
     let currentUser = MCUserRecord().singleton
     
-    let _flags = MCMirror<Flag>(db: .publicDB)
     
-    var flags: [Flag] { return _flags.cloudRecordables.filter { $0.creator == currentUser } }
+    var flags: [Flag] {
+        if let nav = self.navigationController as? CentralNC { return nav.flags }
+        
+        return []
+    }
     
     let _edits = MCMirror<TipEdit>(db: .publicDB)
     
