@@ -228,6 +228,7 @@
                         <outlet property="randomBar" destination="7dC-bb-7yH" id="awa-xp-ELK"/>
                         <outlet property="rankedBar" destination="tYr-6k-yYA" id="dnV-cD-yno"/>
                         <outlet property="selectCategoryButton" destination="eQQ-BK-4aL" id="ySb-fd-gQc"/>
+                        <outlet property="suggestionsButton" destination="hcB-FJ-oKr" id="85X-f6-qWu"/>
                         <outlet property="textView" destination="hdv-jg-B6j" id="GIL-b8-cG0"/>
                         <segue destination="LJ4-iU-IzR" kind="show" identifier="homeToEditor" id="MYd-5P-w2r"/>
                         <segue destination="ZZo-nM-M2Q" kind="show" identifier="homeToFlagger" id="2NB-vY-zAd"/>
@@ -657,7 +658,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CT4-33-KXG">
-                                                    <rect key="frame" x="94" y="44" width="273" height="46"/>
+                                                    <rect key="frame" x="94" y="44" width="273" height="44"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
@@ -680,7 +681,7 @@
                                                 <constraint firstItem="cjF-n6-BNN" firstAttribute="trailing" secondItem="CT4-33-KXG" secondAttribute="trailing" id="OS9-aG-Uyc"/>
                                                 <constraint firstItem="cjF-n6-BNN" firstAttribute="leading" secondItem="Dvg-o7-kDL" secondAttribute="trailing" constant="8" symbolic="YES" id="Qa9-dd-JB3"/>
                                                 <constraint firstItem="cjF-n6-BNN" firstAttribute="leading" secondItem="CT4-33-KXG" secondAttribute="leading" id="UOH-LT-GHi"/>
-                                                <constraint firstItem="Dvg-o7-kDL" firstAttribute="bottom" secondItem="CT4-33-KXG" secondAttribute="bottom" id="UhF-bw-YDb"/>
+                                                <constraint firstAttribute="bottom" secondItem="CT4-33-KXG" secondAttribute="bottom" constant="2" id="UhF-bw-YDb"/>
                                                 <constraint firstItem="Dvg-o7-kDL" firstAttribute="top" secondItem="cjF-n6-BNN" secondAttribute="top" id="eMx-cE-0n0"/>
                                                 <constraint firstItem="Dvg-o7-kDL" firstAttribute="top" secondItem="Ynd-bx-FfD" secondAttribute="top" id="kZ7-eh-Ddg"/>
                                             </constraints>
@@ -699,7 +700,7 @@
                                     <outlet property="tipTextLabel" destination="CT4-33-KXG" id="fLS-uO-Z4z"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Edit_Cell" rowHeight="100" id="6Wg-4F-qog" userLabel="Edit Cell">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Edit_Cell" rowHeight="100" id="6Wg-4F-qog" userLabel="Edit Cell" customClass="EditTableViewCell" customModule="Small_Biz_Advisor" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="128" width="375" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6Wg-4F-qog" id="OVZ-8Q-rZl">
@@ -726,8 +727,8 @@
                                                         <constraint firstAttribute="width" constant="86" id="ksn-Tl-IV4"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dxS-FY-Agx">
-                                                    <rect key="frame" x="94" y="36" width="273" height="64"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dxS-FY-Agx">
+                                                    <rect key="frame" x="94" y="36" width="273" height="52"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
@@ -744,7 +745,7 @@
                                                 <constraint firstItem="BfD-AG-PZy" firstAttribute="trailing" secondItem="qlI-fr-4gf" secondAttribute="trailingMargin" id="l5u-jN-TpR"/>
                                                 <constraint firstItem="BfD-AG-PZy" firstAttribute="leading" secondItem="dxS-FY-Agx" secondAttribute="leading" id="oRn-nJ-l9X"/>
                                                 <constraint firstItem="BwS-n7-CFN" firstAttribute="top" secondItem="BfD-AG-PZy" secondAttribute="top" id="uex-7x-c0L"/>
-                                                <constraint firstAttribute="bottom" secondItem="dxS-FY-Agx" secondAttribute="bottom" constant="-10.5" id="uim-rm-uGe"/>
+                                                <constraint firstAttribute="bottom" secondItem="dxS-FY-Agx" secondAttribute="bottom" constant="2" id="uim-rm-uGe"/>
                                             </constraints>
                                         </view>
                                     </subviews>
@@ -756,8 +757,12 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <outlet property="categoryLabel" destination="BfD-AG-PZy" id="pjr-j0-J9Y"/>
+                                    <outlet property="tipTextLabel" destination="dxS-FY-Agx" id="gAR-oG-DFf"/>
+                                </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Flag_Cell" rowHeight="100" id="RJz-Ca-HQF" userLabel="Flag Cell">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Flag_Cell" rowHeight="100" id="RJz-Ca-HQF" userLabel="Flag Cell" customClass="FlagTableViewCell" customModule="Small_Biz_Advisor" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="228" width="375" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="RJz-Ca-HQF" id="waH-OH-wZd">
@@ -776,11 +781,12 @@
                                                     <color key="textColor" red="0.54901960780000003" green="0.78039215689999997" blue="0.2470588235" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fnO-NK-A89">
-                                                    <rect key="frame" x="94" y="44" width="273" height="46"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fnO-NK-A89">
+                                                    <rect key="frame" x="94" y="36" width="273" height="52"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
+                                                    <size key="shadowOffset" width="0.0" height="0.0"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Flag_white" translatesAutoresizingMaskIntoConstraints="NO" id="dqc-bv-7TG">
                                                     <rect key="frame" x="0.0" y="0.0" width="86" height="90"/>
@@ -793,16 +799,16 @@
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
-                                                <constraint firstItem="geH-E1-dWC" firstAttribute="trailing" secondItem="fnO-NK-A89" secondAttribute="trailing" id="3Gr-z9-TAV"/>
-                                                <constraint firstItem="fnO-NK-A89" firstAttribute="top" secondItem="geH-E1-dWC" secondAttribute="bottom" constant="8" symbolic="YES" id="A4g-ld-ibt"/>
+                                                <constraint firstItem="fnO-NK-A89" firstAttribute="trailing" secondItem="geH-E1-dWC" secondAttribute="trailing" id="3xT-hp-btH"/>
                                                 <constraint firstItem="geH-E1-dWC" firstAttribute="leading" secondItem="dqc-bv-7TG" secondAttribute="trailing" constant="8" symbolic="YES" id="AOj-E1-TLv"/>
                                                 <constraint firstItem="dqc-bv-7TG" firstAttribute="leading" secondItem="ELw-9F-hbI" secondAttribute="leading" id="EW4-KE-3nI"/>
-                                                <constraint firstItem="geH-E1-dWC" firstAttribute="leading" secondItem="fnO-NK-A89" secondAttribute="leading" id="VB4-Sp-bHK"/>
+                                                <constraint firstItem="fnO-NK-A89" firstAttribute="leading" secondItem="geH-E1-dWC" secondAttribute="leading" id="SlY-gC-xWJ"/>
                                                 <constraint firstAttribute="bottom" secondItem="dqc-bv-7TG" secondAttribute="bottom" id="Xba-eT-bkz"/>
                                                 <constraint firstItem="dqc-bv-7TG" firstAttribute="top" secondItem="geH-E1-dWC" secondAttribute="top" id="Zgn-Qo-mi3"/>
-                                                <constraint firstItem="dqc-bv-7TG" firstAttribute="bottom" secondItem="fnO-NK-A89" secondAttribute="bottom" id="fNa-B8-bO1"/>
                                                 <constraint firstItem="geH-E1-dWC" firstAttribute="trailing" secondItem="ELw-9F-hbI" secondAttribute="trailingMargin" id="jeA-lh-5W8"/>
                                                 <constraint firstItem="dqc-bv-7TG" firstAttribute="top" secondItem="ELw-9F-hbI" secondAttribute="top" id="jt8-Xd-y3P"/>
+                                                <constraint firstAttribute="bottom" secondItem="fnO-NK-A89" secondAttribute="bottom" constant="2" id="lzY-pA-LQf"/>
+                                                <constraint firstItem="fnO-NK-A89" firstAttribute="top" secondItem="geH-E1-dWC" secondAttribute="bottom" id="vBU-KL-vjb"/>
                                             </constraints>
                                         </view>
                                     </subviews>
@@ -815,6 +821,10 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <outlet property="reasonLabel" destination="geH-E1-dWC" id="bxn-IW-LdK"/>
+                                    <outlet property="tipTextLabel" destination="fnO-NK-A89" id="rM4-uY-UHe"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>

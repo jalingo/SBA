@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NewTableViewCell: UITableViewCell {
+class NewTableViewCell: UITableViewCell, SuggestionCell {
 
     // MARK: - Properties
     
@@ -20,30 +20,21 @@ class NewTableViewCell: UITableViewCell {
     
     // MARK: - Properties: SuggetionCell
     
-    var _suggestion: SuggestedModeration?
+    var associatedTip: Tip? {
+        didSet {
+            categoryLabel.text = associatedTip?.category.formatted.string
+            tipTextLabel.text  = associatedTip?.text.string
+        }
+    }
+
+    var suggestion: SuggestedModeration = NewTip()
     
     // MARK: - Functions
     
     // MARK: - Functions: UITableViewCell
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        
-//        if let txt = _suggestion?.
-//        categoryLabel.attributedText =
-    }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
         // Configure the view for the selected state
-    }
-
-}
-
-extension NewTableViewCell: SuggestionCell {
-    var suggestion: SuggestedModeration {
-        get { return _suggestion ?? NewTip() }
-        set { _suggestion = newValue }
     }
 }

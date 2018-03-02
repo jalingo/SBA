@@ -21,6 +21,7 @@ struct CellLabels {
 
 protocol SuggestionCell: AnyObject {
     var suggestion: SuggestedModeration { get set }
+    var associatedTip: Tip? { get set }
 }
 
 class ModerationTableViewController: UITableViewController {
@@ -31,6 +32,11 @@ class ModerationTableViewController: UITableViewController {
     
     var suggestions: [SuggestedModeration] {
         if let nav = self.navigationController as? CentralNC { return nav.allSuggestions }
+        return []
+    }
+    
+    var tips: [Tip] {
+        if let nav = self.navigationController as? CentralNC { return nav.tips.cloudRecordables }
         return []
     }
     
@@ -82,8 +88,12 @@ extension ModerationTableViewController {
         }
         
         let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath)
-        if let cell = cell as? SuggestionCell { cell.suggestion = suggestion }
-        
+        if let cell = cell as? SuggestionCell,
+            let index = tips.index(where: { $0.recordID.recordName == suggestion.tip.recordID.recordName }) {
+            cell.associatedTip = tips[index]
+            cell.suggestion = suggestion
+        }
+
         return cell
     }
     

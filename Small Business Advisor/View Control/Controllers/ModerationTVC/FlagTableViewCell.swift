@@ -8,32 +8,32 @@
 
 import UIKit
 
-class FlagTableViewCell: UITableViewCell {
+class FlagTableViewCell: UITableViewCell, SuggestionCell {
 
     // MARK: - Properties
 
     // MARK: - Properties: Suggestion
     
-    var _suggestion: SuggestedModeration?
+    var suggestion: SuggestedModeration = Flag()
+    
+    var associatedTip: Tip? {
+        didSet {
+            tipTextLabel.text = associatedTip?.text.string
+            reasonLabel.text = (suggestion as? Flag)?.reason.toStr()
+        }
+    }
+    
+    // MARK: - Properties: IBOutlets
+    
+    @IBOutlet weak var reasonLabel: UILabel!
+    
+    @IBOutlet weak var tipTextLabel: UILabel!
     
     // MARK: - Functions
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
-    }
-
-}
-
-extension FlagTableViewCell: SuggestionCell {
-    var suggestion: SuggestedModeration {
-        get { return _suggestion ?? Flag() }
-        set { _suggestion = newValue }
     }
 }

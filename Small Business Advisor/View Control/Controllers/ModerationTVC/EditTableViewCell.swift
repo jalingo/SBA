@@ -8,11 +8,32 @@
 
 import UIKit
 
-class EditTableViewCell: UITableViewCell {
+class EditTableViewCell: UITableViewCell, SuggestionCell {
 
+    // MARK: - Properties
+    
+    // MARK: - Properties: IBOutlets
+    
+    @IBOutlet weak var categoryLabel: UILabel!
+    
+    @IBOutlet weak var tipTextLabel: UILabel!
+    
+    // MARK: - Properties: SuggestionCell
+    
+    var associatedTip: Tip? {
+        didSet {
+            categoryLabel.text = associatedTip?.category.formatted.string
+            tipTextLabel.text  = associatedTip?.text.string
+        }
+    }
+    
+    var suggestion: SuggestedModeration = TipEdit()
+    
+    // MARK: - Functions
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -20,5 +41,4 @@ class EditTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
 }
