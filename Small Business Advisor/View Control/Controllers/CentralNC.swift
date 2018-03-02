@@ -33,6 +33,10 @@ class CentralNC: UINavigationController {
         return array
     }
     
+    var allSuggestionNotifications: [Notification.Name] {
+        return [flags.changeNotification, edits.changeNotification, newTips.changeNotification]
+    }
+    
     var userHasSuggestions: Bool {
         let currentUser = MCUserRecord().singleton
         return allSuggestions.contains { $0.creator == currentUser }

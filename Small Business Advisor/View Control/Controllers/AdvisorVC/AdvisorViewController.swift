@@ -199,8 +199,20 @@ class AdvisorViewController: UIViewController, PickerDecorator {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        listenForModerationUpdate()
         decorateView()
         self.becomeFirstResponder()
+    }
+    
+    // !!
+    fileprivate func listenForModerationUpdate() {
+        guard let nav = self.navigationController as? CentralNC else { return }
+        
+        for name in nav.allSuggestionNotifications {
+            NotificationCenter.default.addObserver(forName: name, object: nil, queue: nil) { _ in
+                if nav.userHasSuggestions { self.suggestionsButton.isHidden = !nav.userHasSuggestions }
+            }
+        }
     }
     
     // !!
