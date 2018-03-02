@@ -24,6 +24,20 @@ class CentralNC: UINavigationController {
     
     let newTips = MCMirror<NewTip>(db: .publicDB)
     
+    // MARK: - Properties: Computed Properties
+    
+    var allSuggestions: [SuggestedModeration] {
+        var array: [SuggestedModeration] = flags.cloudRecordables
+        array += edits.cloudRecordables as [SuggestedModeration] + newTips.cloudRecordables as [SuggestedModeration]
+        
+        return array
+    }
+    
+    var userHasSuggestions: Bool {
+        let currentUser = MCUserRecord().singleton
+        return allSuggestions.contains { $0.creator == currentUser }
+    }
+    
     // MARK: - Functions
     
     func decorateForModerationTVC() {
