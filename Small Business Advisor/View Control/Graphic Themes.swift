@@ -19,6 +19,9 @@ struct Format {
     /// This static constant stores the rgb values for theme color "Escape Chaos Green"
     static let ecGreen = UIColor(red: 0.55, green: 0.78, blue: 0.25, alpha: 1.0)
 
+    // !!
+    static let ecRed = UIColor(displayP3Red: 1.0, green: 0.15, blue: 0.0, alpha: 1.0)
+    
     /// This static computed property returns a centered mutable paragraph style for attributed strings.
     static var style: NSMutableParagraphStyle {
         let _style = NSMutableParagraphStyle()
