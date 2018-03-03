@@ -37,6 +37,13 @@ class ModerationTableViewController: UITableViewController {
     
     // MARK: - Functions
     
+    // !!
+    fileprivate func observe(name: Notification.Name) {
+        NotificationCenter.default.addObserver(forName: name, object: nil, queue: nil) { _ in
+            DispatchQueue.main.async { self.tableView.reloadData() }
+        }
+    }
+    
     // MARK: - Functions: UIViewController
     
     override func viewDidLoad() {
@@ -51,6 +58,10 @@ class ModerationTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+
+        guard let suggestionNotificationNames = (self.navigationController as? CentralNC)?.allSuggestionNotifications else { return }
+        
+        for name in suggestionNotificationNames { observe(name: name) }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -93,36 +104,8 @@ extension ModerationTableViewController {
             let index = tips.index(where: { $0.recordID.recordName == suggestion.tip.recordID.recordName }) {
             cell.associatedTip = tips[index]
             cell.suggestion = suggestion
-            
-            if let nav = self.navigationController as? CentralNC {
-                switch suggestion {
-                case is NewTip: observe(name: nav.newTips.changeNotification, on: nav.newTips, for: cell, with: suggestion as! NewTip)
-                case is TipEdit: observe(name: nav.edits.changeNotification, on: nav.edits, for: cell, with: suggestion as! TipEdit)
-                default: observe(name: nav.flags.changeNotification, on: nav.flags, for: cell, with: suggestion as! Flag)
-                }
-            }
         }
     
         return cell
     }
-    
-    fileprivate func observe<T>(name: Notification.Name, on mirror: MCMirror<T>, for cell: SuggestionCell, with suggestion: T) {
-        NotificationCenter.default.addObserver(forName: name, object: nil, queue: nil) { _ in
-            if let index = mirror.cloudRecordables.index(where: { $0.recordID.recordName == suggestion.recordID.recordName }) {
-                if let mod = mirror.cloudRecordables[index] as? SuggestedModeration { cell.suggestion = mod }
-            }
-        }
-    }
-    
-    /*
-     // Override to support editing the table view.
-     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-     if editingStyle == .delete {
-     // Delete the row from the data source
-     tableView.deleteRows(at: [indexPath], with: .fade)
-     } else if editingStyle == .insert {
-     // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-     }
-     }
-     */
 }

@@ -15,12 +15,6 @@ import UIKit
 struct Format {
     
     // MARK: - Properties
-
-    /// This static constant stores the rgb values for theme color "Escape Chaos Green"
-    static let ecGreen = UIColor(red: 0.55, green: 0.78, blue: 0.25, alpha: 1.0)
-
-    // !!
-    static let ecRed = UIColor(displayP3Red: 1.0, green: 0.15, blue: 0.0, alpha: 1.0)
     
     /// This static computed property returns a centered mutable paragraph style for attributed strings.
     static var style: NSMutableParagraphStyle {
@@ -45,7 +39,7 @@ struct Format {
     static var bodyText: [NSAttributedStringKey: NSObject] {
         return [
             NSAttributedStringKey.font :            font(size: 18.0),
-            NSAttributedStringKey.foregroundColor:  ecGreen,
+            NSAttributedStringKey.foregroundColor:  Colors.ecGreen,
             NSAttributedStringKey.paragraphStyle:   style
         ]
     }
@@ -54,7 +48,7 @@ struct Format {
     static var categoryTitle: [NSAttributedStringKey: NSObject] {
         return [
             NSAttributedStringKey.font :            font(size: 24.0),
-            NSAttributedStringKey.foregroundColor:  ecGreen,
+            NSAttributedStringKey.foregroundColor:  Colors.ecGreen,
             NSAttributedStringKey.shadow:           shadow,
             NSAttributedStringKey.paragraphStyle:   style
         ]
@@ -75,7 +69,7 @@ struct Format {
 extension ButtonEnabler {
 
     /// This read-only property returns the color updateButton will display to indicate enabled.
-    var activeColor: UIColor { return Format.ecGreen }
+    var activeColor: UIColor { return Colors.ecGreen }
     
     /// This read-only property returns the color updateButton will display to indicate disabled.
     var inactiveColor: UIColor { return .gray }

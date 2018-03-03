@@ -18,9 +18,9 @@ extension SuggestionCell {
     func change(state: ModerationState) {
         DispatchQueue.main.async {
             switch state {
-            case .submitted:      self.indicatorImage?.backgroundColor = Format.ecRed
+            case .submitted:      self.indicatorImage?.backgroundColor = Colors.ecRed
             case .opened:         self.indicatorImage?.backgroundColor = .orange
-            case .closedApproved: self.indicatorImage?.backgroundColor = Format.ecGreen
+            case .closedApproved: self.indicatorImage?.backgroundColor = Colors.ecGreen
             case .closedRejected: self.indicatorImage?.backgroundColor = .gray
             }
         }
