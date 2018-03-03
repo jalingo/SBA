@@ -61,7 +61,7 @@ extension ModerationSuggester {
         guard let limit = type.limit else { return true }
         
         var matches = 0
-        for suggestion in suggestions where suggestion.creator == user { matches += 1 }
+        for suggestion in suggestions where suggestion.creator == user && suggestion.state == .submitted { matches += 1 }
 
         return matches < limit
     }
