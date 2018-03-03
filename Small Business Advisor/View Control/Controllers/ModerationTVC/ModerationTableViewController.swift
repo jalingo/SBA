@@ -41,7 +41,7 @@ class ModerationTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-print(" nav viewDidLoad")   // <-- Can we hide here?
+
         if let nav = self.navigationController as? CentralNC { nav.decorateForModerationTVC() }
         
         self.tableView.contentInset = UIEdgeInsetsMake(44,0,0,0);
@@ -109,9 +109,7 @@ extension ModerationTableViewController {
     fileprivate func observe<T>(name: Notification.Name, on mirror: MCMirror<T>, for cell: SuggestionCell, with suggestion: T) {
         NotificationCenter.default.addObserver(forName: name, object: nil, queue: nil) { _ in
             if let index = mirror.cloudRecordables.index(where: { $0.recordID.recordName == suggestion.recordID.recordName }) {
-                if let mod = mirror.cloudRecordables[index] as? SuggestedModeration {
-print("         SUCCESS \(name)")
-                    cell.suggestion = mod }
+                if let mod = mirror.cloudRecordables[index] as? SuggestedModeration { cell.suggestion = mod }
             }
         }
     }
