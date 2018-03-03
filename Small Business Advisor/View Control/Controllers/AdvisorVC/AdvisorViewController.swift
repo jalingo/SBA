@@ -200,8 +200,12 @@ class AdvisorViewController: UIViewController, PickerDecorator {
         super.viewDidLoad()
 
         listenForModerationUpdate()
-        decorateView()
         self.becomeFirstResponder()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)        
+        decorateView()
     }
     
     // !!

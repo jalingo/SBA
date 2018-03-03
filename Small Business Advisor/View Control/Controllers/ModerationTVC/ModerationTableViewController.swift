@@ -8,6 +8,7 @@
 
 import UIKit
 import MagicCloud
+import MessageUI
 
 struct CellLabels {
 
@@ -45,11 +46,15 @@ class ModerationTableViewController: UITableViewController {
     }
     
     // MARK: - Functions: UIViewController
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if let nav = self.navigationController as? CentralNC { nav.decorateForModerationTVC() }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        if let nav = self.navigationController as? CentralNC { nav.decorateForModerationTVC() }
         
         self.tableView.contentInset = UIEdgeInsetsMake(44,0,0,0);
         
@@ -65,11 +70,8 @@ class ModerationTableViewController: UITableViewController {
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        if let nav = self.navigationController as? CentralNC {
-            DispatchQueue.main.async { nav.isNavigationBarHidden = true }
-        }
-        
         super.viewWillDisappear(animated)
+        if let nav = self.navigationController as? CentralNC { nav.isNavigationBarHidden = true }
     }
 }
 
@@ -79,18 +81,14 @@ class ModerationTableViewController: UITableViewController {
 
 extension ModerationTableViewController {
     
-    // MARK: - Table view data source
-    
     override func numberOfSections(in tableView: UITableView) -> Int { return 1 }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int { return suggestions.count }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         let suggestion = suggestions[indexPath.row]
         
         let identifier: String
-        
         switch suggestion {
         case is NewTip:  identifier = CellLabels.new
         case is Flag:    identifier = CellLabels.flag
@@ -107,5 +105,71 @@ extension ModerationTableViewController {
         }
     
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool { return true }
+    
+    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let suggestion = suggestions[indexPath.row]
+
+        switch suggestion {
+        case is Flag: return actionsFor(mod: suggestion as! Flag)
+        case is NewTip: return actionsFor(mod: suggestion as! NewTip)
+        default:
+            if let m = suggestion as? TipEdit { return actionsFor(mod: m) }
+        }
+        
+        return nil
+    }
+    
+    // !!
+    fileprivate func actionsFor<T: MCRecordable>(mod: T) -> [UITableViewRowAction] {
+        let cancel = UITableViewRowAction(style: .destructive, title: "Cancel") { _,_ in
+            self.remove(mod)
+            self.tableView.reloadData()
+            
+            guard let nav = self.navigationController as? CentralNC,
+                let name = nav.allSuggestionNotifications.first else { return }
+            NotificationCenter.default.post(name: name, object: nil)
+        }
+        
+        let edit = UITableViewRowAction(style: .normal, title: "Contact") { _,_ in
+            var str: String?
+            
+            switch mod {
+            case is Flag:   str = "Flag: \(String(describing: (mod as? Flag)?.reason.toStr()))"
+            case is NewTip: str = "NewTip: \(String(describing: (mod as? NewTip)?.tip.recordID.recordName))"
+            default:        str = "Edit: \(String(describing: (mod as? TipEdit)?.tip.recordID.recordName))"
+            }
+            
+            if let str = str { self.switchToUsersMailApp(subject: str) }
+        }
+        
+        return [cancel, edit]
+    }
+    
+    // !!
+    fileprivate func remove<T: MCRecordable>(_ mod: T) {
+        guard let nav = self.navigationController as? CentralNC else { return }
+
+        var mirror: MCMirror<T>?
+        switch mod {
+        case is Flag:   if let m = nav.flags as? MCMirror<T> { mirror = m }
+        case is NewTip: if let m = nav.newTips as? MCMirror<T> { mirror = m }
+        default:        if let m = nav.edits as? MCMirror<T> { mirror = m }
+        }
+        
+        let name = mod.recordID.recordName
+        if let index = mirror?.cloudRecordables.index(where: { $0.recordID.recordName == name }) { mirror?.cloudRecordables.remove(at: index) }
+    }
+    
+    // !!
+    fileprivate func switchToUsersMailApp(subject: String) {
+        let mc = MFMailComposeViewController()
+        
+        mc.setSubject(subject)
+        mc.setToRecipients(["sba@escapechaos.com"]) // <-- !!
+        
+        self.present(mc, animated: true, completion: nil)
     }
 }
