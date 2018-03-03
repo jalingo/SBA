@@ -55,10 +55,7 @@ class CentralNC: UINavigationController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        DispatchQueue.main.async {
-            self.isNavigationBarHidden = true   // This applies in all VCs except ModerationTVC
-        }
+        setNavigationBarHidden(true, animated: false)
     }
     
     /*
