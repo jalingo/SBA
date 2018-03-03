@@ -29,10 +29,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MCNotificationConverter {
         convertToLocal(from: userInfo)
     }
     
-//    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
-//print("                 registered with token")
-//    }
-    
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
 print("                 Error @ UIApp.didFailToRegister")
 print("                 \(error.localizedDescription)")
