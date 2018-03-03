@@ -210,7 +210,9 @@ class AdvisorViewController: UIViewController, PickerDecorator {
         
         for name in nav.allSuggestionNotifications {
             NotificationCenter.default.addObserver(forName: name, object: nil, queue: nil) { _ in
-                if nav.userHasSuggestions { self.suggestionsButton.isHidden = !nav.userHasSuggestions }
+                if nav.userHasSuggestions {
+                    DispatchQueue.main.async { self.suggestionsButton.isHidden = !nav.userHasSuggestions }
+                }
             }
         }
     }

@@ -8,13 +8,15 @@
 
 import UIKit
 
-class FlagTableViewCell: UITableViewCell, SuggestionCell {
+class FlagTableViewCell: UITableViewCell, SuggestionCell {    
 
     // MARK: - Properties
 
     // MARK: - Properties: Suggestion
     
-    var suggestion: SuggestedModeration = Flag()
+    var suggestion: SuggestedModeration = Flag() {
+        didSet { change(state: suggestion.state) }
+    }
     
     var associatedTip: Tip? {
         didSet {
@@ -29,8 +31,12 @@ class FlagTableViewCell: UITableViewCell, SuggestionCell {
     
     @IBOutlet weak var tipTextLabel: UILabel!
     
+    @IBOutlet weak var indicatorImage: UIImageView!
+    
     // MARK: - Functions
-
+    
+    // MARK: - Functions: UITableViewCell
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 

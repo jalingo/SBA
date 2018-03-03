@@ -19,11 +19,6 @@ struct CellLabels {
     static let err  = "Err_Cell"
 }
 
-protocol SuggestionCell: AnyObject {
-    var suggestion: SuggestedModeration { get set }
-    var associatedTip: Tip? { get set }
-}
-
 class ModerationTableViewController: UITableViewController {
 
     // MARK: - Properties
@@ -46,8 +41,10 @@ class ModerationTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+print(" nav viewDidLoad")   // <-- Can we hide here?
         if let nav = self.navigationController as? CentralNC { nav.decorateForModerationTVC() }
+        
+        self.tableView.contentInset = UIEdgeInsetsMake(44,0,0,0);
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -57,7 +54,10 @@ class ModerationTableViewController: UITableViewController {
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        if let nav = self.navigationController as? CentralNC { nav.isNavigationBarHidden = true }
+        if let nav = self.navigationController as? CentralNC {
+            DispatchQueue.main.async { nav.isNavigationBarHidden = true }
+        }
+        
         super.viewWillDisappear(animated)
     }
 }
@@ -88,13 +88,32 @@ extension ModerationTableViewController {
         }
         
         let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath)
+        
         if let cell = cell as? SuggestionCell,
             let index = tips.index(where: { $0.recordID.recordName == suggestion.tip.recordID.recordName }) {
             cell.associatedTip = tips[index]
             cell.suggestion = suggestion
+            
+            if let nav = self.navigationController as? CentralNC {
+                switch suggestion {
+                case is NewTip: observe(name: nav.newTips.changeNotification, on: nav.newTips, for: cell, with: suggestion as! NewTip)
+                case is TipEdit: observe(name: nav.edits.changeNotification, on: nav.edits, for: cell, with: suggestion as! TipEdit)
+                default: observe(name: nav.flags.changeNotification, on: nav.flags, for: cell, with: suggestion as! Flag)
+                }
+            }
         }
-
+    
         return cell
+    }
+    
+    fileprivate func observe<T>(name: Notification.Name, on mirror: MCMirror<T>, for cell: SuggestionCell, with suggestion: T) {
+        NotificationCenter.default.addObserver(forName: name, object: nil, queue: nil) { _ in
+            if let index = mirror.cloudRecordables.index(where: { $0.recordID.recordName == suggestion.recordID.recordName }) {
+                if let mod = mirror.cloudRecordables[index] as? SuggestedModeration {
+print("         SUCCESS \(name)")
+                    cell.suggestion = mod }
+            }
+        }
     }
     
     /*

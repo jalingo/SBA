@@ -488,7 +488,7 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H2w-MJ-Q2z">
                                 <rect key="frame" x="16" y="540" width="164" height="43"/>
-                                <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="1" green="0.14901960784313725" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="H2w-MJ-Q2z" secondAttribute="height" multiplier="164:43" id="cTY-Fj-X7M"/>
                                 </constraints>
@@ -697,6 +697,7 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="categoryLabel" destination="cjF-n6-BNN" id="eTV-fR-Is7"/>
+                                    <outlet property="indicatorImage" destination="Dvg-o7-kDL" id="tPG-Px-ggB"/>
                                     <outlet property="tipTextLabel" destination="CT4-33-KXG" id="fLS-uO-Z4z"/>
                                 </connections>
                             </tableViewCell>
@@ -759,6 +760,7 @@
                                 <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <outlet property="categoryLabel" destination="BfD-AG-PZy" id="pjr-j0-J9Y"/>
+                                    <outlet property="indicatorImage" destination="BwS-n7-CFN" id="Xr9-fa-dr9"/>
                                     <outlet property="tipTextLabel" destination="dxS-FY-Agx" id="gAR-oG-DFf"/>
                                 </connections>
                             </tableViewCell>
@@ -822,6 +824,7 @@
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
+                                    <outlet property="indicatorImage" destination="dqc-bv-7TG" id="n51-Nj-64v"/>
                                     <outlet property="reasonLabel" destination="geH-E1-dWC" id="bxn-IW-LdK"/>
                                     <outlet property="tipTextLabel" destination="fnO-NK-A89" id="rM4-uY-UHe"/>
                                 </connections>

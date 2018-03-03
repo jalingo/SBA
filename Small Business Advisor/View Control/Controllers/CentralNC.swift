@@ -45,15 +45,20 @@ class CentralNC: UINavigationController {
     // MARK: - Functions
     
     func decorateForModerationTVC() {
-        self.isNavigationBarHidden = false
-        self.navigationBar.setBackgroundImage(#imageLiteral(resourceName: "Tall_Header_Green"), for: .defaultPrompt)
+        DispatchQueue.main.async {
+            self.isNavigationBarHidden = false
+            self.navigationBar.setBackgroundImage(#imageLiteral(resourceName: "Tall_Header_Green"), for: .defaultPrompt)
+        }
     }
     
     // MARK: - Functions: UIViewController
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.isNavigationBarHidden = true   // This applies in all VCs except ModerationTVC
+
+        DispatchQueue.main.async {
+            self.isNavigationBarHidden = true   // This applies in all VCs except ModerationTVC
+        }
     }
     
     /*

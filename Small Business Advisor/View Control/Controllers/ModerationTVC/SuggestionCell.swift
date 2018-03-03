@@ -11,20 +11,18 @@ import MagicCloud
 protocol SuggestionCell: AnyObject {
     var suggestion: SuggestedModeration { get set }
     var associatedTip: Tip? { get set }
-    var indicatorImage: UIImageView { get set }
+    weak var indicatorImage: UIImageView! { get set }
 }
-
 
 extension SuggestionCell {
     func change(state: ModerationState) {
-        switch state {
-        case .submitted:      indicatorImage.backgroundColor = .gray
-        case .opened:         indicatorImage.backgroundColor = .yellow
-        case .closedApproved: indicatorImage.backgroundColor = Format.ecGreen
-        case .closedRejected: indicatorImage.backgroundColor = UIColor(displayP3Red: 255.0,
-                                                                       green: 38.0,
-                                                                       blue: 0.0,
-                                                                       alpha: 1.0)
+        DispatchQueue.main.async {
+            switch state {
+            case .submitted:      self.indicatorImage?.backgroundColor = Format.ecRed
+            case .opened:         self.indicatorImage?.backgroundColor = .orange
+            case .closedApproved: self.indicatorImage?.backgroundColor = Format.ecGreen
+            case .closedRejected: self.indicatorImage?.backgroundColor = .gray
+            }
         }
     }
 }

@@ -18,6 +18,8 @@ class NewTableViewCell: UITableViewCell, SuggestionCell {
     
     @IBOutlet weak var tipTextLabel: UILabel!
     
+    @IBOutlet weak var indicatorImage: UIImageView!
+
     // MARK: - Properties: SuggetionCell
     
     var associatedTip: Tip? {
@@ -27,7 +29,9 @@ class NewTableViewCell: UITableViewCell, SuggestionCell {
         }
     }
 
-    var suggestion: SuggestedModeration = NewTip()
+    var suggestion: SuggestedModeration = NewTip() {
+        didSet { change(state: suggestion.state) }
+    }
     
     // MARK: - Functions
     
