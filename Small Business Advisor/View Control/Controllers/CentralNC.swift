@@ -58,7 +58,3 @@ class CentralNC: UINavigationController {
         setNavigationBarHidden(true, animated: false)
     }
 }
-
-extension CentralNC: UINavigationBarDelegate {
-    
-}
