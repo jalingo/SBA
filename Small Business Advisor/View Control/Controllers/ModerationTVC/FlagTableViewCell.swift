@@ -14,8 +14,12 @@ class FlagTableViewCell: UITableViewCell, SuggestionCell {
 
     // MARK: - Properties: Suggestion
     
+    // !! replace after associatedTip
     var suggestion: SuggestedModeration = Flag() {
-        didSet { change(state: suggestion.state) }
+        didSet {
+            change(state: suggestion.state)
+            reasonLabel.text = (suggestion as? Flag)?.reason.toStr()
+        }
     }
     
     var associatedTip: Tip? {

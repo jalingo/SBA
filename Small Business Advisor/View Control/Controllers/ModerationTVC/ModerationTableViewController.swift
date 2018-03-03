@@ -102,7 +102,7 @@ extension ModerationTableViewController {
         
         if let cell = cell as? SuggestionCell,
             let index = tips.index(where: { $0.recordID.recordName == suggestion.tip.recordID.recordName }) {
-            cell.associatedTip = tips[index]
+            cell.associatedTip = tips[index]    // <-- must be done before suggestion. Create a multi dependency namespace
             cell.suggestion = suggestion
         }
     
