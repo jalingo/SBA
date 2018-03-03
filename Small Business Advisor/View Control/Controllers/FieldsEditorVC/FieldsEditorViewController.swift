@@ -56,9 +56,6 @@ class FieldsEditorViewController: UIViewController, PickerDecorator {
     /// This IBOutlet property references the textArea used to communicate with USER.
     @IBOutlet weak var textArea: UITextView!
     
-    /// This IBOutlet property references the text field USER can input email address in.
-    @IBOutlet weak var emailField: UITextField!
-    
     /// This IBOutlet property references the save button USER taps to save changes they've made.
     @IBOutlet weak var saveButton: UIButton!
     
@@ -76,8 +73,6 @@ class FieldsEditorViewController: UIViewController, PickerDecorator {
         
         textArea.attributedText = NSAttributedString(string: text, attributes: Format.bodyText)
         textArea.delegate = self
-        
-        emailField.delegate = self
         
         decorateButtons()
     }
@@ -114,14 +109,10 @@ class FieldsEditorViewController: UIViewController, PickerDecorator {
     /// This method saves changes made by USER to tipBeingEdited or new tip to be created.
     fileprivate func saveChanges() {
         if let tip = tipBeingEdited {
-            var edit = TipEdit(newText: textArea.text, newCategory: selectedCategory, for: tip)
-            edit.editorEmail = emailField.text
-            
+            let edit = TipEdit(newText: textArea.text, newCategory: selectedCategory, for: tip)
             suggestedEdits?.cloudRecordables.append(edit)
         } else {
-            var new = NewTip(text: textArea.text, category: selectedCategory ?? "NA")
-            new.editorEmail = emailField.text
-  
+            let new = NewTip(text: textArea.text, category: selectedCategory ?? "NA")  
             suggestedTips?.cloudRecordables.append(new)
         }
     }
@@ -160,7 +151,6 @@ class FieldsEditorViewController: UIViewController, PickerDecorator {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if textArea.isFocused { textArea.resignFirstResponder() }
-        if emailField.isEditing { emailField.resignFirstResponder() }
     }
 
     // MARK: - Inner Classes
@@ -185,15 +175,6 @@ extension FieldsEditorViewController: UITextViewDelegate {
             return false
         }
         
-        return true
-    }
-}
-
-// MARK: - Extension: UITextFieldDelegate
-
-extension FieldsEditorViewController: UITextFieldDelegate {
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        self.view.endEditing(true)
         return true
     }
 }

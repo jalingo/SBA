@@ -18,7 +18,6 @@ class FlaggerViewController: UIViewController, TipEditor {
     
     /// This property stores an MCReceiver associated w/Tip recordable.
     /// Access an array of all existing types in .recordables
-// !!   let tips = TipFactory()
     var tips: TipFactory {
         if let nav = self.navigationController as? CentralNC { return nav.tips }
         return TipFactory()
@@ -26,7 +25,6 @@ class FlaggerViewController: UIViewController, TipEditor {
     
     /// This property stores an MCReceiver associated w/Flag recordable.
     /// Access an array of all existing types in .recordables
-// !!   let flags = MCMirror<Flag>(db: .publicDB)
     var flags: [Flag] {
         get {
             if let nav = self.navigationController as? CentralNC { return nav.flags.cloudRecordables }
@@ -60,9 +58,6 @@ class FlaggerViewController: UIViewController, TipEditor {
     
     /// This IBOutlet property references the main label used to communicate with USER.
     @IBOutlet weak var flaggerLabel: UILabel!
-
-    /// This IBOutlet property references the text field USER can input email address in.
-    @IBOutlet weak var flaggerTextField: UITextField!
     
     /// This IBOutlet property references the pickerView used to select FlagReason.
     @IBOutlet weak var flaggerPicker: UIPickerView!
@@ -108,8 +103,6 @@ class FlaggerViewController: UIViewController, TipEditor {
     fileprivate func delegation() {
         flaggerPicker.dataSource = self
         flaggerPicker.delegate = self
-        
-        flaggerTextField.delegate = self
     }
     
     // MARK: - Functions: IBActions
@@ -119,9 +112,7 @@ class FlaggerViewController: UIViewController, TipEditor {
         guard reason != nil else { return }
         
         if let tip = self.tip {
-            var flag = Flag(tip: tip, for: reason!)
-            flag.editorEmail = flaggerTextField.text
-            
+            let flag = Flag(tip: tip, for: reason!)
             flags.append(flag)
         }
 
@@ -148,22 +139,9 @@ class FlaggerViewController: UIViewController, TipEditor {
             flaggerLabel.attributedText = mutableVersion
         }
     }
-
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if flaggerTextField.isEditing { let _ = self.textFieldShouldReturn(flaggerTextField) }
-    }
 }
 
 // MARK: - Extensions
-
-// MARK: - Extension: UITextFieldDelegate
-
-extension FlaggerViewController: UITextFieldDelegate {
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        self.view.endEditing(true)
-        return true
-    }
-}
 
 // MARK: - Extension: ButtonEnabler
 
