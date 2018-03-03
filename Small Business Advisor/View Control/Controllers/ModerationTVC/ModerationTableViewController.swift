@@ -162,14 +162,29 @@ extension ModerationTableViewController {
         let name = mod.recordID.recordName
         if let index = mirror?.cloudRecordables.index(where: { $0.recordID.recordName == name }) { mirror?.cloudRecordables.remove(at: index) }
     }
+}
+
+
+extension ModerationTableViewController: MFMailComposeViewControllerDelegate {
     
+    // MARK: - Functions
+  
     // !!
     fileprivate func switchToUsersMailApp(subject: String) {
         let mc = MFMailComposeViewController()
         
+        mc.mailComposeDelegate = self
         mc.setSubject(subject)
         mc.setToRecipients(["sba@escapechaos.com"]) // <-- !!
         
+        guard MFMailComposeViewController.canSendMail() else { return }
+print("         passed")
         self.present(mc, animated: true, completion: nil)
+    }
+    
+    // MARK: - Functions: MFMailComposeViewControllerDelegate
+
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true, completion: nil)
     }
 }

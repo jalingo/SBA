@@ -132,7 +132,7 @@ class FlaggerViewController: UIViewController, TipEditor {
             while self.flags.count == 0 { /* wait until tips have been downloaded */ } // Then...
             DispatchQueue.main.async { self.setFlagButtonState(enabled: false) }
         }
-        
+print("     tip?.text = \(String(describing: tip?.text))")
         if let txt = tip?.text[...65] {
             let mutableVersion = NSMutableAttributedString(attributedString: txt)
             mutableVersion.mutableString.setString(txt.string + "...")

@@ -456,12 +456,20 @@
 			isa = PBXGroup;
 			children = (
 				A1FBF16E2048C2C900AEE363 /* ModerationTableViewController.swift */,
+				A1FBF183204B632900AEE363 /* Cells */,
+			);
+			path = ModerationTVC;
+			sourceTree = "<group>";
+		};
+		A1FBF183204B632900AEE363 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
 				A1FBF17120490F8000AEE363 /* FlagTableViewCell.swift */,
 				A1FBF17420490F9300AEE363 /* EditTableViewCell.swift */,
 				A1FBF17720490FA100AEE363 /* NewTableViewCell.swift */,
 				A1FBF17D204A0FF300AEE363 /* SuggestionCell.swift */,
 			);
-			path = ModerationTVC;
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		C771ACE94B7B6089BF5B46C7 /* Pods */ = {
