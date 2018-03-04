@@ -238,12 +238,12 @@ class AdvisorViewController: UIViewController, PickerDecorator {
         self.view.sendSubview(toBack: imgView)
     }
     
-    /// This method triggers `shakeRoutine` after USER performs shake gesture.
+    // This method triggers `shakeRoutine` after USER performs shake gesture.
     override func motionEnded(_ motion: UIEventSubtype, with event: UIEvent?) {
         if event?.subtype == .motionShake { increasePage() }
     }
     
-    /// This method passes current tip to destination if it is TipEditor and tipPassingAllowed.
+    // This method passes current tip to destination if it is TipEditor and tipPassingAllowed.
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
         if let controller = segue.destination as? TipEditor { tipPassingAllowed ? (controller.tip = tips?.rank(of: page)) : (tipPassingAllowed = true) }

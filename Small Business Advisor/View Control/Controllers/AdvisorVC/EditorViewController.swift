@@ -158,8 +158,8 @@ class EditorViewController: UIViewController {
      */
     fileprivate func adjustVoteButtonStates(for result: Vote?) {
         if let result = result {
-            adjustVote(button: upVoteButton, enable: !result.isFor)
-            adjustVote(button: downVoteButton, enable: result.isFor)
+            adjustVote(button: upVoteButton, enable: !result.isFor, up: true)
+            adjustVote(button: downVoteButton, enable: result.isFor, up: false)
         } else {
             
             // This gracefully disables cloud features that require an account.
@@ -172,7 +172,7 @@ class EditorViewController: UIViewController {
      
         - Parameter visible: Argument representing whether method should make buttons visible (true), or not (false).
      */
-    fileprivate func switchButtons(visible: Bool) {
+    fileprivate func switchButtons(visible: Bool) { // <-- !!
         DispatchQueue.main.async {
             self.upVoteButton.isHidden =   !visible
             self.downVoteButton.isHidden = !visible
@@ -188,8 +188,8 @@ class EditorViewController: UIViewController {
         - Parameter enabled: Argument indicating if buttons should both be enabled (true) or disabled (false).
      */
     fileprivate func adjustVoteButtonStatesForReset(enabled: Bool) {
-        adjustVote(button: upVoteButton, enable: enabled)
-        adjustVote(button: downVoteButton, enable: enabled)
+        adjustVote(button: upVoteButton, enable: enabled, up: true)
+        adjustVote(button: downVoteButton, enable: enabled, up: false)
         
         upVoteButton.isEnabled = enabled
         downVoteButton.isEnabled = enabled
@@ -201,10 +201,21 @@ class EditorViewController: UIViewController {
         - Parameters:
             - button: The vote button (up or down) that is being adjusted.
             - enable: The state to adjust button for. If true, button will be enabled, else disabled.
+            - up:
      */
-    fileprivate func adjustVote(button: UIButton, enable: Bool) {
-        enable ? button.setImage(#imageLiteral(resourceName: "Up_green"), for: .normal) : button.setImage(#imageLiteral(resourceName: "Up_gray"), for: .normal)
-        button.isEnabled = true // <-- This ensure that false state from adjustVoteButtonStatesForReset:enabled:false is corrected if encountered.
+    fileprivate func adjustVote(button: UIButton, enable: Bool, up: Bool) {
+        let active: UIImage
+        let inactive: UIImage
+        
+        if up {
+            active = #imageLiteral(resourceName: "Up_green")
+            inactive = #imageLiteral(resourceName: "Up_gray")
+        } else {
+            active = #imageLiteral(resourceName: "Down_green")
+            inactive = #imageLiteral(resourceName: "Down_gray")
+        }
+        
+        enable ? button.setImage(active, for: .normal) : button.setImage(inactive, for: .normal)
     }
     
     /**
@@ -248,7 +259,7 @@ class EditorViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        if currentTip?.index == -1 || self.previousVote == nil {
+        if currentTip?.index == -1 {
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) { self.adjustVoteButtonStatesForReset(enabled: false) }
         } else {
             self.checkAvailability()
@@ -257,7 +268,7 @@ class EditorViewController: UIViewController {
         NotificationCenter.default.addObserver(forName: Notification.Name.CKAccountChanged, object: nil, queue: nil) { _ in
             self.checkAvailability()
         }
-//        NotificationCenter.default.addObserver(forName: votes.changeNotification, object: nil, queue: nil) { _ in
+//        NotificationCenter.default.addObserver(forName: votes.changeNotification, object: nil, queue: nil) { _ in     // <-- !!
 //            self.checkAvailability()
 //        }
     }
