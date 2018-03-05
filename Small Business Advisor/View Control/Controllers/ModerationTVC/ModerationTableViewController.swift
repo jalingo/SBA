@@ -142,7 +142,7 @@ extension ModerationTableViewController {
             default:        str = "Edit: \(String(describing: (mod as? TipEdit)?.tip.recordID.recordName))"
             }
             
-            if let str = str { self.switchToUsersMailApp(subject: str) }
+            if let str = str { self.writeEmail(subject: str) }
         }
         
         return [cancel, edit]
@@ -169,16 +169,16 @@ extension ModerationTableViewController: MFMailComposeViewControllerDelegate {
     
     // MARK: - Functions
   
-    // !!
-    fileprivate func switchToUsersMailApp(subject: String) {
+    /// This fileprivate, void method presents a `MFMailComposeViewController` with the passed subject preloaded.
+    /// - Parameter subject: This argument will be set as the default subject of USER's email.
+    fileprivate func writeEmail(subject: String) {
         let mc = MFMailComposeViewController()
         
         mc.mailComposeDelegate = self
         mc.setSubject(subject)
-        mc.setToRecipients(["sba@escapechaos.com"]) // <-- !!
+        mc.setToRecipients([EmailAddress.sba])
         
         guard MFMailComposeViewController.canSendMail() else { return }
-print("         passed")
         self.present(mc, animated: true, completion: nil)
     }
     

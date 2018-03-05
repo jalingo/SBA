@@ -80,10 +80,10 @@ struct RecordKey {
     /// This CKRecord key matches "index: Int" value in "Suggestion" database records: "SUGGESTED_CATEGORY".
     static let ncat = "SUGGESTED_CATEGORY"
     
-    /// This CKRecord key matches "index: Int" value in "Suggestion" database records: "SUGGESTED_TEXT".
+    /// This CKRecord key matches "index: Int" value in `Suggestion` database records: "SUGGESTED_TEXT".
     static let ntxt = "SUGGESTED_TEXT"
     
-    /// !! SUGGESTED_STATE
+    /// This CKRecord key matches "index: Int" value in `Suggestion` database records: "SUGGESTED_STATE".
     static let stat = "SUGGESTED_STATE"
     
     // Universal Keys
@@ -105,6 +105,15 @@ struct URL_str {
     
     /// This static constant stores the URL address for the Escape Chaos Advisor blog: "https://escapechaos.com/blog".
     static let blogPage = "https://escapechaos.com/blog"
+}
+
+// MARK: - Email Addresses
+
+/// This struct contains various email addresses as strings.
+struct EmailAddress {
+    
+    /// This static constant stores the email address for Escape Chaos' SBA team.
+    static let sba = "sba@escapechaos.com"
 }
 
 
