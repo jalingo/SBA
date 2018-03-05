@@ -64,17 +64,17 @@ struct Vote: VoteAbstraction {
         get {
             var dictionary = Dictionary<String, CKRecordValue>()
             
-            dictionary[RecordKey.appr] = isFor as CKRecordValue
-            dictionary[RecordKey.subj] = candidate as CKRecordValue
-            dictionary[RecordKey.votr] = constituent as CKRecordValue
+            dictionary[RecordKey.Vote.appr] = isFor as CKRecordValue
+            dictionary[RecordKey.Vote.subj] = candidate as CKRecordValue
+            dictionary[RecordKey.Vote.votr] = constituent as CKRecordValue
             
             return dictionary
         }
         
         set {
-            if let bool = newValue[RecordKey.appr] as? Bool { isFor = bool }
-            if let ref  = newValue[RecordKey.subj] as? CKReference { candidate = ref }
-            if let ref  = newValue[RecordKey.votr] as? CKReference { constituent = ref }
+            if let bool = newValue[RecordKey.Vote.appr] as? Bool { isFor = bool }
+            if let ref  = newValue[RecordKey.Vote.subj] as? CKReference { candidate = ref }
+            if let ref  = newValue[RecordKey.Vote.votr] as? CKReference { constituent = ref }
         }
     }
     

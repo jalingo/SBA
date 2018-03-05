@@ -37,16 +37,16 @@ var testRecords: [CKRecord] {
     let rec7 = CKRecord(recordType: RecordType.vote,  recordID: CKRecordID(recordName: "vote4"))
 
     // Configure test votes
-    rec3[RecordKey.subj] = CKReference(record: rec0, action: .deleteSelf)
-    rec3[RecordKey.appr] = true as CKRecordValue
-    rec4[RecordKey.subj] = CKReference(record: rec0, action: .deleteSelf)
-    rec4[RecordKey.appr] = true as CKRecordValue
-    rec5[RecordKey.subj] = CKReference(record: rec1, action: .deleteSelf)
-    rec5[RecordKey.appr] = true as CKRecordValue
-    rec6[RecordKey.subj] = CKReference(record: rec1, action: .deleteSelf)
-    rec6[RecordKey.appr] = false as CKRecordValue
-    rec7[RecordKey.subj] = CKReference(record: rec2, action: .deleteSelf)
-    rec7[RecordKey.appr] = false as CKRecordValue
+    rec3[RecordKey.Vote.subj] = CKReference(record: rec0, action: .deleteSelf)
+    rec3[RecordKey.Vote.appr] = true as CKRecordValue
+    rec4[RecordKey.Vote.subj] = CKReference(record: rec0, action: .deleteSelf)
+    rec4[RecordKey.Vote.appr] = true as CKRecordValue
+    rec5[RecordKey.Vote.subj] = CKReference(record: rec1, action: .deleteSelf)
+    rec5[RecordKey.Vote.appr] = true as CKRecordValue
+    rec6[RecordKey.Vote.subj] = CKReference(record: rec1, action: .deleteSelf)
+    rec6[RecordKey.Vote.appr] = false as CKRecordValue
+    rec7[RecordKey.Vote.subj] = CKReference(record: rec2, action: .deleteSelf)
+    rec7[RecordKey.Vote.appr] = false as CKRecordValue
 
     return [rec0, rec1, rec2, rec3, rec4, rec5, rec6, rec7]
 }
@@ -167,8 +167,8 @@ func mixUpVoteOutcomes(completion: (()->())? = nil) {
             for vote in votesToModify {
                 if records.keys.contains(vote),
                     let record = records[vote],
-                    let approval = record[RecordKey.appr] as? Bool {
-                    record[RecordKey.appr] = approval as CKRecordValue
+                    let approval = record[RecordKey.Vote.appr] as? Bool {
+                    record[RecordKey.Vote.appr] = approval as CKRecordValue
                     modifiedRecords.append(record)
                 } else {
                     absenteeVotes.append(vote)

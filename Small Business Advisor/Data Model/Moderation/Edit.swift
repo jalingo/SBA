@@ -82,13 +82,13 @@ extension TipEdit: MCRecordable {
         get {
             var dict = [String: CKRecordValue]()
             
-            if let txt = newText        { dict[RecordKey.ntxt] = txt as CKRecordValue }
-            if let str = newCategory    { dict[RecordKey.ncat] = str as CKRecordValue }
+            if let txt = newText        { dict[RecordKey.Suggestion.ntxt] = txt as CKRecordValue }
+            if let str = newCategory    { dict[RecordKey.Suggestion.ncat] = str as CKRecordValue }
 
-            if let str = editorEmail    { dict[RecordKey.mail] = str as CKRecordValue }
-            dict[RecordKey.stat] = state.rawValue as CKRecordValue
+            if let str = editorEmail    { dict[RecordKey.Suggestion.mail] = str as CKRecordValue }
+            dict[RecordKey.Suggestion.stat] = state.rawValue as CKRecordValue
             
-            dict[RecordKey.crtr] = CKReference(recordID: creator ?? MCUserRecord().singleton ?? dummyRec, action: .deleteSelf)
+            dict[RecordKey.Suggestion.crtr] = CKReference(recordID: creator ?? MCUserRecord().singleton ?? dummyRec, action: .deleteSelf)
             dict[RecordKey.refs] = tip
             
             return dict
@@ -96,12 +96,12 @@ extension TipEdit: MCRecordable {
         
         set {
             if let ref = newValue[RecordKey.refs] as? CKReference { tip = ref }
-            if let txt = newValue[RecordKey.ntxt] as? String      { newText = txt }
-            if let str = newValue[RecordKey.ncat] as? String      { newCategory = str }
-            if let str = newValue[RecordKey.mail] as? String      { editorEmail = str }
-            if let num = newValue[RecordKey.stat] as? NSNumber,
+            if let txt = newValue[RecordKey.Suggestion.ntxt] as? String      { newText = txt }
+            if let str = newValue[RecordKey.Suggestion.ncat] as? String      { newCategory = str }
+            if let str = newValue[RecordKey.Suggestion.mail] as? String      { editorEmail = str }
+            if let num = newValue[RecordKey.Suggestion.stat] as? NSNumber,
                 let modState = ModerationState(rawValue: num.intValue) { state = modState }
-            if let ref = newValue[RecordKey.crtr] as? CKReference { creator = ref.recordID }
+            if let ref = newValue[RecordKey.Suggestion.crtr] as? CKReference { creator = ref.recordID }
         }
     }
     

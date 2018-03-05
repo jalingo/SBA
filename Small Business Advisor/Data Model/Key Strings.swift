@@ -39,52 +39,60 @@ struct RecordType {
 /// This struct contains keys for KV storage in CKRecord.
 struct RecordKey {
 
-    // Entry Keys
+    /// This inner struct contains strings used by `Entry` type.
+    struct Entry {
 
-    /// This CKRecord key matches "index: Int" value in "Tip" database record: "ENTRY_INDEX".
-    static let indx = "ENTRY_INDEX"
-
-    /// This CKRecord key matches "text: String" value in "Tip" database record: "ENTRY_TEXT".
-    static let text = "ENTRY_TEXT"
+        /// This CKRecord key matches "index: Int" value in "Tip" database record: "ENTRY_INDEX".
+        static let indx = "ENTRY_INDEX"
+        
+        /// This CKRecord key matches "text: String" value in "Tip" database record: "ENTRY_TEXT".
+        static let text = "ENTRY_TEXT"
+        
+        /// This CKRecord key matches "category: TipCategory" value in "Tip" database record: "ENTRY_CATEGORY".
+        static let catg = "ENTRY_CATEGORY"
+    }
     
-    /// This CKRecord key matches "category: TipCategory" value in "Tip" database record: "ENTRY_CATEGORY".
-    static let catg = "ENTRY_CATEGORY"
+    /// This inner struct contains strings used by `Vote` type.
+    struct Vote {
+        
+        /// This CKRecord key matches "up: Bool" value in "Vote" database record: "VOTE_UP".
+        static let appr = "VOTE_UP"
+        
+        /// This CKRecord key matches "constituent: CKReference" value in "Vote" database record: "VOTE_VOTER".
+        static let votr = "VOTE_VOTER"
+        
+        /// This CKRecord key matches "candidate: CKReference" value in "Vote" database record: "VOTE_SUBJECT".
+        static let subj = "VOTE_SUBJECT"
+    }
     
-    // Vote Keys
-
-    /// This CKRecord key matches "up: Bool" value in "Vote" database record: "VOTE_UP".
-    static let appr = "VOTE_UP"
+    /// This inner struct contains strings used by `Flag` type.
+    struct Flag {
+        
+        /// This CKRecord key matches "reason: FlagReason (a)" value in "Flag" database record: "FLAG_REASON".
+        static let rea0 = "FLAG_REASON"
+        
+        /// This CKRecord key matches "reason: FlagReason (b)" value in "Flag" database record: "FLAG_REASON_AUXILIARY".
+        static let rea1 = "FLAG_REASON_AUXILIARY"
+    }
     
-    /// This CKRecord key matches "constituent: CKReference" value in "Vote" database record: "VOTE_VOTER".
-    static let votr = "VOTE_VOTER"
-    
-    /// This CKRecord key matches "candidate: CKReference" value in "Vote" database record: "VOTE_SUBJECT".
-    static let subj = "VOTE_SUBJECT"
-    
-    // Flag Keys
-    
-    /// This CKRecord key matches "reason: FlagReason (a)" value in "Flag" database record: "FLAG_REASON".
-    static let rea0 = "FLAG_REASON"
-
-    /// This CKRecord key matches "reason: FlagReason (b)" value in "Flag" database record: "FLAG_REASON_AUXILIARY".
-    static let rea1 = "FLAG_REASON_AUXILIARY"
-    
-    // Suggestion (flag, edit, new) Keys
-    
-    /// This CKRecord key matches "creator: CKReference" value in "Suggestion" database records: "FLAG_CREATOR".
-    static let crtr = "SUGGESTED_CREATOR"
-    
-    /// This CKRecord key matches "index: Int" value in "Suggestion" database records: "FLAG_EMAIL".
-    static let mail = "SUGGESTED_EMAIL"
-    
-    /// This CKRecord key matches "index: Int" value in "Suggestion" database records: "SUGGESTED_CATEGORY".
-    static let ncat = "SUGGESTED_CATEGORY"
-    
-    /// This CKRecord key matches "index: Int" value in `Suggestion` database records: "SUGGESTED_TEXT".
-    static let ntxt = "SUGGESTED_TEXT"
-    
-    /// This CKRecord key matches "index: Int" value in `Suggestion` database records: "SUGGESTED_STATE".
-    static let stat = "SUGGESTED_STATE"
+    /// This inner struct contains strings used by all `Suggestion` type (flag + edit + new).
+    struct Suggestion {
+        
+        /// This CKRecord key matches "creator: CKReference" value in "Suggestion" database records: "SUGGESTED_CREATOR".
+        static let crtr = "SUGGESTED_CREATOR"
+        
+        /// This CKRecord key matches "index: Int" value in "Suggestion" database records: "FLAG_EMAIL".
+        static let mail = "SUGGESTED_EMAIL"
+        
+        /// This CKRecord key matches "index: Int" value in "Suggestion" database records: "SUGGESTED_CATEGORY".
+        static let ncat = "SUGGESTED_CATEGORY"
+        
+        /// This CKRecord key matches "index: Int" value in `Suggestion` database records: "SUGGESTED_TEXT".
+        static let ntxt = "SUGGESTED_TEXT"
+        
+        /// This CKRecord key matches "index: Int" value in `Suggestion` database records: "SUGGESTED_STATE".
+        static let stat = "SUGGESTED_STATE"
+    }
     
     // Universal Keys
         

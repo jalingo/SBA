@@ -125,13 +125,13 @@ extension TipCategory: MCRecordable {
     var recordFields: Dictionary<String, CKRecordValue> {
         get {
             var d = Dictionary<String, CKRecordValue>()
-            d[RecordKey.catg] = NSNumber(value: self.rawValue)
+            d[RecordKey.Entry.catg] = NSNumber(value: self.rawValue)
             
             return d
         }
         
         set {
-            if let num = newValue[RecordKey.catg] as? NSNumber, let value = TipCategory(rawValue: num.intValue) { self = value }
+            if let num = newValue[RecordKey.Entry.catg] as? NSNumber, let value = TipCategory(rawValue: num.intValue) { self = value }
         }
     }
     

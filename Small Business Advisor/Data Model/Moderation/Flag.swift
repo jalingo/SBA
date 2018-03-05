@@ -87,37 +87,37 @@ extension Flag: MCRecordable {
             var dictionary = [String: CKRecordValue]()
             
             let reasons = reason.cloudValues
-            dictionary[RecordKey.rea0] = reasons.0
-            dictionary[RecordKey.rea1] = reasons.1
+            dictionary[RecordKey.Flag.rea0] = reasons.0
+            dictionary[RecordKey.Flag.rea1] = reasons.1
             
-            dictionary[RecordKey.crtr] = CKReference(recordID: creator ?? MCUserRecord().singleton ?? dummyRec, action: .deleteSelf)
+            dictionary[RecordKey.Suggestion.crtr] = CKReference(recordID: creator ?? MCUserRecord().singleton ?? dummyRec, action: .deleteSelf)
             dictionary[RecordKey.refs] = tip
             
-            dictionary[RecordKey.stat] = state.rawValue as CKRecordValue
-            if let str = editorEmail { dictionary[RecordKey.mail] = str as CKRecordValue }
+            dictionary[RecordKey.Suggestion.stat] = state.rawValue as CKRecordValue
+            if let str = editorEmail { dictionary[RecordKey.Suggestion.mail] = str as CKRecordValue }
 
             return dictionary
         }
         
         set {
-            if let num = newValue[RecordKey.rea0] as? NSNumber {
+            if let num = newValue[RecordKey.Flag.rea0] as? NSNumber {
                 switch num.intValue {
                 case 0: reason = .offTopic
                 case 1: reason = .inaccurate
                 case 2:
-                    if let ref = newValue[RecordKey.rea1] as? CKReference { reason = .duplicate(ref) }
+                    if let ref = newValue[RecordKey.Flag.rea1] as? CKReference { reason = .duplicate(ref) }
                 case 3:
-                    if let ref = newValue[RecordKey.rea1] as? CKReference { reason = .wrongCategory(ref) }
+                    if let ref = newValue[RecordKey.Flag.rea1] as? CKReference { reason = .wrongCategory(ref) }
                 case 4: reason = .spam
                 case 5: reason = .abusive
                 default: break              // <-- Value out of range...
                 }
             }
             
-            if let num = newValue[RecordKey.stat] as? NSNumber,
+            if let num = newValue[RecordKey.Suggestion.stat] as? NSNumber,
                 let modState = ModerationState(rawValue: num.intValue) { state = modState }
-            if let str = newValue[RecordKey.mail] as? String      { editorEmail = str }
-            if let ref = newValue[RecordKey.crtr] as? CKReference { creator = ref.recordID }
+            if let str = newValue[RecordKey.Suggestion.mail] as? String      { editorEmail = str }
+            if let ref = newValue[RecordKey.Suggestion.crtr] as? CKReference { creator = ref.recordID }
             if let ref = newValue[RecordKey.refs] as? CKReference { tip = ref }
         }
     }

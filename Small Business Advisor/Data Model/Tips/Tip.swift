@@ -98,16 +98,16 @@ extension Tip: MCRecordable {
         get {
             var dictionary = [String: CKRecordValue]()
             
-            dictionary[RecordKey.indx] = self.index as CKRecordValue
-            dictionary[RecordKey.text] = self.text.string as CKRecordValue
-            dictionary[RecordKey.catg] = self.category.rawValue as CKRecordValue
+            dictionary[RecordKey.Entry.indx] = self.index as CKRecordValue
+            dictionary[RecordKey.Entry.text] = self.text.string as CKRecordValue
+            dictionary[RecordKey.Entry.catg] = self.category.rawValue as CKRecordValue
             
             return dictionary
         }
         set {
-            if let num = newValue[RecordKey.indx] as? NSNumber { self.index = num.intValue }
-            if let txt = newValue[RecordKey.text] as? String { self.text = NSAttributedString(string: txt, attributes: Format.bodyText) }
-            if let num = newValue[RecordKey.catg] as? NSNumber {
+            if let num = newValue[RecordKey.Entry.indx] as? NSNumber { self.index = num.intValue }
+            if let txt = newValue[RecordKey.Entry.text] as? String { self.text = NSAttributedString(string: txt, attributes: Format.bodyText) }
+            if let num = newValue[RecordKey.Entry.catg] as? NSNumber {
                 if let category = TipCategory(rawValue: num.intValue) { self.category = category }
             }
         }
