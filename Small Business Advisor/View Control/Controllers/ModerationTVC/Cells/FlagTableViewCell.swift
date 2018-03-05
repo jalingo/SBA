@@ -8,13 +8,14 @@
 
 import UIKit
 
+/// This sub-class of `UITableViewCell` presents a GUI interpretation of data model's `Flag` type.
 class FlagTableViewCell: UITableViewCell, SuggestionCell {    
 
     // MARK: - Properties
 
     // MARK: - Properties: Suggestion
     
-    // !! replace after associatedTip
+    /// This property stores `SuggestedModeration` whose data will be displayed in view. When set, will update `reasonLabel` and `indicatorImage`
     var suggestion: SuggestedModeration = Flag() {
         didSet {
             change(state: suggestion.state)
@@ -22,11 +23,9 @@ class FlagTableViewCell: UITableViewCell, SuggestionCell {
         }
     }
     
+    /// This optional property stores any `Tip` associated with the `suggestion` property. When set, will update `tipTextLabel`
     var associatedTip: Tip? {
-        didSet {
-            tipTextLabel.text = associatedTip?.text.string
-            reasonLabel.text = (suggestion as? Flag)?.reason.toStr()
-        }
+        didSet { tipTextLabel.text = associatedTip?.text.string }
     }
     
     // MARK: - Properties: IBOutlets
@@ -36,14 +35,4 @@ class FlagTableViewCell: UITableViewCell, SuggestionCell {
     @IBOutlet weak var tipTextLabel: UILabel!
     
     @IBOutlet weak var indicatorImage: UIImageView!
-    
-    // MARK: - Functions
-    
-    // MARK: - Functions: UITableViewCell
-    
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
 }

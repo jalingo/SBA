@@ -201,18 +201,15 @@ class EditorViewController: UIViewController {
         - Parameters:
             - button: The vote button (up or down) that is being adjusted.
             - enable: The state to adjust button for. If true, button will be enabled, else disabled.
-            - up:
+            - up: If true, arrow will point up. Else, arrow will point down.
      */
     fileprivate func adjustVote(button: UIButton, enable: Bool, up: Bool) {
-        let active: UIImage
-        let inactive: UIImage
-        
+        var active = #imageLiteral(resourceName: "Down_green")
+        var inactive = #imageLiteral(resourceName: "Down_gray")
+
         if up {
             active = #imageLiteral(resourceName: "Up_green")
             inactive = #imageLiteral(resourceName: "Up_gray")
-        } else {
-            active = #imageLiteral(resourceName: "Down_green")
-            inactive = #imageLiteral(resourceName: "Down_gray")
         }
         
         enable ? button.setImage(active, for: .normal) : button.setImage(inactive, for: .normal)
