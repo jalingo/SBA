@@ -10,35 +10,32 @@ import UIKit
 import MagicCloud
 import MessageUI
 
-struct CellLabels {
+// MARK: Class
 
-    // !!
-    
-    static let new  = "Add_Cell"
-    static let flag = "Flag_Cell"
-    static let edit = "Edit_Cell"
-    static let err  = "Err_Cell"
-}
-
+/// This sub-class of `UITableViewController` has a single column and lists rows of cells representing the various `SuggestedModeration`s created by current USER. Cells can be used to access data, contact support or cancel moderation.
 class ModerationTableViewController: UITableViewController {
 
     // MARK: - Properties
     
-    let currentUser = MCUserRecord().singleton
-    
-    var suggestions: [SuggestedModeration] {
+    /// This constant optional property stores current USER recordID, or if cloud issues: nil.
+    fileprivate let currentUser = MCUserRecord().singleton
+
+    /// This read-only, computed property returns an array of all `SuggestedModeration`s stored in database.
+    fileprivate var suggestions: [SuggestedModeration] {
         if let nav = self.navigationController as? CentralNC { return nav.allSuggestions }
         return []
     }
     
-    var tips: [Tip] {
+    /// This read-only, computed property returns an array of `Tip`s stored in database.
+    fileprivate var tips: [Tip] {
         if let nav = self.navigationController as? CentralNC { return nav.tips.cloudRecordables }
         return []
     }
     
     // MARK: - Functions
     
-    // !!
+    /// This fileprivate, void method adds an observer to the default notification center for name passed. When heard, observer will reload tableView data.
+    /// - Parameter name: This argument passes the notification name that will be listened for by observer.
     fileprivate func observe(name: Notification.Name) {
         NotificationCenter.default.addObserver(forName: name, object: nil, queue: nil) { _ in
             DispatchQueue.main.async { self.tableView.reloadData() }
@@ -57,12 +54,6 @@ class ModerationTableViewController: UITableViewController {
         super.viewDidLoad()
         
         self.tableView.contentInset = UIEdgeInsetsMake(44,0,0,0);
-        
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
 
         guard let suggestionNotificationNames = (self.navigationController as? CentralNC)?.allSuggestionNotifications else { return }
         
@@ -80,6 +71,53 @@ class ModerationTableViewController: UITableViewController {
 // MARK: - Extensions: UITableViewDataSource
 
 extension ModerationTableViewController {
+    
+    // MARK: - Functions
+    
+    /// This fileprivate method returns an array of `UITableViewRowAction`s for cells associated with the passed `MCRecordable`.
+    /// - Parameter mod: An `MCRecordable` effected by returned actions.
+    fileprivate func actionsFor<T: MCRecordable>(mod: T) -> [UITableViewRowAction] {
+        let cancel = UITableViewRowAction(style: .destructive, title: "Cancel") { _,_ in
+            self.remove(mod)
+            self.tableView.reloadData()
+            
+            guard let nav = self.navigationController as? CentralNC,
+                let name = nav.allSuggestionNotifications.first else { return }
+            NotificationCenter.default.post(name: name, object: nil)
+        }
+        
+        let edit = UITableViewRowAction(style: .normal, title: "Contact") { _,_ in
+            var str: String?
+            
+            switch mod {
+            case is Flag:   str = "Flag: \(String(describing: (mod as? Flag)?.reason.toStr()))"
+            case is NewTip: str = "NewTip: \(String(describing: (mod as? NewTip)?.tip.recordID.recordName))"
+            default:        str = "Edit: \(String(describing: (mod as? TipEdit)?.tip.recordID.recordName))"
+            }
+            
+            if let str = str { self.writeEmail(subject: str) }
+        }
+        
+        return [cancel, edit]
+    }
+    
+    /// This fileprivate, void method destroys both local (and eventually cloud) records of passed `MCRecordable`.
+    /// - Parameter mod: An `MCRecordable` removed from local cache and database.
+    fileprivate func remove<T: MCRecordable>(_ mod: T) {
+        guard let nav = self.navigationController as? CentralNC else { return }
+        
+        var mirror: MCMirror<T>?
+        switch mod {
+        case is Flag:   if let m = nav.flags as? MCMirror<T> { mirror = m }
+        case is NewTip: if let m = nav.newTips as? MCMirror<T> { mirror = m }
+        default:        if let m = nav.edits as? MCMirror<T> { mirror = m }
+        }
+        
+        let name = mod.recordID.recordName
+        if let index = mirror?.cloudRecordables.index(where: { $0.recordID.recordName == name }) { mirror?.cloudRecordables.remove(at: index) }
+    }
+    
+    // MARK: - Functions: UITableViewDataSource
     
     override func numberOfSections(in tableView: UITableView) -> Int { return 1 }
     
@@ -120,47 +158,6 @@ extension ModerationTableViewController {
         }
         
         return nil
-    }
-    
-    // !!
-    fileprivate func actionsFor<T: MCRecordable>(mod: T) -> [UITableViewRowAction] {
-        let cancel = UITableViewRowAction(style: .destructive, title: "Cancel") { _,_ in
-            self.remove(mod)
-            self.tableView.reloadData()
-            
-            guard let nav = self.navigationController as? CentralNC,
-                let name = nav.allSuggestionNotifications.first else { return }
-            NotificationCenter.default.post(name: name, object: nil)
-        }
-        
-        let edit = UITableViewRowAction(style: .normal, title: "Contact") { _,_ in
-            var str: String?
-            
-            switch mod {
-            case is Flag:   str = "Flag: \(String(describing: (mod as? Flag)?.reason.toStr()))"
-            case is NewTip: str = "NewTip: \(String(describing: (mod as? NewTip)?.tip.recordID.recordName))"
-            default:        str = "Edit: \(String(describing: (mod as? TipEdit)?.tip.recordID.recordName))"
-            }
-            
-            if let str = str { self.writeEmail(subject: str) }
-        }
-        
-        return [cancel, edit]
-    }
-    
-    // !!
-    fileprivate func remove<T: MCRecordable>(_ mod: T) {
-        guard let nav = self.navigationController as? CentralNC else { return }
-
-        var mirror: MCMirror<T>?
-        switch mod {
-        case is Flag:   if let m = nav.flags as? MCMirror<T> { mirror = m }
-        case is NewTip: if let m = nav.newTips as? MCMirror<T> { mirror = m }
-        default:        if let m = nav.edits as? MCMirror<T> { mirror = m }
-        }
-        
-        let name = mod.recordID.recordName
-        if let index = mirror?.cloudRecordables.index(where: { $0.recordID.recordName == name }) { mirror?.cloudRecordables.remove(at: index) }
     }
 }
 

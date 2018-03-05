@@ -47,7 +47,8 @@ class AdvisorViewController: UIViewController, PickerDecorator {
         didSet { adjustChangeType(when: isRandom) }
     }
     
-    // !!
+    /// This fileprivate, void method changes ranked / random indicators.
+    /// - Parameter random: If true, indicators will highlight random. Else, indicators will highlight ranked.
     fileprivate func adjustChangeType(when random: Bool) {
         randomBar.isHidden = !random
         rankedBar.isHidden = random
@@ -75,7 +76,7 @@ class AdvisorViewController: UIViewController, PickerDecorator {
     /// This IBOutlet property displays category lock status and switchs category limitation state.
     @IBOutlet weak var categoryLock: UIButton!
     
-    // !!
+    /// This IBOutlet property dipslays a link to the `ModerationTableViewController` if USER has any suggestions.
     @IBOutlet weak var suggestionsButton: UIButton!
     
     // MARK: - - Properties: UIResponder
@@ -84,6 +85,44 @@ class AdvisorViewController: UIViewController, PickerDecorator {
     @objc override var canBecomeFirstResponder: Bool { return true }
     
     // MARK: - Functions
+    
+    /// When `randomSwitch` tapped, this populates screen with instructions, based on switch outcome.
+    fileprivate func randomSwitched() {
+        let txt: String
+        isRandom ? (txt = UserFacingText.shakeInstructions) : (txt = UserFacingText.swipeInstructions)
+        
+        textView.attributedText = NSAttributedString(string: txt, attributes: Format.categoryTitle)
+    }
+    
+    /// This fileprivate, void method adds observers that will check for `suggestionsButton` visibility for `allSuggestionsNotifications`
+    fileprivate func listenForModerationUpdate() {
+        guard let nav = self.navigationController as? CentralNC else { return }
+        
+        for name in nav.allSuggestionNotifications {
+            NotificationCenter.default.addObserver(forName: name, object: nil, queue: nil) { _ in
+                if nav.userHasSuggestions {
+                    DispatchQueue.main.async { self.suggestionsButton.isHidden = !nav.userHasSuggestions }
+                }
+            }
+        }
+    }
+    
+    // This fileprivate, void method decorates the view for USER presentation.
+    fileprivate func decorateView() {
+        if let nav = self.navigationController as? CentralNC { suggestionsButton.isHidden = !nav.userHasSuggestions }
+        setBackgroundImg()
+        textView.attributedText = NSAttributedString(string: UserFacingText.shakeInstructions,
+                                                     attributes: Format.categoryTitle)
+    }
+    
+    // This fileprivate, void method sets background image for main view.
+    fileprivate func setBackgroundImg() {
+        let imgView = UIImageView(image: #imageLiteral(resourceName: "Main BG"))
+        imgView.frame = self.view.frame
+        
+        self.view.addSubview(imgView)
+        self.view.sendSubview(toBack: imgView)
+    }
     
     /// This method presents a pickerView representing categories when USER specifies category limitation.
     fileprivate func pick() {
@@ -148,15 +187,6 @@ class AdvisorViewController: UIViewController, PickerDecorator {
 
     @IBAction func rankedPressed(_ sender: UIButton) { isRandom = false }
     
-    // !!
-    /// When `randomSwitch` tapped, this populates screen with instructions, based on switch outcome.
-    fileprivate func randomSwitched() {
-        let txt: String
-        isRandom ? (txt = UserFacingText.shakeInstructions) : (txt = UserFacingText.swipeInstructions)
-
-        textView.attributedText = NSAttributedString(string: txt, attributes: Format.categoryTitle)
-    }
-    
     /**
         When `helpPressed` this method populates screen with help message and support links.
      
@@ -206,36 +236,6 @@ class AdvisorViewController: UIViewController, PickerDecorator {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)        
         decorateView()
-    }
-    
-    // !!
-    fileprivate func listenForModerationUpdate() {
-        guard let nav = self.navigationController as? CentralNC else { return }
-        
-        for name in nav.allSuggestionNotifications {
-            NotificationCenter.default.addObserver(forName: name, object: nil, queue: nil) { _ in
-                if nav.userHasSuggestions {
-                    DispatchQueue.main.async { self.suggestionsButton.isHidden = !nav.userHasSuggestions }
-                }
-            }
-        }
-    }
-    
-    // !!
-    fileprivate func decorateView() {
-        if let nav = self.navigationController as? CentralNC { suggestionsButton.isHidden = !nav.userHasSuggestions }
-        setBackgroundImg()
-        textView.attributedText = NSAttributedString(string: UserFacingText.shakeInstructions,
-                                                     attributes: Format.categoryTitle)
-    }
-    
-    // !!
-    fileprivate func setBackgroundImg() {
-        let imgView = UIImageView(image: #imageLiteral(resourceName: "Main BG"))
-        imgView.frame = self.view.frame
-        
-        self.view.addSubview(imgView)
-        self.view.sendSubview(toBack: imgView)
     }
     
     // This method triggers `shakeRoutine` after USER performs shake gesture.

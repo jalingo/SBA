@@ -38,7 +38,7 @@ protocol SuggestedModeration {
     /// This optional property stores database identifier for the USER suggesting moderation.
     var creator: CKRecordID? { get set }
 
-    //  !!
+    ///  This property stores a moderation state used to track it's approval progress.
     var state: ModerationState { get set }
     
     /// This static, read-only & optional property returns the maximum amount of active moderation records in the database (by type) the USER is limited to.
@@ -47,9 +47,20 @@ protocol SuggestedModeration {
 
 // MARK: - Enums
 
-// !!
+/// This enumerates the moderation states used to track `SuggestedModeration` approval progress.
 enum ModerationState: Int {
-    case submitted = 0, opened, closedApproved, closedRejected
+    
+    /// This state represents a `SuggestedModeration` submmitted by the USER, but not yet recognized by the system.
+    case submitted = 0
+    
+    /// This state represents a `SuggestedModeration` recognized by the system, but not yet resolved.
+    case opened = 1
+    
+    /// This state represents a `SuggestedModeration` resolved by the system as approved.
+    case closedApproved = 2
+    
+    /// This state represents a `SuggestedModeration` resolved by the system as rejected.
+    case closedRejected = 3
 }
 
 // MARK: - Extensions

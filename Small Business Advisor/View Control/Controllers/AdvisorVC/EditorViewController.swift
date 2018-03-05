@@ -48,18 +48,9 @@ class EditorViewController: UIViewController {
     @IBOutlet weak var flagTipButton: UIButton!
     
     // MARK: - Properties: UIPickerView
-    
-    /// This property stores an MCReceiver associated w/Flag recordable.
-    /// To access an array of all existing types in .cloudRecordables
-//   !! var flags = MCMirror<Flag>(db: .publicDB)
-//    var flags: [Flag] {
-//        if let nav = self.navigationController as? CentralNC { return nav.flags }
-//        return []
-//    }
-    
+
     /// This property stores an MCReceiver associated w/Vote recordable.
     /// To access an array of all existing types in .cloudRecordables
-//  !!  var votes = MCMirror<Vote>(db: .publicDB)
     var votes: [Vote] {
         get {
             if let nav = self.navigationController as? CentralNC { return nav.votes.cloudRecordables }
@@ -172,7 +163,7 @@ class EditorViewController: UIViewController {
      
         - Parameter visible: Argument representing whether method should make buttons visible (true), or not (false).
      */
-    fileprivate func switchButtons(visible: Bool) { // <-- !!
+    fileprivate func switchButtons(visible: Bool) {
         DispatchQueue.main.async {
             self.upVoteButton.isHidden =   !visible
             self.downVoteButton.isHidden = !visible
@@ -265,7 +256,9 @@ class EditorViewController: UIViewController {
         NotificationCenter.default.addObserver(forName: Notification.Name.CKAccountChanged, object: nil, queue: nil) { _ in
             self.checkAvailability()
         }
-//        NotificationCenter.default.addObserver(forName: votes.changeNotification, object: nil, queue: nil) { _ in     // <-- !!
+        
+        // !!!!
+//        NotificationCenter.default.addObserver(forName: votes.changeNotification, object: nil, queue: nil) { _ in
 //            self.checkAvailability()
 //        }
     }

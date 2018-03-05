@@ -55,7 +55,7 @@ var testRecords: [CKRecord] {
 
 func testTips() -> [Tip] {
 
-    // Can loop infinitely !!
+    // Can loop infinitely
     while tips.count == 0 {
 print("         ** waiting for tips.count @Global.testTips in TestTools")
         /* wait for tips to load, possibly*/ }
@@ -105,7 +105,7 @@ func uploadTestRecords(completion: (()->())? = nil) {
     op.savePolicy = .changedKeys
     op.modifyRecordsCompletionBlock = { _, _, possibleError in
         guard let error = possibleError else { return }
-print("** CKInteractorTests.upload: \(error.localizedDescription)")  // <-- !! This can be fleshed out as errors emerge.
+print("** CKInteractorTests.upload: \(error.localizedDescription)")  // <-- This can be fleshed out as errors emerge.
     }
     
     testDatabase.add(op)

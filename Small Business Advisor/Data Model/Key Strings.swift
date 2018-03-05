@@ -124,4 +124,20 @@ struct EmailAddress {
     static let sba = "sba@escapechaos.com"
 }
 
+// MARK: - IB Identifiers
 
+/// This struct contains cell identifiers for ModerationTableViewController.
+struct CellLabels {
+    
+    /// This static constant stores the identifier for `NewTableViewCell` view controller.
+    static let new  = "Add_Cell"
+
+    /// This static constant stores the identifier for `FlagTableViewCell` view controller.
+    static let flag = "Flag_Cell"
+    
+    /// This static constant stores the identifier for `EditTableViewCell` view controller.
+    static let edit = "Edit_Cell"
+    
+    /// This static constant stores an unassigned identifier and is the result of an error.
+    static let err  = "Err_Cell"
+}
