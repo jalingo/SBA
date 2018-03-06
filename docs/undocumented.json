@@ -1,0 +1,768 @@
+{
+  "warnings": [
+    {
+      "file": "/Users/jameslingo/Documents/Dev/Swift/SBA/Small Business Advisor/Data Model/Moderation/Edit.swift",
+      "line": 57,
+      "symbol": "TipEdit.init()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jameslingo/Documents/Dev/Swift/SBA/Small Business Advisor/Data Model/Moderation/Edit.swift",
+      "line": 79,
+      "symbol": "TipEdit.recordType",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jameslingo/Documents/Dev/Swift/SBA/Small Business Advisor/Data Model/Moderation/Edit.swift",
+      "line": 81,
+      "symbol": "TipEdit.recordFields",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jameslingo/Documents/Dev/Swift/SBA/Small Business Advisor/Data Model/Moderation/Edit.swift",
+      "line": 108,
+      "symbol": "TipEdit.recordID",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jameslingo/Documents/Dev/Swift/SBA/Small Business Advisor/Data Model/Moderation/Flag.swift",
+      "line": 57,
+      "symbol": "Flag.init()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jameslingo/Documents/Dev/Swift/SBA/Small Business Advisor/Data Model/Moderation/Flag.swift",
+      "line": 83,
+      "symbol": "Flag.recordType",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jameslingo/Documents/Dev/Swift/SBA/Small Business Advisor/Data Model/Moderation/Flag.swift",
+      "line": 85,
+      "symbol": "Flag.recordFields",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jameslingo/Documents/Dev/Swift/SBA/Small Business Advisor/Data Model/Moderation/Flag.swift",
+      "line": 125,
+      "symbol": "Flag.recordID",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jameslingo/Documents/Dev/Swift/SBA/Small Business Advisor/Data Model/Moderation/FlagReason.swift",
+      "line": 25,
+      "symbol": "FlagReason.abusive",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jameslingo/Documents/Dev/Swift/SBA/Small Business Advisor/Data Model/Moderation/FlagReason.swift",
+      "line": 25,
+      "symbol": "FlagReason.duplicate",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jameslingo/Documents/Dev/Swift/SBA/Small Business Advisor/Data Model/Moderation/FlagReason.swift",
+      "line": 25,
+      "symbol": "FlagReason.inaccurate",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jameslingo/Documents/Dev/Swift/SBA/Small Business Advisor/Data Model/Moderation/FlagReason.swift",
+      "line": 25,
+      "symbol": "FlagReason.offTopic",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jameslingo/Documents/Dev/Swift/SBA/Small Business Advisor/Data Model/Moderation/FlagReason.swift",
+      "line": 25,
+      "symbol": "FlagReason.spam",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jameslingo/Documents/Dev/Swift/SBA/Small Business Advisor/Data Model/Moderation/FlagReason.swift",
+      "line": 25,
+      "symbol": "FlagReason.wrongCategory",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jameslingo/Documents/Dev/Swift/SBA/Small Business Advisor/Data Model/Moderation/NewTip.swift",
+      "line": 57,
+      "symbol": "NewTip.init()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jameslingo/Documents/Dev/Swift/SBA/Small Business Advisor/Data Model/Moderation/NewTip.swift",
+      "line": 78,
+      "symbol": "NewTip.recordType",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jameslingo/Documents/Dev/Swift/SBA/Small Business Advisor/Data Model/Moderation/NewTip.swift",
+      "line": 80,
+      "symbol": "NewTip.recordFields",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jameslingo/Documents/Dev/Swift/SBA/Small Business Advisor/Data Model/Moderation/NewTip.swift",
+      "line": 104,
+      "symbol": "NewTip.recordID",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jameslingo/Documents/Dev/Swift/SBA/Small Business Advisor/Data Model/Tips/Tip.swift",
+      "line": 27,
+      "symbol": "Tip.defaultText",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jameslingo/Documents/Dev/Swift/SBA/Small Business Advisor/Data Model/Tips/TipCategory.swift",
+      "line": 35,
+      "symbol": "TipCategory.efficiency",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jameslingo/Documents/Dev/Swift/SBA/Small Business Advisor/Data Model/Tips/TipCategory.swift",
+      "line": 35,
+      "symbol": "TipCategory.fiscal",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jameslingo/Documents/Dev/Swift/SBA/Small Business Advisor/Data Model/Tips/TipCategory.swift",
+      "line": 35,
+      "symbol": "TipCategory.hr",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jameslingo/Documents/Dev/Swift/SBA/Small Business Advisor/Data Model/Tips/TipCategory.swift",
+      "line": 35,
+      "symbol": "TipCategory.legal",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jameslingo/Documents/Dev/Swift/SBA/Small Business Advisor/Data Model/Tips/TipCategory.swift",
+      "line": 35,
+      "symbol": "TipCategory.marketing",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jameslingo/Documents/Dev/Swift/SBA/Small Business Advisor/Data Model/Tips/TipCategory.swift",
+      "line": 35,
+      "symbol": "TipCategory.operations",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jameslingo/Documents/Dev/Swift/SBA/Small Business Advisor/Data Model/Tips/TipCategory.swift",
+      "line": 35,
+      "symbol": "TipCategory.organization",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jameslingo/Documents/Dev/Swift/SBA/Small Business Advisor/Data Model/Tips/TipCategory.swift",
+      "line": 35,
+      "symbol": "TipCategory.planning",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jameslingo/Documents/Dev/Swift/SBA/Small Business Advisor/Data Model/Tips/TipCategory.swift",
+      "line": 35,
+      "symbol": "TipCategory.security",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jameslingo/Documents/Dev/Swift/SBA/Small Business Advisor/Data Model/Tips/TipCategory.swift",
+      "line": 35,
+      "symbol": "TipCategory.technology",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jameslingo/Documents/Dev/Swift/SBA/Small Business Advisor/Data Model/Tips/TipCategory.swift",
+      "line": 35,
+      "symbol": "TipCategory.value",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jameslingo/Documents/Dev/Swift/SBA/Small Business Advisor/Data Model/Tips/TipCategory.swift",
+      "line": 36,
+      "symbol": "TipCategory.outOfRange",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jameslingo/Documents/Dev/Swift/SBA/Small Business Advisor/Data Model/Tips/TipCategory.swift",
+      "line": 87,
+      "symbol": "CategoryFactory.produceByIndex(index:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jameslingo/Documents/Dev/Swift/SBA/Small Business Advisor/Data Model/Tips/TipCategory.swift",
+      "line": 123,
+      "symbol": "TipCategory.recordType",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jameslingo/Documents/Dev/Swift/SBA/Small Business Advisor/Data Model/Tips/TipCategory.swift",
+      "line": 125,
+      "symbol": "TipCategory.recordFields",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jameslingo/Documents/Dev/Swift/SBA/Small Business Advisor/Data Model/Tips/TipCategory.swift",
+      "line": 138,
+      "symbol": "TipCategory.recordID",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jameslingo/Documents/Dev/Swift/SBA/Small Business Advisor/Data Model/Tips/TipCategory.swift",
+      "line": 143,
+      "symbol": "TipCategory.init()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jameslingo/Documents/Dev/Swift/SBA/Small Business Advisor/Data Model/Votes/Vote.swift",
+      "line": null,
+      "symbol": "Vote",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jameslingo/Documents/Dev/Swift/SBA/Small Business Advisor/Data Model/Votes/Vote.swift",
+      "line": 29,
+      "symbol": "Vote",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jameslingo/Documents/Dev/Swift/SBA/Small Business Advisor/Data Model/Votes/Vote.swift",
+      "line": 61,
+      "symbol": "Vote.recordType",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jameslingo/Documents/Dev/Swift/SBA/Small Business Advisor/Data Model/Votes/Vote.swift",
+      "line": 63,
+      "symbol": "Vote.recordFields",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jameslingo/Documents/Dev/Swift/SBA/Small Business Advisor/Data Model/Votes/Vote.swift",
+      "line": 81,
+      "symbol": "Vote.recordID",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jameslingo/Documents/Dev/Swift/SBA/Small Business Advisor/Data Model/Votes/Vote.swift",
+      "line": 85,
+      "symbol": "Vote.init()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jameslingo/Documents/Dev/Swift/SBA/Small Business Advisor/Resources/AppDelegate.swift",
+      "line": 14,
+      "symbol": "AppDelegate",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jameslingo/Documents/Dev/Swift/SBA/Small Business Advisor/Resources/AppDelegate.swift",
+      "line": 16,
+      "symbol": "AppDelegate.window",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jameslingo/Documents/Dev/Swift/SBA/Small Business Advisor/Resources/AppDelegate.swift",
+      "line": 18,
+      "symbol": "AppDelegate.application(_:didFinishLaunchingWithOptions:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jameslingo/Documents/Dev/Swift/SBA/Small Business Advisor/Resources/AppDelegate.swift",
+      "line": 27,
+      "symbol": "AppDelegate.application(_:didReceiveRemoteNotification:fetchCompletionHandler:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jameslingo/Documents/Dev/Swift/SBA/Small Business Advisor/Resources/AppDelegate.swift",
+      "line": 32,
+      "symbol": "AppDelegate.application(_:didFailToRegisterForRemoteNotificationsWithError:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jameslingo/Documents/Dev/Swift/SBA/Small Business Advisor/Resources/AppDelegate.swift",
+      "line": 37,
+      "symbol": "AppDelegate.applicationWillResignActive(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jameslingo/Documents/Dev/Swift/SBA/Small Business Advisor/Resources/AppDelegate.swift",
+      "line": 42,
+      "symbol": "AppDelegate.applicationDidEnterBackground(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jameslingo/Documents/Dev/Swift/SBA/Small Business Advisor/Resources/AppDelegate.swift",
+      "line": 47,
+      "symbol": "AppDelegate.applicationWillEnterForeground(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jameslingo/Documents/Dev/Swift/SBA/Small Business Advisor/Resources/AppDelegate.swift",
+      "line": 51,
+      "symbol": "AppDelegate.applicationDidBecomeActive(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jameslingo/Documents/Dev/Swift/SBA/Small Business Advisor/Resources/AppDelegate.swift",
+      "line": 55,
+      "symbol": "AppDelegate.applicationWillTerminate(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jameslingo/Documents/Dev/Swift/SBA/Small Business Advisor/View Control/Controllers/AdvisorVC/AdvisorPickerDelegation.swift",
+      "line": 15,
+      "symbol": "AdvisorViewController.pickerView(_:attributedTitleForRow:forComponent:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jameslingo/Documents/Dev/Swift/SBA/Small Business Advisor/View Control/Controllers/AdvisorVC/AdvisorPickerDelegation.swift",
+      "line": 19,
+      "symbol": "AdvisorViewController.pickerView(_:titleForRow:forComponent:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jameslingo/Documents/Dev/Swift/SBA/Small Business Advisor/View Control/Controllers/AdvisorVC/AdvisorPickerDelegation.swift",
+      "line": 23,
+      "symbol": "AdvisorViewController.pickerView(_:didSelectRow:inComponent:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jameslingo/Documents/Dev/Swift/SBA/Small Business Advisor/View Control/Controllers/AdvisorVC/AdvisorPickerDelegation.swift",
+      "line": 36,
+      "symbol": "AdvisorViewController.numberOfComponents(in:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jameslingo/Documents/Dev/Swift/SBA/Small Business Advisor/View Control/Controllers/AdvisorVC/AdvisorPickerDelegation.swift",
+      "line": 38,
+      "symbol": "AdvisorViewController.pickerView(_:numberOfRowsInComponent:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jameslingo/Documents/Dev/Swift/SBA/Small Business Advisor/View Control/Controllers/AdvisorVC/AdvisorViewController.swift",
+      "line": 186,
+      "symbol": "AdvisorViewController.randomPressed(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jameslingo/Documents/Dev/Swift/SBA/Small Business Advisor/View Control/Controllers/AdvisorVC/AdvisorViewController.swift",
+      "line": 188,
+      "symbol": "AdvisorViewController.rankedPressed(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jameslingo/Documents/Dev/Swift/SBA/Small Business Advisor/View Control/Controllers/AdvisorVC/AdvisorViewController.swift",
+      "line": 236,
+      "symbol": "AdvisorViewController.viewWillAppear(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jameslingo/Documents/Dev/Swift/SBA/Small Business Advisor/View Control/Controllers/AdvisorVC/AdvisorViewController.swift",
+      "line": 242,
+      "symbol": "AdvisorViewController.motionEnded(_:with:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jameslingo/Documents/Dev/Swift/SBA/Small Business Advisor/View Control/Controllers/AdvisorVC/AdvisorViewController.swift",
+      "line": 247,
+      "symbol": "AdvisorViewController.prepare(for:sender:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jameslingo/Documents/Dev/Swift/SBA/Small Business Advisor/View Control/Controllers/AdvisorVC/EditorViewController.swift",
+      "line": 247,
+      "symbol": "EditorViewController.viewDidLoad()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jameslingo/Documents/Dev/Swift/SBA/Small Business Advisor/View Control/Controllers/CentralNC.swift",
+      "line": 13,
+      "symbol": "CentralNC",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jameslingo/Documents/Dev/Swift/SBA/Small Business Advisor/View Control/Controllers/CentralNC.swift",
+      "line": 65,
+      "symbol": "CentralNC.viewDidLoad()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jameslingo/Documents/Dev/Swift/SBA/Small Business Advisor/View Control/Controllers/FieldsEditorVC/FieldsEditorPickerDelegation.swift",
+      "line": 17,
+      "symbol": "FieldsEditorViewController.numberOfComponents(in:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jameslingo/Documents/Dev/Swift/SBA/Small Business Advisor/View Control/Controllers/FieldsEditorVC/FieldsEditorPickerDelegation.swift",
+      "line": 19,
+      "symbol": "FieldsEditorViewController.pickerView(_:numberOfRowsInComponent:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jameslingo/Documents/Dev/Swift/SBA/Small Business Advisor/View Control/Controllers/FieldsEditorVC/FieldsEditorPickerDelegation.swift",
+      "line": 28,
+      "symbol": "FieldsEditorViewController.pickerView(_:titleForRow:forComponent:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jameslingo/Documents/Dev/Swift/SBA/Small Business Advisor/View Control/Controllers/FieldsEditorVC/FieldsEditorPickerDelegation.swift",
+      "line": 32,
+      "symbol": "FieldsEditorViewController.pickerView(_:attributedTitleForRow:forComponent:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jameslingo/Documents/Dev/Swift/SBA/Small Business Advisor/View Control/Controllers/FieldsEditorVC/FieldsEditorPickerDelegation.swift",
+      "line": 38,
+      "symbol": "FieldsEditorViewController.pickerView(_:didSelectRow:inComponent:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jameslingo/Documents/Dev/Swift/SBA/Small Business Advisor/View Control/Controllers/FieldsEditorVC/FieldsEditorViewController.swift",
+      "line": 147,
+      "symbol": "FieldsEditorViewController.viewDidLoad()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jameslingo/Documents/Dev/Swift/SBA/Small Business Advisor/View Control/Controllers/FieldsEditorVC/FieldsEditorViewController.swift",
+      "line": 152,
+      "symbol": "FieldsEditorViewController.touchesBegan(_:with:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jameslingo/Documents/Dev/Swift/SBA/Small Business Advisor/View Control/Controllers/FieldsEditorVC/FieldsEditorViewController.swift",
+      "line": 160,
+      "symbol": "FieldsEditorViewController.Default.categoryText",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jameslingo/Documents/Dev/Swift/SBA/Small Business Advisor/View Control/Controllers/FieldsEditorVC/FieldsEditorViewController.swift",
+      "line": 161,
+      "symbol": "FieldsEditorViewController.Default.bodyText",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jameslingo/Documents/Dev/Swift/SBA/Small Business Advisor/View Control/Controllers/FieldsEditorVC/FieldsEditorViewController.swift",
+      "line": 172,
+      "symbol": "FieldsEditorViewController.textView(_:shouldChangeTextIn:replacementText:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jameslingo/Documents/Dev/Swift/SBA/Small Business Advisor/View Control/Controllers/FlaggerVC/FlaggerPickerDelegation.swift",
+      "line": 111,
+      "symbol": "FlaggerViewController.pickerView(_:didSelectRow:inComponent:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jameslingo/Documents/Dev/Swift/SBA/Small Business Advisor/View Control/Controllers/FlaggerVC/FlaggerPickerDelegation.swift",
+      "line": 123,
+      "symbol": "FlaggerViewController.pickerView(_:attributedTitleForRow:forComponent:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jameslingo/Documents/Dev/Swift/SBA/Small Business Advisor/View Control/Controllers/FlaggerVC/FlaggerPickerDelegation.swift",
+      "line": 131,
+      "symbol": "FlaggerViewController.pickerView(_:titleForRow:forComponent:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jameslingo/Documents/Dev/Swift/SBA/Small Business Advisor/View Control/Controllers/FlaggerVC/FlaggerPickerDelegation.swift",
+      "line": 154,
+      "symbol": "FlaggerViewController.numberOfComponents(in:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jameslingo/Documents/Dev/Swift/SBA/Small Business Advisor/View Control/Controllers/FlaggerVC/FlaggerPickerDelegation.swift",
+      "line": 156,
+      "symbol": "FlaggerViewController.pickerView(_:numberOfRowsInComponent:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jameslingo/Documents/Dev/Swift/SBA/Small Business Advisor/View Control/Controllers/FlaggerVC/FlaggerViewController.swift",
+      "line": 124,
+      "symbol": "FlaggerViewController.viewDidLoad()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jameslingo/Documents/Dev/Swift/SBA/Small Business Advisor/View Control/Controllers/ModerationTVC/Cells/EditTableViewCell.swift",
+      "line": 11,
+      "symbol": "EditTableViewCell",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jameslingo/Documents/Dev/Swift/SBA/Small Business Advisor/View Control/Controllers/ModerationTVC/Cells/EditTableViewCell.swift",
+      "line": 17,
+      "symbol": "EditTableViewCell.categoryLabel",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jameslingo/Documents/Dev/Swift/SBA/Small Business Advisor/View Control/Controllers/ModerationTVC/Cells/EditTableViewCell.swift",
+      "line": 19,
+      "symbol": "EditTableViewCell.tipTextLabel",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jameslingo/Documents/Dev/Swift/SBA/Small Business Advisor/View Control/Controllers/ModerationTVC/Cells/EditTableViewCell.swift",
+      "line": 21,
+      "symbol": "EditTableViewCell.indicatorImage",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jameslingo/Documents/Dev/Swift/SBA/Small Business Advisor/View Control/Controllers/ModerationTVC/Cells/EditTableViewCell.swift",
+      "line": 25,
+      "symbol": "EditTableViewCell.associatedTip",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jameslingo/Documents/Dev/Swift/SBA/Small Business Advisor/View Control/Controllers/ModerationTVC/Cells/EditTableViewCell.swift",
+      "line": 32,
+      "symbol": "EditTableViewCell.suggestion",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jameslingo/Documents/Dev/Swift/SBA/Small Business Advisor/View Control/Controllers/ModerationTVC/Cells/EditTableViewCell.swift",
+      "line": 38,
+      "symbol": "EditTableViewCell.awakeFromNib()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jameslingo/Documents/Dev/Swift/SBA/Small Business Advisor/View Control/Controllers/ModerationTVC/Cells/EditTableViewCell.swift",
+      "line": 43,
+      "symbol": "EditTableViewCell.setSelected(_:animated:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jameslingo/Documents/Dev/Swift/SBA/Small Business Advisor/View Control/Controllers/ModerationTVC/Cells/FlagTableViewCell.swift",
+      "line": 33,
+      "symbol": "FlagTableViewCell.reasonLabel",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jameslingo/Documents/Dev/Swift/SBA/Small Business Advisor/View Control/Controllers/ModerationTVC/Cells/FlagTableViewCell.swift",
+      "line": 35,
+      "symbol": "FlagTableViewCell.tipTextLabel",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jameslingo/Documents/Dev/Swift/SBA/Small Business Advisor/View Control/Controllers/ModerationTVC/Cells/FlagTableViewCell.swift",
+      "line": 37,
+      "symbol": "FlagTableViewCell.indicatorImage",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jameslingo/Documents/Dev/Swift/SBA/Small Business Advisor/View Control/Controllers/ModerationTVC/Cells/NewTableViewCell.swift",
+      "line": 11,
+      "symbol": "NewTableViewCell",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jameslingo/Documents/Dev/Swift/SBA/Small Business Advisor/View Control/Controllers/ModerationTVC/Cells/NewTableViewCell.swift",
+      "line": 17,
+      "symbol": "NewTableViewCell.categoryLabel",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jameslingo/Documents/Dev/Swift/SBA/Small Business Advisor/View Control/Controllers/ModerationTVC/Cells/NewTableViewCell.swift",
+      "line": 19,
+      "symbol": "NewTableViewCell.tipTextLabel",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jameslingo/Documents/Dev/Swift/SBA/Small Business Advisor/View Control/Controllers/ModerationTVC/Cells/NewTableViewCell.swift",
+      "line": 21,
+      "symbol": "NewTableViewCell.indicatorImage",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jameslingo/Documents/Dev/Swift/SBA/Small Business Advisor/View Control/Controllers/ModerationTVC/Cells/NewTableViewCell.swift",
+      "line": 25,
+      "symbol": "NewTableViewCell.associatedTip",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jameslingo/Documents/Dev/Swift/SBA/Small Business Advisor/View Control/Controllers/ModerationTVC/Cells/NewTableViewCell.swift",
+      "line": 32,
+      "symbol": "NewTableViewCell.suggestion",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jameslingo/Documents/Dev/Swift/SBA/Small Business Advisor/View Control/Controllers/ModerationTVC/Cells/NewTableViewCell.swift",
+      "line": 40,
+      "symbol": "NewTableViewCell.setSelected(_:animated:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jameslingo/Documents/Dev/Swift/SBA/Small Business Advisor/View Control/Controllers/ModerationTVC/ModerationTableViewController.swift",
+      "line": 47,
+      "symbol": "ModerationTableViewController.viewWillAppear(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jameslingo/Documents/Dev/Swift/SBA/Small Business Advisor/View Control/Controllers/ModerationTVC/ModerationTableViewController.swift",
+      "line": 53,
+      "symbol": "ModerationTableViewController.viewDidLoad()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jameslingo/Documents/Dev/Swift/SBA/Small Business Advisor/View Control/Controllers/ModerationTVC/ModerationTableViewController.swift",
+      "line": 63,
+      "symbol": "ModerationTableViewController.viewWillDisappear(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jameslingo/Documents/Dev/Swift/SBA/Small Business Advisor/View Control/Controllers/ModerationTVC/ModerationTableViewController.swift",
+      "line": 122,
+      "symbol": "ModerationTableViewController.numberOfSections(in:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jameslingo/Documents/Dev/Swift/SBA/Small Business Advisor/View Control/Controllers/ModerationTVC/ModerationTableViewController.swift",
+      "line": 124,
+      "symbol": "ModerationTableViewController.tableView(_:numberOfRowsInSection:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jameslingo/Documents/Dev/Swift/SBA/Small Business Advisor/View Control/Controllers/ModerationTVC/ModerationTableViewController.swift",
+      "line": 126,
+      "symbol": "ModerationTableViewController.tableView(_:cellForRowAt:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jameslingo/Documents/Dev/Swift/SBA/Small Business Advisor/View Control/Controllers/ModerationTVC/ModerationTableViewController.swift",
+      "line": 148,
+      "symbol": "ModerationTableViewController.tableView(_:canEditRowAt:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jameslingo/Documents/Dev/Swift/SBA/Small Business Advisor/View Control/Controllers/ModerationTVC/ModerationTableViewController.swift",
+      "line": 150,
+      "symbol": "ModerationTableViewController.tableView(_:editActionsForRowAt:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jameslingo/Documents/Dev/Swift/SBA/Small Business Advisor/View Control/Controllers/ModerationTVC/ModerationTableViewController.swift",
+      "line": 184,
+      "symbol": "ModerationTableViewController.mailComposeController(_:didFinishWith:error:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jameslingo/Documents/Dev/Swift/SBA/Small Business Advisor/View Control/String Manipulation.swift",
+      "line": 74,
+      "symbol": "NSAttributedString.rangeOf(string:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    }
+  ],
+  "source_directory": "/Users/jameslingo/Documents/Dev/Swift/SBA"
+}

@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>SuggestedModeration Protocol Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Protocol/SuggestedModeration" class="dashAnchor"></a>
+    <a title="SuggestedModeration Protocol Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html"> Docs</a> (74% documented)</p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html"> Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        SuggestedModeration Protocol Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/AdvisorViewController.html">AdvisorViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AppDelegate.html">AppDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CentralNC.html">CentralNC</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/EditTableViewCell.html">EditTableViewCell</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/EditorViewController.html">EditorViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/FieldsEditorViewController.html">FieldsEditorViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/FieldsEditorViewController/Default.html">– Default</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/FlagTableViewCell.html">FlagTableViewCell</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/FlaggerViewController.html">FlaggerViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ModerationTableViewController.html">ModerationTableViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/NewTableViewCell.html">NewTableViewCell</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TipFactory.html">TipFactory</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TipFactory/VotingBooth.html">– VotingBooth</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/FlagReason.html">FlagReason</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/ModerationState.html">ModerationState</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/TipCategory.html">TipCategory</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Extensions/NSAttributedString.html">NSAttributedString</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/ButtonEnabler.html">ButtonEnabler</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/CategoryFactory.html">CategoryFactory</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/EditAbstraction.html">EditAbstraction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/Entry.html">Entry</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/FlagAbstraction.html">FlagAbstraction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/ModerationSuggester.html">ModerationSuggester</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/NewTipAbstraction.html">NewTipAbstraction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/Pickable.html">Pickable</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/PickerDecorator.html">PickerDecorator</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/SuggestedModeration.html">SuggestedModeration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/SuggestionCell.html">SuggestionCell</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/TipEditor.html">TipEditor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/TipFactoryAbstraction.html">TipFactoryAbstraction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/VoteAbstraction.html">VoteAbstraction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/VoteCounter.html">VoteCounter</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Structs.html">Structures</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs/AnyEntry.html">AnyEntry</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs.html#/s:17Small_Biz_Advisor12AnyModeratorV">AnyModerator</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/CellLabels.html">CellLabels</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Colors.html">Colors</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/EmailAddress.html">EmailAddress</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Flag.html">Flag</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Format.html">Format</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/NewTip.html">NewTip</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/RecordKey.html">RecordKey</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/RecordKey/Entry.html">– Entry</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/RecordKey/Vote.html">– Vote</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/RecordKey/Flag.html">– Flag</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/RecordKey/Suggestion.html">– Suggestion</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/RecordType.html">RecordType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Tip.html">Tip</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/TipCategoryFactory.html">TipCategoryFactory</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/TipEdit.html">TipEdit</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/URL_str.html">URL_str</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/UserFacingText.html">UserFacingText</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Vote.html">Vote</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>SuggestedModeration</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight swift"><code><span class="kd">protocol</span> <span class="kt">SuggestedModeration</span></code></pre>
+
+                </div>
+              </div>
+            <p>This abstract parent class for USER list moderation (e.g. flag, edit, new, etc&hellip;).</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:17Small_Biz_Advisor19SuggestedModerationP11editorEmailSSSgv"></a>
+                    <a name="//apple_ref/swift/Property/editorEmail" class="dashAnchor"></a>
+                    <a class="token" href="#/s:17Small_Biz_Advisor19SuggestedModerationP11editorEmailSSSgv">editorEmail</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This optionl property stores an email address, if supplied by the USER, to contact them about the results of their suggested moderation.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">editorEmail</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:17Small_Biz_Advisor19SuggestedModerationP3tipSo11CKReferenceCv"></a>
+                    <a name="//apple_ref/swift/Property/tip" class="dashAnchor"></a>
+                    <a class="token" href="#/s:17Small_Biz_Advisor19SuggestedModerationP3tipSo11CKReferenceCv">tip</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This property stores a database reference to the Tip suggested moderation concerns.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">tip</span><span class="p">:</span> <span class="kt">CKReference</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:17Small_Biz_Advisor19SuggestedModerationP7creatorSo10CKRecordIDCSgv"></a>
+                    <a name="//apple_ref/swift/Property/creator" class="dashAnchor"></a>
+                    <a class="token" href="#/s:17Small_Biz_Advisor19SuggestedModerationP7creatorSo10CKRecordIDCSgv">creator</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This optional property stores database identifier for the USER suggesting moderation.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">creator</span><span class="p">:</span> <span class="kt">CKRecordID</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:17Small_Biz_Advisor19SuggestedModerationP5stateAA0E5StateOv"></a>
+                    <a name="//apple_ref/swift/Property/state" class="dashAnchor"></a>
+                    <a class="token" href="#/s:17Small_Biz_Advisor19SuggestedModerationP5stateAA0E5StateOv">state</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This property stores a moderation state used to track it&rsquo;s approval progress.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">state</span><span class="p">:</span> <span class="kt"><a href="../Enums/ModerationState.html">ModerationState</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:17Small_Biz_Advisor19SuggestedModerationP5limitSiSgvZ"></a>
+                    <a name="//apple_ref/swift/Variable/limit" class="dashAnchor"></a>
+                    <a class="token" href="#/s:17Small_Biz_Advisor19SuggestedModerationP5limitSiSgvZ">limit</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This static, read-only &amp; optional property returns the maximum amount of active moderation records in the database (by type) the USER is limited to.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="k">var</span> <span class="nv">limit</span><span class="p">:</span> <span class="kt">Int</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2018 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2018-03-05)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.1</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

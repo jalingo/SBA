@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>ModerationTableViewController Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Class/ModerationTableViewController" class="dashAnchor"></a>
+    <a title="ModerationTableViewController Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html"> Docs</a> (74% documented)</p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html"> Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        ModerationTableViewController Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/AdvisorViewController.html">AdvisorViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AppDelegate.html">AppDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CentralNC.html">CentralNC</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/EditTableViewCell.html">EditTableViewCell</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/EditorViewController.html">EditorViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/FieldsEditorViewController.html">FieldsEditorViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/FieldsEditorViewController/Default.html">– Default</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/FlagTableViewCell.html">FlagTableViewCell</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/FlaggerViewController.html">FlaggerViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ModerationTableViewController.html">ModerationTableViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/NewTableViewCell.html">NewTableViewCell</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TipFactory.html">TipFactory</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TipFactory/VotingBooth.html">– VotingBooth</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/FlagReason.html">FlagReason</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/ModerationState.html">ModerationState</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/TipCategory.html">TipCategory</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Extensions/NSAttributedString.html">NSAttributedString</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/ButtonEnabler.html">ButtonEnabler</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/CategoryFactory.html">CategoryFactory</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/EditAbstraction.html">EditAbstraction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/Entry.html">Entry</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/FlagAbstraction.html">FlagAbstraction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/ModerationSuggester.html">ModerationSuggester</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/NewTipAbstraction.html">NewTipAbstraction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/Pickable.html">Pickable</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/PickerDecorator.html">PickerDecorator</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/SuggestedModeration.html">SuggestedModeration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/SuggestionCell.html">SuggestionCell</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/TipEditor.html">TipEditor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/TipFactoryAbstraction.html">TipFactoryAbstraction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/VoteAbstraction.html">VoteAbstraction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/VoteCounter.html">VoteCounter</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Structs.html">Structures</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs/AnyEntry.html">AnyEntry</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs.html#/s:17Small_Biz_Advisor12AnyModeratorV">AnyModerator</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/CellLabels.html">CellLabels</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Colors.html">Colors</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/EmailAddress.html">EmailAddress</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Flag.html">Flag</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Format.html">Format</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/NewTip.html">NewTip</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/RecordKey.html">RecordKey</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/RecordKey/Entry.html">– Entry</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/RecordKey/Vote.html">– Vote</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/RecordKey/Flag.html">– Flag</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/RecordKey/Suggestion.html">– Suggestion</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/RecordType.html">RecordType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Tip.html">Tip</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/TipCategoryFactory.html">TipCategoryFactory</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/TipEdit.html">TipEdit</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/URL_str.html">URL_str</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/UserFacingText.html">UserFacingText</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Vote.html">Vote</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>ModerationTableViewController</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">ModerationTableViewController</span><span class="p">:</span> <span class="kt">UITableViewController</span></code></pre>
+
+                </div>
+              </div>
+            <p>This sub-class of <code>UITableViewController</code> has a single column and lists rows of cells representing the various <code><a href="../Protocols/SuggestedModeration.html">SuggestedModeration</a></code>s created by current USER. Cells can be used to access data, contact support or cancel moderation.</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Functions:%20UIViewController"></a>
+                <a name="//apple_ref/swift/Section/Functions: UIViewController" class="dashAnchor"></a>
+                <a href="#/Functions:%20UIViewController">
+                  <h3 class="section-name">Functions: UIViewController</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@Small_Biz_Advisor@objc(cs)ModerationTableViewController(im)viewWillAppear:"></a>
+                    <a name="//apple_ref/swift/Method/viewWillAppear(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@Small_Biz_Advisor@objc(cs)ModerationTableViewController(im)viewWillAppear:">viewWillAppear(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">override</span> <span class="kd">func</span> <span class="nf">viewWillAppear</span><span class="p">(</span><span class="n">_</span> <span class="nv">animated</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@Small_Biz_Advisor@objc(cs)ModerationTableViewController(im)viewDidLoad"></a>
+                    <a name="//apple_ref/swift/Method/viewDidLoad()" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@Small_Biz_Advisor@objc(cs)ModerationTableViewController(im)viewDidLoad">viewDidLoad()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">override</span> <span class="kd">func</span> <span class="nf">viewDidLoad</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@Small_Biz_Advisor@objc(cs)ModerationTableViewController(im)viewWillDisappear:"></a>
+                    <a name="//apple_ref/swift/Method/viewWillDisappear(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@Small_Biz_Advisor@objc(cs)ModerationTableViewController(im)viewWillDisappear:">viewWillDisappear(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">override</span> <span class="kd">func</span> <span class="nf">viewWillDisappear</span><span class="p">(</span><span class="n">_</span> <span class="nv">animated</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Functions:%20UITableViewDataSource"></a>
+                <a name="//apple_ref/swift/Section/Functions: UITableViewDataSource" class="dashAnchor"></a>
+                <a href="#/Functions:%20UITableViewDataSource">
+                  <h3 class="section-name">Functions: UITableViewDataSource</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@CM@Small_Biz_Advisor@objc(cs)ModerationTableViewController(im)numberOfSectionsInTableView:"></a>
+                    <a name="//apple_ref/swift/Method/numberOfSections(in:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@CM@Small_Biz_Advisor@objc(cs)ModerationTableViewController(im)numberOfSectionsInTableView:">numberOfSections(in:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">override</span> <span class="kd">func</span> <span class="nf">numberOfSections</span><span class="p">(</span><span class="k">in</span> <span class="nv">tableView</span><span class="p">:</span> <span class="kt">UITableView</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Int</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@CM@Small_Biz_Advisor@objc(cs)ModerationTableViewController(im)tableView:numberOfRowsInSection:"></a>
+                    <a name="//apple_ref/swift/Method/tableView(_:numberOfRowsInSection:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@CM@Small_Biz_Advisor@objc(cs)ModerationTableViewController(im)tableView:numberOfRowsInSection:">tableView(_:numberOfRowsInSection:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">override</span> <span class="kd">func</span> <span class="nf">tableView</span><span class="p">(</span><span class="n">_</span> <span class="nv">tableView</span><span class="p">:</span> <span class="kt">UITableView</span><span class="p">,</span> <span class="n">numberOfRowsInSection</span> <span class="nv">section</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Int</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@CM@Small_Biz_Advisor@objc(cs)ModerationTableViewController(im)tableView:cellForRowAtIndexPath:"></a>
+                    <a name="//apple_ref/swift/Method/tableView(_:cellForRowAt:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@CM@Small_Biz_Advisor@objc(cs)ModerationTableViewController(im)tableView:cellForRowAtIndexPath:">tableView(_:cellForRowAt:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">override</span> <span class="kd">func</span> <span class="nf">tableView</span><span class="p">(</span><span class="n">_</span> <span class="nv">tableView</span><span class="p">:</span> <span class="kt">UITableView</span><span class="p">,</span> <span class="n">cellForRowAt</span> <span class="nv">indexPath</span><span class="p">:</span> <span class="kt">IndexPath</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">UITableViewCell</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@CM@Small_Biz_Advisor@objc(cs)ModerationTableViewController(im)tableView:canEditRowAtIndexPath:"></a>
+                    <a name="//apple_ref/swift/Method/tableView(_:canEditRowAt:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@CM@Small_Biz_Advisor@objc(cs)ModerationTableViewController(im)tableView:canEditRowAtIndexPath:">tableView(_:canEditRowAt:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">override</span> <span class="kd">func</span> <span class="nf">tableView</span><span class="p">(</span><span class="n">_</span> <span class="nv">tableView</span><span class="p">:</span> <span class="kt">UITableView</span><span class="p">,</span> <span class="n">canEditRowAt</span> <span class="nv">indexPath</span><span class="p">:</span> <span class="kt">IndexPath</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@CM@Small_Biz_Advisor@objc(cs)ModerationTableViewController(im)tableView:editActionsForRowAtIndexPath:"></a>
+                    <a name="//apple_ref/swift/Method/tableView(_:editActionsForRowAt:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@CM@Small_Biz_Advisor@objc(cs)ModerationTableViewController(im)tableView:editActionsForRowAtIndexPath:">tableView(_:editActionsForRowAt:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">override</span> <span class="kd">func</span> <span class="nf">tableView</span><span class="p">(</span><span class="n">_</span> <span class="nv">tableView</span><span class="p">:</span> <span class="kt">UITableView</span><span class="p">,</span> <span class="n">editActionsForRowAt</span> <span class="nv">indexPath</span><span class="p">:</span> <span class="kt">IndexPath</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt">UITableViewRowAction</span><span class="p">]?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Functions:%20MFMailComposeViewControllerDelegate"></a>
+                <a name="//apple_ref/swift/Section/Functions: MFMailComposeViewControllerDelegate" class="dashAnchor"></a>
+                <a href="#/Functions:%20MFMailComposeViewControllerDelegate">
+                  <h3 class="section-name">Functions: MFMailComposeViewControllerDelegate</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@CM@Small_Biz_Advisor@objc(cs)ModerationTableViewController(im)mailComposeController:didFinishWithResult:error:"></a>
+                    <a name="//apple_ref/swift/Method/mailComposeController(_:didFinishWith:error:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@CM@Small_Biz_Advisor@objc(cs)ModerationTableViewController(im)mailComposeController:didFinishWithResult:error:">mailComposeController(_:didFinishWith:error:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">mailComposeController</span><span class="p">(</span><span class="n">_</span> <span class="nv">controller</span><span class="p">:</span> <span class="kt">MFMailComposeViewController</span><span class="p">,</span> <span class="n">didFinishWith</span> <span class="nv">result</span><span class="p">:</span> <span class="kt">MFMailComposeResult</span><span class="p">,</span> <span class="nv">error</span><span class="p">:</span> <span class="kt">Error</span><span class="p">?)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2018 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2018-03-05)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.1</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

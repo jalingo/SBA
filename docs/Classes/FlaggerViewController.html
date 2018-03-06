@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>FlaggerViewController Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Class/FlaggerViewController" class="dashAnchor"></a>
+    <a title="FlaggerViewController Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html"> Docs</a> (74% documented)</p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html"> Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        FlaggerViewController Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/AdvisorViewController.html">AdvisorViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AppDelegate.html">AppDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CentralNC.html">CentralNC</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/EditTableViewCell.html">EditTableViewCell</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/EditorViewController.html">EditorViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/FieldsEditorViewController.html">FieldsEditorViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/FieldsEditorViewController/Default.html">– Default</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/FlagTableViewCell.html">FlagTableViewCell</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/FlaggerViewController.html">FlaggerViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ModerationTableViewController.html">ModerationTableViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/NewTableViewCell.html">NewTableViewCell</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TipFactory.html">TipFactory</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TipFactory/VotingBooth.html">– VotingBooth</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/FlagReason.html">FlagReason</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/ModerationState.html">ModerationState</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/TipCategory.html">TipCategory</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Extensions/NSAttributedString.html">NSAttributedString</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/ButtonEnabler.html">ButtonEnabler</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/CategoryFactory.html">CategoryFactory</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/EditAbstraction.html">EditAbstraction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/Entry.html">Entry</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/FlagAbstraction.html">FlagAbstraction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/ModerationSuggester.html">ModerationSuggester</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/NewTipAbstraction.html">NewTipAbstraction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/Pickable.html">Pickable</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/PickerDecorator.html">PickerDecorator</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/SuggestedModeration.html">SuggestedModeration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/SuggestionCell.html">SuggestionCell</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/TipEditor.html">TipEditor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/TipFactoryAbstraction.html">TipFactoryAbstraction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/VoteAbstraction.html">VoteAbstraction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/VoteCounter.html">VoteCounter</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Structs.html">Structures</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs/AnyEntry.html">AnyEntry</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs.html#/s:17Small_Biz_Advisor12AnyModeratorV">AnyModerator</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/CellLabels.html">CellLabels</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Colors.html">Colors</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/EmailAddress.html">EmailAddress</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Flag.html">Flag</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Format.html">Format</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/NewTip.html">NewTip</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/RecordKey.html">RecordKey</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/RecordKey/Entry.html">– Entry</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/RecordKey/Vote.html">– Vote</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/RecordKey/Flag.html">– Flag</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/RecordKey/Suggestion.html">– Suggestion</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/RecordType.html">RecordType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Tip.html">Tip</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/TipCategoryFactory.html">TipCategoryFactory</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/TipEdit.html">TipEdit</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/URL_str.html">URL_str</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/UserFacingText.html">UserFacingText</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Vote.html">Vote</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>FlaggerViewController</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">FlaggerViewController</span><span class="p">:</span> <span class="kt">UIViewController</span><span class="p">,</span> <span class="kt"><a href="../Protocols/TipEditor.html">TipEditor</a></span></code></pre>
+
+                </div>
+              </div>
+            <p>This sub-class inherits from UIViewController, and manages USER&rsquo;s ability to flag tips for removal / correction.</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Properties"></a>
+                <a name="//apple_ref/swift/Section/Properties" class="dashAnchor"></a>
+                <a href="#/Properties">
+                  <h3 class="section-name">Properties</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:17Small_Biz_Advisor21FlaggerViewControllerC4tipsAA10TipFactoryCv"></a>
+                    <a name="//apple_ref/swift/Property/tips" class="dashAnchor"></a>
+                    <a class="token" href="#/s:17Small_Biz_Advisor21FlaggerViewControllerC4tipsAA10TipFactoryCv">tips</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This property stores an MCReceiver associated w/Tip recordable.
+Access an array of all existing types in .recordables</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">tips</span><span class="p">:</span> <span class="kt"><a href="../Classes/TipFactory.html">TipFactory</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:17Small_Biz_Advisor21FlaggerViewControllerC5flagsSayAA4FlagVGv"></a>
+                    <a name="//apple_ref/swift/Property/flags" class="dashAnchor"></a>
+                    <a class="token" href="#/s:17Small_Biz_Advisor21FlaggerViewControllerC5flagsSayAA4FlagVGv">flags</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This property stores an MCReceiver associated w/Flag recordable.
+Access an array of all existing types in .recordables</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">flags</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Structs/Flag.html">Flag</a></span><span class="p">]</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:17Small_Biz_Advisor21FlaggerViewControllerC6reasonAA10FlagReasonOSgv"></a>
+                    <a name="//apple_ref/swift/Property/reason" class="dashAnchor"></a>
+                    <a class="token" href="#/s:17Small_Biz_Advisor21FlaggerViewControllerC6reasonAA10FlagReasonOSgv">reason</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This optional property is set when a reason for flagging tip specified by USER. Otherwise, is nil.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">reason</span><span class="p">:</span> <span class="kt"><a href="../Enums/FlagReason.html">FlagReason</a></span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:17Small_Biz_Advisor21FlaggerViewControllerC9isFlaggedSbv"></a>
+                    <a name="//apple_ref/swift/Property/isFlagged" class="dashAnchor"></a>
+                    <a class="token" href="#/s:17Small_Biz_Advisor21FlaggerViewControllerC9isFlaggedSbv">isFlagged</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>When USER has an active flag, returns true.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">isFlagged</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Properties:%20UIPickerViewDataSource"></a>
+                <a name="//apple_ref/swift/Section/Properties: UIPickerViewDataSource" class="dashAnchor"></a>
+                <a href="#/Properties:%20UIPickerViewDataSource">
+                  <h3 class="section-name">Properties: UIPickerViewDataSource</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:17Small_Biz_Advisor21FlaggerViewControllerC11sampleModelAA8Pickable_pSgv"></a>
+                    <a name="//apple_ref/swift/Property/sampleModel" class="dashAnchor"></a>
+                    <a class="token" href="#/s:17Small_Biz_Advisor21FlaggerViewControllerC11sampleModelAA8Pickable_pSgv">sampleModel</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This optional property is accessed by UIPickerViewDataSource to determine model info to load.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">sampleModel</span><span class="p">:</span> <span class="kt"><a href="../Protocols/Pickable.html">Pickable</a></span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Properties:%20TipEditor"></a>
+                <a name="//apple_ref/swift/Section/Properties: TipEditor" class="dashAnchor"></a>
+                <a href="#/Properties:%20TipEditor">
+                  <h3 class="section-name">Properties: TipEditor</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:17Small_Biz_Advisor21FlaggerViewControllerC3tipAA3TipVSgv"></a>
+                    <a name="//apple_ref/swift/Property/tip" class="dashAnchor"></a>
+                    <a class="token" href="#/s:17Small_Biz_Advisor21FlaggerViewControllerC3tipAA3TipVSgv">tip</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This optional property references the tip being flagged by the USER.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">tip</span><span class="p">:</span> <span class="kt"><a href="../Structs/Tip.html">Tip</a></span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Properties:%20IBOutlets"></a>
+                <a name="//apple_ref/swift/Section/Properties: IBOutlets" class="dashAnchor"></a>
+                <a href="#/Properties:%20IBOutlets">
+                  <h3 class="section-name">Properties: IBOutlets</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@Small_Biz_Advisor@objc(cs)FlaggerViewController(py)flaggerLabel"></a>
+                    <a name="//apple_ref/swift/Property/flaggerLabel" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@Small_Biz_Advisor@objc(cs)FlaggerViewController(py)flaggerLabel">flaggerLabel</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This IBOutlet property references the main label used to communicate with USER.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@IBOutlet</span> <span class="k">weak</span> <span class="k">var</span> <span class="nv">flaggerLabel</span><span class="p">:</span> <span class="kt">UILabel</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@Small_Biz_Advisor@objc(cs)FlaggerViewController(py)flaggerPicker"></a>
+                    <a name="//apple_ref/swift/Property/flaggerPicker" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@Small_Biz_Advisor@objc(cs)FlaggerViewController(py)flaggerPicker">flaggerPicker</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This IBOutlet property references the pickerView used to select FlagReason.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@IBOutlet</span> <span class="k">weak</span> <span class="k">var</span> <span class="nv">flaggerPicker</span><span class="p">:</span> <span class="kt">UIPickerView</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@Small_Biz_Advisor@objc(cs)FlaggerViewController(py)flagButton"></a>
+                    <a name="//apple_ref/swift/Property/flagButton" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@Small_Biz_Advisor@objc(cs)FlaggerViewController(py)flagButton">flagButton</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This IBOutlet property references the button used to save configured flag to database.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@IBOutlet</span> <span class="k">weak</span> <span class="k">var</span> <span class="nv">flagButton</span><span class="p">:</span> <span class="kt">UIButton</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Functions"></a>
+                <a name="//apple_ref/swift/Section/Functions" class="dashAnchor"></a>
+                <a href="#/Functions">
+                  <h3 class="section-name">Functions</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:17Small_Biz_Advisor21FlaggerViewControllerC11updateViewsyyF"></a>
+                    <a name="//apple_ref/swift/Method/updateViews()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:17Small_Biz_Advisor21FlaggerViewControllerC11updateViewsyyF">updateViews()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This method updates flaggerLabel and flagButton.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updateViews</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Functions:%20IBActions"></a>
+                <a name="//apple_ref/swift/Section/Functions: IBActions" class="dashAnchor"></a>
+                <a href="#/Functions:%20IBActions">
+                  <h3 class="section-name">Functions: IBActions</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@Small_Biz_Advisor@objc(cs)FlaggerViewController(im)flagPressed:"></a>
+                    <a name="//apple_ref/swift/Method/flagPressed(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@Small_Biz_Advisor@objc(cs)FlaggerViewController(im)flagPressed:">flagPressed(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This IBAction method saves flag to database when USER taps sender.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@IBAction</span> <span class="kd">func</span> <span class="nf">flagPressed</span><span class="p">(</span><span class="n">_</span> <span class="nv">sender</span><span class="p">:</span> <span class="kt">UIButton</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Functions:%20UIViewController"></a>
+                <a name="//apple_ref/swift/Section/Functions: UIViewController" class="dashAnchor"></a>
+                <a href="#/Functions:%20UIViewController">
+                  <h3 class="section-name">Functions: UIViewController</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@Small_Biz_Advisor@objc(cs)FlaggerViewController(im)viewDidLoad"></a>
+                    <a name="//apple_ref/swift/Method/viewDidLoad()" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@Small_Biz_Advisor@objc(cs)FlaggerViewController(im)viewDidLoad">viewDidLoad()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">override</span> <span class="kd">func</span> <span class="nf">viewDidLoad</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Functions:%20UIPickerViewDelegate"></a>
+                <a name="//apple_ref/swift/Section/Functions: UIPickerViewDelegate" class="dashAnchor"></a>
+                <a href="#/Functions:%20UIPickerViewDelegate">
+                  <h3 class="section-name">Functions: UIPickerViewDelegate</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@CM@Small_Biz_Advisor@objc(cs)FlaggerViewController(im)pickerView:didSelectRow:inComponent:"></a>
+                    <a name="//apple_ref/swift/Method/pickerView(_:didSelectRow:inComponent:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@CM@Small_Biz_Advisor@objc(cs)FlaggerViewController(im)pickerView:didSelectRow:inComponent:">pickerView(_:didSelectRow:inComponent:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">pickerView</span><span class="p">(</span><span class="n">_</span> <span class="nv">pickerView</span><span class="p">:</span> <span class="kt">UIPickerView</span><span class="p">,</span> <span class="n">didSelectRow</span> <span class="nv">row</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="n">inComponent</span> <span class="nv">component</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@CM@Small_Biz_Advisor@objc(cs)FlaggerViewController(im)pickerView:attributedTitleForRow:forComponent:"></a>
+                    <a name="//apple_ref/swift/Method/pickerView(_:attributedTitleForRow:forComponent:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@CM@Small_Biz_Advisor@objc(cs)FlaggerViewController(im)pickerView:attributedTitleForRow:forComponent:">pickerView(_:attributedTitleForRow:forComponent:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">pickerView</span><span class="p">(</span><span class="n">_</span> <span class="nv">pickerView</span><span class="p">:</span> <span class="kt">UIPickerView</span><span class="p">,</span> <span class="n">attributedTitleForRow</span> <span class="nv">row</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="n">forComponent</span> <span class="nv">component</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">NSAttributedString</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@CM@Small_Biz_Advisor@objc(cs)FlaggerViewController(im)pickerView:titleForRow:forComponent:"></a>
+                    <a name="//apple_ref/swift/Method/pickerView(_:titleForRow:forComponent:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@CM@Small_Biz_Advisor@objc(cs)FlaggerViewController(im)pickerView:titleForRow:forComponent:">pickerView(_:titleForRow:forComponent:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">pickerView</span><span class="p">(</span><span class="n">_</span> <span class="nv">pickerView</span><span class="p">:</span> <span class="kt">UIPickerView</span><span class="p">,</span> <span class="n">titleForRow</span> <span class="nv">row</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="n">forComponent</span> <span class="nv">component</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">String</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Functions:%20UIPickerViewDataSource"></a>
+                <a name="//apple_ref/swift/Section/Functions: UIPickerViewDataSource" class="dashAnchor"></a>
+                <a href="#/Functions:%20UIPickerViewDataSource">
+                  <h3 class="section-name">Functions: UIPickerViewDataSource</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@CM@Small_Biz_Advisor@objc(cs)FlaggerViewController(im)numberOfComponentsInPickerView:"></a>
+                    <a name="//apple_ref/swift/Method/numberOfComponents(in:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@CM@Small_Biz_Advisor@objc(cs)FlaggerViewController(im)numberOfComponentsInPickerView:">numberOfComponents(in:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">numberOfComponents</span><span class="p">(</span><span class="k">in</span> <span class="nv">pickerView</span><span class="p">:</span> <span class="kt">UIPickerView</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Int</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@CM@Small_Biz_Advisor@objc(cs)FlaggerViewController(im)pickerView:numberOfRowsInComponent:"></a>
+                    <a name="//apple_ref/swift/Method/pickerView(_:numberOfRowsInComponent:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@CM@Small_Biz_Advisor@objc(cs)FlaggerViewController(im)pickerView:numberOfRowsInComponent:">pickerView(_:numberOfRowsInComponent:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">pickerView</span><span class="p">(</span><span class="n">_</span> <span class="nv">pickerView</span><span class="p">:</span> <span class="kt">UIPickerView</span><span class="p">,</span> <span class="n">numberOfRowsInComponent</span> <span class="nv">component</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Int</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:17Small_Biz_Advisor13ButtonEnablerP06updateD0So8UIButtonCv"></a>
+                    <a name="//apple_ref/swift/Property/updateButton" class="dashAnchor"></a>
+                    <a class="token" href="#/s:17Small_Biz_Advisor13ButtonEnablerP06updateD0So8UIButtonCv">updateButton</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">updateButton</span><span class="p">:</span> <span class="kt">UIButton</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2018 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2018-03-05)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.1</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

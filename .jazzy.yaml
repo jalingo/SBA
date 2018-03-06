@@ -1,0 +1,14 @@
+clean: true  
+readme: README.md  
+skip_undocumented: false  
+xcodebuild_arguments:  
+  - -project
+  - Small Biz Advisor.xcodeproj
+#  - -min-acl
+#  - internal
+  - -swift-version
+  - 4.0.3
+
+ # - - docset-icon
+ # - ./Icon^M
+ 

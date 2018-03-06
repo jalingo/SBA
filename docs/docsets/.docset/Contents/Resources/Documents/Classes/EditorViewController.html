@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>EditorViewController Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Class/EditorViewController" class="dashAnchor"></a>
+    <a title="EditorViewController Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html"> Docs</a> (74% documented)</p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html"> Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        EditorViewController Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/AdvisorViewController.html">AdvisorViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AppDelegate.html">AppDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CentralNC.html">CentralNC</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/EditTableViewCell.html">EditTableViewCell</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/EditorViewController.html">EditorViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/FieldsEditorViewController.html">FieldsEditorViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/FieldsEditorViewController/Default.html">– Default</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/FlagTableViewCell.html">FlagTableViewCell</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/FlaggerViewController.html">FlaggerViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ModerationTableViewController.html">ModerationTableViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/NewTableViewCell.html">NewTableViewCell</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TipFactory.html">TipFactory</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TipFactory/VotingBooth.html">– VotingBooth</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/FlagReason.html">FlagReason</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/ModerationState.html">ModerationState</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/TipCategory.html">TipCategory</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Extensions/NSAttributedString.html">NSAttributedString</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/ButtonEnabler.html">ButtonEnabler</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/CategoryFactory.html">CategoryFactory</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/EditAbstraction.html">EditAbstraction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/Entry.html">Entry</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/FlagAbstraction.html">FlagAbstraction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/ModerationSuggester.html">ModerationSuggester</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/NewTipAbstraction.html">NewTipAbstraction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/Pickable.html">Pickable</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/PickerDecorator.html">PickerDecorator</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/SuggestedModeration.html">SuggestedModeration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/SuggestionCell.html">SuggestionCell</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/TipEditor.html">TipEditor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/TipFactoryAbstraction.html">TipFactoryAbstraction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/VoteAbstraction.html">VoteAbstraction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/VoteCounter.html">VoteCounter</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Structs.html">Structures</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs/AnyEntry.html">AnyEntry</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs.html#/s:17Small_Biz_Advisor12AnyModeratorV">AnyModerator</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/CellLabels.html">CellLabels</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Colors.html">Colors</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/EmailAddress.html">EmailAddress</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Flag.html">Flag</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Format.html">Format</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/NewTip.html">NewTip</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/RecordKey.html">RecordKey</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/RecordKey/Entry.html">– Entry</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/RecordKey/Vote.html">– Vote</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/RecordKey/Flag.html">– Flag</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/RecordKey/Suggestion.html">– Suggestion</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/RecordType.html">RecordType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Tip.html">Tip</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/TipCategoryFactory.html">TipCategoryFactory</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/TipEdit.html">TipEdit</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/URL_str.html">URL_str</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/UserFacingText.html">UserFacingText</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Vote.html">Vote</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>EditorViewController</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">EditorViewController</span><span class="p">:</span> <span class="kt">UIViewController</span></code></pre>
+
+                </div>
+              </div>
+            <p>This view controller is a child of AdvisorViewController and contains voting and moderation buttons.</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Properties"></a>
+                <a name="//apple_ref/swift/Section/Properties" class="dashAnchor"></a>
+                <a href="#/Properties">
+                  <h3 class="section-name">Properties</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:17Small_Biz_Advisor20EditorViewControllerC10currentTipAA0H0VSgv"></a>
+                    <a name="//apple_ref/swift/Property/currentTip" class="dashAnchor"></a>
+                    <a class="token" href="#/s:17Small_Biz_Advisor20EditorViewControllerC10currentTipAA0H0VSgv">currentTip</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This optional property stores the current tip being modified by voting and moderation buttons.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">currentTip</span><span class="p">:</span> <span class="kt"><a href="../Structs/Tip.html">Tip</a></span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:17Small_Biz_Advisor20EditorViewControllerC12previousVoteAA0H0VSgv"></a>
+                    <a name="//apple_ref/swift/Property/previousVote" class="dashAnchor"></a>
+                    <a class="token" href="#/s:17Small_Biz_Advisor20EditorViewControllerC12previousVoteAA0H0VSgv">previousVote</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This optional property stores the last vote cast for currentTip. If no vote has been cast, is nil.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">previousVote</span><span class="p">:</span> <span class="kt"><a href="../Structs/Vote.html">Vote</a></span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Properties:%20IBOutlets"></a>
+                <a name="//apple_ref/swift/Section/Properties: IBOutlets" class="dashAnchor"></a>
+                <a href="#/Properties:%20IBOutlets">
+                  <h3 class="section-name">Properties: IBOutlets</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@Small_Biz_Advisor@objc(cs)EditorViewController(py)upVoteButton"></a>
+                    <a name="//apple_ref/swift/Property/upVoteButton" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@Small_Biz_Advisor@objc(cs)EditorViewController(py)upVoteButton">upVoteButton</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This IBOutlet property stores a button that can be used to vote for currentTip, or undo.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@IBOutlet</span> <span class="k">weak</span> <span class="k">var</span> <span class="nv">upVoteButton</span><span class="p">:</span> <span class="kt">UIButton</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@Small_Biz_Advisor@objc(cs)EditorViewController(py)downVoteButton"></a>
+                    <a name="//apple_ref/swift/Property/downVoteButton" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@Small_Biz_Advisor@objc(cs)EditorViewController(py)downVoteButton">downVoteButton</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This IBOutlet property stores a button that can be used to vote against currentTip, or undo.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@IBOutlet</span> <span class="k">weak</span> <span class="k">var</span> <span class="nv">downVoteButton</span><span class="p">:</span> <span class="kt">UIButton</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@Small_Biz_Advisor@objc(cs)EditorViewController(py)addTipButton"></a>
+                    <a name="//apple_ref/swift/Property/addTipButton" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@Small_Biz_Advisor@objc(cs)EditorViewController(py)addTipButton">addTipButton</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This IBOutlet property stores a button that can be used to present FieldsEditorVC to create a new tip.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@IBOutlet</span> <span class="k">weak</span> <span class="k">var</span> <span class="nv">addTipButton</span><span class="p">:</span> <span class="kt">UIButton</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@Small_Biz_Advisor@objc(cs)EditorViewController(py)editTipButton"></a>
+                    <a name="//apple_ref/swift/Property/editTipButton" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@Small_Biz_Advisor@objc(cs)EditorViewController(py)editTipButton">editTipButton</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This IBOutlet property stores a button that can be used to present FieldsEditorVC to edit currentTip.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@IBOutlet</span> <span class="k">weak</span> <span class="k">var</span> <span class="nv">editTipButton</span><span class="p">:</span> <span class="kt">UIButton</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@Small_Biz_Advisor@objc(cs)EditorViewController(py)flagTipButton"></a>
+                    <a name="//apple_ref/swift/Property/flagTipButton" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@Small_Biz_Advisor@objc(cs)EditorViewController(py)flagTipButton">flagTipButton</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This IBOutlet property stores a button that can be used to present FlaggerVC to flag currentTip.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@IBOutlet</span> <span class="k">weak</span> <span class="k">var</span> <span class="nv">flagTipButton</span><span class="p">:</span> <span class="kt">UIButton</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Properties:%20UIPickerView"></a>
+                <a name="//apple_ref/swift/Section/Properties: UIPickerView" class="dashAnchor"></a>
+                <a href="#/Properties:%20UIPickerView">
+                  <h3 class="section-name">Properties: UIPickerView</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:17Small_Biz_Advisor20EditorViewControllerC5votesSayAA4VoteVGv"></a>
+                    <a name="//apple_ref/swift/Property/votes" class="dashAnchor"></a>
+                    <a class="token" href="#/s:17Small_Biz_Advisor20EditorViewControllerC5votesSayAA4VoteVGv">votes</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This property stores an MCReceiver associated w/Vote recordable.
+To access an array of all existing types in .cloudRecordables</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">votes</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Structs/Vote.html">Vote</a></span><span class="p">]</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Functions"></a>
+                <a name="//apple_ref/swift/Section/Functions" class="dashAnchor"></a>
+                <a href="#/Functions">
+                  <h3 class="section-name">Functions</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:17Small_Biz_Advisor20EditorViewControllerC5segueySS4from_tF"></a>
+                    <a name="//apple_ref/swift/Method/segue(from:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:17Small_Biz_Advisor20EditorViewControllerC5segueySS4from_tF">segue(from:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This method will trigger segue from the parent view controller.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">segue</span><span class="p">(</span><span class="n">from</span> <span class="nv">id</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>id</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The identifier of the segue that should be triggered.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Functions:%20IBActions"></a>
+                <a name="//apple_ref/swift/Section/Functions: IBActions" class="dashAnchor"></a>
+                <a href="#/Functions:%20IBActions">
+                  <h3 class="section-name">Functions: IBActions</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@Small_Biz_Advisor@objc(cs)EditorViewController(im)upVoteTapped:"></a>
+                    <a name="//apple_ref/swift/Method/upVoteTapped(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@Small_Biz_Advisor@objc(cs)EditorViewController(im)upVoteTapped:">upVoteTapped(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This IBAction method triggers an up vote situation in vote:up: method.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@IBAction</span> <span class="kd">func</span> <span class="nf">upVoteTapped</span><span class="p">(</span><span class="n">_</span> <span class="nv">sender</span><span class="p">:</span> <span class="kt">UIButton</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@Small_Biz_Advisor@objc(cs)EditorViewController(im)downVoteTapped:"></a>
+                    <a name="//apple_ref/swift/Method/downVoteTapped(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@Small_Biz_Advisor@objc(cs)EditorViewController(im)downVoteTapped:">downVoteTapped(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This IBAction method triggers a down vote situation in vote:up: method.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@IBAction</span> <span class="kd">func</span> <span class="nf">downVoteTapped</span><span class="p">(</span><span class="n">_</span> <span class="nv">sender</span><span class="p">:</span> <span class="kt">UIButton</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@Small_Biz_Advisor@objc(cs)EditorViewController(im)editTapped:"></a>
+                    <a name="//apple_ref/swift/Method/editTapped(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@Small_Biz_Advisor@objc(cs)EditorViewController(im)editTapped:">editTapped(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This method checks that AdvisorVC has a page value and that there&rsquo;s no network error (defaultText).</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@IBAction</span> <span class="kd">func</span> <span class="nf">editTapped</span><span class="p">(</span><span class="n">_</span> <span class="nv">sender</span><span class="p">:</span> <span class="kt">UIButton</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@Small_Biz_Advisor@objc(cs)EditorViewController(im)addTapped:"></a>
+                    <a name="//apple_ref/swift/Method/addTapped(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@Small_Biz_Advisor@objc(cs)EditorViewController(im)addTapped:">addTapped(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This method checks that there&rsquo;s no network error (defaultText).</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@IBAction</span> <span class="kd">func</span> <span class="nf">addTapped</span><span class="p">(</span><span class="n">_</span> <span class="nv">sender</span><span class="p">:</span> <span class="kt">UIButton</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@Small_Biz_Advisor@objc(cs)EditorViewController(im)flagTapped:"></a>
+                    <a name="//apple_ref/swift/Method/flagTapped(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@Small_Biz_Advisor@objc(cs)EditorViewController(im)flagTapped:">flagTapped(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This method checks that AdvisorVC has a page value and that there&rsquo;s no network error (defaultText).</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@IBAction</span> <span class="kd">func</span> <span class="nf">flagTapped</span><span class="p">(</span><span class="n">_</span> <span class="nv">sender</span><span class="p">:</span> <span class="kt">UIButton</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Functions:%20UIViewController"></a>
+                <a name="//apple_ref/swift/Section/Functions: UIViewController" class="dashAnchor"></a>
+                <a href="#/Functions:%20UIViewController">
+                  <h3 class="section-name">Functions: UIViewController</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@Small_Biz_Advisor@objc(cs)EditorViewController(im)viewDidLoad"></a>
+                    <a name="//apple_ref/swift/Method/viewDidLoad()" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@Small_Biz_Advisor@objc(cs)EditorViewController(im)viewDidLoad">viewDidLoad()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">override</span> <span class="kd">func</span> <span class="nf">viewDidLoad</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:17Small_Biz_Advisor20EditorViewControllerC3tipAA3TipVSgv"></a>
+                    <a name="//apple_ref/swift/Property/tip" class="dashAnchor"></a>
+                    <a class="token" href="#/s:17Small_Biz_Advisor20EditorViewControllerC3tipAA3TipVSgv">tip</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This optional property will be set when local view controller is destination for AdvisorViewController.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">tip</span><span class="p">:</span> <span class="kt"><a href="../Structs/Tip.html">Tip</a></span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2018 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2018-03-05)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.1</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

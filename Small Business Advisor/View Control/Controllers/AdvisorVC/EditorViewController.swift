@@ -129,7 +129,6 @@ class EditorViewController: UIViewController {
     
     /// This method checks database for any existing vote that matches this USER and currentTip.
     fileprivate func checkAvailability() {
-print("checking available \(MCUserRecord().singleton != nil)")
         if let user = MCUserRecord().singleton?.recordName {
             switchButtons(visible: true)
 
