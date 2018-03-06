@@ -29,6 +29,9 @@ class EditorViewController: UIViewController {
     
     /// This optional property stores the last vote cast for currentTip. If no vote has been cast, is nil.
     var previousVote: Vote?
+ 
+    /// This boolean property is changed to false after the first time `viewDidLoad` is called.
+    var isInitialLoad = true
     
     // MARK: - Properties: IBOutlets
     
@@ -126,6 +129,7 @@ class EditorViewController: UIViewController {
     
     /// This method checks database for any existing vote that matches this USER and currentTip.
     fileprivate func checkAvailability() {
+print("checking available \(MCUserRecord().singleton != nil)")
         if let user = MCUserRecord().singleton?.recordName {
             switchButtons(visible: true)
 
@@ -247,8 +251,9 @@ class EditorViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        if currentTip?.index == -1 {
+        if isInitialLoad {
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) { self.adjustVoteButtonStatesForReset(enabled: false) }
+            isInitialLoad = false
         } else {
             self.checkAvailability()
         }
