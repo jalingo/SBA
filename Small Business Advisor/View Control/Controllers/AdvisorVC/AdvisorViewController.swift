@@ -16,12 +16,9 @@ import MagicCloud
  
     It contains `EditorViewController` as a child view controller and can segue to `FlaggerVC` and `FieldsEditorVC` for list moderation suggestions.
  */
-class AdvisorViewController: UIViewController, PickerDecorator, HelpOverlayer {
+class AdvisorViewController: UIViewController, PickerDecorator, HelpOverlayer, FirstTryDetector {
     
     // MARK: - Properties
-    
-    /// This boolean property is changed to false after the first time `viewDidLoad` is called.
-    var isInitialLoad = true
     
     /// This receiver is the primary connection to the data model. Handles vote counting locally.
     /// Access an array of all existing types in .recordables
@@ -179,7 +176,7 @@ class AdvisorViewController: UIViewController, PickerDecorator, HelpOverlayer {
     // MARK: - - Functions: IBActions
     
     /// This IBAction method is used by other view controllers to unwind back to AdvisorViewController.
-    @IBAction func unwindToHome(segue: UIStoryboardSegue) { /* May need to reload view here... */ }
+    @IBAction func unwindToHome(segue: UIStoryboardSegue) { }
     
     /// This IBAction method exits the app and opens browser (w/specified site) when user taps logo.
     @IBAction func logoTapped(_ sender: UIButton) {
@@ -191,15 +188,9 @@ class AdvisorViewController: UIViewController, PickerDecorator, HelpOverlayer {
     @IBAction func rankedPressed(_ sender: UIButton) { isRandom = false }
     
     /**
-        When `helpPressed` this method populates screen with help message and support links.
-     
-        - Warning: Links are left out of formatting, because `textView` is set to recognize links in text.
+        When `helpPressed` this method populates screen with help message overlay.
      */
-    @IBAction func helpPressed(_ sender: UIButton) {
-        presentHelpOverlay()
-//        textView.attributedText = NSAttributedString(string: UserFacingText.helpInstructions,
-//                                                     attributes: Format.categoryTitle)
-    }
+    @IBAction func helpPressed(_ sender: UIButton) { presentHelpOverlay() }
     
     /// Recognizes the USER performing swipe gesture on `textView` and takes action based on direction.
     @IBAction func swipeLeft(_ sender: UISwipeGestureRecognizer) { increasePage() }
@@ -236,28 +227,16 @@ class AdvisorViewController: UIViewController, PickerDecorator, HelpOverlayer {
         listenForModerationUpdate()
         self.becomeFirstResponder()
         
-        if isInitialLoad {
-            presentHelpOverlay()
-            isInitialLoad = false
-        }
+        if isFirsRunEver { presentHelpOverlay() }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)        
         decorateView()
     }
-   
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-print(" touches began")
-    }
-    
-    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-print(" touches ended \(event.debugDescription)")
-    }
     
     // This method triggers `shakeRoutine` after USER performs shake gesture.
     override func motionEnded(_ motion: UIEventSubtype, with event: UIEvent?) {
-print(" motionEnded \(motion.rawValue) \n*******\n \(event.debugDescription)")
         if event?.subtype == .motionShake { increasePage() }
     }
     

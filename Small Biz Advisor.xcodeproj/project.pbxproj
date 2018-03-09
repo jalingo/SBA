@@ -29,6 +29,8 @@
 		A12904C2201050720086C0E7 /* FlagReason.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12904C0201050720086C0E7 /* FlagReason.swift */; };
 		A136A0B820195EFA00F53594 /* String Manipulation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A136A0B720195EFA00F53594 /* String Manipulation.swift */; };
 		A136A0B920195EFA00F53594 /* String Manipulation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A136A0B720195EFA00F53594 /* String Manipulation.swift */; };
+		A13B2AA820532F020033DD7E /* FirstTryDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13B2AA720532F020033DD7E /* FirstTryDetector.swift */; };
+		A13B2AA920532F020033DD7E /* FirstTryDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13B2AA720532F020033DD7E /* FirstTryDetector.swift */; };
 		A15043F51FA2B7AA0018B909 /* TipCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15043F41FA2B7AA0018B909 /* TipCategory.swift */; };
 		A15043F61FA2B7AA0018B909 /* TipCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15043F41FA2B7AA0018B909 /* TipCategory.swift */; };
 		A15043FF1FA33C210018B909 /* Tip.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15043FE1FA33C210018B909 /* Tip.swift */; };
@@ -150,6 +152,7 @@
 		A12656551FDF36EE00F37215 /* NewTip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTip.swift; sourceTree = "<group>"; };
 		A12904C0201050720086C0E7 /* FlagReason.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlagReason.swift; sourceTree = "<group>"; };
 		A136A0B720195EFA00F53594 /* String Manipulation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String Manipulation.swift"; sourceTree = "<group>"; };
+		A13B2AA720532F020033DD7E /* FirstTryDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstTryDetector.swift; sourceTree = "<group>"; };
 		A15043F41FA2B7AA0018B909 /* TipCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipCategory.swift; sourceTree = "<group>"; };
 		A15043FE1FA33C210018B909 /* Tip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tip.swift; sourceTree = "<group>"; };
 		A15044091FA503920018B909 /* Entry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entry.swift; sourceTree = "<group>"; };
@@ -423,6 +426,7 @@
 		A1AC8F2F201C04F9000B02E8 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
+				A13B2AA720532F020033DD7E /* FirstTryDetector.swift */,
 				A1F7E3D62051D6010096B4CB /* HelpOverlay.swift */,
 				A197E656201817EF00B62ED2 /* PickerDecorator.swift */,
 				A197E64C2017BE5800B62ED2 /* ButtonEnabler.swift */,
@@ -804,6 +808,7 @@
 				A1AC8F35201C0F65000B02E8 /* AdvisorPickerDelegation.swift in Sources */,
 				A136A0B820195EFA00F53594 /* String Manipulation.swift in Sources */,
 				A1A0FCEB1FE34C6200E3D679 /* Graphic Themes.swift in Sources */,
+				A13B2AA820532F020033DD7E /* FirstTryDetector.swift in Sources */,
 				A1FBF181204A4B1C00AEE363 /* Colors.swift in Sources */,
 				A1B6943C20169ACD0052DF8C /* FlaggerPickerDelegation.swift in Sources */,
 				A1FBF17B2049261200AEE363 /* CentralNC.swift in Sources */,
@@ -886,6 +891,7 @@
 				A10935841FBF8B4100C21C6E /* VoteTests.swift in Sources */,
 				A12656571FDF36EE00F37215 /* NewTip.swift in Sources */,
 				A12904C2201050720086C0E7 /* FlagReason.swift in Sources */,
+				A13B2AA920532F020033DD7E /* FirstTryDetector.swift in Sources */,
 				A15043F61FA2B7AA0018B909 /* TipCategory.swift in Sources */,
 				A119F8BC201AC3DF00AE983A /* Pickable.swift in Sources */,
 			);
