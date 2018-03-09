@@ -16,9 +16,12 @@ import MagicCloud
  
     It contains `EditorViewController` as a child view controller and can segue to `FlaggerVC` and `FieldsEditorVC` for list moderation suggestions.
  */
-class AdvisorViewController: UIViewController, PickerDecorator {
+class AdvisorViewController: UIViewController, PickerDecorator, HelpOverlayer {
     
     // MARK: - Properties
+    
+    /// This boolean property is changed to false after the first time `viewDidLoad` is called.
+    var isInitialLoad = true
     
     /// This receiver is the primary connection to the data model. Handles vote counting locally.
     /// Access an array of all existing types in .recordables
@@ -193,8 +196,9 @@ class AdvisorViewController: UIViewController, PickerDecorator {
         - Warning: Links are left out of formatting, because `textView` is set to recognize links in text.
      */
     @IBAction func helpPressed(_ sender: UIButton) {
-        textView.attributedText = NSAttributedString(string: UserFacingText.helpInstructions,
-                                                     attributes: Format.categoryTitle)
+        presentHelpOverlay()
+//        textView.attributedText = NSAttributedString(string: UserFacingText.helpInstructions,
+//                                                     attributes: Format.categoryTitle)
     }
     
     /// Recognizes the USER performing swipe gesture on `textView` and takes action based on direction.
@@ -231,15 +235,29 @@ class AdvisorViewController: UIViewController, PickerDecorator {
 
         listenForModerationUpdate()
         self.becomeFirstResponder()
+        
+        if isInitialLoad {
+            presentHelpOverlay()
+            isInitialLoad = false
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)        
         decorateView()
     }
+   
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+print(" touches began")
+    }
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+print(" touches ended \(event.debugDescription)")
+    }
     
     // This method triggers `shakeRoutine` after USER performs shake gesture.
     override func motionEnded(_ motion: UIEventSubtype, with event: UIEvent?) {
+print(" motionEnded \(motion.rawValue) \n*******\n \(event.debugDescription)")
         if event?.subtype == .motionShake { increasePage() }
     }
     

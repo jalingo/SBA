@@ -20,14 +20,14 @@ class FieldsEditorViewController: UIViewController, PickerDecorator {
     fileprivate var suggestedEdits: MCMirror<TipEdit>? {
         guard let nav = self.navigationController as? CentralNC else { return nil }
         return nav.edits
-    } // = MCMirror<TipEdit>(db: .publicDB)
+    }
     
     /// This property stores an MCReceiver associated w/NewTip recordable.
     /// To access an array of all existing types in .cloudRecordables
     fileprivate var suggestedTips: MCMirror<NewTip>? {
         guard let nav = self.navigationController as? CentralNC else { return nil }
         return nav.newTips
-    } //= MCMirror<NewTip>(db: .publicDB)
+    }
     
     /// This computed property returns the category of the tipBeingEdited, or if nil then ".outOfRange".
     fileprivate var category: TipCategory { return tipBeingEdited?.category ?? .outOfRange }

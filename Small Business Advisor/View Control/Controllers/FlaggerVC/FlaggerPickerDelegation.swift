@@ -54,6 +54,7 @@ extension FlaggerViewController: UIPickerViewDelegate {
             self.flaggerLabel.text = "Which Category should this tip be..."
             self.sampleModel = TipCategory.hr   // <-- Any category should trigger the correct delegate responses
             self.updateViews()
+            self.categorySelected(for: self.flaggerPicker.selectedRow(inComponent: 0))
         }
     }
     
@@ -63,6 +64,7 @@ extension FlaggerViewController: UIPickerViewDelegate {
             self.flaggerLabel.text = "Which Tip is this a duplicate of..."
             self.sampleModel = self.tip         // <-- Any tip should trigger the correct delegate responses
             self.updateViews()
+            self.tipSelected(for: self.flaggerPicker.selectedRow(inComponent: 0))
         }
     }
     
