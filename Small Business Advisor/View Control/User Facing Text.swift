@@ -25,8 +25,6 @@ struct UserFacingText {
     static let helpInstructions = """
         To contact the app's creators with any questions or comments: dev@escapechaos.com
 """
-//        Or, check out our site escapechaos.com/advisor
-//        """
     
     /// This static constant stores instructions for the resolving network issues.
     static let networkIssueInstructions = """
