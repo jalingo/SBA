@@ -16,7 +16,7 @@ protocol HelpOverlayer { }
 
 extension HelpOverlayer where Self: UIViewController {
     func presentHelpOverlay() {
-        guard let vc = storyboard?.instantiateViewController(withIdentifier: helpOverlayId) as? HelpOverlayViewController else { return }
+        guard let vc = storyboard?.instantiateViewController(withIdentifier: helpOverlayId) else { return }
         UIApplication.shared.keyWindow?.addSubview(vc.view)
     }
 }
