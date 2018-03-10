@@ -64,6 +64,10 @@
 		A1AB0E411FA0185100F1D3FF /* Small_Business_AdvisorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AB0E401FA0185100F1D3FF /* Small_Business_AdvisorUITests.swift */; };
 		A1AB0E501FA01A1D00F1D3FF /* AdvisorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AB0E4F1FA01A1D00F1D3FF /* AdvisorViewController.swift */; };
 		A1AB0E511FA01A1D00F1D3FF /* AdvisorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AB0E4F1FA01A1D00F1D3FF /* AdvisorViewController.swift */; };
+		A1AC4D472053F9BF001EA7F0 /* NextTipIndex.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AC4D462053F9BF001EA7F0 /* NextTipIndex.swift */; };
+		A1AC4D482053F9BF001EA7F0 /* NextTipIndex.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AC4D462053F9BF001EA7F0 /* NextTipIndex.swift */; };
+		A1AC4D4A2053F9DA001EA7F0 /* TipCategoryConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AC4D492053F9DA001EA7F0 /* TipCategoryConverter.swift */; };
+		A1AC4D4B2053F9DA001EA7F0 /* TipCategoryConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AC4D492053F9DA001EA7F0 /* TipCategoryConverter.swift */; };
 		A1AC8F29201C011B000B02E8 /* User Facing Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AC8F28201C011B000B02E8 /* User Facing Text.swift */; };
 		A1AC8F2A201C011B000B02E8 /* User Facing Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AC8F28201C011B000B02E8 /* User Facing Text.swift */; };
 		A1AC8F31201C0BE6000B02E8 /* TipEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AC8F30201C0BE6000B02E8 /* TipEditor.swift */; };
@@ -182,6 +186,8 @@
 		A1AB0E401FA0185100F1D3FF /* Small_Business_AdvisorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Small_Business_AdvisorUITests.swift; sourceTree = "<group>"; };
 		A1AB0E421FA0185100F1D3FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A1AB0E4F1FA01A1D00F1D3FF /* AdvisorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvisorViewController.swift; sourceTree = "<group>"; };
+		A1AC4D462053F9BF001EA7F0 /* NextTipIndex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextTipIndex.swift; sourceTree = "<group>"; };
+		A1AC4D492053F9DA001EA7F0 /* TipCategoryConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipCategoryConverter.swift; sourceTree = "<group>"; };
 		A1AC8F28201C011B000B02E8 /* User Facing Text.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User Facing Text.swift"; sourceTree = "<group>"; };
 		A1AC8F30201C0BE6000B02E8 /* TipEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipEditor.swift; sourceTree = "<group>"; };
 		A1AC8F34201C0F65000B02E8 /* AdvisorPickerDelegation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvisorPickerDelegation.swift; sourceTree = "<group>"; };
@@ -432,6 +438,8 @@
 				A197E64C2017BE5800B62ED2 /* ButtonEnabler.swift */,
 				A119F8BA201AC3DF00AE983A /* Pickable.swift */,
 				A1AC8F30201C0BE6000B02E8 /* TipEditor.swift */,
+				A1AC4D492053F9DA001EA7F0 /* TipCategoryConverter.swift */,
+				A1AC4D462053F9BF001EA7F0 /* NextTipIndex.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -805,6 +813,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1AC4D4A2053F9DA001EA7F0 /* TipCategoryConverter.swift in Sources */,
 				A1AC8F35201C0F65000B02E8 /* AdvisorPickerDelegation.swift in Sources */,
 				A136A0B820195EFA00F53594 /* String Manipulation.swift in Sources */,
 				A1A0FCEB1FE34C6200E3D679 /* Graphic Themes.swift in Sources */,
@@ -836,6 +845,7 @@
 				A12656561FDF36EE00F37215 /* NewTip.swift in Sources */,
 				A126564F1FDF2F1D00F37215 /* Edit.swift in Sources */,
 				A1B6943F2016B4D20052DF8C /* Suggestion.swift in Sources */,
+				A1AC4D472053F9BF001EA7F0 /* NextTipIndex.swift in Sources */,
 				A15043FF1FA33C210018B909 /* Tip.swift in Sources */,
 				A1F7E3D72051D6010096B4CB /* HelpOverlay.swift in Sources */,
 				A1AB0E501FA01A1D00F1D3FF /* AdvisorViewController.swift in Sources */,
@@ -854,6 +864,7 @@
 				A1AC8F2A201C011B000B02E8 /* User Facing Text.swift in Sources */,
 				A126564D1FDF27E700F37215 /* EditTests.swift in Sources */,
 				A1FBF17C2049261200AEE363 /* CentralNC.swift in Sources */,
+				A1AC4D4B2053F9DA001EA7F0 /* TipCategoryConverter.swift in Sources */,
 				A150440B1FA503920018B909 /* Entry.swift in Sources */,
 				A1FBF17F204A0FF300AEE363 /* SuggestionCell.swift in Sources */,
 				A1B694402016B4D20052DF8C /* Suggestion.swift in Sources */,
@@ -878,6 +889,7 @@
 				90C4E8781FC14D5600A8D329 /* Vote.swift in Sources */,
 				A197E658201817EF00B62ED2 /* PickerDecorator.swift in Sources */,
 				A1AC8F3A201C467A000B02E8 /* FieldsEditorPickerDelegation.swift in Sources */,
+				A1AC4D482053F9BF001EA7F0 /* NextTipIndex.swift in Sources */,
 				A1D545D3200EBEC4004C1DC8 /* FlaggerViewController.swift in Sources */,
 				A1FBF17320490F8000AEE363 /* FlagTableViewCell.swift in Sources */,
 				A12656511FDF2F8800F37215 /* Edit.swift in Sources */,

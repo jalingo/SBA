@@ -70,7 +70,7 @@ class ModerationTableViewController: UITableViewController {
 
 // MARK: - Extensions: UITableViewDataSource
 
-extension ModerationTableViewController {
+extension ModerationTableViewController: TipCategoryConverter {
     
     // MARK: - Functions
     
@@ -86,7 +86,7 @@ extension ModerationTableViewController {
             NotificationCenter.default.post(name: name, object: nil)
         }
         
-        let edit = UITableViewRowAction(style: .normal, title: "Contact") { _,_ in
+        let contact = UITableViewRowAction(style: .normal, title: "Contact") { _,_ in
             var str: String?
             
             switch mod {
@@ -98,7 +98,7 @@ extension ModerationTableViewController {
             if let str = str { self.writeEmail(subject: str) }
         }
         
-        return [cancel, edit]
+        return [cancel, contact]
     }
     
     /// This fileprivate, void method destroys both local (and eventually cloud) records of passed `MCRecordable`.
@@ -138,10 +138,18 @@ extension ModerationTableViewController {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath)
         
-        if let cell = cell as? SuggestionCell,
-            let index = tips.index(where: { $0.recordID.recordName == suggestion.tip.recordID.recordName }) {
-            cell.associatedTip = tips[index]    // <-- must be done before suggestion. Create a multi dependency namespace
-            cell.suggestion = suggestion
+        if let cell = cell as? SuggestionCell {
+            if let index = tips.index(where: { $0.recordID.recordName == suggestion.tip.recordID.recordName }) {
+                cell.associatedTip = tips[index]    // <-- must be done before suggestion. Create a multi dependency namespace
+                cell.suggestion = suggestion
+            } else {
+                cell.suggestion = suggestion
+                if let new = suggestion as? NewTip {
+                    let cat = convert(from: new.category)
+                    let txt = NSAttributedString(string: new.text, attributes: Format.bodyText)
+                    cell.associatedTip = Tip(index: -1, category: cat, text: txt)
+                }
+            }
         }
     
         return cell

@@ -32,13 +32,4 @@ class NewTableViewCell: UITableViewCell, SuggestionCell {
     var suggestion: SuggestedModeration = NewTip() {
         didSet { change(state: suggestion.state) }
     }
-    
-    // MARK: - Functions
-    
-    // MARK: - Functions: UITableViewCell
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-        // Configure the view for the selected state
-    }
 }
