@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import MagicCloud
+import CloudKit
 
 class HelpOverlayViewController: UIViewController, UITextViewDelegate {
 
@@ -30,15 +32,29 @@ class HelpOverlayViewController: UIViewController, UITextViewDelegate {
     func setupGestureDismissal() {
         textArea.delegate = self
         textArea.keyboardDismissMode = .onDrag
-        
+
+        // This notification is triggered when the USER taps the help view, causing it to dismiss.
         NotificationCenter.default.addObserver(forName: HelperViewTapped, object: nil, queue: nil) { _ in
-            self.view.removeFromSuperview()
+            self.removeSelfFromView()
+        }
+        
+        // !!!!
+        
+        // This notification observer removes help display on first launch when no icloud account is authenticated.
+        let name = Notification.Name(MCErrorNotification)
+        NotificationCenter.default.addObserver(forName: name, object: nil, queue: nil) { notification in
+            if let error = notification.object as? CKError, error.code == CKError.notAuthenticated { self.removeSelfFromView() }
         }
         
         if let v = self.view as? HelperView {
             let recognizer = UITapGestureRecognizer(target: self.view, action: #selector(v.exit))
             self.view.addGestureRecognizer(recognizer)
         }
+    }
+    
+    // This fileprivate, void method dismisses the help view on the main thread.
+    fileprivate func removeSelfFromView() {
+        DispatchQueue.main.async { self.view.removeFromSuperview() }
     }
 }
 

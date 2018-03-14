@@ -302,7 +302,6 @@
 		A12904BF200FED360086C0E7 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				A1F7E3D92051E2520096B4CB /* HelpOverlayViewController.swift */,
 				A1FBF17A2049261200AEE363 /* CentralNC.swift */,
 				A1FBF16D2048C28A00AEE363 /* ModerationTVC */,
 				A1AC8F33201C0F46000B02E8 /* AdvisorVC */,
@@ -447,6 +446,7 @@
 		A1AC8F33201C0F46000B02E8 /* AdvisorVC */ = {
 			isa = PBXGroup;
 			children = (
+				A1F7E3D92051E2520096B4CB /* HelpOverlayViewController.swift */,
 				A1AB0E4F1FA01A1D00F1D3FF /* AdvisorViewController.swift */,
 				A19AD9061FDA94D3001C5846 /* EditorViewController.swift */,
 				A1AC8F34201C0F65000B02E8 /* AdvisorPickerDelegation.swift */,
