@@ -36,7 +36,9 @@ class AdvisorViewController: UIViewController, PickerDecorator, HelpOverlayer, F
             categoryLock.isEnabled = true
             pageLabel.text = String(page)
 
-            if tips?.cloudRecordables.count != 0 { passTipToChildren() }
+            guard tips?.cloudRecordables.count != 0 else { return }
+            passTipToChildren()
+            
             
             if let txt = tips?.rank(of: page).category.formatted { selectCategoryButton.setAttributedTitle(txt, for: .normal) }
         }
@@ -85,6 +87,12 @@ class AdvisorViewController: UIViewController, PickerDecorator, HelpOverlayer, F
     @objc override var canBecomeFirstResponder: Bool { return true }
     
     // MARK: - Functions
+    
+    /// This fileprivate, void method decorates view for network error situation.
+    fileprivate func noNetworkFound() {
+        let txt = NSAttributedString(string: UserFacingText.networkIssueInstructions, attributes: Format.bodyText)
+        textView.attributedText = txt
+    }
     
     /// When `randomSwitch` tapped, this populates screen with instructions, based on switch outcome.
     fileprivate func randomSwitched() {
@@ -145,7 +153,7 @@ class AdvisorViewController: UIViewController, PickerDecorator, HelpOverlayer, F
         Recognizes `increasePage` position, and ensures that page number doesn't exceed count (starting over again at page '1').
      */
     func increasePage() {
-        guard let tips = tips else { return }
+        guard let tips = tips else { noNetworkFound(); return }
 
         if isRandom {
             let random = tips.random()
@@ -163,7 +171,7 @@ class AdvisorViewController: UIViewController, PickerDecorator, HelpOverlayer, F
         Ensures page doesn't go below '1' (starting over at `TipFactory.max`).
      */
     func decreasePage() {
-        guard let tips = tips else { return }
+        guard let tips = tips else { noNetworkFound(); return }
 
         // If in "Random Mode", a swipe is treated as a shake.
         guard !isRandom else { increasePage(); return }
