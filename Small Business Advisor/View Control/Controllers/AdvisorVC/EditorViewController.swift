@@ -56,12 +56,12 @@ class EditorViewController: UIViewController {
     /// To access an array of all existing types in .cloudRecordables
     var votes: [Vote] {
         get {
-            if let nav = self.navigationController as? CentralNC { return nav.votes.cloudRecordables }
+            if let nav = self.navigationController as? CentralNC { return nav.votes }
             return []
         }
         
         set {
-            if let nav = self.navigationController as? CentralNC { nav.votes.cloudRecordables = newValue }
+            if let nav = self.navigationController as? CentralNC { nav.votes = newValue }
         }
     }
 
@@ -119,7 +119,7 @@ class EditorViewController: UIViewController {
             // !!!!
 //            votes.cloudRecordables.append(vote)
             
-            guard let voteMirror = (self.navigationController as? CentralNC)?.votes else { return }
+            guard let voteMirror = (self.navigationController as? CentralNC)?._tips?.votes else { return }
             
             let op = MCUpload([vote], from: voteMirror, to: .publicDB)
             op.completionBlock = { self.checkAvailability() }    // <-- This should reset vote buttons after

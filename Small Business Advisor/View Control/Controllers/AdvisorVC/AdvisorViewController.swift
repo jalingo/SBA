@@ -24,7 +24,7 @@ class AdvisorViewController: UIViewController, PickerDecorator, HelpOverlayer, F
     /// Access an array of all existing types in .recordables
     var tips: TipFactory? {
         guard let nav = self.navigationController as? CentralNC else { return nil }
-        return nav.tips
+        return nav._tips
     }
     
     /// This boolean can be used to prevent AdvisorVC from passing tip to TipEditor in AdvisorVC.prepare:forSegue:

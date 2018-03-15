@@ -19,20 +19,20 @@ class FlaggerViewController: UIViewController, TipEditor {
     /// This property stores an MCReceiver associated w/Tip recordable.
     /// Access an array of all existing types in .recordables
     var tips: TipFactory {
-        if let nav = self.navigationController as? CentralNC { return nav.tips }
-        return TipFactory()
+        guard let nav = self.navigationController as? CentralNC, let tips = nav._tips else { return TipFactory() }
+        return tips
     }
     
     /// This property stores an MCReceiver associated w/Flag recordable.
     /// Access an array of all existing types in .recordables
     var flags: [Flag] {
         get {
-            if let nav = self.navigationController as? CentralNC { return nav.flags.cloudRecordables }
-            return []
+            guard let nav = self.navigationController as? CentralNC else { return [] }
+            return nav.flags
         }
         
         set {
-            if let nav = self.navigationController as? CentralNC { nav.flags.cloudRecordables = newValue }
+            if let nav = self.navigationController as? CentralNC { nav.flags = newValue }
         }
     }
     

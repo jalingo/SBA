@@ -28,8 +28,8 @@ class ModerationTableViewController: UITableViewController {
     
     /// This read-only, computed property returns an array of `Tip`s stored in database.
     fileprivate var tips: [Tip] {
-        if let nav = self.navigationController as? CentralNC { return nav.tips.cloudRecordables }
-        return []
+        guard let nav = self.navigationController as? CentralNC else { return [] }
+        return nav.tips
     }
     
     // MARK: - Functions
@@ -108,9 +108,9 @@ extension ModerationTableViewController: TipCategoryConverter {
         
         var mirror: MCMirror<T>?
         switch mod {
-        case is Flag:   if let m = nav.flags as? MCMirror<T> { mirror = m }
-        case is NewTip: if let m = nav.newTips as? MCMirror<T> { mirror = m }
-        default:        if let m = nav.edits as? MCMirror<T> { mirror = m }
+        case is Flag:   if let m = nav._flags as? MCMirror<T> { mirror = m }
+        case is NewTip: if let m = nav._newTips as? MCMirror<T> { mirror = m }
+        default:        if let m = nav._edits as? MCMirror<T> { mirror = m }
         }
         
         let name = mod.recordID.recordName
